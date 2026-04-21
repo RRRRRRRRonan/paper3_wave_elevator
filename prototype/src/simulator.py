@@ -1,9 +1,15 @@
 """
-MVS v0.1 simulator.
+MVS v0.1/v0.2 simulator.
 
-Implements the deterministic elevator semantics defined in
-F:/paper3_wave_elevator/prototype/simulator.md — one single-capacity elevator,
-FCFS, 5-phase per-request timing: wait -> reposition -> load(2s) -> travel -> unload(2s).
+v0.1: 1 elevator, capacity=1, F=3, FCFS, 5-phase per-request timing
+      (wait -> reposition -> load(2s) -> travel -> unload(2s)).
+
+v0.2: Generalised to `ElevatorPool(n_elevators, capacity)` with the same
+5-phase semantics per trip. Capacity is modelled as a throughput
+abstraction: an elevator of capacity c behaves as c parallel independent
+serving-slots sharing the same physical unit. This captures the
+bottleneck-relief effect without requiring event-driven batch scheduling.
+See v0_2_phase1_regime_sweep.md for discussion of this simplification.
 """
 from __future__ import annotations
 
@@ -32,8 +38,8 @@ class AMR:
     current_time: float
 
 
-class ElevatorResource:
-    """Single elevator, capacity=1, FCFS."""
+class Elevator:
+    """Single elevator serving-slot: 5-phase FCFS, capacity=1."""
 
     def __init__(
         self,
@@ -66,14 +72,64 @@ class ElevatorResource:
         return unloading_end
 
 
+# Backward compatibility alias
+ElevatorResource = Elevator
+
+
+class ElevatorPool:
+    """Pool of E elevators, each with `capacity` parallel serving slots.
+
+    capacity > 1 is modelled as parallel slots within a single elevator —
+    an aggregate-throughput abstraction (see module docstring).
+    """
+
+    def __init__(
+        self,
+        n_elevators: int = 1,
+        capacity: int = 1,
+        speed_per_floor: float = 5.0,
+        load_time: float = 2.0,
+        unload_time: float = 2.0,
+        initial_floor: int = 1,
+    ):
+        total_slots = n_elevators * capacity
+        self.slots: List[Elevator] = [
+            Elevator(
+                speed_per_floor=speed_per_floor,
+                load_time=load_time,
+                unload_time=unload_time,
+                initial_floor=initial_floor,
+            )
+            for _ in range(total_slots)
+        ]
+        self.n_elevators = n_elevators
+        self.capacity = capacity
+
+    def request(
+        self,
+        amr_current_floor: int,
+        target_floor: int,
+        request_time: float,
+    ) -> float:
+        # Pick slot with earliest availability; ties broken by slot order (stable).
+        slot = min(self.slots, key=lambda e: (e.available_at, id(e)))
+        return slot.request(amr_current_floor, target_floor, request_time)
+
+
 def simulate_wave(
     wave: Wave,
     n_amrs: int = 5,
     service_time: float = 5.0,
     initial_amr_floor: int = 1,
+    n_elevators: int = 1,
+    capacity: int = 1,
 ) -> float:
     """Simulate one wave and return makespan (wave completion - release_time)."""
-    elevator = ElevatorResource()
+    pool = ElevatorPool(
+        n_elevators=n_elevators,
+        capacity=capacity,
+        initial_floor=initial_amr_floor,
+    )
     amrs = [
         AMR(id=i, current_floor=initial_amr_floor, current_time=wave.release_time)
         for i in range(n_amrs)
@@ -85,13 +141,13 @@ def simulate_wave(
         t = amr.current_time
 
         if amr.current_floor != order.source_floor:
-            t = elevator.request(amr.current_floor, order.source_floor, t)
+            t = pool.request(amr.current_floor, order.source_floor, t)
             amr.current_floor = order.source_floor
 
         t += service_time
 
         if order.source_floor != order.dest_floor:
-            t = elevator.request(order.source_floor, order.dest_floor, t)
+            t = pool.request(order.source_floor, order.dest_floor, t)
             amr.current_floor = order.dest_floor
 
         t += service_time
@@ -108,7 +164,7 @@ def _build_wave(pairs: List[tuple]) -> Wave:
 
 
 def _sanity_check() -> None:
-    """Hand-computed makespan targets per intuitions_before_MVS §5 + plan-review audit."""
+    """v0.1 hand-computed makespan targets (pool with E=1, capacity=1 == v0.1)."""
     scenarios = {
         "A (concentrated 1->3)": (
             [(1, 3)] * 5,
@@ -124,7 +180,7 @@ def _sanity_check() -> None:
         ),
     }
     print("=" * 60)
-    print("Sanity check: hand-computed vs simulator makespan")
+    print("Sanity check (v0.1 regime: E=1, capacity=1): hand-computed vs simulator")
     print("=" * 60)
     all_pass = True
     for name, (pairs, expected) in scenarios.items():
@@ -148,6 +204,21 @@ def _test_single_order() -> None:
     print(f"  [OK] test_single_order: makespan={got}")
 
 
+def _test_pool_regime() -> None:
+    """Regime sanity: capacity>=2 or E>=2 should give <= makespan of (E=1, c=1)."""
+    wave = _build_wave([(1, 3)] * 5)  # scenario A, v0.1 = 120s
+    base = simulate_wave(wave)
+    e2 = simulate_wave(wave, n_elevators=2, capacity=1)
+    c2 = simulate_wave(wave, n_elevators=1, capacity=2)
+    e3c2 = simulate_wave(wave, n_elevators=3, capacity=2)
+    assert base == 120.0, f"baseline regression: {base}"
+    assert e2 <= base, f"E=2 should not be slower than E=1: e2={e2}, base={base}"
+    assert c2 <= base, f"capacity=2 should not be slower: c2={c2}, base={base}"
+    assert e3c2 <= e2, f"E=3,c=2 should not be slower than E=2,c=1"
+    print(f"  [OK] pool regime: E=1,c=1={base}  E=2,c=1={e2}  E=1,c=2={c2}  E=3,c=2={e3c2}")
+
+
 if __name__ == "__main__":
     _test_single_order()
     _sanity_check()
+    _test_pool_regime()

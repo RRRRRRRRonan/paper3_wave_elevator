@@ -391,11 +391,80 @@ Per §7 commitment, I confirm:
 
 ---
 
-## 9. Revision Log
+### 8.6 Phase 0 — Non-linear diagnostic (against the same pre-reg)
 
-- **v0.1 (2026-04-21, pre-run)**: Initial predictions written and signed before MVS code was run
-- **v0.2 (2026-04-21, post-run)**: Post-MVS addendum added (§8 filled; §1–§7 unchanged)
+**Filled 2026-04-21 after running [src/analysis.py](src/analysis.py) on v0.1 data.**
+**Raw**: [results/v0_2_phase0_nonlinear.json](results/v0_2_phase0_nonlinear.json), [results/v0_2_phase0_nonlinear.md](results/v0_2_phase0_nonlinear.md)
+
+Pre-reg §6.2 asked: "Is there an interaction effect between C and I?" — left blank as "I don't know."
+
+**Phase 0 finding**: tree models (RF, GBM) on the same 4 base features yield **CV R² ≈ 0.82**, essentially tied with linear M3 (0.817). Linear with 6 interaction terms gains only +0.005 R². The C×I interaction coefficient is ~0. **Functional form is not the issue** — v0.1's red flag is structural, not "wrong model."
+
+**Surprise #6** — Permutation importance (RF) shows C ≈ 0.11, I ≈ 0.10, but linear ablation shows their unique contribution ≈ 0. C and I carry **redundant** signal with `size`+`cross_floor`. They are not noise; they are collinear. This was not visible in v0.1 ablation because of the additive-linear lens.
+
+**Pre-reg adjustment triggered**: Phase 1 baseline switched from `size + cross_floor` to `size + floor_distance` (Manhattan-weighted) to decollinearise.
 
 ---
 
-**End of pre-registration document**
+### 8.7 Phase 1 — Regime sweep (against the same pre-reg)
+
+**Filled 2026-04-21 after running [src/experiments_v0_2.py](src/experiments_v0_2.py) and [src/analysis_phase1.py](src/analysis_phase1.py).**
+**Raw**: [results/v0_2_phase1_regime_sweep.json](results/v0_2_phase1_regime_sweep.json), [results/v0_2_phase1_regime_sweep.md](results/v0_2_phase1_regime_sweep.md)
+
+Implicit pre-reg expectation when planning v0.2: relieving the bottleneck (E>1, capacity>1) would let C and I emerge — the "scope C2-M2 to a specific regime" framing in [MVS_v0_2_plan.md §2](MVS_v0_2_plan.md). H_v2.1 threshold: ≥+0.05 in some regime.
+
+| Regime | M3 − M2 increment | Verdict |
+|---|---|---|
+| E1_c1 (v0.1-like) | +0.0012 | below threshold |
+| E2_c1, E1_c2 | +0.0051 | below threshold |
+| E3_c1 | +0.0074 | below threshold |
+| E2_c2 | +0.0083 | below threshold |
+| E3_c2 (max relief) | **+0.0121** | below threshold |
+
+**Surprise #7 (sign reversal of β(C))** — Pre-reg §1.1 was "ambiguous"; the implicit working intuition coming into Phase 1 was "concentrated waves are slower." Observed **β(C) < 0 in every one of the 6 regimes** (range −5.8 to −24.0). Mechanism candidate: with N=10 AMRs and F=5 floors, uniform-floor waves let more AMRs operate in parallel; concentrated waves create AMR-fleet contention that dominates the elevator bottleneck.
+
+**Surprise #8 (sign reversal of β(I))** — Pre-reg §1.2 explicitly predicted **β(I) > 0** with confidence 3-4. Observed **β(I) < 0 in every regime** (range −2.9 to −13.0). Mechanism candidate: balanced waves (I=0) create more route conflicts than fully one-directional waves (I=1). v0.1 Surprise #3 (Scenario C > B) already foreshadowed this.
+
+**Surprise #9 (mechanism is right, magnitude is wrong)** — The H_v2.1 mechanism is qualitatively visible: M3−M2 grows monotonically 10× as bottleneck eases (0.0012 → 0.0121). But **never crosses +0.02**. Bottleneck relief shifts variance from queueing to spatial, but the spatial signal is small in absolute terms.
+
+**Surprise #10 (v0.1 baseline was misleading the other direction)** — Against the v0.1-style baseline `size + cross_floor`, M3 gives **negative** R² increments in 4 of 6 regimes (−0.012 to +0.005). The "red-flag" magnitude in v0.1 was an artefact of the collinear baseline; on the decollinearised baseline `size + floor_distance`, M3 is consistently positive — but consistently small.
+
+**Phase 1 caveat**: capacity > 1 is implemented as a throughput abstraction (independent slots), not true co-occupancy batching. Consequence: E=2,c=1 ≡ E=1,c=2 in results. β(C) might flip back positive under true batching. **Phase 1.5 will test this.**
+
+---
+
+### 8.8 Updated impact map (post Phase 0+1)
+
+Replaces §8.4 with current state:
+
+| Paper 3 claim | Updated status |
+|---|---|
+| **C1** | ✅ Unaffected |
+| **C2-M1** | ✅ Unaffected |
+| **C2-M2 (predictive surrogate)** | ⛔ Downgraded — best evidence is +0.012, not +0.05. Triggers Scenario A rescue. |
+| **C2-M2 (conceptual decomposition)** | ⬆ Promoted to primary framing |
+| **C2-M3** (Φ vs ML) | ⏸ Lower priority — predictive framing weakened |
+| **C3-H1** (tactical value) | 🔲 Pending Phase 4 |
+| **C3-H2** (regime-dependent) | 🟡 Partially supported in unexpected sense (informativeness is regime-dependent and monotone, just always small) |
+| **C3-H3** (counterintuitive) | 🟢 **First positive evidence** — sign reversals of β(C), β(I) are direct counterintuitive findings, pending Phase 1.5 + Phase 3 robustness checks |
+
+---
+
+### 8.9 Why a fresh pre-registration is now mandatory
+
+After Phase 0 and Phase 1, several of the predictions in §1–§5 are no longer just "potentially wrong" but **actively contradicted by evidence**. Continuing to test the remaining v0.2 phases (1.5, 2, 3, 4) against an outdated prior would be pre-registration theatre — I'd be evaluating new findings against intuitions I no longer hold. The Surprise count would inflate trivially.
+
+**Action**: this v0.1 pre-reg is closed for further addenda. A fresh pre-reg covering Phase 1.5, 2, 3, 4 is recorded in [intuitions_before_MVS_v0_2.md](intuitions_before_MVS_v0_2.md) and must be signed before any further phase runs.
+
+---
+
+## 9. Revision Log
+
+- **v0.1 (2026-04-21, pre-run)**: Initial predictions written and signed before MVS code was run
+- **v0.2 (2026-04-21, post v0.1 run)**: §8.1–§8.5 added (post-MVS addendum)
+- **v0.3 (2026-04-21, post Phase 0)**: §8.6 added (non-linear diagnostic outcomes)
+- **v0.4 (2026-04-21, post Phase 1)**: §8.7–§8.9 added (regime sweep outcomes, updated impact map, declaration to switch to fresh pre-reg). §1–§7 still unchanged.
+
+---
+
+**End of pre-registration document. Continued in [intuitions_before_MVS_v0_2.md](intuitions_before_MVS_v0_2.md).**

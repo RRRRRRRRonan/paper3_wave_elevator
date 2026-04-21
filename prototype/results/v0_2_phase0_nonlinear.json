@@ -1,0 +1,50 @@
+{
+  "r2_cv": {
+    "M1 linear (size)": 0.7524580668837212,
+    "M2 linear (size + cross_floor)": 0.8091847288567978,
+    "M3 linear (base)": 0.8165849783790303,
+    "M3+ linear (+6 interactions)": 0.8213546415833933,
+    "RF (n=200)": 0.8024009876532625,
+    "GBM (n=200, depth=3)": 0.820511030093306,
+    "RF+interactions": 0.8018906945768443,
+    "GBM+interactions": 0.8157159850435619
+  },
+  "m3_linear": 0.8165849783790303,
+  "best_tree_base": 0.820511030093306,
+  "best_tree_interactions": 0.8157159850435619,
+  "interaction_linear": 0.8213546415833933,
+  "nonlinear_gap": 0.003926051714275625,
+  "interaction_linear_gap": 0.004769663204363006,
+  "verdict": "REJECTED",
+  "verdict_text": "Non-linear gap < 0.02 -> H_v2.2 not supported. Non-linear modelling does not rescue v0.1 data; the signal limitation is structural, not functional-form.",
+  "permutation_importance_rf_base": {
+    "size": {
+      "mean": 1.1228462592886814,
+      "std": 0.04841681144558797
+    },
+    "cross_floor": {
+      "mean": 0.20783020169531144,
+      "std": 0.008922146325315775
+    },
+    "C": {
+      "mean": 0.11163450962171587,
+      "std": 0.006351800259651524
+    },
+    "I": {
+      "mean": 0.09757252587809331,
+      "std": 0.007160656173687912
+    }
+  },
+  "m3plus_linear_coefficients": {
+    "size": 11.817522379058762,
+    "cross_floor": 8.267225664118593,
+    "C": 53.6795902625734,
+    "I": 2.8316239003567794,
+    "C_x_I": 0.20746619016498247,
+    "I_sq": -5.6178094515351065,
+    "C_sq": -39.922739632522855,
+    "C_x_crossfloor": 4.905327161693285,
+    "I_x_crossfloor": -8.731737508573033,
+    "size_x_I": 4.054884442071504
+  }
+}

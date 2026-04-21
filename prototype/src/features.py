@@ -59,10 +59,22 @@ def total_cross_floor_moves(wave: Wave) -> int:
     return sum(1 for o in wave.orders if o.source_floor != o.dest_floor)
 
 
+def total_floor_distance(wave: Wave) -> int:
+    """Sum of |src - dst| (Manhattan distance) across all orders.
+
+    v0.2 baseline feature replacing cross_floor. Decollinearises from `size`:
+    in v0.1 cross_floor correlated 0.78 with size because any cross-floor
+    order counted as 1 regardless of distance; with F=5 and distances in
+    {0,1,2,3,4}, total_floor_distance is an independent magnitude signal.
+    """
+    return sum(abs(o.source_floor - o.dest_floor) for o in wave.orders)
+
+
 def compute_all_features(wave: Wave) -> dict:
     return {
         "size": wave_size(wave),
         "cross_floor": total_cross_floor_moves(wave),
+        "floor_distance": total_floor_distance(wave),
         "C": vertical_concentration(wave),
         "I": directional_imbalance(wave),
         "T": temporal_clustering(wave),
