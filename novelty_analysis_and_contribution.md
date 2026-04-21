@@ -458,7 +458,7 @@ This section asks: **"If specific experimental results fail, how much of Paper 3
 - [x] Read Wu et al. 2024 (reading log complete)
 - [x] Read Lenoble et al. 2018 (reading log complete)
 - [ ] Correct "Ramanathan" → "Chakravarty" in all workspace files
-- [ ] Begin MVS prototype (see `MVS_prototype_plan.md`)
+- [ ] Begin MVS prototype (see `prototype/MVS_prototype_plan.md`)
 
 ### 9.2 Week 3-4
 

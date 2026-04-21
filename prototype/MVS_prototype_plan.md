@@ -1,6 +1,6 @@
 # Paper 3: Minimal Viable Simulation (MVS) Prototype Plan
 
-**Placement**: `F:\paper3_wave_elevator\prototype\MVS_plan_v0_1.md`
+**Placement**: `F:/paper3_wave_elevator/prototype/MVS_prototype_plan.md`
 **Status**: v0.1 blueprint — by Claude, 2026-04-20
 **Purpose**: 让你在**3-5 天内**写出一个最小可运行的仿真，用来验证三维特征假设是否有经验基础
 
@@ -29,9 +29,13 @@
 | AMR 数 N | **5** | 能观察到 congestion 的最小数 |
 | Elevator 数 E | **1** | 最极端的 bottleneck，便于观察 |
 | Elevator capacity | **1 AMR/ride** | 和 Chakravarty 2025 保持可比 |
-| 单层移动时间 | **10 秒**（确定性）| 简单 |
 | 单层电梯时间 | **5 秒**（确定性）| 简单 |
+| Loading（AMR 上电梯）| **2 秒** | 固定 |
+| Unloading（AMR 下电梯）| **2 秒** | 固定 |
+| Pickup / Dropoff 服务时间 | **5 秒** 各 | AMR 在 source/dest 层的操作 |
 | 电梯换向 | **0 秒**（简化）| v0.1 先不考虑 |
+
+**电梯一次 `request()` 服务 = 5 步**：`wait` + `reposition`（空驶到 AMR 层）+ `loading`(2s) + `travel`（载 AMR 到 target）+ `unloading`(2s)。详见 [simulator.md](simulator.md)。
 
 **关键**：所有参数都是**确定性的**。Stochastic 扩展留到 v0.2。
 
@@ -164,57 +168,70 @@ class AMR:
     status: str = 'idle'  # 'idle', 'moving', 'waiting_elevator', 'in_elevator'
 
 class ElevatorResource:
-    """Single elevator, FCFS, serves 1 AMR at a time."""
-    def __init__(self, speed_per_floor=5.0):
+    """Single elevator, FCFS, serves 1 AMR at a time.
+
+    Per-request timing (5 phases):
+      (a) wait       — 电梯和 AMR 较晚到达一方等另一方
+      (b) reposition — 电梯空驶到 AMR 所在层
+      (c) loading    — AMR 上电梯（固定 2s）
+      (d) travel     — 电梯载 AMR 到 target floor
+      (e) unloading  — AMR 下电梯（固定 2s）
+    """
+    def __init__(self, speed_per_floor=5.0, load_time=2.0, unload_time=2.0):
         self.current_floor = 1
-        self.queue = []  # list of (request_time, amr_id, target_floor)
         self.available_at = 0.0
         self.speed = speed_per_floor
+        self.load_time = load_time
+        self.unload_time = unload_time
 
-    def request(self, amr_id, current_floor, target_floor, request_time):
-        # 返回 AMR 可以完成电梯段的时间
+    def request(self, amr_current_floor, target_floor, request_time):
+        # 返回 AMR 下电梯（完成电梯段）的时刻
         wait_start = max(request_time, self.available_at)
-        # 电梯从 current_floor 移动到 AMR 所在 floor
-        dt_reposition = abs(self.current_floor - current_floor) * self.speed
-        # 从 current_floor 移到 target_floor
-        dt_travel = abs(current_floor - target_floor) * self.speed
-        finish = wait_start + dt_reposition + dt_travel
-        self.current_floor = target_floor
-        self.available_at = finish
-        return finish
+        reposition_time = abs(self.current_floor - amr_current_floor) * self.speed
+        loading_end = wait_start + reposition_time + self.load_time
+        travel_time = abs(amr_current_floor - target_floor) * self.speed
+        arrive_at_target = loading_end + travel_time
+        unloading_end = arrive_at_target + self.unload_time
 
-def simulate_wave(wave: Wave, n_amrs: int = 5, floor_move_time: float = 10.0):
+        self.current_floor = target_floor
+        self.available_at = unloading_end
+        return unloading_end
+
+def simulate_wave(wave: Wave, n_amrs: int = 5, service_time: float = 5.0):
     """
     Simulate one wave. Returns wave completion time (makespan).
     Simplification: AMRs are assigned to orders greedily, FCFS elevator.
+    v0.1: same-floor AMR-to-source transitions are free (no intra-floor aisle move).
     """
     elevator = ElevatorResource()
-    amrs = [AMR(id=i, current_floor=1, current_time=wave.release_time) 
+    amrs = [AMR(id=i, current_floor=1, current_time=wave.release_time)
             for i in range(n_amrs)]
     order_finish_times = []
-    
+
     for order in wave.orders:
-        # 简单策略：选最早空闲的 AMR
-        amr = min(amrs, key=lambda a: a.current_time)
-        
-        # AMR 走到 source_floor（如果需要）
-        # 简化：同层没有 aisle 移动，跨层才用电梯
+        # Phase 1: 选最早空闲的 AMR（平局取 id 最小）
+        amr = min(amrs, key=lambda a: (a.current_time, a.id))
         t = amr.current_time
+
+        # Phase 2: AMR 移到 source_floor（只有跨层才用电梯）
         if amr.current_floor != order.source_floor:
-            # 用电梯把 AMR 送到 source_floor
-            t = elevator.request(amr.id, amr.current_floor, order.source_floor, t)
+            t = elevator.request(amr.current_floor, order.source_floor, t)
             amr.current_floor = order.source_floor
-        # 服务时间
-        t += 5.0  # pickup
-        # 送到 dest
+
+        # Phase 3: pickup
+        t += service_time
+
+        # Phase 4: AMR 送到 dest_floor（只有跨层才用电梯）
         if order.source_floor != order.dest_floor:
-            t = elevator.request(amr.id, order.source_floor, order.dest_floor, t)
+            t = elevator.request(order.source_floor, order.dest_floor, t)
             amr.current_floor = order.dest_floor
-        t += 5.0  # dropoff
-        
+
+        # Phase 5: dropoff
+        t += service_time
+
         amr.current_time = t
         order_finish_times.append(t)
-    
+
     return max(order_finish_times) - wave.release_time  # makespan
 
 def generate_random_wave(order_pool: List[Order], wave_size: int, 
