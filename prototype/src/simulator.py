@@ -15,6 +15,19 @@ batching: a request with the same (src, dst) as an in-progress trip, and
 arriving before that trip's loading window closes, boards the same trip
 (up to `capacity` passengers share one reposition+load+travel+unload
 cycle). Non-matching requests queue for the next available cycle.
+
+v0.2 Tier 1 gap-fix extensions (2026-04-22):
+  - `service_sigma` (Gap 1): per-pickup/dropoff service time multiplied by
+    lognormal(mean=1, sigma=service_sigma) to capture intra-floor service
+    heterogeneity (proxy for path congestion / pick variance) without
+    requiring a path-planning model.
+  - per-`Order.release_time` (Gap 2): orders may have non-zero arrival
+    times, activating the T dimension of Phi. AMRs idle until the next
+    pending order arrives.
+  - `ElevatorPoolDirectional` (Gap 3): true-batching elevator with a
+    direction-switch overhead `dir_switch_penalty` whenever a new trip
+    reverses direction relative to the previous trip — the simplest
+    direction-aware extension that preserves M5's model-class framework.
 """
 from __future__ import annotations
 
@@ -363,6 +376,114 @@ class ElevatorPoolBatched:
         return elev.dispatch(amr_current_floor, target_floor, request_time)
 
 
+class ElevatorBatchedDirectional(ElevatorBatched):
+    """ElevatorBatched with a direction-switch overhead (Gap 3 extension).
+
+    Models the empirical fact that real freight elevators incur an idle /
+    braking interval when reversing direction — acceleration profiles are
+    direction-coupled and most production dispatchers prefer same-direction
+    sweeps. The simplest meaningful extension: add `dir_switch_penalty`
+    seconds to the wait-start of any new trip whose direction (sign of
+    dst - src) differs from the previous trip's direction.
+
+    `dir_switch_penalty = 0` reproduces ElevatorBatched. Default 3.0 s is
+    on the same scale as load_time/unload_time.
+    """
+
+    def __init__(
+        self,
+        capacity: int = 2,
+        speed_per_floor: float = 5.0,
+        load_time: float = 2.0,
+        unload_time: float = 2.0,
+        initial_floor: int = 1,
+        dir_switch_penalty: float = 3.0,
+    ):
+        super().__init__(
+            capacity=capacity,
+            speed_per_floor=speed_per_floor,
+            load_time=load_time,
+            unload_time=unload_time,
+            initial_floor=initial_floor,
+        )
+        self.dir_switch_penalty = dir_switch_penalty
+        self.last_direction = 0  # 0 = neutral, +1 = up, -1 = down
+
+    def dispatch(self, src: int, dst: int, request_time: float) -> float:
+        new_dir = 1 if dst > src else (-1 if dst < src else 0)
+        wait_start = max(request_time, self.available_at)
+        if (
+            self.last_direction != 0
+            and new_dir != 0
+            and new_dir != self.last_direction
+        ):
+            wait_start += self.dir_switch_penalty
+        reposition = abs(self.current_floor - src) * self.speed
+        loading_end = wait_start + reposition + self.load_time
+        travel = abs(src - dst) * self.speed
+        arrive = loading_end + travel
+        unloading_end = arrive + self.unload_time
+
+        self.current_floor = dst
+        self.available_at = unloading_end
+        self.trip_src = src
+        self.trip_dst = dst
+        self.trip_loading_end = loading_end
+        self.trip_completion = unloading_end
+        self.trip_passengers = 1
+        if new_dir != 0:
+            self.last_direction = new_dir
+        return unloading_end
+
+
+class ElevatorPoolDirectional:
+    """Pool of ElevatorBatchedDirectional; same dispatch logic as PoolBatched."""
+
+    def __init__(
+        self,
+        n_elevators: int = 1,
+        capacity: int = 2,
+        speed_per_floor: float = 5.0,
+        load_time: float = 2.0,
+        unload_time: float = 2.0,
+        initial_floor: int = 1,
+        dir_switch_penalty: float = 3.0,
+    ):
+        self.elevators: List[ElevatorBatchedDirectional] = [
+            ElevatorBatchedDirectional(
+                capacity=capacity,
+                speed_per_floor=speed_per_floor,
+                load_time=load_time,
+                unload_time=unload_time,
+                initial_floor=initial_floor,
+                dir_switch_penalty=dir_switch_penalty,
+            )
+            for _ in range(n_elevators)
+        ]
+        self.n_elevators = n_elevators
+        self.capacity = capacity
+
+    def request(
+        self,
+        amr_current_floor: int,
+        target_floor: int,
+        request_time: float,
+    ) -> float:
+        for elev in self.elevators:
+            if elev.can_board(amr_current_floor, target_floor, request_time):
+                return elev.board()
+        elev = min(self.elevators, key=lambda e: (e.available_at, id(e)))
+        return elev.dispatch(amr_current_floor, target_floor, request_time)
+
+
+def _service_noise_factor(rng: Optional[random.Random], sigma: float) -> float:
+    """Lognormal multiplier with mean 1 and parameter sigma."""
+    if sigma <= 0 or rng is None:
+        return 1.0
+    mu = -0.5 * sigma * sigma
+    return math.exp(rng.gauss(mu, sigma))
+
+
 def simulate_wave(
     wave: Wave,
     n_amrs: int = 5,
@@ -374,6 +495,9 @@ def simulate_wave(
     stochastic_sigma: float = 0.0,
     rng: Optional[random.Random] = None,
     policy: str = "fifo",
+    service_sigma: float = 0.0,
+    directional: bool = False,
+    dir_switch_penalty: float = 3.0,
 ) -> float:
     """Simulate one wave and return makespan (wave completion - release_time).
 
@@ -392,7 +516,26 @@ def simulate_wave(
         Operationally equivalent to elevator-side queue clustering in this
         sequential simulator: picking c orders to assign together is the same
         as the elevator pulling c AMRs from its waiting queue.
+
+    Tier 1 gap-fix parameters (default values reproduce v0.2 baseline):
+      - `service_sigma` (Gap 1): if > 0, each pickup/dropoff service time is
+        multiplied by an independent lognormal(mean=1, sigma) draw. Captures
+        intra-floor service-time heterogeneity (a proxy for path congestion
+        and pick-time variance) without requiring an explicit motion model.
+        Requires `rng` when > 0.
+      - per-`Order.release_time` (Gap 2): if any order has release_time > 0
+        relative to wave.release_time, the AMR servicing that order waits
+        until max(amr.current_time, wave.release_time + order.release_time).
+        Activates the T dimension of Phi. Default 0.0 reproduces baseline.
+      - `directional` (Gap 3): if True, uses ElevatorPoolDirectional (true
+        batching with direction-switch overhead). `dir_switch_penalty`
+        controls the overhead in seconds. Mutually exclusive with
+        `stochastic_sigma > 0` (combine in v0.5+ if needed).
     """
+    if stochastic_sigma > 0 and directional:
+        raise ValueError(
+            "stochastic_sigma > 0 and directional=True are mutually exclusive"
+        )
     if stochastic_sigma > 0:
         pool = ElevatorPoolStochasticBatched(
             n_elevators=n_elevators,
@@ -400,6 +543,13 @@ def simulate_wave(
             initial_floor=initial_amr_floor,
             noise_sigma=stochastic_sigma,
             rng=rng if rng is not None else random.Random(0),
+        )
+    elif directional:
+        pool = ElevatorPoolDirectional(
+            n_elevators=n_elevators,
+            capacity=capacity,
+            initial_floor=initial_amr_floor,
+            dir_switch_penalty=dir_switch_penalty,
         )
     elif batched:
         pool = ElevatorPoolBatched(
@@ -422,6 +572,9 @@ def simulate_wave(
     if policy not in ("fifo", "cluster"):
         raise ValueError(f"unknown policy: {policy!r}")
 
+    if service_sigma > 0 and rng is None:
+        rng = random.Random(0)
+
     pending = list(wave.orders)
     cluster_buffer: List[Order] = []
 
@@ -438,19 +591,20 @@ def simulate_wave(
 
         order = cluster_buffer.pop(0)
         amr = min(amrs, key=lambda a: (a.current_time, a.id))
-        t = amr.current_time
+        order_release_abs = wave.release_time + order.release_time
+        t = max(amr.current_time, order_release_abs)
 
         if amr.current_floor != order.source_floor:
             t = pool.request(amr.current_floor, order.source_floor, t)
             amr.current_floor = order.source_floor
 
-        t += service_time
+        t += service_time * _service_noise_factor(rng, service_sigma)
 
         if order.source_floor != order.dest_floor:
             t = pool.request(order.source_floor, order.dest_floor, t)
             amr.current_floor = order.dest_floor
 
-        t += service_time
+        t += service_time * _service_noise_factor(rng, service_sigma)
 
         amr.current_time = t
         order_finish_times.append(t)
@@ -601,6 +755,119 @@ def _test_policy_cluster() -> None:
     print(f"  [OK] policy=cluster: 4/4 sub-tests")
 
 
+def _test_service_sigma() -> None:
+    """Gap 1: service_sigma=0 reproduces baseline; sigma>0 produces variation."""
+    wave = _build_wave([(1, 3)] * 5)
+    base = simulate_wave(wave)  # baseline 120
+    same = simulate_wave(wave, service_sigma=0.0)
+    assert same == base, f"service_sigma=0 should reproduce baseline: {same} vs {base}"
+
+    # sigma > 0 with fixed seed gives reproducible noise; mean over many seeds
+    # should center near baseline (lognormal mean = 1).
+    samples = [
+        simulate_wave(wave, service_sigma=0.3, rng=random.Random(s))
+        for s in range(50)
+    ]
+    avg = sum(samples) / len(samples)
+    # 50 lognormal pickups+drops per wave x 5 orders => 10 multipliers; avg of 50 waves
+    # should be within ~5% of baseline.
+    assert abs(avg - base) / base < 0.05, (
+        f"mean of 50 noisy waves ({avg:.2f}) should be close to baseline {base}"
+    )
+    # Variance check: should not all be equal
+    distinct = len(set(round(s, 3) for s in samples))
+    assert distinct > 30, f"service_sigma=0.3 should produce varied makespans: {distinct} distinct"
+    print(f"  [OK] service_sigma: baseline {base}, noisy mean {avg:.2f} ({distinct} distinct of 50)")
+
+
+def _test_order_release_time() -> None:
+    """Gap 2: per-order release_time delays AMR; default 0.0 reproduces baseline."""
+    wave = _build_wave([(1, 3)] * 5)
+    base = simulate_wave(wave)  # baseline 120
+
+    # All orders release at 0 -> same result
+    same = simulate_wave(wave)
+    assert same == base, f"release_time=0: {same} vs {base}"
+
+    # Stagger: each order arrives 10s later. The 5th arrives at 40s.
+    staggered_orders = [
+        Order(id=i, source_floor=1, dest_floor=3, release_time=10.0 * i)
+        for i in range(5)
+    ]
+    staggered = Wave(orders=staggered_orders, release_time=0.0)
+    got = simulate_wave(staggered)
+    assert got >= base, f"staggered makespan {got} should be >= baseline {base}"
+    # First-order time = 24s (pickup5+load2+travel10+unload2+drop5); subsequent
+    # delays cap by max(amr.current_time, order.release_time).
+    print(f"  [OK] order release_time: baseline {base}, staggered (CV>0) {got}")
+
+    # Edge case: huge stagger -> last order arrival time dominates
+    huge = Wave(
+        orders=[
+            Order(id=i, source_floor=1, dest_floor=3, release_time=1000.0 * i)
+            for i in range(3)
+        ],
+        release_time=0.0,
+    )
+    got = simulate_wave(huge)
+    # last order releases at 2000s, then ~24s of work => ~2024
+    assert got >= 2000, f"huge-stagger makespan should >= 2000: {got}"
+    print(f"  [OK] order release_time: huge stagger -> {got}")
+
+
+def _test_directional() -> None:
+    """Gap 3: directional=True with penalty=0 reproduces ElevatorBatched.
+
+    With penalty>0, a wave that requires direction reversal should be slower
+    than the batched baseline.
+    """
+    # Same-direction wave: no reversals -> directional with any penalty == batched
+    wave_same = _build_wave([(1, 3)] * 5)
+    base = simulate_wave(wave_same, n_elevators=1, capacity=2, batched=True)
+    dir0 = simulate_wave(
+        wave_same, n_elevators=1, capacity=2, directional=True,
+        dir_switch_penalty=10.0,
+    )
+    assert dir0 == base, f"same-direction wave: directional {dir0} should equal batched {base}"
+
+    # Reversal wave: 3 up + 2 down. directional with penalty>0 should be slower.
+    wave_mixed = _build_wave([(1, 3), (1, 3), (1, 3), (3, 1), (3, 1)])
+    base_mixed = simulate_wave(wave_mixed, n_elevators=1, capacity=2, batched=True)
+    dir_mixed = simulate_wave(
+        wave_mixed, n_elevators=1, capacity=2, directional=True,
+        dir_switch_penalty=5.0,
+    )
+    assert dir_mixed > base_mixed, (
+        f"reversal wave: directional ({dir_mixed}) should be slower than batched ({base_mixed})"
+    )
+
+    # Penalty=0 should reproduce batched exactly even on mixed wave
+    dir_zero = simulate_wave(
+        wave_mixed, n_elevators=1, capacity=2, directional=True,
+        dir_switch_penalty=0.0,
+    )
+    assert dir_zero == base_mixed, (
+        f"directional with penalty=0 should equal batched: {dir_zero} vs {base_mixed}"
+    )
+    print(
+        f"  [OK] directional: same-dir wave dir==batched ({base}); "
+        f"mixed wave batched={base_mixed} directional(p=5)={dir_mixed}"
+    )
+
+
+def _test_backward_compat() -> None:
+    """All three extensions at default values must reproduce v0.2 baselines."""
+    wave = _build_wave([(1, 3)] * 5)
+    base = simulate_wave(wave)
+    assert base == 120.0, f"v0.1 sanity: {base}"
+    # All three new params at defaults
+    same = simulate_wave(
+        wave, service_sigma=0.0, directional=False, dir_switch_penalty=3.0,
+    )
+    assert same == base, f"all-defaults call: {same} vs {base}"
+    print(f"  [OK] backward-compat: all new params at defaults reproduce baseline {base}")
+
+
 if __name__ == "__main__":
     _test_single_order()
     _sanity_check()
@@ -608,3 +875,7 @@ if __name__ == "__main__":
     _test_batched_regime()
     _test_pop_cluster()
     _test_policy_cluster()
+    _test_service_sigma()
+    _test_order_release_time()
+    _test_directional()
+    _test_backward_compat()

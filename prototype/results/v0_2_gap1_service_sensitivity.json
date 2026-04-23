@@ -1,0 +1,405 @@
+{
+  "generated": "2026-04-22",
+  "purpose": "Gap 1 \u2014 service-time heterogeneity sensitivity across all 6 cells",
+  "sigmas": [
+    0.0,
+    0.2,
+    0.5,
+    1.0
+  ],
+  "arms": [
+    "random",
+    "HC_HI",
+    "HC_LI",
+    "LC_HI",
+    "LC_LI"
+  ],
+  "n_per_arm": 200,
+  "size": 6,
+  "per_cell": [
+    {
+      "regime": "E1_c2",
+      "model": "abstraction",
+      "size": 6,
+      "sigma0_best": "HC_HI",
+      "n_match": 4,
+      "n_total": 4,
+      "verdict": "ROBUST",
+      "per_sigma": [
+        {
+          "sigma": 0.0,
+          "medians": {
+            "random": 174.0,
+            "HC_HI": 169.0,
+            "HC_LI": 178.0,
+            "LC_HI": 183.0,
+            "LC_LI": 185.0
+          },
+          "GAP": 16.0,
+          "GAP_pct": 9.195402298850574,
+          "best_corner": "HC_HI"
+        },
+        {
+          "sigma": 0.2,
+          "medians": {
+            "random": 179.18483595633808,
+            "HC_HI": 178.65670467666092,
+            "HC_LI": 179.341736508236,
+            "LC_HI": 184.10819887266763,
+            "LC_LI": 184.74376110313787
+          },
+          "GAP": 6.0870564264769484,
+          "GAP_pct": 3.3970823446020733,
+          "best_corner": "HC_HI"
+        },
+        {
+          "sigma": 0.5,
+          "medians": {
+            "random": 173.27043796683088,
+            "HC_HI": 167.7148091703042,
+            "HC_LI": 180.05202114481392,
+            "LC_HI": 185.0741766274935,
+            "LC_LI": 185.48021665775465
+          },
+          "GAP": 17.76540748745046,
+          "GAP_pct": 10.252993930130938,
+          "best_corner": "HC_HI"
+        },
+        {
+          "sigma": 1.0,
+          "medians": {
+            "random": 175.99465206018436,
+            "HC_HI": 172.53983986551094,
+            "HC_LI": 180.56845023306926,
+            "LC_HI": 182.74168266902842,
+            "LC_LI": 190.73418456390428
+          },
+          "GAP": 18.194344698393337,
+          "GAP_pct": 10.3380099823553,
+          "best_corner": "HC_HI"
+        }
+      ]
+    },
+    {
+      "regime": "E1_c2",
+      "model": "batched",
+      "size": 6,
+      "sigma0_best": "LC_HI",
+      "n_match": 3,
+      "n_total": 4,
+      "verdict": "MOSTLY_ROBUST",
+      "per_sigma": [
+        {
+          "sigma": 0.0,
+          "medians": {
+            "random": 237.0,
+            "HC_HI": 236.0,
+            "HC_LI": 240.0,
+            "LC_HI": 235.0,
+            "LC_LI": 242.5
+          },
+          "GAP": 7.5,
+          "GAP_pct": 3.1645569620253164,
+          "best_corner": "LC_HI"
+        },
+        {
+          "sigma": 0.2,
+          "medians": {
+            "random": 236.89585339154257,
+            "HC_HI": 238.17354548752502,
+            "HC_LI": 239.83789438526333,
+            "LC_HI": 236.61765829339652,
+            "LC_LI": 245.54157761449383
+          },
+          "GAP": 8.923919321097316,
+          "GAP_pct": 3.767022171699992,
+          "best_corner": "LC_HI"
+        },
+        {
+          "sigma": 0.5,
+          "medians": {
+            "random": 238.57861598362672,
+            "HC_HI": 236.14953749262583,
+            "HC_LI": 240.28349548483595,
+            "LC_HI": 233.24988642098367,
+            "LC_LI": 242.23876606542896
+          },
+          "GAP": 8.98887964444529,
+          "GAP_pct": 3.7676803544967266,
+          "best_corner": "LC_HI"
+        },
+        {
+          "sigma": 1.0,
+          "medians": {
+            "random": 231.8589405228688,
+            "HC_HI": 236.76572798961968,
+            "HC_LI": 239.9856026259393,
+            "LC_HI": 240.037989995557,
+            "LC_LI": 242.06667518263322
+          },
+          "GAP": 5.300947193013542,
+          "GAP_pct": 2.286281124661094,
+          "best_corner": "HC_HI"
+        }
+      ]
+    },
+    {
+      "regime": "E2_c2",
+      "model": "abstraction",
+      "size": 6,
+      "sigma0_best": "HC_HI",
+      "n_match": 4,
+      "n_total": 4,
+      "verdict": "ROBUST",
+      "per_sigma": [
+        {
+          "sigma": 0.0,
+          "medians": {
+            "random": 111.0,
+            "HC_HI": 106.0,
+            "HC_LI": 111.0,
+            "LC_HI": 111.5,
+            "LC_LI": 116.0
+          },
+          "GAP": 10.0,
+          "GAP_pct": 9.00900900900901,
+          "best_corner": "HC_HI"
+        },
+        {
+          "sigma": 0.2,
+          "medians": {
+            "random": 108.52157849396181,
+            "HC_HI": 106.9091447803708,
+            "HC_LI": 114.22278735958491,
+            "LC_HI": 112.12782918699175,
+            "LC_LI": 119.5888292071558
+          },
+          "GAP": 12.679684426785002,
+          "GAP_pct": 11.68402137413667,
+          "best_corner": "HC_HI"
+        },
+        {
+          "sigma": 0.5,
+          "medians": {
+            "random": 110.7184993518423,
+            "HC_HI": 106.1675909207469,
+            "HC_LI": 113.41307037275263,
+            "LC_HI": 113.74103984953044,
+            "LC_LI": 117.93536793053582
+          },
+          "GAP": 11.767777009788915,
+          "GAP_pct": 10.628555371215032,
+          "best_corner": "HC_HI"
+        },
+        {
+          "sigma": 1.0,
+          "medians": {
+            "random": 109.92945692776082,
+            "HC_HI": 109.66598822115563,
+            "HC_LI": 111.99780725134428,
+            "LC_HI": 110.54395638784027,
+            "LC_LI": 117.49080404646705
+          },
+          "GAP": 7.824815825311418,
+          "GAP_pct": 7.118033731808051,
+          "best_corner": "HC_HI"
+        }
+      ]
+    },
+    {
+      "regime": "E2_c2",
+      "model": "batched",
+      "size": 6,
+      "sigma0_best": "LC_HI",
+      "n_match": 4,
+      "n_total": 4,
+      "verdict": "ROBUST",
+      "per_sigma": [
+        {
+          "sigma": 0.0,
+          "medians": {
+            "random": 154.0,
+            "HC_HI": 159.0,
+            "HC_LI": 164.0,
+            "LC_HI": 148.5,
+            "LC_LI": 164.0
+          },
+          "GAP": 15.5,
+          "GAP_pct": 10.064935064935066,
+          "best_corner": "LC_HI"
+        },
+        {
+          "sigma": 0.2,
+          "medians": {
+            "random": 155.4683735445102,
+            "HC_HI": 159.00866512127845,
+            "HC_LI": 164.06064290355573,
+            "LC_HI": 157.17735037935512,
+            "LC_LI": 161.46680779238142
+          },
+          "GAP": 6.883292524200613,
+          "GAP_pct": 4.4274551584151896,
+          "best_corner": "LC_HI"
+        },
+        {
+          "sigma": 0.5,
+          "medians": {
+            "random": 156.73212971478017,
+            "HC_HI": 161.4138546164175,
+            "HC_LI": 164.56118335776313,
+            "LC_HI": 147.93202141682474,
+            "LC_LI": 163.58205493124154
+          },
+          "GAP": 16.62916194093839,
+          "GAP_pct": 10.609925336432294,
+          "best_corner": "LC_HI"
+        },
+        {
+          "sigma": 1.0,
+          "medians": {
+            "random": 159.32861657436433,
+            "HC_HI": 160.31870108944275,
+            "HC_LI": 164.7216653927838,
+            "LC_HI": 153.95239872156702,
+            "LC_LI": 158.99201579157187
+          },
+          "GAP": 10.76926667121677,
+          "GAP_pct": 6.759154069595759,
+          "best_corner": "LC_HI"
+        }
+      ]
+    },
+    {
+      "regime": "E3_c2",
+      "model": "abstraction",
+      "size": 6,
+      "sigma0_best": "HC_HI",
+      "n_match": 4,
+      "n_total": 4,
+      "verdict": "ROBUST",
+      "per_sigma": [
+        {
+          "sigma": 0.0,
+          "medians": {
+            "random": 86.0,
+            "HC_HI": 82.0,
+            "HC_LI": 87.0,
+            "LC_HI": 87.0,
+            "LC_LI": 92.0
+          },
+          "GAP": 10.0,
+          "GAP_pct": 11.627906976744185,
+          "best_corner": "HC_HI"
+        },
+        {
+          "sigma": 0.2,
+          "medians": {
+            "random": 85.99963520830347,
+            "HC_HI": 82.84495000450099,
+            "HC_LI": 87.213436525113,
+            "LC_HI": 83.86530417079109,
+            "LC_LI": 90.8584256761641
+          },
+          "GAP": 8.013475671663116,
+          "GAP_pct": 9.318034491952584,
+          "best_corner": "HC_HI"
+        },
+        {
+          "sigma": 0.5,
+          "medians": {
+            "random": 83.90750429689668,
+            "HC_HI": 85.05640530852098,
+            "HC_LI": 87.94813641337832,
+            "LC_HI": 87.57322333450907,
+            "LC_LI": 92.31708151631767
+          },
+          "GAP": 7.260676207796692,
+          "GAP_pct": 8.653190520487485,
+          "best_corner": "HC_HI"
+        },
+        {
+          "sigma": 1.0,
+          "medians": {
+            "random": 86.64137339002438,
+            "HC_HI": 83.85813184533171,
+            "HC_LI": 89.08245536624526,
+            "LC_HI": 85.43791942796713,
+            "LC_LI": 88.73973575464579
+          },
+          "GAP": 5.2243235209135435,
+          "GAP_pct": 6.02982537845488,
+          "best_corner": "HC_HI"
+        }
+      ]
+    },
+    {
+      "regime": "E3_c2",
+      "model": "batched",
+      "size": 6,
+      "sigma0_best": "LC_HI",
+      "n_match": 4,
+      "n_total": 4,
+      "verdict": "ROBUST",
+      "per_sigma": [
+        {
+          "sigma": 0.0,
+          "medians": {
+            "random": 111.0,
+            "HC_HI": 116.0,
+            "HC_LI": 126.0,
+            "LC_HI": 111.0,
+            "LC_LI": 116.0
+          },
+          "GAP": 15.0,
+          "GAP_pct": 13.513513513513514,
+          "best_corner": "LC_HI"
+        },
+        {
+          "sigma": 0.2,
+          "medians": {
+            "random": 114.80167298637413,
+            "HC_HI": 115.70905976184065,
+            "HC_LI": 123.9329230145652,
+            "LC_HI": 115.50677697079946,
+            "LC_LI": 119.7102273890489
+          },
+          "GAP": 8.42614604376574,
+          "GAP_pct": 7.339741507744269,
+          "best_corner": "LC_HI"
+        },
+        {
+          "sigma": 0.5,
+          "medians": {
+            "random": 112.10299032531572,
+            "HC_HI": 118.35053549061081,
+            "HC_LI": 124.07171918043775,
+            "LC_HI": 109.38184838061571,
+            "LC_LI": 118.11285470651038
+          },
+          "GAP": 14.689870799822046,
+          "GAP_pct": 13.103906289379953,
+          "best_corner": "LC_HI"
+        },
+        {
+          "sigma": 1.0,
+          "medians": {
+            "random": 117.90436198773733,
+            "HC_HI": 118.76369218931588,
+            "HC_LI": 125.18003509525056,
+            "LC_HI": 114.78013784148578,
+            "LC_LI": 121.80012115997104
+          },
+          "GAP": 10.399897253764777,
+          "GAP_pct": 8.82062128867329,
+          "best_corner": "LC_HI"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "n_robust": 5,
+    "n_mostly": 1,
+    "n_sensitive": 0,
+    "overall": "M4 GAP framework robust to service-time heterogeneity across all 6 cells"
+  }
+}

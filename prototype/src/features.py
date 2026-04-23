@@ -43,12 +43,25 @@ def directional_imbalance(wave: Wave) -> float:
 
 
 def temporal_clustering(wave: Wave) -> float:
-    """v0.1: all orders share wave.release_time, so T is a degenerate constant.
+    """Coefficient of variation of per-order release_times within a wave.
 
-    Returned as 0.0 to keep the feature column present; it has zero variance
-    in v0.1 and therefore zero predictive power (expected).
+    v0.1/v0.2 default: all orders share release_time = 0.0, so the CV
+    evaluates to 0.0 and T collapses to a degenerate constant (expected;
+    preserved for backward compatibility).
+
+    v0.2 Tier-1 gap-fix (Gap 2): when a wave is generated with staggered
+    per-Order release_times, T becomes CV = std / mean of those times,
+    activating the third dimension of Phi = (C, I, T). Small CV => orders
+    arrive in a tight burst; large CV => bursty arrival with gaps.
     """
-    return 0.0
+    times = [o.release_time for o in wave.orders]
+    if not times:
+        return 0.0
+    mean_t = sum(times) / len(times)
+    if mean_t <= 0:
+        return 0.0
+    var_t = sum((t - mean_t) ** 2 for t in times) / len(times)
+    return math.sqrt(var_t) / mean_t
 
 
 def wave_size(wave: Wave) -> int:

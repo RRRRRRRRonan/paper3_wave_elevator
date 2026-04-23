@@ -109,7 +109,7 @@ Pin down the decision architecture, the surrogate $\Phi$, and the makespan objec
 ### 4.3 Three-dimensional structured decomposition $\Phi$ (~250 words)
 - $C(W)$ — vertical concentration: 1 − normalised entropy over destination floor distribution.
 - $I(W)$ — directional imbalance: $|\#\text{up} - \#\text{down}| / |W|$.
-- $T(W)$ — temporal clustering: coefficient of variation of release timestamps. (In v0.2, $T \equiv 0$; v0.5+ adds stagger.)
+- $T(W)$ — temporal clustering: coefficient of variation of per-order release timestamps within the wave. Activated in v0.2 Tier-1 extension (Appendix A.2) via lognormal inter-arrival generation at stagger CV $\le 0.5$; empirical $T \approx 0.48 \pm 0.10$ across 3 000 staggered waves. $\beta(T)$ is the tightest of the three dimensions (CI straddles 0 at N=1000 per regime), supporting the paper's framing of $\Phi$ as a conceptual decomposition rather than a predictive surrogate.
 - *Conceptual decomposition, not predictive surrogate* — physical-units interpretability claim per [§3 of novelty doc](../novelty_analysis_and_contribution.md). Rank order preservation across elevator models $r \ge 0.85$ (§6).
 
 ### 4.4 Two elevator models $M_1, M_2$ and one stochastic family $M_3$ (~150 words)
@@ -128,10 +128,14 @@ This is the methodological heart. Four sub-contributions (M1, M3, M4, M5) but on
 ### 5.1 Two-stage decision architecture (M1) — *~200 words*
 Plain restatement; cite [§11.3 (M1) of novelty doc](../novelty_analysis_and_contribution.md#113-updated-three-layer-novelty-structure-replaces-32-v04). One sentence per stage; one sentence on why the decomposition makes the problem tractable.
 
-### 5.2 Empirical model-abstraction effect (M3) — *~200 words*
-- Same $\Phi$ regression run twice (under $M_1$ and $M_2$).
-- Result preview (full data in §6.2): rank-order Spearman $r \ge 0.85$; coefficient magnitudes shift; $\beta(C)$ flips sign in 2/3 c=2 regimes (point estimate); within-regime sign-stability 76–85 % under bootstrap.
-- Take-away: *abstractions in AMR-fleet research can preserve rank order but distort coefficient interpretation*. This sets up M5.
+### 5.2 Elevator-model selection as a first-class decision for structured-feature analysis (M3) — *~200 words*
+
+Reframed in v0.2 from "model-abstraction caveat" to **practitioner rule**:
+
+- Same $\Phi$ regression run twice (under $M_1$ throughput-abstraction and $M_2$ true co-occupancy batching) across 3 c=2 regimes.
+- Two-part finding: (a) *ranking agreement* — Spearman $r \in [0.85, 0.93]$ across paired makespans, so wave-level triage is robust to the model choice; (b) *coefficient divergence* — $\beta(C)$ point estimates flip sign between $M_1$ and $M_2$ in 2/3 c=2 regimes, with bootstrap sign-stability 76–85 %.
+- **Practitioner rule**: throughput-abstraction is admissible for any wave-ranking or triage task (its output is rank-equivalent to true batching on 85–93 % of pairs). It is *not* admissible for any decision that interprets $\beta$ — design of wave-composition policies, estimation of per-unit lever sizes, or comparisons across regimes. For the latter, true batching is required.
+- The one-line decision aid operationalising this rule is C2-M5 (Hedge Rule): when two elevator models disagree on $\beta(C)$ sign, the minimax corner under per-wave stochastic dominance collapses to "follow $M_2$". The M3 practitioner rule is therefore not a caveat appended to M5; it is M5's motivation.
 
 ### 5.3 Bound-and-Gap framework for wave-structure value (M4) — *~500 words*
 
@@ -183,14 +187,15 @@ Plain restatement; cite [§11.3 (M1) of novelty doc](../novelty_analysis_and_con
 - Sanity: $\sigma = 0$ reproduces deterministic batched 72 s on canonical 5×(1→3) hand-computed scenario; $\sigma = 0.1$ over 50 seeds gives 72.31 ± 2.62 s.
 - Wave generator: pool size 200 candidates per (regime, size) band; corner arms = top/bottom 25 % quartiles on $(C, I)$.
 
-### 6.2 Phase 1.5 — model-abstraction effect on coefficients (~250 words)
-*(Establishes M3 setup before M4/M5.)*
+### 6.2 Phase 1.5 — elevator-model selection as a first-class decision (~250 words)
+*(Establishes the M3 practitioner rule that M5 operationalises.)*
 
 - Same waves run under $M_1$ and $M_2$, OLS fit `makespan ~ size + C + I + T + cross_floor + floor_distance` per regime.
-- Result: rank-order Spearman $r \ge 0.85$; $\beta(C)$ point estimates flip sign between $M_1$ and $M_2$ in E2_c2 and E3_c2.
-- Bootstrap (R1, 1000 iter): within-regime sign-stability for $\beta(C)$ under $M_2$: 79 %, 76 %, 85 % across the three c=2 regimes; CI straddles 0 in all three.
+- **Ranking agreement**: paired-wave Spearman $r \in [0.85, 0.93]$ across all 3 regimes; abstraction preserves ordering and is therefore admissible for triage.
+- **Coefficient divergence**: $\beta(C)$ point estimates flip sign between $M_1$ and $M_2$ in E2_c2 and E3_c2; bootstrap (R1, 1000 iter) gives within-regime sign-stability 79 %, 76 %, 85 % respectively with CI straddling 0. This quantifies the practitioner rule's domain: abstraction is *not* admissible for any decision that interprets $\beta$.
+- **T-dimension activation** (Gap 2 fix, Appendix A.2): repeating the regression on staggered waves (stagger CV = 0.5) with the activated $T$ feature gives non-zero $T$ across all cells (empirical mean $\approx 0.48$, std $\approx 0.10$); $\beta(T)$ directional stability ranges 53 % – 96 % with 95 % CI straddling 0 at N = 1 000 per regime, consistent with our §4.3 framing of $\Phi$ as a conceptual decomposition rather than a predictive surrogate.
 - Figures: [phase1_5_betaC_comparison.png](../prototype/results/figures/phase1_5_betaC_comparison.png), [phase1_5_paired_makespan.png](../prototype/results/figures/phase1_5_paired_makespan.png).
-- Honest framing: "*sign behaviour is a coarse cross-regime probe, not a fine-grained classifier*".
+- Honest framing retained: *within-regime $\beta(C)$ sign is a coarse cross-regime probe, not a fine-grained classifier*; but the rule-level take-away — "**use abstraction for ranking, true batching for $\beta$ interpretation**" — is a clean decision aid derivable from this data.
 
 ### 6.3 Phase 4 v2 — wave-design experiment (~400 words)
 
@@ -258,7 +263,9 @@ Pre-registered test of a concrete P1 operating policy against P0 (FIFO) to isola
 
 **Pre-reg verdict**: PARTIAL (2/6 cells). Interpret as a targeted confirmation rather than a failed omnibus test: **P1 wins precisely where M4 predicts** (true-batching model, multi-elevator regimes where the elevator lever dominates). Single-elevator E1_c2 (no elevator lever) and throughput-abstraction cells (capacity invisible in the model) correctly show no benefit. Largest effect is at E3_c2|batched size = 8: Δ = −15.3 s on random, −7.1 s on favorable (both sig).
 
-**Take-away**: H1 converts the GAP diagnostic into actionable policy — clustering by destination at dispatch captures a measurable (up to ~9 % in cell-size means) slice of the wave-lever budget specifically in the cells where M4's elevator-lever term is largest.
+**Take-away — tactical-operational substitutability map (tight-wave regime).** The PARTIAL result (2/6 cells) is itself the finding, not a weakened omnibus claim. In the **non-substitutable** cells — E2_c2 | batched and E3_c2 | batched, where M4's elevator-lever term is large — tactical wave design and strong operational policy combine for up to ~9 % mean makespan reduction, significant at 2/3 sizes (E2) and 3/3 sizes (E3). In the **substitutable** cells — E1_c2 (no elevator lever) and all three abstraction cells (capacity invisible) — operational clustering absorbs the tactical lever entirely, and H1 is (correctly) null. We read this as a **regime-conditional substitutability map** — to our knowledge the first in the multi-storey AMR warehouse literature — which directly cross-validates M4's elevator-lever diagnostic: high $H_{\mathrm{up}}$ cells are precisely the cells where P1 wins.
+
+**Scope boundary under order-arrival stagger (Appendix A.2).** A 14 400-simulation cross-check at stagger CV = 0.5 shows the substitutability pattern holds *as a property of tight waves*: when orders arrive with non-trivial inter-arrival gaps, the elevator has forced idle windows during which FIFO and cluster dispatch produce identical sequences, and the P1 advantage collapses (E2_c2|batched mean delta shrinks from −10.6 s to +0.1 s; E3_c2|batched from −6.8 s to −3.4 s with 1/3 sizes sig). We therefore scope the H1 finding to the *wave-release coordination problem* as formalised in §4 — tight release windows — and read the stagger-dependence as a principled boundary rather than a limitation: as $T$-CV grows past the wave regime, our problem class dissolves into a stream-pacing problem outside the paper's scope.
 
 ### 6.5 Figures cross-reference
 See Figures 9 below.
@@ -302,11 +309,12 @@ Three findings, in narrative order:
 Be ruthless and concrete; reviewers reward this.
 
 1. **Simulator-only, three regimes** — c=2 only, three E values, no real warehouse data. Wu 2024 and Keung 2023 had real-system grounding; we do not yet.
-2. **$T \equiv 0$ artefact** — v0.2 simulator releases all orders at $t=0$; 8-octant partition collapses to 2×2 (R2). Documented; v0.5 fix. *(Note: the partition refinement effect itself is now explained by Corollary M4.4 — only the T=0 collapse remains as a v0.5 fix item.)*
-3. **$\beta(C)$ sign within regime is bootstrap-soft (76–85 %)** — we use it as a coarse cross-regime probe, not a fine-grained classifier. (Cited at every place where the sign-flip appears.)
-4. **Phase 4 H1 tested in restricted form** — we compare destination-clustered batching (P1) to FIFO (P0) under the same wave corners rather than against a full FCFS / operational-optimal baseline. Within that scope, P1 beats P0 significantly in the two cells M4 singles out as elevator-lever-dominated (E2_c2|batched, E3_c2|batched); in the remaining cells the gap is n.s. or slightly negative, which is itself consistent with the M4 diagnostic. Broader "tactical adds X % on top of operational-optimal" comparison is still v0.5 work.
-5. **Φ is conceptual not predictive** — predictive accuracy of OLS-on-Φ is moderate (~$R^2 = 0.4$–0.6); we use $\Phi$ for interpretation, not forecasting.
-6. **Two elevator models, one stochastic family** — M5 collapse is tested under three nominal models ($M_1$, $M_2$, $M_3$); other failure modes (elevator breakdowns, partial-load policies) not modelled.
+2. **Intra-floor AMR motion is abstracted (Gap 1)** — horizontal AMR routing is collapsed into a constant `service_time = 5.0 s` per pickup/dropoff. Appendix A.1 (24 000 sims, 6 cells × 4 σ) shows the M4 GAP framework's best-corner identification is invariant in 5/6 cells up to service-time CV = 131 % and MOSTLY ROBUST in the remaining cell (flips only at CV = 1.0). Explicit path-congestion modelling (Srinivas–Yu 2022; Zhang et al. 2025) is orthogonal future work.
+3. **$T$ dimension is activated, not empty (Gap 2)** — we instrument the simulator with per-order `release_time`, re-run the Phase 1.5 regression at stagger CV = 0.5, and compute the activated $T$ feature across 3 000 waves. $T$ has non-trivial variance (empirical mean 0.48, std 0.10); the M4 best-corner identification holds in 5/6 cells at stagger CV up to 1.0 (Appendix A.2, 24 000 sims). The H1 substitutability map is tight-wave-specific: a 14 400-simulation cross-check at CV = 0.5 shows the P1-over-P0 advantage concentrates in burst wave-releases, consistent with our formalisation of the wave-release coordination problem in §4. $\beta(T)$ is the weakest of the three $\Phi$ coefficients, consistent with our framing of $\Phi$ as conceptual (L7).
+4. **Directional elevator dynamics tested as a fourth model (Gap 3)** — Appendix A.3 (12 000 paired sims across all 6 cells) introduces $M_4$ = directional batching (3 s switch penalty). Per-wave dominance $\mathbb{P}[M_4 \ge M_{\mathrm{ref}}] = 97.7 \%$ extends Proposition M5.1's assumption (D) at $\epsilon \approx 0.023$; the corner-argmin stability pattern — preserved in 3/3 batched reference cells, flipped in 3/3 abstraction reference cells — is a textbook empirical case of Corollary M5.2's stable-argmin condition, reinforcing rather than weakening M5.
+5. **$\beta(C)$ sign within regime is bootstrap-soft (76–85 %)** — we use it as a coarse cross-regime probe, not a fine-grained classifier. (Cited at every place where the sign-flip appears.)
+6. **Phase 4 H1 tested in restricted form** — we compare destination-clustered batching (P1) to FIFO (P0) under the same wave corners rather than against a full FCFS / operational-optimal baseline. Within that scope, P1 beats P0 significantly in the two cells M4 singles out as elevator-lever-dominated (E2_c2|batched, E3_c2|batched); in the remaining cells the gap is n.s. or slightly negative, which is itself consistent with the M4 diagnostic. Broader "tactical adds X % on top of operational-optimal" comparison is still v0.5 work.
+7. **Φ is conceptual not predictive** — predictive accuracy of OLS-on-Φ is moderate (~$R^2 = 0.4$–0.6); we use $\Phi$ for interpretation, not forecasting.
 
 *(Removed from earlier draft: previous L4 "M5 knife-edge in E2_c2 at σ=0.20" — this is now a Corollary M5.2 prediction (numerically verified); it appears in §5.4 as a feature of the theory, not a limitation of the paper.)*
 

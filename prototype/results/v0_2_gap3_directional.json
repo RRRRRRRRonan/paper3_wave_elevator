@@ -1,0 +1,177 @@
+{
+  "generated": "2026-04-22",
+  "purpose": "Gap 3 \u2014 directional extension across 6 cells (2 ref models x 3 regimes)",
+  "dir_switch_penalty": 3.0,
+  "size": 6,
+  "n_per_arm": 200,
+  "per_cell": [
+    {
+      "regime": "E1_c2",
+      "ref_model": "abstraction",
+      "cstar_ref": "HC_HI",
+      "cstar_M4": "LC_HI",
+      "argmin_match": false,
+      "mean_dominance_pct": 0.998,
+      "per_arm_dominance": {
+        "random": 1.0,
+        "HC_HI": 1.0,
+        "HC_LI": 1.0,
+        "LC_HI": 0.995,
+        "LC_LI": 0.995
+      },
+      "corner_medians_ref": {
+        "HC_HI": 174.0,
+        "HC_LI": 178.0,
+        "LC_HI": 182.5,
+        "LC_LI": 188.5
+      },
+      "corner_medians_M4": {
+        "HC_HI": 252.0,
+        "HC_LI": 255.0,
+        "LC_HI": 251.0,
+        "LC_LI": 260.5
+      }
+    },
+    {
+      "regime": "E1_c2",
+      "ref_model": "batched",
+      "cstar_ref": "HC_HI",
+      "cstar_M4": "HC_HI",
+      "argmin_match": true,
+      "mean_dominance_pct": 1.0,
+      "per_arm_dominance": {
+        "random": 1.0,
+        "HC_HI": 1.0,
+        "HC_LI": 1.0,
+        "LC_HI": 1.0,
+        "LC_LI": 1.0
+      },
+      "corner_medians_ref": {
+        "HC_HI": 235.0,
+        "HC_LI": 240.0,
+        "LC_HI": 245.0,
+        "LC_LI": 235.0
+      },
+      "corner_medians_M4": {
+        "HC_HI": 248.0,
+        "HC_LI": 255.0,
+        "LC_HI": 256.0,
+        "LC_LI": 253.0
+      }
+    },
+    {
+      "regime": "E2_c2",
+      "ref_model": "abstraction",
+      "cstar_ref": "HC_HI",
+      "cstar_M4": "LC_HI",
+      "argmin_match": false,
+      "mean_dominance_pct": 0.991,
+      "per_arm_dominance": {
+        "random": 0.995,
+        "HC_HI": 1.0,
+        "HC_LI": 0.995,
+        "LC_HI": 0.975,
+        "LC_LI": 0.99
+      },
+      "corner_medians_ref": {
+        "HC_HI": 110.0,
+        "HC_LI": 115.0,
+        "LC_HI": 111.0,
+        "LC_LI": 116.0
+      },
+      "corner_medians_M4": {
+        "HC_HI": 165.5,
+        "HC_LI": 167.0,
+        "LC_HI": 158.0,
+        "LC_LI": 161.0
+      }
+    },
+    {
+      "regime": "E2_c2",
+      "ref_model": "batched",
+      "cstar_ref": "LC_HI",
+      "cstar_M4": "LC_HI",
+      "argmin_match": true,
+      "mean_dominance_pct": 0.9639999999999999,
+      "per_arm_dominance": {
+        "random": 0.975,
+        "HC_HI": 0.965,
+        "HC_LI": 0.945,
+        "LC_HI": 0.96,
+        "LC_LI": 0.975
+      },
+      "corner_medians_ref": {
+        "HC_HI": 159.0,
+        "HC_LI": 164.5,
+        "LC_HI": 151.0,
+        "LC_LI": 159.0
+      },
+      "corner_medians_M4": {
+        "HC_HI": 165.0,
+        "HC_LI": 171.0,
+        "LC_HI": 157.5,
+        "LC_LI": 165.0
+      }
+    },
+    {
+      "regime": "E3_c2",
+      "ref_model": "abstraction",
+      "cstar_ref": "HC_HI",
+      "cstar_M4": "LC_HI",
+      "argmin_match": false,
+      "mean_dominance_pct": 0.983,
+      "per_arm_dominance": {
+        "random": 0.99,
+        "HC_HI": 0.985,
+        "HC_LI": 0.995,
+        "LC_HI": 0.95,
+        "LC_LI": 0.995
+      },
+      "corner_medians_ref": {
+        "HC_HI": 82.0,
+        "HC_LI": 87.0,
+        "LC_HI": 86.0,
+        "LC_LI": 91.0
+      },
+      "corner_medians_M4": {
+        "HC_HI": 122.0,
+        "HC_LI": 131.0,
+        "LC_HI": 114.0,
+        "LC_LI": 126.0
+      }
+    },
+    {
+      "regime": "E3_c2",
+      "ref_model": "batched",
+      "cstar_ref": "LC_HI",
+      "cstar_M4": "LC_HI",
+      "argmin_match": true,
+      "mean_dominance_pct": 0.925,
+      "per_arm_dominance": {
+        "random": 0.925,
+        "HC_HI": 0.925,
+        "HC_LI": 0.91,
+        "LC_HI": 0.955,
+        "LC_LI": 0.91
+      },
+      "corner_medians_ref": {
+        "HC_HI": 120.0,
+        "HC_LI": 125.0,
+        "LC_HI": 111.0,
+        "LC_LI": 121.0
+      },
+      "corner_medians_M4": {
+        "HC_HI": 122.5,
+        "HC_LI": 128.0,
+        "LC_HI": 114.0,
+        "LC_LI": 122.0
+      }
+    }
+  ],
+  "overall": {
+    "n_cells": 6,
+    "n_argmin_match": 3,
+    "mean_dominance_pct": 0.9768333333333333,
+    "verdict": "SCOPE LIMIT \u2014 M_4 breaks dominance or argmin in majority of cells"
+  }
+}
