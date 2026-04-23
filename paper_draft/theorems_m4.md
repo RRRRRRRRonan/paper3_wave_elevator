@@ -63,7 +63,7 @@ These are orthogonal failure modes. For a given cell, the operator can ask:
 | Large both | High partition contrast **and** Φ is missing it | Highest priority: Φ feature expansion |
 | Small both | GAP ≈ 0; partition gives little leverage | Tactical wave planning is not a lever here |
 
-This is the *constructive* reading of M4 that C3-C (§6.5 of [outline_v0_1.md](outline_v0_1.md)) promises.
+This is the *constructive* reading of M4 that C3-1 and C3-3 (§6.6 of [outline_v0_1.md](outline_v0_1.md); v0.2 restructure) deliver.
 
 ## 5. Corollary (linear-model lower bound in terms of OLS coefficients)
 
@@ -141,7 +141,7 @@ Three wins for §5.3 of [outline_v0_1.md](outline_v0_1.md):
 ## 11. Where this feeds into the paper
 
 - **§1 abstract**: add 1 phrase: "*whose decomposition into partition-intrinsic and policy components gives a constructive per-cell diagnostic*".
-- **§5.3 body**: insert Proposition M4.1 + 3-line proof + diagnostic table (§4 of this doc). Corollary M4.3 goes in §5.3 if linearity discussion is already there, else appendix.
+- **§5.2 body** (new numbering after v0.2 restructure): insert Proposition M4.1 + 3-line proof + diagnostic table (§4 of this doc). Corollary M4.3 goes in §5.2 if linearity discussion is already there, else appendix.
 - **§6.4.1 (R1 results)**: rewrite from "6/6 cells have GAP CI > 0" to "6/6 cells have GAP CI > 0 **as predicted by Corollary M4.2**, with $H_{\mathrm{up}}$ and $M_\Phi$ each contributing strictly positive mass".
 - **§6.4.2 (R2 results)**: reframe 3×3 inflation as "*anticipated by Corollary M4.4's refinement monotonicity*"; Spearman 0.94 becomes the *stable-component* result, not a rescue from inflation.
 - **§8 limitations**: remove L3's "3×3 inflation is unexplained" subtlety — it is now predicted.

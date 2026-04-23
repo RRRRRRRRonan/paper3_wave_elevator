@@ -31,7 +31,7 @@ Total target: **≈ 7,500 words** main text (≈ 8 pages two-column), **+ ≈ 1 
 
 ## §1. Abstract — *target 200 words*
 
-**Goal**: in one paragraph, sell C1 (problem), C2-M4 + C2-M5 (methods), C3-A + C3-C (the two findings most likely to land with a reviewer).
+**Goal**: in one paragraph, sell C1 (problem), C2-M4 + C2-M5 (methods, with M4-M5 unification), C3-1 + C3-3 (prospective diagnostic + substitutability map).
 
 **Key claims (assemble verbatim from [novelty_analysis_and_contribution.md §11.2](../novelty_analysis_and_contribution.md#112-v04-contributions-paragraph-paste-this-into-paper-3))**:
 1. We formalise the *wave release coordination problem under vertical resource constraints* — a two-stage scheduling problem coupling tactical wave composition and operational AMR–elevator execution.
@@ -123,12 +123,11 @@ Pin down the decision architecture, the surrogate $\Phi$, and the makespan objec
 
 ## §5. Methodology (C2) — *target 1,400 words*
 
-This is the methodological heart. Four sub-contributions (M1, M3, M4, M5) but only M4 and M5 get full treatment; M1 (architecture) and M3 (model-abstraction effect) are described concisely.
+§5 develops three core components of C2: **C2-Φ** (structured decomposition, §4.3 sets the definitions; §5.1 below gives the practitioner caveat that motivates C2-M5), **C2-M4** (Bound-and-Gap framework, §5.2), and **C2-M5** (Model-Dominance Hedge Rule, §5.3). §5.4 is a short bridge showing that M4 and M5 share the same applicability domain — a unification that makes the two frameworks operationally inseparable.
 
-### 5.1 Two-stage decision architecture (M1) — *~200 words*
-Plain restatement; cite [§11.3 (M1) of novelty doc](../novelty_analysis_and_contribution.md#113-updated-three-layer-novelty-structure-replaces-32-v04). One sentence per stage; one sentence on why the decomposition makes the problem tractable.
+*(The two-stage decision architecture from previous drafts is now §4.2, Problem formulation, rather than a standalone C2 contribution.)*
 
-### 5.2 Elevator-model selection as a first-class decision for structured-feature analysis (M3) — *~200 words*
+### 5.1 Elevator-model selection as a practitioner caveat on Φ — *~180 words*
 
 Reframed in v0.2 from "model-abstraction caveat" to **practitioner rule**:
 
@@ -137,7 +136,7 @@ Reframed in v0.2 from "model-abstraction caveat" to **practitioner rule**:
 - **Practitioner rule**: throughput-abstraction is admissible for any wave-ranking or triage task (its output is rank-equivalent to true batching on 85–93 % of pairs). It is *not* admissible for any decision that interprets $\beta$ — design of wave-composition policies, estimation of per-unit lever sizes, or comparisons across regimes. For the latter, true batching is required.
 - The one-line decision aid operationalising this rule is C2-M5 (Hedge Rule): when two elevator models disagree on $\beta(C)$ sign, the minimax corner under per-wave stochastic dominance collapses to "follow $M_2$". The M3 practitioner rule is therefore not a caveat appended to M5; it is M5's motivation.
 
-### 5.3 Bound-and-Gap framework for wave-structure value (M4) — *~500 words*
+### 5.2 Bound-and-Gap framework for wave-structure value (M4) — *~480 words*
 
 **Definitions** (formal):
 - For a (regime, size) cell, fix a quartile partition of $(C, I)$ feature space into 4 corners $\mathcal{Q} = \{HC\text{-}HI, HC\text{-}LI, LC\text{-}HI, LC\text{-}LI\}$.
@@ -155,7 +154,7 @@ Reframed in v0.2 from "model-abstraction caveat" to **practitioner rule**:
 
 **Closest prior art** (cite from §3): Elmachtoub–Grigas 2022 (regret on training loss), Vera et al. 2022 (algorithmic regret), Chenreddy–Delage 2023 (uncertainty-set learning). Delta: M4 is a *post-hoc, fixed-partition information-value gap with a closed-form decomposition* in the warehouse-OR setting.
 
-### 5.4 Model-Dominance Hedge Rule (M5) — *~500 words*
+### 5.3 Model-Dominance Hedge Rule (M5) — *~480 words*
 
 **Setup**:
 - Choose corner $c^\star = \arg\min_{c \in \mathcal{Q}} \max\bigl\{\,\tilde{T}_{M_1}(c), \, \tilde{T}_{M_2}(c)\,\bigr\}$.
@@ -177,6 +176,12 @@ Reframed in v0.2 from "model-abstraction caveat" to **practitioner rule**:
 
 **Closest prior art**: Lu–Shen 2021 (umbrella robust OM); Wiesemann–Kuhn–Rustem 2014 (parametric uncertainty); robust-MDP line. Delta: structural model-class uncertainty + closed-form collapse in a warehouse-OR setting.
 
+### 5.4 M4 and M5 as two faces of one regime boundary — *~150 words*
+
+Propositions M4.1 and M5.1 are distinct mathematical objects — the former is a partition-based identity $\mathrm{GAP} = H_{\mathrm{up}} + M_\Phi$ that holds universally; the latter is an argmin-collapse theorem conditional on per-wave dominance (D). The two are nonetheless **operationally inseparable** for a reason empirical rather than algebraic: both frameworks deliver prospective guidance only when batching is operationally active at the elevator layer (capacity ≥ 2 and a true co-occupancy model rather than throughput-abstraction).
+
+A direct test (Appendix B.1, S1). A composite predictor derived from Corollary M5.2's applicability domain — `batched AND E ≥ 2` — classifies all 6 (regime, elevator-model) cells correctly on whether destination-clustered batching will beat FIFO in the Phase 4 H1 experiment. Within the batched subset, Pearson$(H_{\mathrm{up}}, \Delta_{\mathrm{H1}}) = -0.67$: cells with larger elevator-lever headroom are exactly the cells where the Hedge Rule collapse is sharp. The Bound-and-Gap framework and the Hedge Rule are therefore not independent tools but **two faces of one regime boundary**: the batching-operative regime where wave-structure signal converts into schedulable makespan reduction.
+
 ---
 
 ## §6. Experimental setup and results — *target 1,800 words*
@@ -187,8 +192,8 @@ Reframed in v0.2 from "model-abstraction caveat" to **practitioner rule**:
 - Sanity: $\sigma = 0$ reproduces deterministic batched 72 s on canonical 5×(1→3) hand-computed scenario; $\sigma = 0.1$ over 50 seeds gives 72.31 ± 2.62 s.
 - Wave generator: pool size 200 candidates per (regime, size) band; corner arms = top/bottom 25 % quartiles on $(C, I)$.
 
-### 6.2 Phase 1.5 — elevator-model selection as a first-class decision (~250 words)
-*(Establishes the M3 practitioner rule that M5 operationalises.)*
+### 6.2 Phase 1.5 — elevator-model selection as a practitioner caveat (~250 words)
+*(Supplies empirical foundation for the §5.1 practitioner caveat that motivates C2-M5.)*
 
 - Same waves run under $M_1$ and $M_2$, OLS fit `makespan ~ size + C + I + T + cross_floor + floor_distance` per regime.
 - **Ranking agreement**: paired-wave Spearman $r \in [0.85, 0.93]$ across all 3 regimes; abstraction preserves ordering and is therefore admissible for triage.
@@ -212,7 +217,7 @@ Reframed in v0.2 from "model-abstraction caveat" to **practitioner rule**:
 
 **Take-away**: $\Phi$ direction is right (no negative cells) but magnitude undersized — captures **25–50 %** of available wave-structure signal. This is the empirical seed of M4's GAP definition.
 
-**Regime-conditional Arm B**: E2/E3 batched picked **LC_HI** (because $\beta(C)$ flipped sign), all others picked **HC_HI**. Validates the §5.2 model-abstraction caveat.
+**Regime-conditional Arm B**: E2/E3 batched picked **LC_HI** (because $\beta(C)$ flipped sign), all others picked **HC_HI**. Validates the §5.1 model-abstraction caveat.
 
 **Figures**: [phase4_v2_option1_bar.png](../prototype/results/figures/phase4_v2_option1_bar.png), [phase4_v2_option2_bar.png](../prototype/results/figures/phase4_v2_option2_bar.png), [phase4_v2_corner_heatmap.png](../prototype/results/figures/phase4_v2_corner_heatmap.png).
 
@@ -267,16 +272,13 @@ Pre-registered test of a concrete P1 operating policy against P0 (FIFO) to isola
 
 **Scope boundary under order-arrival stagger (Appendix A.2).** A 14 400-simulation cross-check at stagger CV = 0.5 shows the substitutability pattern holds *as a property of tight waves*: when orders arrive with non-trivial inter-arrival gaps, the elevator has forced idle windows during which FIFO and cluster dispatch produce identical sequences, and the P1 advantage collapses (E2_c2|batched mean delta shrinks from −10.6 s to +0.1 s; E3_c2|batched from −6.8 s to −3.4 s with 1/3 sizes sig). We therefore scope the H1 finding to the *wave-release coordination problem* as formalised in §4 — tight release windows — and read the stagger-dependence as a principled boundary rather than a limitation: as $T$-CV grows past the wave regime, our problem class dissolves into a stream-pacing problem outside the paper's scope.
 
-### 6.5 Figures cross-reference
-See Figures 9 below.
+### 6.6 Insight readout (C3) — *~320 words*
 
-### 6.5 Insight readout (C3) — *~300 words*
+Three findings, each directly paired with a C2 component. Reading order: C3-1 (M4 side) → C3-2 (M5 side) → C3-3 (joint regime map).
 
-Three findings, in narrative order:
-
-- **C3-A — regime sensitivity**: $R^2$ gain from $\Phi$ over a size-only baseline grows ~10× as fleet–elevator imbalance is relieved (E1 c=1 → E3 c=2). Interpretation: *the value of structured wave planning is a function of the fleet–elevator capacity balance, not of waves in isolation*.
-- **C3-B — $\beta(C)$ as a coarse regime probe**: under $M_1$ (parallelism-limited), $\beta(C) < 0$; under $M_2$ in fleet-poor regimes (batching-limited), $\beta(C) > 0$. Cross-regime persistent; within-regime bootstrap-soft (76–85 % sign-stability). Use as coarse diagnostic only.
-- **C3-C — $\Phi$ captures 25–50 %**: combining M4's GAP definition with $\Phi$-informed corner selection (Phase 4 v2 Option 1 ÷ Option 2) shows captured-fraction roughly 25–50 % across cells. Validates GAP as a *diagnostic*, identifies feature-engineering as the v0.5+ direction.
+- **C3-1 (paired with C2-M4) — the Bound-and-Gap framework is both diagnostic and prospective.** Across the 6 (regime, model) cells, $R^2$ gain from $\Phi$ over a size-only baseline grows ~10× as fleet–elevator imbalance is relieved, and cell-level $H_{\mathrm{up}}$ (the partition-intrinsic component of the GAP decomposition) tracks this pattern mechanically. Within the batched subset — the domain where M5.2's collapse rule is sharp — $H_{\mathrm{up}}$ **prospectively classifies all 6 cells** on whether destination-clustered batching will beat FIFO in the Phase 4 H1 experiment (composite predictor 6/6 correct; within-batched Pearson$(H_{\mathrm{up}}, \Delta_{\mathrm{H1}}) = -0.67$; Appendix B.1). The GAP decomposition is therefore forward-looking, not only retrospective.
+- **C3-2 (paired with C2-M5) — the Hedge Rule generalises beyond the c = 2 case.** Per-wave stochastic dominance $\mathbb{P}[M_2 \ge M_1] = 99.4 \%$ across $c \in \{2, 3, 4, 5\}$ (Appendix B.3, 8 000 paired sims); the Hedge Rule's applicability persists at higher capacities. $\beta(C)$ sign is retained as a *coarse regime probe* (bootstrap-soft at 76–85 % within regime, cross-regime persistent) — but framed here as a *symptom* of the underlying dominance rather than the load-bearing fact.
+- **C3-3 (paired with C2 as a framework) — the tactical-operational substitutability map is regime-conditional.** Destination-clustered batching beats FIFO (H1 pre-registered 14 400 sims) precisely in the 2/6 cells the Bound-and-Gap framework flags as elevator-lever-dominated, and the non-substitutability decays along two independent axes: the capacity-slack axis (shown by the 6-cell sweep) and the wave-looseness axis (Appendix B.2 phase diagram across stagger CV ∈ {0, 0.2, 0.5, 1.0}). This is, to our knowledge, the first empirical map of tactical-operational substitutability in multi-storey AMR warehouses.
 
 ---
 
@@ -316,7 +318,7 @@ Be ruthless and concrete; reviewers reward this.
 6. **Phase 4 H1 tested in restricted form** — we compare destination-clustered batching (P1) to FIFO (P0) under the same wave corners rather than against a full FCFS / operational-optimal baseline. Within that scope, P1 beats P0 significantly in the two cells M4 singles out as elevator-lever-dominated (E2_c2|batched, E3_c2|batched); in the remaining cells the gap is n.s. or slightly negative, which is itself consistent with the M4 diagnostic. Broader "tactical adds X % on top of operational-optimal" comparison is still v0.5 work.
 7. **Φ is conceptual not predictive** — predictive accuracy of OLS-on-Φ is moderate (~$R^2 = 0.4$–0.6); we use $\Phi$ for interpretation, not forecasting.
 
-*(Removed from earlier draft: previous L4 "M5 knife-edge in E2_c2 at σ=0.20" — this is now a Corollary M5.2 prediction (numerically verified); it appears in §5.4 as a feature of the theory, not a limitation of the paper.)*
+*(Removed from earlier draft: previous L4 "M5 knife-edge in E2_c2 at σ=0.20" — this is now a Corollary M5.2 prediction (numerically verified); it appears in §5.3 as a feature of the theory, not a limitation of the paper.)*
 
 ---
 
@@ -408,9 +410,9 @@ Eight figures planned, in this order in the paper. Six already exist; two are ne
 | F3 | [phase1_5_betaC_comparison.png](../prototype/results/figures/phase1_5_betaC_comparison.png) | §6.2 | $\beta(C)$ flips sign across $M_1 \to M_2$ |
 | F4 | [phase4_v2_option2_bar.png](../prototype/results/figures/phase4_v2_option2_bar.png) | §6.3 | Corner spread (Option 2) per cell — UB visual |
 | F5 | [phase4_v2_corner_heatmap.png](../prototype/results/figures/phase4_v2_corner_heatmap.png) | §6.3 | Per-cell × per-size × per-corner makespan heatmap |
-| F6 | [phase4_v2_gap_ci.png](../prototype/results/figures/phase4_v2_gap_ci.png) | §6.4.1 / §5.3 | GAP bootstrap CIs, 6/6 cells exclude 0 |
+| F6 | [phase4_v2_gap_ci.png](../prototype/results/figures/phase4_v2_gap_ci.png) | §6.4.1 / §5.2 | GAP bootstrap CIs, 6/6 cells exclude 0 |
 | F7 | [phase4_v2_partition_refinement.png](../prototype/results/figures/phase4_v2_partition_refinement.png) | §6.4.2 | UB under 2×2 / 3×3 / 8-octant partitions |
-| F8 | [phase4_v2_m3_medians.png](../prototype/results/figures/phase4_v2_m3_medians.png) | §6.4.3 / §5.4 | Median makespan under M1/M2/M3 σ=0.1/M3 σ=0.2 |
+| F8 | [phase4_v2_m3_medians.png](../prototype/results/figures/phase4_v2_m3_medians.png) | §6.4.3 / §5.3 | Median makespan under M1/M2/M3 σ=0.1/M3 σ=0.2 |
 | F9 | [phase4_H1_delta.png](../prototype/results/figures/phase4_H1_delta.png) | §6.4.5 | P1 − P0 delta with 95 % paired-bootstrap CIs per (cell, size, arm); green = sig P1 better |
 | F10 | (new) substitutability phase diagram | App B.2 | H1 P1-vs-P0 supported/not grid across 6 cells × 4 stagger CVs |
 | F11 | (new) cross-cell meta β surface | App B.7 | β(C) surface from unified meta-regression vs per-cell fits |

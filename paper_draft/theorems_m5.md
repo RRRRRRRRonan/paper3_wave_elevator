@@ -102,7 +102,7 @@ Three wins for §5.4 of [outline_v0_1.md](outline_v0_1.md):
 ## 8. Where this feeds into the paper
 
 - **§1 abstract**: replace "we show that this collapses in $c=2$ regimes to a closed-form rule" with "*we prove that under per-wave stochastic dominance (empirically validated at 92.5–100 %), this collapses to a closed-form rule*". 1-word "prove" replaces "show" — a reviewer-visible upgrade.
-- **§5.4 body**: insert Proposition M5.1 + proof (8 lines) + Corollary M5.2 statement (4 lines) + interpretation paragraph (~100 words).
+- **§5.3 body** (new numbering after v0.2 restructure): insert Proposition M5.1 + proof (8 lines) + Corollary M5.2 statement (4 lines) + interpretation paragraph (~100 words).
 - **§8 limitations**: rewrite L4 "E2_c2 knife-edge" from caveat to "predicted regime of Corollary M5.2" — now a feature, not a bug.
 - **§11 appendix**: full Corollary M5.2 proof with closed-form $\Delta_c$ bound (once §7 open items are resolved).
 
