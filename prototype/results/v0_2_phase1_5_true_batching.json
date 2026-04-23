@@ -1,0 +1,238 @@
+{
+  "generated": "2026-04-21",
+  "description": "Phase 1.5 batched vs throughput-abstraction comparison for c=2 regimes",
+  "per_regime": {
+    "E1_c2": {
+      "makespan_abstraction": {
+        "mean": 162.57,
+        "median": 159.0,
+        "std": 54.54350643380103
+      },
+      "makespan_batched": {
+        "mean": 213.69,
+        "median": 210.0,
+        "std": 74.39538004857944
+      },
+      "delta_batched_minus_abstraction": {
+        "mean": 51.12,
+        "median": 47.0,
+        "std": 31.52468239332476,
+        "frac_batched_larger": 0.952
+      },
+      "pearson_makespans": 0.9259813505866761,
+      "r2_cv": {
+        "M1": 0.8314411419012705,
+        "M2": 0.8402505637451988,
+        "M3": 0.8402079364685135,
+        "M3_minus_M2": -4.262727668524757e-05
+      },
+      "betas_batched_ols": {
+        "size": 38.15415985319255,
+        "floor_distance": 1.1052313792454527,
+        "C": -6.543023188678694,
+        "I": -4.262734201061908
+      },
+      "betas_bootstrap": {
+        "size": {
+          "mean": 38.233823878671885,
+          "lo": 35.75407627553694,
+          "hi": 40.604258780609904
+        },
+        "floor_distance": {
+          "mean": 1.0796929997298574,
+          "lo": 0.2265671497704223,
+          "hi": 1.9805815160549896
+        },
+        "C": {
+          "mean": -7.009887085253214,
+          "lo": -22.862907950985463,
+          "hi": 8.292502098146599
+        },
+        "I": {
+          "mean": -4.25784098261026,
+          "lo": -10.985324168327917,
+          "hi": 2.771548412916825
+        }
+      },
+      "betas_abstraction_ols_for_ref": {
+        "size": 26.243855274682005,
+        "floor_distance": 1.1073396008052212,
+        "C": -23.988723691359503,
+        "I": -12.0389035746596
+      }
+    },
+    "E2_c2": {
+      "makespan_abstraction": {
+        "mean": 102.377,
+        "median": 101.0,
+        "std": 32.92377326258104
+      },
+      "makespan_batched": {
+        "mean": 145.852,
+        "median": 140.5,
+        "std": 49.68318140492328
+      },
+      "delta_batched_minus_abstraction": {
+        "mean": 43.475,
+        "median": 43.0,
+        "std": 26.690361087853418,
+        "frac_batched_larger": 0.945
+      },
+      "pearson_makespans": 0.8678867059953604,
+      "r2_cv": {
+        "M1": 0.6621282431314184,
+        "M2": 0.6790251831067402,
+        "M3": 0.6816443353632813,
+        "M3_minus_M2": 0.0026191522565410796
+      },
+      "betas_batched_ols": {
+        "size": 21.00796640197521,
+        "floor_distance": 1.0859344434217124,
+        "C": 4.914818088397986,
+        "I": -13.676850320354745
+      },
+      "betas_bootstrap": {
+        "size": {
+          "mean": 21.034937502120425,
+          "lo": 18.86724682074517,
+          "hi": 23.272734033684056
+        },
+        "floor_distance": {
+          "mean": 1.0789961183518813,
+          "lo": 0.3615958926878758,
+          "hi": 1.8002103956681077
+        },
+        "C": {
+          "mean": 4.4628501299499,
+          "lo": -10.68318680153906,
+          "hi": 20.17262440500729
+        },
+        "I": {
+          "mean": -13.799565261975062,
+          "lo": -21.01799582673429,
+          "hi": -7.411836051920261
+        }
+      },
+      "betas_abstraction_ols_for_ref": {
+        "size": 14.704985679763762,
+        "floor_distance": 0.5406727877085844,
+        "C": -5.782829004714839,
+        "I": -11.808852263225024
+      }
+    },
+    "E3_c2": {
+      "makespan_abstraction": {
+        "mean": 81.8,
+        "median": 78.0,
+        "std": 22.341601266407633
+      },
+      "makespan_batched": {
+        "mean": 109.41,
+        "median": 106.0,
+        "std": 36.59550698010797
+      },
+      "delta_batched_minus_abstraction": {
+        "mean": 27.61,
+        "median": 25.0,
+        "std": 21.32955461325904,
+        "frac_batched_larger": 0.859
+      },
+      "pearson_makespans": 0.84574927179168,
+      "r2_cv": {
+        "M1": 0.5996577281843616,
+        "M2": 0.6222147651927022,
+        "M3": 0.6340695013334356,
+        "M3_minus_M2": 0.011854736140733402
+      },
+      "betas_batched_ols": {
+        "size": 14.251480800522057,
+        "floor_distance": 0.8246899436311907,
+        "C": 5.182964471459432,
+        "I": -16.483346943429428
+      },
+      "betas_bootstrap": {
+        "size": {
+          "mean": 14.267075103785633,
+          "lo": 12.490853579405146,
+          "hi": 15.986108550185898
+        },
+        "floor_distance": {
+          "mean": 0.825385265928902,
+          "lo": 0.19654076626904807,
+          "hi": 1.4163463720841485
+        },
+        "C": {
+          "mean": 4.8092171920944145,
+          "lo": -6.575760590162771,
+          "hi": 16.210519861647008
+        },
+        "I": {
+          "mean": -16.47392489586932,
+          "lo": -22.122539852670595,
+          "hi": -10.755248967240945
+        }
+      },
+      "betas_abstraction_ols_for_ref": {
+        "size": 9.171430121473676,
+        "floor_distance": 0.4643560196839403,
+        "C": -7.59987503739981,
+        "I": -9.176858327877335
+      }
+    }
+  },
+  "summary": {
+    "max_M3_minus_M2_batched": 0.011854736140733402,
+    "max_regime": "E3_c2",
+    "decision_gate_verdict": "SURROGATE_FINAL_REJECTED",
+    "betaC_sign_abstraction": {
+      "E1_c2": -1,
+      "E2_c2": -1,
+      "E3_c2": -1
+    },
+    "betaC_sign_batched": {
+      "E1_c2": -1,
+      "E2_c2": 1,
+      "E3_c2": 1
+    },
+    "betaC_sign_agreement": {
+      "E1_c2": true,
+      "E2_c2": false,
+      "E3_c2": false
+    },
+    "paired_summary_table": [
+      {
+        "regime": "E1_c2",
+        "mk_abs_median": 159.0,
+        "mk_bat_median": 210.0,
+        "delta_median": 47.0,
+        "pearson": 0.9259813505866761,
+        "M3-M2_abs": null,
+        "M3-M2_bat": -4.262727668524757e-05,
+        "betaC_abs": -23.988723691359503,
+        "betaC_bat": -6.543023188678694
+      },
+      {
+        "regime": "E2_c2",
+        "mk_abs_median": 101.0,
+        "mk_bat_median": 140.5,
+        "delta_median": 43.0,
+        "pearson": 0.8678867059953604,
+        "M3-M2_abs": null,
+        "M3-M2_bat": 0.0026191522565410796,
+        "betaC_abs": -5.782829004714839,
+        "betaC_bat": 4.914818088397986
+      },
+      {
+        "regime": "E3_c2",
+        "mk_abs_median": 78.0,
+        "mk_bat_median": 106.0,
+        "delta_median": 25.0,
+        "pearson": 0.84574927179168,
+        "M3-M2_abs": null,
+        "M3-M2_bat": 0.011854736140733402,
+        "betaC_abs": -7.59987503739981,
+        "betaC_bat": 5.182964471459432
+      }
+    ]
+  }
+}

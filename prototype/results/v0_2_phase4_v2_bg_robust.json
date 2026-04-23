@@ -1,0 +1,292 @@
+{
+  "generated": "2026-04-22",
+  "purpose": "Verify Method B (bound-and-gap) and Method C (robust-corner) are realisable from existing Phase 4 v2 data.",
+  "method_B": {
+    "per_cell": {
+      "E1_c2|abstraction": {
+        "favorable_corner": "HC_HI",
+        "UB_per_size": [
+          0.0944206008583691,
+          0.08100558659217877,
+          0.10583153347732181
+        ],
+        "LB_per_size": [
+          -0.03862660944206009,
+          0.027932960893854747,
+          0.07991360691144708
+        ],
+        "GAP_per_size": [
+          0.1330472103004292,
+          0.05307262569832402,
+          0.02591792656587473
+        ],
+        "UB_mean": 0.09375257364262324,
+        "LB_mean": 0.023073319454413915,
+        "GAP_mean": 0.07067925418820932
+      },
+      "E1_c2|batched": {
+        "favorable_corner": "HC_HI",
+        "UB_per_size": [
+          0.06329113924050633,
+          0.02301255230125523,
+          0.0529595015576324
+        ],
+        "LB_per_size": [
+          -0.0189873417721519,
+          0.012552301255230125,
+          0.04672897196261682
+        ],
+        "GAP_per_size": [
+          0.08227848101265824,
+          0.010460251046025106,
+          0.006230529595015577
+        ],
+        "UB_mean": 0.046421064366464655,
+        "LB_mean": 0.01343131048189835,
+        "GAP_mean": 0.032989753884566306
+      },
+      "E2_c2|abstraction": {
+        "favorable_corner": "HC_HI",
+        "UB_per_size": [
+          0.11320754716981132,
+          0.04504504504504504,
+          0.10714285714285714
+        ],
+        "LB_per_size": [
+          0.0,
+          0.0,
+          0.06428571428571428
+        ],
+        "GAP_per_size": [
+          0.11320754716981132,
+          0.04504504504504504,
+          0.04285714285714286
+        ],
+        "UB_mean": 0.08846514978590451,
+        "LB_mean": 0.021428571428571425,
+        "GAP_mean": 0.06703657835733308
+      },
+      "E2_c2|batched": {
+        "favorable_corner": "LC_HI",
+        "UB_per_size": [
+          0.09009009009009009,
+          0.07861635220125786,
+          0.1162227602905569
+        ],
+        "LB_per_size": [
+          0.04504504504504504,
+          0.031446540880503145,
+          0.0847457627118644
+        ],
+        "GAP_per_size": [
+          0.04504504504504504,
+          0.04716981132075471,
+          0.0314769975786925
+        ],
+        "UB_mean": 0.09497640086063495,
+        "LB_mean": 0.05374578287913753,
+        "GAP_mean": 0.04123061798149742
+      },
+      "E3_c2|abstraction": {
+        "favorable_corner": "HC_HI",
+        "UB_per_size": [
+          0.30158730158730157,
+          0.05747126436781609,
+          0.09049773755656108
+        ],
+        "LB_per_size": [
+          0.07936507936507936,
+          0.05747126436781609,
+          0.08597285067873303
+        ],
+        "GAP_per_size": [
+          0.2222222222222222,
+          0.0,
+          0.004524886877828052
+        ],
+        "UB_mean": 0.14985210117055958,
+        "LB_mean": 0.07426973147054282,
+        "GAP_mean": 0.07558236970001675
+      },
+      "E3_c2|batched": {
+        "favorable_corner": "LC_HI",
+        "UB_per_size": [
+          0.10975609756097561,
+          0.13793103448275862,
+          0.1038961038961039
+        ],
+        "LB_per_size": [
+          0.0,
+          0.0603448275862069,
+          0.1038961038961039
+        ],
+        "GAP_per_size": [
+          0.10975609756097561,
+          0.07758620689655171,
+          0.0
+        ],
+        "UB_mean": 0.11719441197994603,
+        "LB_mean": 0.05474697716077027,
+        "GAP_mean": 0.06244743481917577
+      }
+    },
+    "summary": {
+      "n_cells_GAP_positive": 6,
+      "mean_GAP": 0.0583276681551331,
+      "n_monotone_in_size": 4,
+      "verdict": "PASS",
+      "interpretation": "GAP quantifies the room between \u03a6-informed wave selection (lower bound) and the maximum lever from wave structure (upper bound). A consistently positive GAP shows that smarter \u03a6 designs could still extract additional makespan reduction."
+    }
+  },
+  "method_C": {
+    "per_cell_size": {
+      "E1_c2|size4": {
+        "regime": "E1_c2",
+        "size": 4,
+        "is_sign_divergent": false,
+        "robust_corner": "LC_HI",
+        "wc_robust": 153.0,
+        "abs_fav_corner": "HC_HI",
+        "wc_abs_fav": 161.0,
+        "bat_fav_corner": "HC_HI",
+        "wc_bat_fav": 161.0,
+        "rand_wc": 158.0,
+        "gain_vs_abs_pick_pct": 4.968944099378882,
+        "gain_vs_bat_pick_pct": 4.968944099378882,
+        "gain_vs_rand_pct": 3.1645569620253164
+      },
+      "E1_c2|size6": {
+        "regime": "E1_c2",
+        "size": 6,
+        "is_sign_divergent": false,
+        "robust_corner": "HC_LI",
+        "wc_robust": 235.5,
+        "abs_fav_corner": "HC_HI",
+        "wc_abs_fav": 236.0,
+        "bat_fav_corner": "HC_HI",
+        "wc_bat_fav": 236.0,
+        "rand_wc": 239.0,
+        "gain_vs_abs_pick_pct": 0.211864406779661,
+        "gain_vs_bat_pick_pct": 0.211864406779661,
+        "gain_vs_rand_pct": 1.4644351464435146
+      },
+      "E1_c2|size8": {
+        "regime": "E1_c2",
+        "size": 8,
+        "is_sign_divergent": false,
+        "robust_corner": "HC_HI",
+        "wc_robust": 306.0,
+        "abs_fav_corner": "HC_HI",
+        "wc_abs_fav": 306.0,
+        "bat_fav_corner": "HC_HI",
+        "wc_bat_fav": 306.0,
+        "rand_wc": 321.0,
+        "gain_vs_abs_pick_pct": 0.0,
+        "gain_vs_bat_pick_pct": 0.0,
+        "gain_vs_rand_pct": 4.672897196261682
+      },
+      "E2_c2|size4": {
+        "regime": "E2_c2",
+        "size": 4,
+        "is_sign_divergent": true,
+        "robust_corner": "LC_HI",
+        "wc_robust": 106.0,
+        "abs_fav_corner": "HC_HI",
+        "wc_abs_fav": 116.0,
+        "bat_fav_corner": "LC_HI",
+        "wc_bat_fav": 106.0,
+        "rand_wc": 111.0,
+        "gain_vs_abs_pick_pct": 8.620689655172415,
+        "gain_vs_bat_pick_pct": 0.0,
+        "gain_vs_rand_pct": 4.504504504504505
+      },
+      "E2_c2|size6": {
+        "regime": "E2_c2",
+        "size": 6,
+        "is_sign_divergent": true,
+        "robust_corner": "LC_HI",
+        "wc_robust": 154.0,
+        "abs_fav_corner": "HC_HI",
+        "wc_abs_fav": 159.0,
+        "bat_fav_corner": "LC_HI",
+        "wc_bat_fav": 154.0,
+        "rand_wc": 159.0,
+        "gain_vs_abs_pick_pct": 3.1446540880503147,
+        "gain_vs_bat_pick_pct": 0.0,
+        "gain_vs_rand_pct": 3.1446540880503147
+      },
+      "E2_c2|size8": {
+        "regime": "E2_c2",
+        "size": 8,
+        "is_sign_divergent": true,
+        "robust_corner": "LC_HI",
+        "wc_robust": 189.0,
+        "abs_fav_corner": "HC_HI",
+        "wc_abs_fav": 195.0,
+        "bat_fav_corner": "LC_HI",
+        "wc_bat_fav": 189.0,
+        "rand_wc": 206.5,
+        "gain_vs_abs_pick_pct": 3.076923076923077,
+        "gain_vs_bat_pick_pct": 0.0,
+        "gain_vs_rand_pct": 8.47457627118644
+      },
+      "E3_c2|size4": {
+        "regime": "E3_c2",
+        "size": 4,
+        "is_sign_divergent": true,
+        "robust_corner": "LC_HI",
+        "wc_robust": 82.0,
+        "abs_fav_corner": "HC_HI",
+        "wc_abs_fav": 91.0,
+        "bat_fav_corner": "LC_HI",
+        "wc_bat_fav": 82.0,
+        "rand_wc": 82.0,
+        "gain_vs_abs_pick_pct": 9.89010989010989,
+        "gain_vs_bat_pick_pct": 0.0,
+        "gain_vs_rand_pct": 0.0
+      },
+      "E3_c2|size6": {
+        "regime": "E3_c2",
+        "size": 6,
+        "is_sign_divergent": true,
+        "robust_corner": "LC_HI",
+        "wc_robust": 109.0,
+        "abs_fav_corner": "HC_HI",
+        "wc_abs_fav": 116.0,
+        "bat_fav_corner": "LC_HI",
+        "wc_bat_fav": 109.0,
+        "rand_wc": 116.0,
+        "gain_vs_abs_pick_pct": 6.0344827586206895,
+        "gain_vs_bat_pick_pct": 0.0,
+        "gain_vs_rand_pct": 6.0344827586206895
+      },
+      "E3_c2|size8": {
+        "regime": "E3_c2",
+        "size": 8,
+        "is_sign_divergent": true,
+        "robust_corner": "LC_HI",
+        "wc_robust": 138.0,
+        "abs_fav_corner": "HC_HI",
+        "wc_abs_fav": 145.0,
+        "bat_fav_corner": "LC_HI",
+        "wc_bat_fav": 138.0,
+        "rand_wc": 154.0,
+        "gain_vs_abs_pick_pct": 4.827586206896552,
+        "gain_vs_bat_pick_pct": 0.0,
+        "gain_vs_rand_pct": 10.38961038961039
+      }
+    },
+    "sign_divergent_regimes": [
+      "E2_c2",
+      "E3_c2"
+    ],
+    "summary": {
+      "n_sign_divergent_cells_size": 6,
+      "mean_worst_pick_gain_pct": 0.0,
+      "max_worst_pick_gain_pct": 0.0,
+      "n_cells_loses_to_random": 0,
+      "verdict": "FAIL",
+      "interpretation": "Robust corner = corner minimizing worst-of-two (abstraction vs batched) median makespan. In sign-divergent regimes the model-specific \u03a6 pick may be wrong under the other model; robust corner hedges against that uncertainty."
+    }
+  }
+}
