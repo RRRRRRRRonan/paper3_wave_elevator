@@ -1,0 +1,164 @@
+{
+  "generated": "2026-04-22",
+  "purpose": "S2: H1 stagger phase diagram across CV sweep",
+  "stagger_cvs": [
+    0.0,
+    0.2,
+    0.5,
+    1.0
+  ],
+  "per_cv": {
+    "0.0": [
+      {
+        "cell": "E1_c2|abstraction",
+        "mean_delta_favorable": 0.8533333333333332,
+        "n_sizes_sig": 0,
+        "supported": false
+      },
+      {
+        "cell": "E1_c2|batched",
+        "mean_delta_favorable": -3.8683333333333336,
+        "n_sizes_sig": 1,
+        "supported": false
+      },
+      {
+        "cell": "E2_c2|abstraction",
+        "mean_delta_favorable": 2.476666666666667,
+        "n_sizes_sig": 0,
+        "supported": false
+      },
+      {
+        "cell": "E2_c2|batched",
+        "mean_delta_favorable": -11.288333333333334,
+        "n_sizes_sig": 3,
+        "supported": true
+      },
+      {
+        "cell": "E3_c2|abstraction",
+        "mean_delta_favorable": 1.7316666666666667,
+        "n_sizes_sig": 0,
+        "supported": false
+      },
+      {
+        "cell": "E3_c2|batched",
+        "mean_delta_favorable": -6.066666666666666,
+        "n_sizes_sig": 2,
+        "supported": true
+      }
+    ],
+    "0.2": [
+      {
+        "cell": "E1_c2|abstraction",
+        "mean_delta_favorable": 4.874144731276838,
+        "n_sizes_sig": 0,
+        "supported": false
+      },
+      {
+        "cell": "E1_c2|batched",
+        "mean_delta_favorable": 4.075817269037029,
+        "n_sizes_sig": 0,
+        "supported": false
+      },
+      {
+        "cell": "E2_c2|abstraction",
+        "mean_delta_favorable": 2.5321887499862537,
+        "n_sizes_sig": 0,
+        "supported": false
+      },
+      {
+        "cell": "E2_c2|batched",
+        "mean_delta_favorable": -0.018824519209487356,
+        "n_sizes_sig": 0,
+        "supported": false
+      },
+      {
+        "cell": "E3_c2|abstraction",
+        "mean_delta_favorable": 0.3619491401522896,
+        "n_sizes_sig": 1,
+        "supported": false
+      },
+      {
+        "cell": "E3_c2|batched",
+        "mean_delta_favorable": -5.527052171233741,
+        "n_sizes_sig": 2,
+        "supported": true
+      }
+    ],
+    "0.5": [
+      {
+        "cell": "E1_c2|abstraction",
+        "mean_delta_favorable": 2.1170107519549437,
+        "n_sizes_sig": 0,
+        "supported": false
+      },
+      {
+        "cell": "E1_c2|batched",
+        "mean_delta_favorable": -1.434216167845821,
+        "n_sizes_sig": 0,
+        "supported": false
+      },
+      {
+        "cell": "E2_c2|abstraction",
+        "mean_delta_favorable": 4.115170038913131,
+        "n_sizes_sig": 0,
+        "supported": false
+      },
+      {
+        "cell": "E2_c2|batched",
+        "mean_delta_favorable": -1.9265608197210113,
+        "n_sizes_sig": 1,
+        "supported": false
+      },
+      {
+        "cell": "E3_c2|abstraction",
+        "mean_delta_favorable": 2.325033792733341,
+        "n_sizes_sig": 0,
+        "supported": false
+      },
+      {
+        "cell": "E3_c2|batched",
+        "mean_delta_favorable": -2.3276014389012754,
+        "n_sizes_sig": 0,
+        "supported": false
+      }
+    ],
+    "1.0": [
+      {
+        "cell": "E1_c2|abstraction",
+        "mean_delta_favorable": -0.5118422099725836,
+        "n_sizes_sig": 0,
+        "supported": false
+      },
+      {
+        "cell": "E1_c2|batched",
+        "mean_delta_favorable": 1.6311753536853555,
+        "n_sizes_sig": 0,
+        "supported": false
+      },
+      {
+        "cell": "E2_c2|abstraction",
+        "mean_delta_favorable": 3.496699201387605,
+        "n_sizes_sig": 0,
+        "supported": false
+      },
+      {
+        "cell": "E2_c2|batched",
+        "mean_delta_favorable": -4.385693887999789,
+        "n_sizes_sig": 1,
+        "supported": false
+      },
+      {
+        "cell": "E3_c2|abstraction",
+        "mean_delta_favorable": 2.278394167785406,
+        "n_sizes_sig": 0,
+        "supported": false
+      },
+      {
+        "cell": "E3_c2|batched",
+        "mean_delta_favorable": -3.4629846319418047,
+        "n_sizes_sig": 2,
+        "supported": true
+      }
+    ]
+  }
+}

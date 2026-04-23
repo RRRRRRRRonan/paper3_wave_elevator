@@ -308,7 +308,7 @@ Three findings, in narrative order:
 
 Be ruthless and concrete; reviewers reward this.
 
-1. **Simulator-only, three regimes** — c=2 only, three E values, no real warehouse data. Wu 2024 and Keung 2023 had real-system grounding; we do not yet.
+1. **Simulator-only, no real warehouse data** — Wu 2024 and Keung 2023 had real-system grounding; we do not yet. The main experiments run at $F = 5$, $E \in \{1, 2, 3\}$, $c = 2$; Appendix B extends coverage to $F \in \{5, 7, 9\}$ (B.5), $c \in \{2, 3, 4, 5\}$ (B.3) and heterogeneous pools (B.8) to address generalisation concerns, but real-warehouse calibration remains future work.
 2. **Intra-floor AMR motion is abstracted (Gap 1)** — horizontal AMR routing is collapsed into a constant `service_time = 5.0 s` per pickup/dropoff. Appendix A.1 (24 000 sims, 6 cells × 4 σ) shows the M4 GAP framework's best-corner identification is invariant in 5/6 cells up to service-time CV = 131 % and MOSTLY ROBUST in the remaining cell (flips only at CV = 1.0). Explicit path-congestion modelling (Srinivas–Yu 2022; Zhang et al. 2025) is orthogonal future work.
 3. **$T$ dimension is activated, not empty (Gap 2)** — we instrument the simulator with per-order `release_time`, re-run the Phase 1.5 regression at stagger CV = 0.5, and compute the activated $T$ feature across 3 000 waves. $T$ has non-trivial variance (empirical mean 0.48, std 0.10); the M4 best-corner identification holds in 5/6 cells at stagger CV up to 1.0 (Appendix A.2, 24 000 sims). The H1 substitutability map is tight-wave-specific: a 14 400-simulation cross-check at CV = 0.5 shows the P1-over-P0 advantage concentrates in burst wave-releases, consistent with our formalisation of the wave-release coordination problem in §4. $\beta(T)$ is the weakest of the three $\Phi$ coefficients, consistent with our framing of $\Phi$ as conceptual (L7).
 4. **Directional elevator dynamics tested as a fourth model (Gap 3)** — Appendix A.3 (12 000 paired sims across all 6 cells) introduces $M_4$ = directional batching (3 s switch penalty). Per-wave dominance $\mathbb{P}[M_4 \ge M_{\mathrm{ref}}] = 97.7 \%$ extends Proposition M5.1's assumption (D) at $\epsilon \approx 0.023$; the corner-argmin stability pattern — preserved in 3/3 batched reference cells, flipped in 3/3 abstraction reference cells — is a textbook empirical case of Corollary M5.2's stable-argmin condition, reinforcing rather than weakening M5.
@@ -412,6 +412,8 @@ Eight figures planned, in this order in the paper. Six already exist; two are ne
 | F7 | [phase4_v2_partition_refinement.png](../prototype/results/figures/phase4_v2_partition_refinement.png) | §6.4.2 | UB under 2×2 / 3×3 / 8-octant partitions |
 | F8 | [phase4_v2_m3_medians.png](../prototype/results/figures/phase4_v2_m3_medians.png) | §6.4.3 / §5.4 | Median makespan under M1/M2/M3 σ=0.1/M3 σ=0.2 |
 | F9 | [phase4_H1_delta.png](../prototype/results/figures/phase4_H1_delta.png) | §6.4.5 | P1 − P0 delta with 95 % paired-bootstrap CIs per (cell, size, arm); green = sig P1 better |
+| F10 | (new) substitutability phase diagram | App B.2 | H1 P1-vs-P0 supported/not grid across 6 cells × 4 stagger CVs |
+| F11 | (new) cross-cell meta β surface | App B.7 | β(C) surface from unified meta-regression vs per-cell fits |
 
 ---
 

@@ -1,0 +1,30 @@
+{
+  "generated": "2026-04-22",
+  "purpose": "A2: FCFS baseline anchor for H1 lift interpretation",
+  "n_per_arm": 200,
+  "n_boot": 1000,
+  "per_cell_aggregate_favorable": [
+    {
+      "cell": "E2_c2|batched",
+      "mean_P_FCFS": 175.32833333333335,
+      "mean_P0": 150.33166666666668,
+      "mean_P1": 142.39833333333334,
+      "P0_minus_FCFS": -24.99666666666667,
+      "P1_minus_P0": -7.933333333333337,
+      "P1_minus_FCFS": -32.93000000000001,
+      "P1_over_FCFS_pct": -18.781904426932332,
+      "P0_over_FCFS_pct": -14.257060562563572
+    },
+    {
+      "cell": "E3_c2|batched",
+      "mean_P_FCFS": 132.83,
+      "mean_P0": 110.505,
+      "mean_P1": 105.08,
+      "P0_minus_FCFS": -22.325000000000017,
+      "P1_minus_P0": -5.424999999999997,
+      "P1_minus_FCFS": -27.750000000000014,
+      "P1_over_FCFS_pct": -20.89136490250697,
+      "P0_over_FCFS_pct": -16.807197169314172
+    }
+  ]
+}

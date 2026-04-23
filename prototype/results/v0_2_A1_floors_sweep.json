@@ -1,0 +1,104 @@
+{
+  "generated": "2026-04-22",
+  "purpose": "A1: floors sweep F in {5,7,9} at E=2, cap=2",
+  "floors": [
+    5,
+    7,
+    9
+  ],
+  "E": 2,
+  "cap": 2,
+  "size": 6,
+  "n_per_arm": 200,
+  "per_F": [
+    {
+      "F": 5,
+      "model": "abstraction",
+      "arm_medians": {
+        "random": 101.0,
+        "HC_HI": 101.0,
+        "HC_LI": 101.0,
+        "LC_HI": 96.0,
+        "LC_LI": 92.0
+      },
+      "GAP": 9.0,
+      "GAP_pct": 8.910891089108912,
+      "best_corner": "LC_LI"
+    },
+    {
+      "F": 5,
+      "model": "batched",
+      "arm_medians": {
+        "random": 145.0,
+        "HC_HI": 149.5,
+        "HC_LI": 151.5,
+        "LC_HI": 134.0,
+        "LC_LI": 135.0
+      },
+      "GAP": 17.5,
+      "GAP_pct": 12.068965517241379,
+      "best_corner": "LC_HI"
+    },
+    {
+      "F": 7,
+      "model": "abstraction",
+      "arm_medians": {
+        "random": 141.0,
+        "HC_HI": 145.0,
+        "HC_LI": 138.5,
+        "LC_HI": 146.0,
+        "LC_LI": 131.0
+      },
+      "GAP": 15.0,
+      "GAP_pct": 10.638297872340425,
+      "best_corner": "LC_LI"
+    },
+    {
+      "F": 7,
+      "model": "batched",
+      "arm_medians": {
+        "random": 218.0,
+        "HC_HI": 216.0,
+        "HC_LI": 214.0,
+        "LC_HI": 221.5,
+        "LC_LI": 204.0
+      },
+      "GAP": 17.5,
+      "GAP_pct": 8.027522935779816,
+      "best_corner": "LC_LI"
+    },
+    {
+      "F": 9,
+      "model": "abstraction",
+      "arm_medians": {
+        "random": 166.5,
+        "HC_HI": 156.0,
+        "HC_LI": 174.5,
+        "LC_HI": 152.0,
+        "LC_LI": 176.0
+      },
+      "GAP": 24.0,
+      "GAP_pct": 14.414414414414415,
+      "best_corner": "LC_HI"
+    },
+    {
+      "F": 9,
+      "model": "batched",
+      "arm_medians": {
+        "random": 259.0,
+        "HC_HI": 244.0,
+        "HC_LI": 272.5,
+        "LC_HI": 224.0,
+        "LC_LI": 269.0
+      },
+      "GAP": 48.5,
+      "GAP_pct": 18.725868725868725,
+      "best_corner": "LC_HI"
+    }
+  ],
+  "stability_per_model": {
+    "abstraction": false,
+    "batched": false
+  },
+  "verdict": "F-DEPENDENT \u2014 best corner shifts across F in at least one model; requires F-range scope statement"
+}

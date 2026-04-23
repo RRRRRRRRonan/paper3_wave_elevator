@@ -1,0 +1,118 @@
+{
+  "generated": "2026-04-22",
+  "purpose": "A3: cross-cell meta-regression with interaction terms",
+  "n": 18000,
+  "R2": 0.791099803334273,
+  "coefficients": {
+    "intercept": {
+      "estimate": 36.80157519738322,
+      "ci_lo": 25.502670246725945,
+      "ci_hi": 47.96283179327409,
+      "sig": true,
+      "sign_stability": 1.0
+    },
+    "C": {
+      "estimate": 47.368598384810426,
+      "ci_lo": 39.06276011387693,
+      "ci_hi": 55.36979767756075,
+      "sig": true,
+      "sign_stability": 1.0
+    },
+    "I": {
+      "estimate": -9.314840802818015,
+      "ci_lo": -13.566445510891795,
+      "ci_hi": -5.0572486150065785,
+      "sig": true,
+      "sign_stability": 1.0
+    },
+    "size": {
+      "estimate": 20.60051291869449,
+      "ci_lo": 19.253232571851814,
+      "ci_hi": 22.02800258956825,
+      "sig": true,
+      "sign_stability": 1.0
+    },
+    "cross_floor": {
+      "estimate": 0.6903347876677834,
+      "ci_lo": -0.8424673400026123,
+      "ci_hi": 2.1207587634280562,
+      "sig": false,
+      "sign_stability": 0.815
+    },
+    "floor_distance": {
+      "estimate": 0.03883488784916267,
+      "ci_lo": -0.17386884327840413,
+      "ci_hi": 0.22718293158675437,
+      "sig": false,
+      "sign_stability": 0.631
+    },
+    "E": {
+      "estimate": -3.0126661832061297,
+      "ci_lo": -7.86675931764588,
+      "ci_hi": 2.2445807526187753,
+      "sig": false,
+      "sign_stability": 0.889
+    },
+    "is_batched": {
+      "estimate": -19.116951732594334,
+      "ci_lo": -26.65871694096268,
+      "ci_hi": -11.527354555718354,
+      "sig": true,
+      "sign_stability": 1.0
+    },
+    "C_x_batched": {
+      "estimate": 46.04522812348512,
+      "ci_lo": 40.6209456885598,
+      "ci_hi": 51.24290616987988,
+      "sig": true,
+      "sign_stability": 1.0
+    },
+    "I_x_batched": {
+      "estimate": -1.874358918927085,
+      "ci_lo": -5.096261052335784,
+      "ci_hi": 1.273312897385699,
+      "sig": false,
+      "sign_stability": 0.879
+    },
+    "C_x_E": {
+      "estimate": -34.964160796200986,
+      "ci_lo": -38.68446683779926,
+      "ci_hi": -31.520435931081693,
+      "sig": true,
+      "sign_stability": 1.0
+    },
+    "I_x_E": {
+      "estimate": 1.2773747484397382,
+      "ci_lo": -0.7150080954942033,
+      "ci_hi": 3.1195499247173326,
+      "sig": false,
+      "sign_stability": 0.893
+    }
+  },
+  "per_cell_derived": {
+    "E1_c2|abstraction": {
+      "beta_C": 12.40443758860944,
+      "beta_I": -8.037466054378276
+    },
+    "E1_c2|batched": {
+      "beta_C": 58.44966571209456,
+      "beta_I": -9.911824973305361
+    },
+    "E2_c2|abstraction": {
+      "beta_C": -22.559723207591546,
+      "beta_I": -6.760091305938539
+    },
+    "E2_c2|batched": {
+      "beta_C": 23.48550491589357,
+      "beta_I": -8.634450224865624
+    },
+    "E3_c2|abstraction": {
+      "beta_C": -57.52388400379253,
+      "beta_I": -5.482716557498801
+    },
+    "E3_c2|batched": {
+      "beta_C": -11.478655880307414,
+      "beta_I": -7.357075476425885
+    }
+  }
+}

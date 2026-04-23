@@ -1,0 +1,125 @@
+{
+  "generated": "2026-04-22",
+  "purpose": "S3: capacity sweep beyond c=2",
+  "E_fixed": 2,
+  "capacities": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "size": 6,
+  "n_per_arm": 200,
+  "per_capacity": [
+    {
+      "capacity": 2,
+      "cstar_M1": "HC_HI",
+      "cstar_M2": "LC_HI",
+      "argmin_match": false,
+      "mean_dominance_pct": 0.9810000000000001,
+      "per_arm_dominance": {
+        "random": 0.985,
+        "HC_HI": 0.995,
+        "HC_LI": 0.995,
+        "LC_HI": 0.955,
+        "LC_LI": 0.975
+      },
+      "corner_medians_M1": {
+        "HC_HI": 110.0,
+        "HC_LI": 115.0,
+        "LC_HI": 111.0,
+        "LC_LI": 116.0
+      },
+      "corner_medians_M2": {
+        "HC_HI": 159.0,
+        "HC_LI": 168.0,
+        "LC_HI": 154.0,
+        "LC_LI": 155.0
+      }
+    },
+    {
+      "capacity": 3,
+      "cstar_M1": "HC_HI",
+      "cstar_M2": "LC_HI",
+      "argmin_match": false,
+      "mean_dominance_pct": 0.9970000000000001,
+      "per_arm_dominance": {
+        "random": 0.995,
+        "HC_HI": 1.0,
+        "HC_LI": 1.0,
+        "LC_HI": 1.0,
+        "LC_LI": 0.99
+      },
+      "corner_medians_M1": {
+        "HC_HI": 82.0,
+        "HC_LI": 87.0,
+        "LC_HI": 87.0,
+        "LC_LI": 92.0
+      },
+      "corner_medians_M2": {
+        "HC_HI": 159.0,
+        "HC_LI": 164.0,
+        "LC_HI": 150.0,
+        "LC_LI": 154.0
+      }
+    },
+    {
+      "capacity": 4,
+      "cstar_M1": "HC_HI",
+      "cstar_M2": "HC_HI",
+      "argmin_match": true,
+      "mean_dominance_pct": 1.0,
+      "per_arm_dominance": {
+        "random": 1.0,
+        "HC_HI": 1.0,
+        "HC_LI": 1.0,
+        "LC_HI": 1.0,
+        "LC_LI": 1.0
+      },
+      "corner_medians_M1": {
+        "HC_HI": 68.0,
+        "HC_LI": 72.0,
+        "LC_HI": 77.0,
+        "LC_LI": 78.0
+      },
+      "corner_medians_M2": {
+        "HC_HI": 151.5,
+        "HC_LI": 164.0,
+        "LC_HI": 154.0,
+        "LC_LI": 154.0
+      }
+    },
+    {
+      "capacity": 5,
+      "cstar_M1": "HC_HI",
+      "cstar_M2": "LC_HI",
+      "argmin_match": false,
+      "mean_dominance_pct": 0.999,
+      "per_arm_dominance": {
+        "random": 1.0,
+        "HC_HI": 1.0,
+        "HC_LI": 1.0,
+        "LC_HI": 0.995,
+        "LC_LI": 1.0
+      },
+      "corner_medians_M1": {
+        "HC_HI": 68.0,
+        "HC_LI": 70.0,
+        "LC_HI": 73.0,
+        "LC_LI": 78.0
+      },
+      "corner_medians_M2": {
+        "HC_HI": 155.0,
+        "HC_LI": 160.0,
+        "LC_HI": 150.0,
+        "LC_LI": 158.0
+      }
+    }
+  ],
+  "overall": {
+    "n_argmin_match": 1,
+    "n_total": 4,
+    "mean_dominance_pct": 0.9942500000000001,
+    "verdict": "SCOPE LIMIT \u2014 M5 framework requires c=2 scope statement"
+  }
+}

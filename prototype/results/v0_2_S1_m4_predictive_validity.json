@@ -1,0 +1,89 @@
+{
+  "generated": "2026-04-22",
+  "purpose": "S1: M4 predictive validity \u2014 does H_up predict P1-over-P0 lift?",
+  "per_cell": [
+    {
+      "cell": "E1_c2|abstraction",
+      "H_up": 0.06781802385916781,
+      "M_Phi": 0.002861230329041488,
+      "GAP": 0.0706792541882093,
+      "H1_delta": 1.96,
+      "n_sig": 0,
+      "supported": false
+    },
+    {
+      "cell": "E1_c2|batched",
+      "H_up": 0.015414766684029609,
+      "M_Phi": 0.017574987200536695,
+      "GAP": 0.032989753884566306,
+      "H1_delta": -0.16999999999999993,
+      "n_sig": 0,
+      "supported": false
+    },
+    {
+      "cell": "E2_c2|abstraction",
+      "H_up": 0.06074727018123246,
+      "M_Phi": 0.006289308176100628,
+      "GAP": 0.0670365783573331,
+      "H1_delta": 2.3816666666666664,
+      "n_sig": 0,
+      "supported": false
+    },
+    {
+      "cell": "E2_c2|batched",
+      "H_up": 0.041230617981497415,
+      "M_Phi": 0.0,
+      "GAP": 0.041230617981497415,
+      "H1_delta": -10.565,
+      "n_sig": 2,
+      "supported": true
+    },
+    {
+      "cell": "E3_c2|abstraction",
+      "H_up": 0.07558236970001676,
+      "M_Phi": 0.0,
+      "GAP": 0.07558236970001676,
+      "H1_delta": -1.8200000000000003,
+      "n_sig": 1,
+      "supported": false
+    },
+    {
+      "cell": "E3_c2|batched",
+      "H_up": 0.06244743481917578,
+      "M_Phi": 0.0,
+      "GAP": 0.06244743481917578,
+      "H1_delta": -6.8,
+      "n_sig": 3,
+      "supported": true
+    }
+  ],
+  "correlations_naive_all_6_cells": {
+    "pearson_Hup_H1delta": 0.15133179808840858,
+    "spearman_Hup_H1delta": 0.08571428571428573,
+    "spearman_Hup_pvalue": 0.8717434402332361,
+    "pearson_GAP_H1delta": 0.3843529519073719,
+    "spearman_GAP_H1delta": 0.3142857142857143,
+    "spearman_GAP_pvalue": 0.5440932944606414
+  },
+  "composite_predictor_M5_2_domain": {
+    "rule": "supported iff model==batched AND E>=2",
+    "n_cells_correct": 6,
+    "n_cells_total": 6,
+    "accuracy": 1.0
+  },
+  "binary_split": {
+    "top3_supported": 1,
+    "bot3_supported": 1,
+    "top_cells": [
+      "E3_c2|abstraction",
+      "E1_c2|abstraction",
+      "E3_c2|batched"
+    ],
+    "bot_cells": [
+      "E2_c2|abstraction",
+      "E2_c2|batched",
+      "E1_c2|batched"
+    ]
+  },
+  "verdict": "M4 PREDICTIVE THROUGH M5.2 \u2014 naive H_up correlation across all 6 cells is weak (abstraction cells have inflated H_up without batching-lever), but Corollary M5.2's composite predictor (batched AND E>=2) perfectly classifies H1 supported/not-supported in 6/6 cells. The GAP decomposition is prospective *conditional on being in M5.2's applicability domain*."
+}

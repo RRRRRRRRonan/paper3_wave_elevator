@@ -376,6 +376,57 @@ class ElevatorPoolBatched:
         return elev.dispatch(amr_current_floor, target_floor, request_time)
 
 
+class ElevatorPoolBatchedHeterogeneous:
+    """Pool of `len(capacities)` batched elevators, each with a possibly
+    different per-trip capacity (B1 extension — heterogeneous pool).
+
+    Real multi-storey warehouses often deploy a mix of freight and
+    passenger elevators with different capacities (e.g. [2, 2, 3] or
+    [1, 2, 4]). Homogeneous pools are a modelling abstraction. This class
+    preserves the same (src, dst)-matched batching semantics as
+    ElevatorPoolBatched but allows per-elevator capacity.
+
+    Dispatch policy:
+      1. If any elevator can board (matching src, dst, remaining cap), board
+      2. Else dispatch on the elevator with earliest available_at time
+
+    When `capacities = [c] * n`, reproduces ElevatorPoolBatched exactly.
+    """
+
+    def __init__(
+        self,
+        capacities: List[int],
+        speed_per_floor: float = 5.0,
+        load_time: float = 2.0,
+        unload_time: float = 2.0,
+        initial_floor: int = 1,
+    ):
+        self.elevators: List[ElevatorBatched] = [
+            ElevatorBatched(
+                capacity=c,
+                speed_per_floor=speed_per_floor,
+                load_time=load_time,
+                unload_time=unload_time,
+                initial_floor=initial_floor,
+            )
+            for c in capacities
+        ]
+        self.n_elevators = len(capacities)
+        self.capacities = list(capacities)
+
+    def request(
+        self,
+        amr_current_floor: int,
+        target_floor: int,
+        request_time: float,
+    ) -> float:
+        for elev in self.elevators:
+            if elev.can_board(amr_current_floor, target_floor, request_time):
+                return elev.board()
+        elev = min(self.elevators, key=lambda e: (e.available_at, id(e)))
+        return elev.dispatch(amr_current_floor, target_floor, request_time)
+
+
 class ElevatorBatchedDirectional(ElevatorBatched):
     """ElevatorBatched with a direction-switch overhead (Gap 3 extension).
 
@@ -498,6 +549,7 @@ def simulate_wave(
     service_sigma: float = 0.0,
     directional: bool = False,
     dir_switch_penalty: float = 3.0,
+    heterogeneous_capacities: Optional[List[int]] = None,
 ) -> float:
     """Simulate one wave and return makespan (wave completion - release_time).
 
@@ -531,12 +583,26 @@ def simulate_wave(
         batching with direction-switch overhead). `dir_switch_penalty`
         controls the overhead in seconds. Mutually exclusive with
         `stochastic_sigma > 0` (combine in v0.5+ if needed).
+      - `heterogeneous_capacities` (B1): if given (list of ints), uses
+        ElevatorPoolBatchedHeterogeneous with per-elevator capacities;
+        `n_elevators` and `capacity` are ignored. Must be used with the
+        default (non-directional, non-stochastic) path.
     """
-    if stochastic_sigma > 0 and directional:
+    if heterogeneous_capacities is not None:
+        if stochastic_sigma > 0 or directional:
+            raise ValueError(
+                "heterogeneous_capacities is mutually exclusive with "
+                "stochastic_sigma > 0 and directional=True"
+            )
+        pool = ElevatorPoolBatchedHeterogeneous(
+            capacities=heterogeneous_capacities,
+            initial_floor=initial_amr_floor,
+        )
+    elif stochastic_sigma > 0 and directional:
         raise ValueError(
             "stochastic_sigma > 0 and directional=True are mutually exclusive"
         )
-    if stochastic_sigma > 0:
+    elif stochastic_sigma > 0:
         pool = ElevatorPoolStochasticBatched(
             n_elevators=n_elevators,
             capacity=capacity,
