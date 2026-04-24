@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-Command pdflatex -ErrorAction SilentlyContinue)",
+      "PowerShell(pdflatex --version 2>&1)",
+      "PowerShell(Write-Output \"Search system PATH \\(system-level, not session-level\\):\"; [System.Environment]::GetEnvironmentVariable\\(\"Path\", \"Machine\"\\) -split \";\" | Select-String -Pattern \"miktex|tex\" -CaseSensitive:$false; Write-Output \"---\"; Write-Output \"Search user PATH:\"; [System.Environment]::GetEnvironmentVariable\\(\"Path\", \"User\"\\) -split \";\" | Select-String -Pattern \"miktex|tex\" -CaseSensitive:$false)",
+      "PowerShell($env:Path += \";F:\\\\MiKTeX\\\\miktex\\\\bin\\\\x64\"; pdflatex --version 2>&1 | Select-Object -First 2; Write-Output \"---\"; Write-Output \"Testing compile of abstract_intro_v0_1.tex...\"; Set-Location \"F:\\\\paper3_wave_elevator\\\\paper_draft\"; pdflatex -interaction=nonstopmode -halt-on-error abstract_intro_v0_1.tex 2>&1 | Select-Object -Last 25)",
+      "PowerShell($env:Path += \";F:\\\\MiKTeX\\\\miktex\\\\bin\\\\x64\"; Set-Location \"F:\\\\paper3_wave_elevator\\\\paper_draft\"; pdflatex -interaction=nonstopmode -halt-on-error abstract_intro_v0_1.tex 2>&1 | Select-Object -Last 12)",
+      "PowerShell($env:Path += \";F:\\\\MiKTeX\\\\miktex\\\\bin\\\\x64\"; Write-Output \"=== Step 1a: Setting auto-install packages ===\"; initexmf --admin --set-config-value=[MPM]AutoInstall=1 2>&1; initexmf --set-config-value=[MPM]AutoInstall=1 2>&1; Write-Output \"\"; Write-Output \"=== Step 1b: Switching to Tsinghua mirror ===\"; mpm --admin --set-repository=https://mirrors.tuna.tsinghua.edu.cn/CTAN/ 2>&1; mpm --set-repository=https://mirrors.tuna.tsinghua.edu.cn/CTAN/ 2>&1; Write-Output \"\"; Write-Output \"=== Step 1c: Verify settings ===\"; initexmf --show-config-value=[MPM]AutoInstall 2>&1; mpm --list-repositories 2>&1 | Select-String -Pattern \"tuna|tsinghua\" -CaseSensitive:$false)"
+    ]
+  }
+}

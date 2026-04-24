@@ -1,0 +1,105 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage[round]{natbib}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\hypersetup{colorlinks=true, linkcolor=blue!50!black, urlcolor=blue!50!black, citecolor=blue!50!black}
+
+\title{Wave Release Coordination under Vertical Resource Constraints in Multi-Storey AMR Warehouses}
+\author{Shiyue Hu \and (co-authors TBD)}
+\date{April 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Multi-storey warehouses staffed by floor-bound autonomous mobile robots (AMRs) couple wave-release decisions to a small number of freight elevators whose per-trip capacity is the binding constraint. We formalise this as the \textbf{wave release coordination problem under vertical resource constraints}: a two-stage scheduler that selects wave composition tactically and dispatches AMR--elevator execution operationally. We contribute: (i) a three-dimensional structured decomposition $\Phi = (C, I, T)$ with physically interpretable per-unit coefficients; (ii) a \textbf{Bound-and-Gap framework} whose decomposition theorem splits the value of wave-structure information into a partition-intrinsic upper bound and a $\Phi$-policy lower bound (mean GAP $5.83\,\%$, CI excludes zero in 6/6 cells); (iii) a \textbf{Model-Dominance Hedge Rule} collapsing under per-wave stochastic dominance ($\mathbb{P}[M_2 \ge M_1] = 99.4\,\%$ across $c \in \{2, 3, 4, 5\}$) to a closed-form rule with worst-case loss $3.1\text{--}9.9\,\%$. Across $18\,000$ regime-sweep simulations, the predictive value of structured features grows ten-fold with elevator-bottleneck relief. A pre-registered $14\,400$-simulation policy test produces a \textbf{tactical-operational substitutability map}: destination-clustered batching cuts mean makespan up to $9\,\%$ exactly in the cells our framework flags prospectively (6/6 cells correctly classified). Robustness across $\sim\!170\,000$ total simulations covers building heights $F \in \{5, 7, 9\}$, heterogeneous elevator pools, and service-time CV up to $131\,\%$.
+\end{abstract}
+
+\section{Introduction}
+
+\subsection{Motivating scenario}
+
+Consider a multi-storey fulfilment warehouse with $F$ floors, $E$ freight elevators of per-trip capacity $c$, and a fleet of floor-bound AMRs. An order travels horizontally on its source floor, vertically by elevator, and horizontally on its destination floor; the elevator is the only vertical channel and is shared by the entire fleet. Operations managers control two layers. The \textbf{operational} layer assigns AMRs to orders and sequences elevator boardings --- a problem with substantial existing literature, from order batching in vertical lift modules to SAT-based optimal robot--lift schedules. The \textbf{tactical} layer chooses \emph{which orders co-occupy a release window} --- what we call a wave. Wave composition determines how many vertical transitions the elevators must serve, in which directions, and with what temporal stagger; it therefore sets the difficulty of the operational problem before any robot moves. Despite this, wave composition has not been treated as a decision variable jointly with elevator capacity in the AMR-warehouse literature. The omission matters: the wave layer is the cheapest place to relieve a vertical bottleneck, because it costs only a re-batching of already-released orders, with no change to floor layout or fleet size.
+
+\subsection{Why this is hard now}
+
+Three threads of recent work each touch part of this problem and stop short of the wave--elevator coupling.
+
+Order batching for \textbf{vertical lift modules} \citep{lenoble2018} optimises pick rounds inside a single device; the relevant decision is which items to retrieve in one shuttle trip, not which orders to release into a building-scale wave. The mathematics is local to the device.
+
+Multi-agent \textbf{robot--lift scheduling} \citep{chakravarty2025} takes a fixed task set and computes provably optimal lift schedules via Boolean satisfiability. Lift availability appears as a constraint, not as a design lever for the upstream wave layer; task selection is exogenous.
+
+\textbf{Tier-captive shuttle systems} \citep{wu2024} and multi-level RMFS architectures \citep{keung2023} study performance with floor-attached transport (one shuttle per tier), where vertical coupling is structurally weaker. The closer setting --- flexible AMRs that can occupy any floor and queue at any elevator --- produces a different bottleneck topology that these analyses do not address.
+
+Two further methodological threads bear on our framing. \textbf{Robust scheduling under model uncertainty} \citep{wiesemann2014, lushen2021} handles parametric uncertainty in known model classes, whereas the elevator literature offers genuinely \emph{different} abstractions (throughput aggregation versus true co-occupancy batching) whose disagreement is structural, not parametric. \textbf{Prediction-to-decision regret} \citep{elmachtoub2022, vera2022} bounds algorithmic loss when a learned predictor drives a downstream optimiser; we are interested in a complementary quantity --- the \emph{information gap} between an oracle on the same feature partition and a $\Phi$-informed policy --- that those bounds do not name.
+
+\subsection{Two empirical surprises that drive the paper}
+
+Two specific findings from a $14\,400$-simulation sweep across six (regime, elevator-model) cells motivate the methodological apparatus.
+
+\textbf{Surprise A --- wave structure has bounded but consistent value.} A $\Phi$-informed corner pick beats a random wave in 6/6 cells, but the lift is only $1.3$--$7.4\,\%$, while the \emph{oracle} corner --- the best of the four quartile bins on $(C, I)$ --- wins $5$--$15\,\%$. Neither zero nor full: the gap between informed policy and oracle is itself an object that needs a name and a decomposition. We provide both (\S\,\ref{sec:m4}): a Bound-and-Gap framework whose decomposition theorem
+\[
+\mathrm{GAP} \;=\; H_{\mathrm{up}} \,+\, M_\Phi
+\]
+separates partition-intrinsic difficulty from $\Phi$-policy slack, and a partition-refinement corollary that explains, rather than rescues, the inflation of upper bounds under finer feature grids.
+
+\textbf{Surprise B --- elevator-modelling assumption flips a structural sign.} Re-running identical waves under throughput aggregation versus true co-occupancy batching flips the sign of the entropy coefficient $\beta(C)$ in 2 of 3 c=2 regimes. Bootstrap stability is $76$--$85\,\%$ within regime, so we treat the sign-flip as a coarse diagnostic, not a fine classifier; the load-bearing fact for our hedge rule is the underlying \emph{per-wave dominance}: true-batching makespan exceeds throughput-abstraction makespan in $92.5$--$100\,\%$ of waves across all 15 cells. From this, the minimax wave-corner selection (\S\,\ref{sec:m5}) collapses in $c=2$ regimes to a one-line rule --- \emph{always pick the corner the true-batching model prefers} --- with worst-case loss $3.1$--$9.9\,\%$.
+
+\subsection{Contributions and roadmap}
+
+We make three contributions.
+
+\paragraph{(C1) Problem formulation.} We formalise the wave release coordination problem under vertical resource constraints --- a two-stage scheduler coupling tactical wave composition and operational AMR--elevator execution under a hard per-trip capacity. Related precedents address batching at the device level \citep{lenoble2018}, optimal scheduling for fixed task sets \citep{chakravarty2025}, or tier-captive transport \citep{wu2024, keung2023}; none treat wave composition jointly with building-scale vertical coupling and flexible fleet routing.
+
+\paragraph{(C2) Methodology --- three components.}
+\textbf{(C2-$\Phi$)} A three-dimensional structured decomposition $\Phi = (C, I, T)$ --- vertical concentration, directional imbalance, temporal clustering --- with physically interpretable per-unit coefficients. (A methodological caveat: throughput-abstraction and true-batching regressions agree on wave rank order, $r \ge 0.85$, but disagree on $\beta(C)$ sign, \emph{motivating} the hedge rule below.)
+\textbf{(C2-M4)} A \textbf{Bound-and-Gap framework} with a decomposition theorem $\mathrm{GAP} = H_{\mathrm{up}} + M_\Phi$ (non-negative components, partition-refinement monotonicity), converting the gap into a per-cell diagnostic.
+\textbf{(C2-M5)} A \textbf{Model-Dominance Hedge Rule}: under per-wave stochastic dominance, the minimax corner collapses to ``follow $M_2$'' with worst-case loss $3.1$--$9.9\,\%$, and a one-sided $\varepsilon$-bound predicts when the collapse remains sharp. Two confirmations: M3 stochastic experiment exhibits the predicted knife-edge at E2\_c2 $\sigma = 0.20$, and a directional-elevator extension ($\mathbb{P}[M_4 \ge M_2] = 97.7\,\%$) has argmin stability tracking the batching axis exactly as Corollary M5.2 predicts.
+\textbf{M4 and M5 share the same applicability domain} (operationally active batching) --- the Bound-and-Gap framework is prospective precisely where the Hedge Rule is sharp.
+
+\paragraph{(C3) Insights --- three findings.}
+\begin{itemize}[leftmargin=2em]
+  \item[(i)] $H_{\mathrm{up}}$ varies ten-fold with elevator-bottleneck relief and, \textbf{within M5's applicability domain, prospectively classifies all 6 cells} on whether destination-clustered batching will beat FIFO.
+  \item[(ii)] $\mathbb{P}[M_2 \ge M_1] = 99.4\,\%$ across $c \in \{2, 3, 4, 5\}$; the Hedge Rule generalises beyond the $c=2$ case it was derived for.
+  \item[(iii)] A \textbf{tactical-operational substitutability map}: non-substitutability concentrates in the elevator-lever-dominated, tight-wave regime and decays along both the capacity-slack and wave-looseness axes.
+\end{itemize}
+
+The remainder of the paper develops C1 (\S\,\ref{sec:problem}), C2 (\S\,\ref{sec:methodology}), and C3 (\S\,\ref{sec:results}), discusses managerial implications (\S\,7), states limitations (\S\,8), and concludes (\S\,9).
+
+% Forward references to satisfy \ref usage above
+\section{Problem formulation}\label{sec:problem}
+\textit{[draft section to follow]}
+
+\section{Methodology}\label{sec:methodology}
+
+\subsection{Bound-and-Gap framework (C2-M4)}\label{sec:m4}
+\textit{[draft section to follow]}
+
+\subsection{Model-Dominance Hedge Rule (C2-M5)}\label{sec:m5}
+\textit{[draft section to follow]}
+
+\section{Results}\label{sec:results}
+\textit{[draft section to follow]}
+
+% Bibliography placeholder (use BibTeX in final draft)
+\begin{thebibliography}{9}
+  \bibitem[Lenoble et al., 2018]{lenoble2018} Lenoble, N., Frein, Y., Hammami, R. (2018). Order batching in an automated warehouse with several vertical lift modules: Optimization and experiments with real data. \emph{EJOR}.
+  \bibitem[Chakravarty et al., 2025]{chakravarty2025} Chakravarty, A., et al. (2025). Toward Optimal Multi-Agent Robot and Lift Schedules via Boolean Satisfiability. \emph{Mathematics}, MDPI.
+  \bibitem[Wu et al., 2024]{wu2024} Wu, J., et al. (2024). Research on Inbound Jobs' Scheduling in Four-Way-Shuttle-Based Storage System. \emph{Processes}, MDPI.
+  \bibitem[Keung, 2023]{keung2023} Keung, K.\,L. (2023). Multi-level RMFS architecture and analytics. \emph{FSMJ}.
+  \bibitem[Wiesemann et al., 2014]{wiesemann2014} Wiesemann, W., Kuhn, D., Rustem, B. (2014). Robust Markov decision processes. \emph{Mathematics of Operations Research}, 38(1), 153--183.
+  \bibitem[Lu \& Shen, 2021]{lushen2021} Lu, M., Shen, Z.-J.\,M. (2021). A review of robust operations management under model uncertainty. \emph{POMS}, 30(6), 1927--1943.
+  \bibitem[Elmachtoub \& Grigas, 2022]{elmachtoub2022} Elmachtoub, A.\,N., Grigas, P. (2022). Smart ``Predict, then Optimize''. \emph{Management Science}, 68(1), 9--26.
+  \bibitem[Vera et al., 2022]{vera2022} Vera, A., Banerjee, S., Gurvich, I. (2022). Online allocation and pricing: Constant regret via bellman inequalities. \emph{Operations Research}.
+\end{thebibliography}
+
+\end{document}

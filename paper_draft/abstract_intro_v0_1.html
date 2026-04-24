@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Wave Release Coordination — Abstract & Introduction (v0.1)</title>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  :root {
+    --serif: "Latin Modern Roman", "Computer Modern Serif", Georgia, "Times New Roman", serif;
+    --sans:  "Latin Modern Sans", "Helvetica Neue", Arial, sans-serif;
+    --text:  #1a1a1a;
+    --muted: #555;
+    --accent: #1f4e79;
+    --bg:    #fafaf7;
+    --paper: #ffffff;
+    --rule:  #cfcfcf;
+  }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--serif);
+    line-height: 1.55;
+    font-size: 17px;
+  }
+  .paper {
+    max-width: 760px;
+    margin: 40px auto 80px auto;
+    background: var(--paper);
+    padding: 60px 70px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    border-radius: 4px;
+  }
+  h1.title {
+    font-size: 1.7em;
+    line-height: 1.25;
+    text-align: center;
+    margin: 0 0 0.4em 0;
+    font-weight: 600;
+  }
+  .author {
+    text-align: center;
+    margin-bottom: 0.3em;
+    font-size: 1.05em;
+  }
+  .date {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 2em;
+    font-size: 0.95em;
+  }
+  h1, h2, h3, h4 { font-family: var(--serif); }
+  h2 {
+    font-size: 1.2em;
+    margin-top: 2em;
+    margin-bottom: 0.8em;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.2em;
+  }
+  h3 {
+    font-size: 1.05em;
+    margin-top: 1.5em;
+    margin-bottom: 0.6em;
+    color: var(--accent);
+  }
+  .abstract {
+    background: #f5f5f0;
+    border-left: 3px solid var(--accent);
+    padding: 1em 1.5em;
+    margin: 1.5em 0 2em 0;
+    font-size: 0.96em;
+  }
+  .abstract h2 {
+    font-size: 0.95em;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0 0 0.7em 0;
+    border: none;
+    padding: 0;
+    color: var(--accent);
+  }
+  p {
+    margin: 0.7em 0 0.9em 0;
+    text-align: justify;
+    hyphens: auto;
+  }
+  ol, ul {
+    margin: 0.6em 0 0.9em 0;
+    padding-left: 1.7em;
+  }
+  ul li { margin-bottom: 0.4em; }
+  strong { font-weight: 700; }
+  em { font-style: italic; }
+  .paragraph {
+    font-weight: 700;
+    margin-right: 0.4em;
+  }
+  code {
+    background: #f0f0eb;
+    padding: 0 0.25em;
+    border-radius: 2px;
+    font-size: 0.92em;
+    font-family: "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  .meta-banner {
+    text-align: center;
+    background: #fff8e1;
+    padding: 8px 12px;
+    border-bottom: 1px solid #f0e0a0;
+    font-family: var(--sans);
+    font-size: 13px;
+    color: #6b5500;
+  }
+  .footer {
+    margin-top: 3em;
+    padding-top: 1em;
+    border-top: 1px solid var(--rule);
+    font-size: 0.85em;
+    color: var(--muted);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="meta-banner">
+  HTML preview rendered with MathJax. Paired LaTeX source: <code>abstract_intro_v0_1.tex</code>.
+  Word counts — Abstract 181, §1.1 186, §1.2 247, §1.3 209, §1.4 313 (intro total 955 / 1000).
+</div>
+
+<article class="paper">
+
+<h1 class="title">Wave Release Coordination under Vertical Resource Constraints in Multi-Storey AMR Warehouses</h1>
+<div class="author">Shiyue Hu &nbsp;&middot;&nbsp; (co-authors TBD)</div>
+<div class="date">Draft v0.1 &mdash; April 2026</div>
+
+<div class="abstract">
+<h2>Abstract</h2>
+<p>
+Multi-storey warehouses staffed by floor-bound autonomous mobile robots (AMRs) couple wave-release decisions to a small number of freight elevators whose per-trip capacity is the binding constraint. We formalise this as the <strong>wave release coordination problem under vertical resource constraints</strong>: a two-stage scheduler that selects wave composition tactically and dispatches AMR&ndash;elevator execution operationally. We contribute: (i) a three-dimensional structured decomposition $\Phi = (C, I, T)$ with physically interpretable per-unit coefficients; (ii) a <strong>Bound-and-Gap framework</strong> whose decomposition theorem splits the value of wave-structure information into a partition-intrinsic upper bound and a $\Phi$-policy lower bound (mean GAP $5.83\,\%$, CI excludes zero in 6/6 cells); (iii) a <strong>Model-Dominance Hedge Rule</strong> collapsing under per-wave stochastic dominance ($\mathbb{P}[M_2 \ge M_1] = 99.4\,\%$ across $c \in \{2, 3, 4, 5\}$) to a closed-form rule with worst-case loss $3.1\text{&ndash;}9.9\,\%$. Across $18\,000$ regime-sweep simulations, the predictive value of structured features grows ten-fold with elevator-bottleneck relief. A pre-registered $14\,400$-simulation policy test produces a <strong>tactical-operational substitutability map</strong>: destination-clustered batching cuts mean makespan up to $9\,\%$ exactly in the cells our framework flags prospectively (6/6 cells correctly classified). Robustness across $\sim\!170\,000$ total simulations covers building heights $F \in \{5, 7, 9\}$, heterogeneous elevator pools, and service-time CV up to $131\,\%$.
+</p>
+</div>
+
+<h2>1. Introduction</h2>
+
+<h3>1.1 Motivating scenario</h3>
+<p>
+Consider a multi-storey fulfilment warehouse with $F$ floors, $E$ freight elevators of per-trip capacity $c$, and a fleet of floor-bound AMRs. An order travels horizontally on its source floor, vertically by elevator, and horizontally on its destination floor; the elevator is the only vertical channel and is shared by the entire fleet. Operations managers control two layers. The <strong>operational</strong> layer assigns AMRs to orders and sequences elevator boardings &mdash; a problem with substantial existing literature, from order batching in vertical lift modules to SAT-based optimal robot&ndash;lift schedules. The <strong>tactical</strong> layer chooses <em>which orders co-occupy a release window</em> &mdash; what we call a wave. Wave composition determines how many vertical transitions the elevators must serve, in which directions, and with what temporal stagger; it therefore sets the difficulty of the operational problem before any robot moves. Despite this, wave composition has not been treated as a decision variable jointly with elevator capacity in the AMR-warehouse literature. The omission matters: the wave layer is the cheapest place to relieve a vertical bottleneck, because it costs only a re-batching of already-released orders, with no change to floor layout or fleet size.
+</p>
+
+<h3>1.2 Why this is hard now</h3>
+<p>
+Three threads of recent work each touch part of this problem and stop short of the wave&ndash;elevator coupling.
+</p>
+<p>
+Order batching for <strong>vertical lift modules</strong> [Lenoble et al., 2018] optimises pick rounds inside a single device; the relevant decision is which items to retrieve in one shuttle trip, not which orders to release into a building-scale wave. The mathematics is local to the device.
+</p>
+<p>
+Multi-agent <strong>robot&ndash;lift scheduling</strong> [Chakravarty et al., 2025] takes a fixed task set and computes provably optimal lift schedules via Boolean satisfiability. Lift availability appears as a constraint, not as a design lever for the upstream wave layer; task selection is exogenous.
+</p>
+<p>
+<strong>Tier-captive shuttle systems</strong> [Wu et al., 2024] and multi-level RMFS architectures [Keung, 2023] study performance with floor-attached transport (one shuttle per tier), where vertical coupling is structurally weaker. The closer setting &mdash; flexible AMRs that can occupy any floor and queue at any elevator &mdash; produces a different bottleneck topology that these analyses do not address.
+</p>
+<p>
+Two further methodological threads bear on our framing. <strong>Robust scheduling under model uncertainty</strong> [Wiesemann et al., 2014; Lu and Shen, 2021] handles parametric uncertainty in known model classes, whereas the elevator literature offers genuinely <em>different</em> abstractions (throughput aggregation versus true co-occupancy batching) whose disagreement is structural, not parametric. <strong>Prediction-to-decision regret</strong> [Elmachtoub and Grigas, 2022; Vera et al., 2022] bounds algorithmic loss when a learned predictor drives a downstream optimiser; we are interested in a complementary quantity &mdash; the <em>information gap</em> between an oracle on the same feature partition and a $\Phi$-informed policy &mdash; that those bounds do not name.
+</p>
+
+<h3>1.3 Two empirical surprises that drive the paper</h3>
+<p>
+Two specific findings from a $14\,400$-simulation sweep across six (regime, elevator-model) cells motivate the methodological apparatus.
+</p>
+<p>
+<strong>Surprise A &mdash; wave structure has bounded but consistent value.</strong> A $\Phi$-informed corner pick beats a random wave in 6/6 cells, but the lift is only $1.3\text{&ndash;}7.4\,\%$, while the <em>oracle</em> corner &mdash; the best of the four quartile bins on $(C, I)$ &mdash; wins $5\text{&ndash;}15\,\%$. Neither zero nor full: the gap between informed policy and oracle is itself an object that needs a name and a decomposition. We provide both (&sect;5.2): a Bound-and-Gap framework whose decomposition theorem
+$$
+\mathrm{GAP} \;=\; H_{\mathrm{up}} \,+\, M_\Phi
+$$
+separates partition-intrinsic difficulty from $\Phi$-policy slack, and a partition-refinement corollary that explains, rather than rescues, the inflation of upper bounds under finer feature grids.
+</p>
+<p>
+<strong>Surprise B &mdash; elevator-modelling assumption flips a structural sign.</strong> Re-running identical waves under throughput aggregation versus true co-occupancy batching flips the sign of the entropy coefficient $\beta(C)$ in 2 of 3 c=2 regimes. Bootstrap stability is $76\text{&ndash;}85\,\%$ within regime, so we treat the sign-flip as a coarse diagnostic, not a fine classifier; the load-bearing fact for our hedge rule is the underlying <em>per-wave dominance</em>: true-batching makespan exceeds throughput-abstraction makespan in $92.5\text{&ndash;}100\,\%$ of waves across all 15 cells. From this, the minimax wave-corner selection (&sect;5.3) collapses in $c=2$ regimes to a one-line rule &mdash; <em>always pick the corner the true-batching model prefers</em> &mdash; with worst-case loss $3.1\text{&ndash;}9.9\,\%$.
+</p>
+
+<h3>1.4 Contributions and roadmap</h3>
+<p>We make three contributions.</p>
+
+<p>
+<span class="paragraph">(C1) Problem formulation.</span>
+We formalise the wave release coordination problem under vertical resource constraints &mdash; a two-stage scheduler coupling tactical wave composition and operational AMR&ndash;elevator execution under a hard per-trip capacity. Related precedents address batching at the device level [Lenoble et al., 2018], optimal scheduling for fixed task sets [Chakravarty et al., 2025], or tier-captive transport [Wu et al., 2024; Keung, 2023]; none treat wave composition jointly with building-scale vertical coupling and flexible fleet routing.
+</p>
+
+<p>
+<span class="paragraph">(C2) Methodology &mdash; three components.</span>
+<strong>(C2-$\Phi$)</strong> A three-dimensional structured decomposition $\Phi = (C, I, T)$ &mdash; vertical concentration, directional imbalance, temporal clustering &mdash; with physically interpretable per-unit coefficients. (A methodological caveat: throughput-abstraction and true-batching regressions agree on wave rank order, $r \ge 0.85$, but disagree on $\beta(C)$ sign, <em>motivating</em> the hedge rule below.)
+<strong>(C2-M4)</strong> A <strong>Bound-and-Gap framework</strong> with a decomposition theorem $\mathrm{GAP} = H_{\mathrm{up}} + M_\Phi$ (non-negative components, partition-refinement monotonicity), converting the gap into a per-cell diagnostic.
+<strong>(C2-M5)</strong> A <strong>Model-Dominance Hedge Rule</strong>: under per-wave stochastic dominance, the minimax corner collapses to &ldquo;follow $M_2$&rdquo; with worst-case loss $3.1\text{&ndash;}9.9\,\%$, and a one-sided $\varepsilon$-bound predicts when the collapse remains sharp. Two confirmations: M3 stochastic experiment exhibits the predicted knife-edge at E2_c2 $\sigma = 0.20$, and a directional-elevator extension ($\mathbb{P}[M_4 \ge M_2] = 97.7\,\%$) has argmin stability tracking the batching axis exactly as Corollary M5.2 predicts.
+<strong>M4 and M5 share the same applicability domain</strong> (operationally active batching) &mdash; the Bound-and-Gap framework is prospective precisely where the Hedge Rule is sharp.
+</p>
+
+<p>
+<span class="paragraph">(C3) Insights &mdash; three findings.</span>
+</p>
+<ul>
+  <li>(i) $H_{\mathrm{up}}$ varies ten-fold with elevator-bottleneck relief and, <strong>within M5's applicability domain, prospectively classifies all 6 cells</strong> on whether destination-clustered batching will beat FIFO.</li>
+  <li>(ii) $\mathbb{P}[M_2 \ge M_1] = 99.4\,\%$ across $c \in \{2, 3, 4, 5\}$; the Hedge Rule generalises beyond the $c=2$ case it was derived for.</li>
+  <li>(iii) A <strong>tactical-operational substitutability map</strong>: non-substitutability concentrates in the elevator-lever-dominated, tight-wave regime and decays along both the capacity-slack and wave-looseness axes.</li>
+</ul>
+
+<p>
+The remainder of the paper develops C1 (&sect;4), C2 (&sect;5), and C3 (&sect;6), discusses managerial implications (&sect;7), states limitations (&sect;8), and concludes (&sect;9).
+</p>
+
+<div class="footer">
+  Paper 3 &middot; Wave Release Coordination &middot; v0.1 prose draft<br>
+  Companion files: <code>abstract_intro_v0_1.tex</code> (LaTeX source), <code>outline_v0_1.md</code> (full outline), <code>appendix_robustness.md</code> (Tier 1.5 appendices A&ndash;B).
+</div>
+
+</article>
+
+</body>
+</html>
