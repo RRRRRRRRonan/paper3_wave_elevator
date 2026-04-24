@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.23)  23 APR 2026 23:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.23)  24 APR 2026 14:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -27,8 +27,7 @@ File: size11.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
-)
-(F:\MiKTeX\tex/latex/base\fontenc.sty
+) (F:\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
 ) (F:\MiKTeX\tex/latex/lm\lmodern.sty
 Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
@@ -64,25 +63,21 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
-)
-(F:\MiKTeX\tex/latex/amsmath\amsmath.sty
+) (F:\MiKTeX\tex/latex/amsmath\amsmath.sty
 Package: amsmath 2025/07/09 v2.17z AMS math features
 \@mathmargin=\skip51
 
 For additional information on amsmath, use the `?' option.
 (F:\MiKTeX\tex/latex/amsmath\amstext.sty
 Package: amstext 2024/11/17 v2.01 AMS text
-
-(F:\MiKTeX\tex/latex/amsmath\amsgen.sty
+ (F:\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks19
 \ex@=\dimen151
-))
-(F:\MiKTeX\tex/latex/amsmath\amsbsy.sty
+)) (F:\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen152
-)
-(F:\MiKTeX\tex/latex/amsmath\amsopn.sty
+) (F:\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count283
@@ -132,19 +127,16 @@ LaTeX Info: Redefining \Relbar on input line 970.
 \mathdisplay@stack=\toks23
 LaTeX Info: Redefining \[ on input line 2950.
 LaTeX Info: Redefining \] on input line 2951.
-)
-(F:\MiKTeX\tex/latex/amsfonts\amssymb.sty
+) (F:\MiKTeX\tex/latex/amsfonts\amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
-
-(F:\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+ (F:\MiKTeX\tex/latex/amsfonts\amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-))
-(F:\MiKTeX\tex/latex/amscls\amsthm.sty
+)) (F:\MiKTeX\tex/latex/amscls\amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
 \thm@style=\toks24
 \thm@bodyfont=\toks25
@@ -155,15 +147,12 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@postskip=\skip55
 \thm@headsep=\skip56
 \dth@everypar=\toks29
-)
-(F:\MiKTeX\tex/latex/geometry\geometry.sty
+) (F:\MiKTeX\tex/latex/geometry\geometry.sty
 Package: geometry 2026/03/07 v6.0 Page Geometry
-
-(F:\MiKTeX\tex/latex/graphics\keyval.sty
+ (F:\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks30
-)
-(F:\MiKTeX\tex/generic/iftex\ifvtex.sty
+) (F:\MiKTeX\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
  (F:\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
@@ -180,11 +169,9 @@ Package: iftex 2024/12/12 v1.0g TeX engine tests
 \Gm@layouthoffset=\dimen166
 \Gm@layoutvoffset=\dimen167
 \Gm@dimlist=\toks31
- (F:\MiKTeX\tex/latex/geometry\geometry.cfg))
-(F:\MiKTeX\tex/latex/microtype\microtype.sty
+ (F:\MiKTeX\tex/latex/geometry\geometry.cfg)) (F:\MiKTeX\tex/latex/microtype\microtype.sty
 Package: microtype 2026/03/01 v3.2d Micro-typographical refinements (RS)
-
-(F:\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+ (F:\MiKTeX\tex/latex/etoolbox\etoolbox.sty
 Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count298
 )
@@ -200,90 +187,68 @@ LaTeX Info: Redefining \textls on input line 1449.
 LaTeX Info: Redefining \microtypecontext on input line 2053.
 LaTeX Info: Redefining \textmicrotypecontext on input line 2070.
 \MT@listname@count=\count300
-
-(F:\MiKTeX\tex/latex/microtype\microtype-pdftex.def
+ (F:\MiKTeX\tex/latex/microtype\microtype-pdftex.def
 File: microtype-pdftex.def 2026/03/01 v3.2d Definitions specific to pdftex (RS)
-
 LaTeX Info: Redefining \lsstyle on input line 944.
 LaTeX Info: Redefining \lslig on input line 944.
 \MT@outer@space=\skip57
 )
 Package microtype Info: Loading configuration file microtype.cfg.
-
-(F:\MiKTeX\tex/latex/microtype\microtype.cfg
+ (F:\MiKTeX\tex/latex/microtype\microtype.cfg
 File: microtype.cfg 2026/03/01 v3.2d microtype main configuration file (RS)
 )
 LaTeX Info: Redefining \microtypesetup on input line 3065.
-)
-(F:\MiKTeX\tex/latex/natbib\natbib.sty
+) (F:\MiKTeX\tex/latex/natbib\natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip58
 \bibsep=\skip59
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count301
-)
-(F:\MiKTeX\tex/latex/hyperref\hyperref.sty
+) (F:\MiKTeX\tex/latex/hyperref\hyperref.sty
 Package: hyperref 2026-01-29 v7.01p Hypertext links for LaTeX
-
-(F:\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+ (F:\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-)
-(F:\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
+) (F:\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-)
-(F:\MiKTeX\tex/generic/pdfescape\pdfescape.sty
+) (F:\MiKTeX\tex/generic/pdfescape\pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-
-(F:\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+ (F:\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-)
-(F:\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
-)
-
-(F:\MiKTeX\tex/generic/infwarerr\infwarerr.sty
+) (F:\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (F:\MiKTeX\tex/generic/infwarerr\infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-))
-(F:\MiKTeX\tex/latex/hycolor\hycolor.sty
+)) (F:\MiKTeX\tex/latex/hycolor\hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-)
-(F:\MiKTeX\tex/latex/hyperref\nameref.sty
+) (F:\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2026-01-29 v2.58 Cross-referencing by name of section
-
-(F:\MiKTeX\tex/latex/refcount\refcount.sty
+ (F:\MiKTeX\tex/latex/refcount\refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-)
-(F:\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
+) (F:\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
-
-(F:\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+ (F:\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
 \c@section@level=\count302
-)
-(F:\MiKTeX\tex/generic/stringenc\stringenc.sty
-Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
-)
+) (F:\MiKTeX\tex/generic/stringenc\stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 )
 \@linkdim=\dimen169
 \Hy@linkcounter=\count303
 \Hy@pagecounter=\count304
-
-(F:\MiKTeX\tex/latex/hyperref\pd1enc.def
+ (F:\MiKTeX\tex/latex/hyperref\pd1enc.def
 File: pd1enc.def 2026-01-29 v7.01p Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
-)
-(F:\MiKTeX\tex/generic/intcalc\intcalc.sty
+) (F:\MiKTeX\tex/generic/intcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count305
-
-(F:\MiKTeX\tex/latex/hyperref\puenc.def
+ (F:\MiKTeX\tex/latex/hyperref\puenc.def
 File: puenc.def 2026-01-29 v7.01p Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
@@ -302,13 +267,10 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4807.
 \XeTeXLinkMargin=\dimen170
-
-(F:\MiKTeX\tex/generic/bitset\bitset.sty
+ (F:\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
-
-(F:\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty
-Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
-)
+ (F:\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
 \Fld@menulength=\count307
 \Field@Width=\dimen171
@@ -325,24 +287,19 @@ Package hyperref Info: PDF/A mode OFF on input line 6114.
 \c@Hfootnote=\count310
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
-
-(F:\MiKTeX\tex/latex/hyperref\hpdftex.def
+ (F:\MiKTeX\tex/latex/hyperref\hpdftex.def
 File: hpdftex.def 2026-01-29 v7.01p Hyperref driver for pdfTeX
 \Fld@listcount=\count311
 \c@bookmark@seq@number=\count312
-
-(F:\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
+ (F:\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
 Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
-
-(F:\MiKTeX\tex/generic/uniquecounter\uniquecounter.sty
+ (F:\MiKTeX\tex/generic/uniquecounter\uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
-84.
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
 )
 \Hy@SectionHShift=\skip60
-)
-(F:\MiKTeX\tex/latex/enumitem\enumitem.sty
+) (F:\MiKTeX\tex/latex/enumitem\enumitem.sty
 Package: enumitem 2025/02/06 v3.11 Customized lists
 \labelindent=\skip61
 \enit@outerparindent=\dimen173
@@ -350,19 +307,15 @@ Package: enumitem 2025/02/06 v3.11 Customized lists
 \enit@inbox=\box56
 \enit@count@id=\count313
 \enitdp@description=\count314
-)
-(F:\MiKTeX\tex/latex/xcolor\xcolor.sty
+) (F:\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
-
-(F:\MiKTeX\tex/latex/graphics-cfg\color.cfg
+ (F:\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 274.
-
-(F:\MiKTeX\tex/latex/graphics-def\pdftex.def
+ (F:\MiKTeX\tex/latex/graphics-def\pdftex.def
 File: pdftex.def 2025/09/29 v1.2d Graphics/color driver for pdftex
-)
-(F:\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+) (F:\MiKTeX\tex/latex/graphics\mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
 Package xcolor Info: Model `RGB' extended on input line 1365.
@@ -374,8 +327,7 @@ Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 13.
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 19
-.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 19.
  (F:\MiKTeX\tex/latex/lm\t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (F:\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
@@ -402,6 +354,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
 LaTeX Font Info:    ... okay on input line 19.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 19.
 LaTeX Font Info:    ... okay on input line 19.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -454,12 +407,10 @@ Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
 (F:\MiKTeX\tex/latex/microtype\mt-cmr.cfg
-File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
-(RS)
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
 Package hyperref Info: Link coloring ON on input line 19.
- (abstract_intro_v0_1.out)
-(abstract_intro_v0_1.out)
+ (abstract_intro_v0_1.out) (abstract_intro_v0_1.out)
 \@outlinefile=\write3
 \openout3 = `abstract_intro_v0_1.out'.
 
@@ -477,24 +428,19 @@ Package hyperref Info: Link coloring ON on input line 19.
 \makeMPintoPDFobject=\count321
 \everyMPtoPDFconversion=\toks36
 )
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2
-2.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 22.
  (F:\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2
-2.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 22.
  (F:\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-22.
-
-(F:\MiKTeX\tex/latex/lm\omslmsy.fd
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 22.
+ (F:\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-22.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 22.
  (F:\MiKTeX\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -505,21 +451,15 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 22.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 22.
-
-
-(F:\MiKTeX\tex/latex/amsfonts\umsa.fd
+ (F:\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-(F:\MiKTeX\tex/latex/microtype\mt-msa.cfg
+) (F:\MiKTeX\tex/latex/microtype\mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 22.
-
-
-(F:\MiKTeX\tex/latex/amsfonts\umsb.fd
+ (F:\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-(F:\MiKTeX\tex/latex/microtype\mt-msb.cfg
+) (F:\MiKTeX\tex/latex/microtype\mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -532,10 +472,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 31.
  [1
 
-{C:/Users/64432/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{F:/MiKTeX/fon
-ts/enc/dvips/lm/lm-ec.enc}{F:/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{F:/MiKTeX/fo
-nts/enc/dvips/lm/lm-mathit.enc}{F:/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}] [2
-] [3] [4] (abstract_intro_v0_1.aux)
+{C:/Users/64432/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{F:/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{F:/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{F:/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{F:/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}] [2] [3] [4] (abstract_intro_v0_1.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
@@ -551,13 +488,7 @@ Here is how much of TeX's memory you used:
  701158 words of font info for 167 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,6n,79p,1696b,575s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<F:/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><F:/MiKTeX/fonts/type1/public/lm/
-lmbx12.pfb><F:/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><F:/MiKTeX/fonts/type1/p
-ublic/lm/lmr10.pfb><F:/MiKTeX/fonts/type1/public/lm/lmr12.pfb><F:/MiKTeX/fonts/
-type1/public/lm/lmr17.pfb><F:/MiKTeX/fonts/type1/public/lm/lmr7.pfb><F:/MiKTeX/
-fonts/type1/public/lm/lmr8.pfb><F:/MiKTeX/fonts/type1/public/lm/lmri10.pfb><F:/
-MiKTeX/fonts/type1/public/lm/lmsy10.pfb><F:/MiKTeX/fonts/type1/public/amsfonts/
-symbols/msbm10.pfb>
+<F:/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><F:/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><F:/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><F:/MiKTeX/fonts/type1/public/lm/lmr10.pfb><F:/MiKTeX/fonts/type1/public/lm/lmr12.pfb><F:/MiKTeX/fonts/type1/public/lm/lmr17.pfb><F:/MiKTeX/fonts/type1/public/lm/lmr7.pfb><F:/MiKTeX/fonts/type1/public/lm/lmr8.pfb><F:/MiKTeX/fonts/type1/public/lm/lmri10.pfb><F:/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><F:/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
 Output written on abstract_intro_v0_1.pdf (4 pages, 264102 bytes).
 PDF statistics:
  172 PDF objects out of 1000 (max. 8388607)
