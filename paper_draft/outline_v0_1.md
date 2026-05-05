@@ -73,10 +73,10 @@ Use the v0.4 contributions paragraph verbatim from [novelty_analysis_and_contrib
 
 ---
 
-## §3. Related work — *target 600 words*
+## §3. Related work — *target 800 words (bumped from 600 in v0.2: absorbs the detailed per-thread positioning previously in §1.2/§2 Intro; Intro now carries only ~85-word literature acknowledgment)*
 
 ### Goal
-Position against four threads; the *delta* matters more than the breadth.
+Position against four threads; the *delta* matters more than the breadth. **Intro defers all detailed comparison here**, so each row's "Our delta" column should read as a self-contained 60–100-word paragraph in the final prose, not just one phrase.
 
 | Thread | Representative work | Their problem | Our delta |
 |---|---|---|---|
@@ -84,10 +84,16 @@ Position against four threads; the *delta* matters more than the breadth.
 | Multi-agent robot–lift scheduling | Chakravarty et al. 2025 (*Mathematics*) | SAT-based optimal scheduling with **fixed task set** | We treat task selection (wave composition) as an upstream decision variable |
 | Tier-captive shuttle systems | Wu et al. 2024 (*Processes*) | Inbound jobs on a four-way shuttle | Same outbound flavour, but with floor-bound AMRs and shared elevators (different bottleneck topology) |
 | Multi-level RMFS | Keung 2023 (*FSMJ*) | Architecture and analytics for multi-level RMFS | Closest in setting; they characterise system performance, we characterise the **decision lever** at the wave layer |
+| **Planar picker-to-parts order batching (decision-variable framing)** | **Scholz, Schubert & Wäscher 2017 (*EJOR*)** — manual multi-picker; **Žulj et al. 2022 (*EJOR*)** — AMR-assisted | **Simultaneous OB + BAS + PR with due dates (Scholz); AMR-assisted OB + BS with makespan (Žulj); both planar single-floor** | **Closest precedents for treating order-grouping as a decision variable; our delta is the vertical-resource coupling (shared elevator) absent in both. Removing multi-storey or elevator coupling collapses our problem to a planar subclass** |
+| **Planar AMR with multi-tote + cardinality-"wave"** | **Qin, Kang & Yang 2024 (*TRE*)** | **Order-to-tote + AMR scheduling in single-layer MTSR; uses "wave" for processing batches, identifies optimal wave *cardinality* ≈ 100 orders** | **Their optimum is a wave-cardinality (size) finding in a single-layer setting; we study wave *composition* (which orders to co-release) on structured features $\Phi$ in the multi-storey setting — a distinct decision object** |
 
 **Two more threads to acknowledge briefly** (1 sentence each):
 - *Robust scheduling under model uncertainty* — Lu & Shen 2021 (*POMS*) review, Wiesemann–Kuhn–Rustem 2014. Delta: parametric uncertainty vs. our structural model-class uncertainty (M5).
 - *Prediction-to-decision regret* — Elmachtoub & Grigas 2022 (*Mgmt Sci.*) SPO+, Vera et al. 2022 (*OR*) greedy matching regret bounds, Chenreddy & Delage 2023. Delta: training-loss / algorithmic regret vs. our post-hoc *information-value* gap (M4).
+
+**Authoritative positioning anchors** (cite in §3 opening paragraph, not in §1.2 intro — keeps intro lean):
+- **Boysen & de Koster 2025 (*EJOR* 320(3), 449–464)** — "50 years of warehousing research": three-generation classification, positions robotized DCs as the current generation. ⚠ PDF pending — see stub [papers/reading_log_boysen_dekoster_2025.md](../papers/reading_log_boysen_dekoster_2025.md).
+- **Boysen, Schneider & Žulj 2025 (*EJOR*, Invited Review, Energy management for EVs in facility logistics)** — surveys AMRs/AGVs/shuttles in §6; future-research agenda (§8.1) flags fleet coordination direction (not wave composition specifically). Reading log: [papers/reading_log_boysen_schneider_zulj_2025.md](../papers/reading_log_boysen_schneider_zulj_2025.md).
 
 ---
 
@@ -293,6 +299,8 @@ Three findings, each directly paired with a C2 component. Reading order: C3-1 (M
 - The rule is *appropriately soft* in knife-edge regimes (E2_c2 under $M_3$ σ=0.20).
 - Connects to robust scheduling literature (Lu–Shen 2021) by giving a closed-form collapse rather than an LP or MDP formulation.
 
+**Explicit contrast with Qin et al. (2024) managerial insights** (1 sentence, ~30 words): Unlike Qin et al.'s resource-sizing map (fleet, buffer, workstation, layout axes) for single-layer MTSR, our substitutability map operates on the tactical–operational axis — a distinct managerial dimension that applies only where vertical coupling is present.
+
 ### 7.3 The reframing of the $\beta$ sign-flip (~150 words)
 - Stand it up honestly: the sign flips between models in point estimate, but bootstrap stability is 76–85 %, not 90 %+.
 - We use it as *evidence consistent with* model-induced regime change, not as the *load-bearing motivation* for M5. The motivation is the more robust per-wave dominance fact.
@@ -333,15 +341,20 @@ Be ruthless and concrete; reviewers reward this.
 ## §10. References — *target 0 separate words; budget = ~1 page*
 
 **Seed list** (full BibTeX in `references.bib`):
-- Lenoble, N., Frein, Y., Hammami, R. (2018). Order batching in an automated warehouse with several vertical lift modules: Optimization and experiments with real data. *EJOR*. [PDF in papers/](../papers/)
+- **Boysen, N., & de Koster, R. (2025). 50 years of warehousing research — An operations research perspective. *European Journal of Operational Research*, 320(3), 449–464. DOI: 10.1016/j.ejor.2024.03.026** (open access; ⚠ PDF pending — see [reading log stub](../papers/reading_log_boysen_dekoster_2025.md))
+- **Boysen, N., Schneider, M., & Žulj, I. (2025). Energy management for electric vehicles in facility logistics: A survey from an operational research perspective. *European Journal of Operational Research* (Invited Review, CC-BY-4.0)** — see [reading log](../papers/reading_log_boysen_schneider_zulj_2025.md)
 - Chakravarty, A. et al. (2025). Toward Optimal Multi-Agent Robot and Lift Schedules via Boolean Satisfiability. *Mathematics*, MDPI. [PDF in papers/](../papers/)
-- Wu, J. et al. (2024). Research on Inbound Jobs' Scheduling in Four-Way-Shuttle-Based Storage System. *Processes*, MDPI. [PDF in papers/](../papers/)
-- Keung, K. L. (2023). Multi-level RMFS architecture and analytics. *FSMJ*.
-- Elmachtoub, A. N., & Grigas, P. (2022). Smart "Predict, then Optimize". *Management Science* 68(1), 9–26.
-- Vera, A., Banerjee, S., & Gurvich, I. (2022). Online allocation and pricing: Constant regret via bellman inequalities. *Operations Research*.
 - Chenreddy, A., & Delage, E. (2023). End-to-end conditional robust optimization. arXiv:2305.19225.
+- Elmachtoub, A. N., & Grigas, P. (2022). Smart "Predict, then Optimize". *Management Science* 68(1), 9–26.
+- Keung, K. L. (2023). Multi-level RMFS architecture and analytics. *FSMJ*.
+- Lenoble, N., Frein, Y., Hammami, R. (2018). Order batching in an automated warehouse with several vertical lift modules: Optimization and experiments with real data. *EJOR*. [PDF in papers/](../papers/)
 - Lu, M., & Shen, Z.-J. M. (2021). A review of robust operations management under model uncertainty. *POMS* 30(6), 1927–1943.
+- **Qin, Z., Kang, Y., & Yang, P. (2024). Making better order fulfillment in multi-tote storage and retrieval autonomous mobile robot systems. *Transportation Research Part E*, 192, 103752** (planar MTSR neighbour — see [reading log](../papers/reading_log_qin_kang_yang_2024.md))
+- **Scholz, A., Schubert, D., & Wäscher, G. (2017). Order picking with multiple pickers and due dates — Simultaneous solution of Order Batching, Batch Assignment and Sequencing, and Picker Routing Problems. *European Journal of Operational Research*, 263(2), 461–478** (planar manual multi-picker OB precedent — see [reading log](../papers/reading_log_scholz_et_al_2017.md))
+- Vera, A., Banerjee, S., & Gurvich, I. (2022). Online allocation and pricing: Constant regret via bellman inequalities. *Operations Research*.
 - Wiesemann, W., Kuhn, D., & Rustem, B. (2014). Robust Markov decision processes. *Mathematics of Operations Research* 38(1), 153–183.
+- Wu, J. et al. (2024). Research on Inbound Jobs' Scheduling in Four-Way-Shuttle-Based Storage System. *Processes*, MDPI. [PDF in papers/](../papers/)
+- **Žulj, I., Salewski, H., Goeke, D., & Schneider, M. (2022). Order batching and batch sequencing in an AMR-assisted picker-to-parts system. *European Journal of Operational Research*, 298(1), 182–201** (planar AMR-assisted OB precedent)
 
 ---
 
@@ -383,17 +396,17 @@ A section is **done** when *all* of the following are true:
 
 | Section | Target words | Cumulative |
 |---|---|---|
-| §1 Abstract | 200 | 200 |
-| §2 Introduction | 1 000 | 1 200 |
-| §3 Related work | 600 | 1 800 |
-| §4 Problem formulation | 700 | 2 500 |
-| §5 Methodology | 1 400 | 3 900 |
-| §6 Experiments + results | 1 800 | 5 700 |
-| §7 Discussion | 700 | 6 400 |
-| §8 Limitations | 350 | 6 750 |
-| §9 Conclusion | 250 | 7 000 |
-| §10 References | (separate) | 7 000 |
-| §11 Appendix | 600 | 7 600 |
+| §1 Abstract | 240 | 240 |
+| §2 Introduction | 825 | 1 065 |
+| §3 Related work | 800 | 1 865 |
+| §4 Problem formulation | 700 | 2 565 |
+| §5 Methodology | 1 400 | 3 965 |
+| §6 Experiments + results | 1 800 | 5 765 |
+| §7 Discussion | 700 | 6 465 |
+| §8 Limitations | 350 | 6 815 |
+| §9 Conclusion | 250 | 7 065 |
+| §10 References | (separate) | 7 065 |
+| §11 Appendix | 600 | 7 665 |
 
 **Total**: ~7 600 words main + 1 page figures + 1 page appendix = **~10 pages** at C&IE two-column format.
 

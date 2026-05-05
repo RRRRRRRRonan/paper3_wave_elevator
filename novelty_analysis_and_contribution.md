@@ -134,6 +134,81 @@ Their results set the reference for **operational-level gains**. Our H1 claim is
 - **2024-2025 RMFS / G2P joint optimization works**: All in planar (single-layer) settings. Do not address multi-storey constraints.
 - **ASRS / VLM queueing literature**: Performance analysis of fixed infrastructure, no decision variable for wave composition.
 
+### 2.5 Planar order-grouping decision-variable line *(added 2026-04-24; updated post-精读)*
+
+**Why this section is here**: the pre-submission positioning audit identified that our §1.1 / §1.4 novelty wording is vulnerable to planar decision-variable-framing batching literature. **Post-精读 (2026-04-24)**: three key neighbors confirmed; Four-qualifier novelty lock holds.
+
+#### 2.5.1 Scholz, Schubert & Wäscher (2017), *EJOR* — VERIFIED
+
+**Title**: *Order picking with multiple pickers and due dates — Simultaneous solution of Order Batching, Batch Assignment and Sequencing, and Picker Routing Problems* (EJOR 263(2), 461–478)
+
+**Problem name**: **JOBASRP** (their acronym). Uses **"batch"** terminology throughout, NOT "wave".
+
+**Key distinctions from Paper 3**（精读后 verified，4/4 维度 distinct）:
+- Setting: **planar single-floor two-block** (Fig. 1 in paper), wide aisles allowing picker overtake
+- Agent: **human picker** with tour-continuity constraint (single-picker trip = one batch)
+- Vertical resource: **none**
+- Objective: **total tardiness** (due-date), not makespan
+- Instance scale reported: 100 and 200 orders — **instance size, not optimum** (no "optimal batch size ≈ 100" finding)
+- Decision scope: simultaneous OB + BASP + PRP, single-stage VND heuristic
+
+**Finding**: VND beats sequential baseline by up to 84% in total tardiness, arguing for **holistic joint solution** over decomposed approach.
+
+**Reading log**: [papers/reading_log_scholz_et_al_2017.md](papers/reading_log_scholz_et_al_2017.md) — **VERIFIED v0.2**.
+
+#### 2.5.2 Žulj et al. (2022), *EJOR* — AMR-assisted extension of the Scholz line
+
+**Full citation**: Žulj, I., Salewski, H., Goeke, D., & Schneider, M. (2022). *Order batching and batch sequencing in an AMR-assisted picker-to-parts system*. *European Journal of Operational Research*, 298(1), 182–201.
+
+**Why this matters for Paper 3**: while Scholz 2017 is manual-picker, Žulj 2022 adds **AMR-assisted** to the same planar picker-to-parts class — closing the "they already have AMR" gap that a reviewer might otherwise raise. Still **planar single-floor**; no vertical resource; AMR-assistance means robots cooperate with human pickers on tour fulfillment, not that AMRs fully replace pickers.
+
+**Source of citation**: found via Boysen, Schneider & Žulj (2025) §6 references; full verification via Žulj's author page and EJOR catalog.
+
+#### 2.5.3 Qin, Kang & Yang (2024), *TRE* — VERIFIED (most dangerous neighbor)
+
+**Title**: *Making better order fulfillment in multi-tote storage and retrieval autonomous mobile robot systems* (TRE 192, 103752)
+
+**⚠ Three danger signals**:
+1. **Explicit "wave" terminology**: §3.1 Problem description: *"Order fulfillment is completed in waves. After completing the order fulfillment for the current wave, the succeeding wave is initiated"*
+2. **"Optimal ≈ 100 orders per wave" finding** (§5.4.3 and §6 Conclusion bullet): *"setting the number of orders per wave to 100 can improve order fulfillment performance"*
+3. Published on Paper 3's **reach-target journal** (*TRE*)
+
+**Key distinctions from Paper 3**（Four critical deltas）:
+- Setting: **single-layer dual-block** (Fig. 2 no elevator); width-to-length ratio sensitivity tested but all planar
+- AMR type: **multi-tote carry** (multi-item per robot tour); Paper 3 is single-item-per-elevator-ride
+- **"Wave" meaning differs**:
+  - Qin: processing batch, size = decision **cardinality parameter**
+  - Paper 3: tactical release-composition decision on **structured features Φ = (C, I, T)**
+- Decision axes: Qin's managerial map is on **resource-sizing axes** (fleet, buffer, workstation, layout); Paper 3's substitutability map is on **tactical-operational axis** — orthogonal managerial dimensions
+
+**The "100 orders" finding attribution note**: The original work doc ascribed "optimal wave size around 100 orders" to Scholz et al. 2017; **精读确认此 finding 实际来源是 Qin 2024**, and Scholz 2017 does NOT report batch-size optima. Paper 3 §1.2 has been corrected to attribute this to Qin with the correct interpretation (cardinality finding in single-layer setting, distinct from composition decision).
+
+**Reading log**: [papers/reading_log_qin_kang_yang_2024.md](papers/reading_log_qin_kang_yang_2024.md) — **VERIFIED v0.2**.
+
+### 2.6 Authoritative survey references *(stub status updated 2026-04-24)*
+
+Two candidate anchors identified; **current v0.1 paper body is lean-intro and does not hook either**（per editorial principle that detailed literature belongs in §3 Related Work, not §1.2 intro）. §3 Related Work will cite both.
+
+#### 2.6.1 Boysen & de Koster (2025) "50 years of warehousing research" — **stub, PDF pending**
+
+**Full citation**: Boysen, N., & de Koster, R. (2025). 50 years of warehousing research — An operations research perspective. *European Journal of Operational Research*, 320(3), 449–464. DOI: 10.1016/j.ejor.2024.03.026. **Open access**.
+
+**Status**: ⚠ **PDF NOT YET in `papers/`**. User attempted download 2026-04-24 but actually obtained the Boysen-Schneider-Žulj Energy survey (see §2.6.2). Primary-anchor candidacy deferred until PDF is verified.
+
+**Reading log stub**: [papers/reading_log_boysen_dekoster_2025.md](papers/reading_log_boysen_dekoster_2025.md) — contains three candidate positioning wordings (情形 A/B/C) to be selected after精读.
+
+#### 2.6.2 Boysen, Schneider & Žulj (2025) Energy management — VERIFIED (secondary anchor)
+
+**Full citation**: Boysen, N., Schneider, M., & Žulj, I. (2025). *Energy management for electric vehicles in facility logistics: A survey from an operational research perspective*. *European Journal of Operational Research* (Invited Review, CC-BY-4.0, accepted Dec 2025).
+
+**Relevance**: secondary anchor only. Does NOT flag multi-storey AMR wave composition or elevator coordination as an open agenda. Its §6 surveys AMR/AGV/shuttle/pallet-truck literature; §8.1 problem-oriented agenda focuses on energy-specific directions (layout design, storage assignment, job selection, job preemption) — useful but not overlapping with Paper 3.
+
+**Concrete value**: provides forward-citation path to **Žulj et al. 2022** (§2.5.2 above), the key AMR-assisted planar OB reference Paper 3 needs.
+
+**§3 Related Work wording (candidate)**: "The recent invited review by Boysen, Schneider, and Žulj (2025) surveys OR approaches for energy management across facility-logistics vehicle types, including AMRs; while energy aspects are outside our scope, the review positions AMR fleet coordination as an active direction."
+
+**Reading log**: [papers/reading_log_boysen_schneider_zulj_2025.md](papers/reading_log_boysen_schneider_zulj_2025.md) — **VERIFIED v0.1**.
+
 ---
 
 ## 3. Three-Layer Novelty Structure
