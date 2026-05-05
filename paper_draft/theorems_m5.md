@@ -85,7 +85,7 @@ Three wins for §5.4 of [outline_v0_1.md](outline_v0_1.md):
 
 | Thread | Nearest result | Difference from M5 |
 |---|---|---|
-| Robust MDP / Wiesemann-Kuhn-Rustem 2014 | Worst-case over parametric uncertainty ball | Our uncertainty is a discrete set of structural models $\{M_1, M_2\}$, not a continuous parameter |
+| Robust MDP / Wiesemann-Kuhn-Rustem 2013 | Worst-case over parametric uncertainty ball | Our uncertainty is a discrete set of structural models $\{M_1, M_2\}$, not a continuous parameter |
 | Lu–Shen 2021 (*POMS*) | Umbrella framework for robust OM | No closed-form collapse result in warehouse / AMR setting |
 | Scarf (1958) classical minimax | Minimax over worst-case distribution | No structural-model dominance framing |
 | SPO+ (Elmachtoub–Grigas 2022) | Training-loss regret under misspecified predictors | Different object: they bound prediction–decision regret, we collapse a minimax over dynamics models |

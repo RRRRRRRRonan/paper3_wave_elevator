@@ -88,8 +88,8 @@ Position against four threads; the *delta* matters more than the breadth. **Intr
 | **Planar AMR with multi-tote + cardinality-"wave"** | **Qin, Kang & Yang 2024 (*TRE*)** | **Order-to-tote + AMR scheduling in single-layer MTSR; uses "wave" for processing batches, identifies optimal wave *cardinality* ≈ 100 orders** | **Their optimum is a wave-cardinality (size) finding in a single-layer setting; we study wave *composition* (which orders to co-release) on structured features $\Phi$ in the multi-storey setting — a distinct decision object** |
 
 **Two more threads to acknowledge briefly** (1 sentence each):
-- *Robust scheduling under model uncertainty* — Lu & Shen 2021 (*POMS*) review, Wiesemann–Kuhn–Rustem 2014. Delta: parametric uncertainty vs. our structural model-class uncertainty (M5).
-- *Prediction-to-decision regret* — Elmachtoub & Grigas 2022 (*Mgmt Sci.*) SPO+, Vera et al. 2022 (*OR*) greedy matching regret bounds, Chenreddy & Delage 2023. Delta: training-loss / algorithmic regret vs. our post-hoc *information-value* gap (M4).
+- *Robust scheduling under model uncertainty* — Lu & Shen 2021 (*POMS*) review, Wiesemann–Kuhn–Rustem 2013. Delta: parametric uncertainty vs. our structural model-class uncertainty (M5).
+- *Prediction-to-decision regret* — Elmachtoub & Grigas 2022 (*Mgmt Sci.*) SPO+, Vera et al. 2021 (*OR*) greedy matching regret bounds, Chenreddy & Delage 2023. Delta: training-loss / algorithmic regret vs. our post-hoc *information-value* gap (M4).
 
 **Authoritative positioning anchors** (cite in §3 opening paragraph, not in §1.2 intro — keeps intro lean):
 - **Boysen & de Koster 2025 (*EJOR* 320(3), 449–464)** — "50 years of warehousing research": three-generation classification, positions robotized DCs as the current generation. ⚠ PDF pending — see stub [papers/reading_log_boysen_dekoster_2025.md](../papers/reading_log_boysen_dekoster_2025.md).
@@ -158,7 +158,7 @@ Reframed in v0.2 from "model-abstraction caveat" to **practitioner rule**:
 
 **Figure**: [phase4_v2_gap_ci.png](../prototype/results/figures/phase4_v2_gap_ci.png) — bootstrap CI bars per cell, stacked-bar variant showing $H_{\mathrm{up}}$ vs $M_\Phi$ split.
 
-**Closest prior art** (cite from §3): Elmachtoub–Grigas 2022 (regret on training loss), Vera et al. 2022 (algorithmic regret), Chenreddy–Delage 2023 (uncertainty-set learning). Delta: M4 is a *post-hoc, fixed-partition information-value gap with a closed-form decomposition* in the warehouse-OR setting.
+**Closest prior art** (cite from §3): Elmachtoub–Grigas 2022 (regret on training loss), Vera et al. 2021 (algorithmic regret), Chenreddy–Delage 2023 (uncertainty-set learning). Delta: M4 is a *post-hoc, fixed-partition information-value gap with a closed-form decomposition* in the warehouse-OR setting.
 
 ### 5.3 Model-Dominance Hedge Rule (M5) — *~480 words*
 
@@ -180,7 +180,7 @@ Reframed in v0.2 from "model-abstraction caveat" to **practitioner rule**:
 
 **Figure**: [phase4_v2_m3_medians.png](../prototype/results/figures/phase4_v2_m3_medians.png) — median makespan per (regime, arm) under M1, M2, M3 σ=0.1, M3 σ=0.2.
 
-**Closest prior art**: Lu–Shen 2021 (umbrella robust OM); Wiesemann–Kuhn–Rustem 2014 (parametric uncertainty); robust-MDP line. Delta: structural model-class uncertainty + closed-form collapse in a warehouse-OR setting.
+**Closest prior art**: Lu–Shen 2021 (umbrella robust OM); Wiesemann–Kuhn–Rustem 2013 (parametric uncertainty); robust-MDP line. Delta: structural model-class uncertainty + closed-form collapse in a warehouse-OR setting.
 
 ### 5.4 M4 and M5 as two faces of one regime boundary — *~150 words*
 
@@ -351,8 +351,8 @@ Be ruthless and concrete; reviewers reward this.
 - Lu, M., & Shen, Z.-J. M. (2021). A review of robust operations management under model uncertainty. *POMS* 30(6), 1927–1943.
 - **Qin, Z., Kang, Y., & Yang, P. (2024). Making better order fulfillment in multi-tote storage and retrieval autonomous mobile robot systems. *Transportation Research Part E*, 192, 103752** (planar MTSR neighbour — see [reading log](../papers/reading_log_qin_kang_yang_2024.md))
 - **Scholz, A., Schubert, D., & Wäscher, G. (2017). Order picking with multiple pickers and due dates — Simultaneous solution of Order Batching, Batch Assignment and Sequencing, and Picker Routing Problems. *European Journal of Operational Research*, 263(2), 461–478** (planar manual multi-picker OB precedent — see [reading log](../papers/reading_log_scholz_et_al_2017.md))
-- Vera, A., Banerjee, S., & Gurvich, I. (2022). Online allocation and pricing: Constant regret via bellman inequalities. *Operations Research*.
-- Wiesemann, W., Kuhn, D., & Rustem, B. (2014). Robust Markov decision processes. *Mathematics of Operations Research* 38(1), 153–183.
+- Vera, A., Banerjee, S., & Gurvich, I. (2021). Online allocation and pricing: Constant regret via Bellman inequalities. *Operations Research* 69(3), 821–840. https://doi.org/10.1287/opre.2020.2061
+- Wiesemann, W., Kuhn, D., & Rustem, B. (2013). Robust Markov decision processes. *Mathematics of Operations Research* 38(1), 153–183. https://doi.org/10.1287/moor.1120.0566
 - Wu, J. et al. (2024). Research on Inbound Jobs' Scheduling in Four-Way-Shuttle-Based Storage System. *Processes*, MDPI. [PDF in papers/](../papers/)
 - **Žulj, I., Salewski, H., Goeke, D., & Schneider, M. (2022). Order batching and batch sequencing in an AMR-assisted picker-to-parts system. *European Journal of Operational Research*, 298(1), 182–201** (planar AMR-assisted OB precedent)
 

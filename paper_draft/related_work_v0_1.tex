@@ -1,0 +1,69 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage[round]{natbib}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{indentfirst}
+\usepackage{xcolor}
+\hypersetup{colorlinks=true, linkcolor=blue!50!black, urlcolor=blue!50!black, citecolor=blue!50!black}
+
+\title{Wave Release Coordination under Vertical Resource Constraints in Multi-Storey AMR Warehouses}
+\author{Shiyue Hu \and (co-authors TBD)}
+\date{May 2026}
+
+\begin{document}
+
+\maketitle
+
+\section{Related Work}\label{sec:related}
+
+The relevant literature falls into two strands: (i) operations research on warehouse problems that share part of our setting (multi-storey deployment, AMR fleets, lift coupling, or wave-scale grouping decisions), and (ii) methodological tools that bear on our analytical apparatus (robust scheduling under structural model uncertainty, and prediction-to-decision regret bounds). We organise the first strand into four problem-class threads and survey the second more briefly. Two recent surveys place this work in context: \citet{boysendekoster2025} provides a fifty-year retrospective of warehousing OR organised across three generations of distribution-centre architecture, and \citet{boysenschneiderzulj2025} reviews fleet coordination problems for electric vehicles in facility logistics, including AMR fleets.
+
+\subsection{Device-level order batching in vertical lift modules}\label{sec:related-vlm}
+
+The work of \citet{lenoble2018} is closest to our framing in name (it studies ``order batching'' with a ``vertical'' element) but most distant in physical scale. They formulate order batching in an automated warehouse equipped with one to four vertical lift modules (VLMs); each VLM is a single mechanical device with a tray that travels vertically. Their decision is which item-orders to retrieve in a single tray-load, with the objective of minimising total completion time, validated on real data from two firms. The mathematics is internal to each device: a VLM is a piece of equipment, not a building. Our setting differs at every scale of this comparison: the ``vertical resource'' we study is a freight elevator carrying AMRs across building floors, the wave we release is a fleet-level co-occupation window, and the coupling we treat (multi-elevator capacity shared across a horizontal AMR fleet) does not arise inside a single VLM.
+
+\subsection{Multi-agent robot--lift scheduling with fixed task sets}\label{sec:related-sat}
+
+\citet{chakravarty2025} address the operational scheduling of AMR fleets coordinating with shared lifts in hotel and hospital deployments. Using Boolean satisfiability (SAT) solvers with anytime constraint-programming techniques, they compute provably optimal lift schedules and report up to 4.34 times speedup over a baseline. The decision space they address is downstream of ours: their SAT formulation takes a list of robot--task assignments as exogenous input and finds the time-optimal lift schedule for delivering them. Our problem is upstream of theirs: we treat the \emph{selection} of which orders enter the system together (wave composition) as a tactical decision variable, with the operational AMR--elevator dispatch then taking that wave as input. The scaling profile also differs: their SAT approach caps practically at small fleets (around thirty agents per scenario), whereas we target hundreds of orders per wave through a heuristic-friendly two-stage decomposition.
+
+\subsection{Multi-storey scheduling with tier-captive transport}\label{sec:related-tier}
+
+A growing literature studies multi-storey warehouses where each tier has its own dedicated vehicles. \citet{wu2024} address inbound job scheduling in four-way shuttle systems, formulating a flexible flow-shop problem and proposing a double-encoded genetic algorithm with embedded simulated annealing; their DELO-GA solves 100-job instances in under 100 seconds with sub-1\% optimality gap. \citet{keung2023} study order and pod assignment in multi-level robotic mobile fulfilment systems (RMFS). Both adopt a \emph{tier-captive} transport model: each shuttle is bound to a specific layer, and inter-layer transport happens via dedicated lift--shuttle handover, rather than via a fleet of horizontally flexible robots queueing at shared elevators. The bottleneck topology this produces is fundamentally different from ours: in tier-captive systems, a layer-bound shuttle's queue depends only on its own layer's demand, whereas in our setting AMRs from any floor compete concurrently for elevator service. This concurrency is what makes wave composition (which floors and which directions to release together) the binding tactical lever in our problem class but not in theirs.
+
+\subsection{Order-grouping as a decision variable in planar picker-to-parts systems}\label{sec:related-planar}
+
+The work most directly relevant to our tactical layer treats order grouping itself as a decision variable, in planar (single-floor) settings without vertical resource coupling. \citet{scholz2017} formulate the \emph{Joint Order Batching, Assignment and Sequencing, and Picker Routing Problem} (JOBASRP) for multi-picker manual warehouses with due-date objectives, demonstrating through variable neighbourhood descent that the holistic joint solution outperforms sequential decomposition by up to 84\% in total tardiness. \citet{zulj2022} extend this line to AMR-assisted picker-to-parts systems, where robots transport totes between human pickers and a depot, and develop a hybrid ALNS--tabu heuristic for the joint batching and sequencing problem. \citet{qin2024} study order fulfilment in multi-tote storage and retrieval (MTSR) AMR systems and notably \emph{use the term ``wave''} for processing batches, identifying through an item-popularity-driven adaptive large neighbourhood search an empirical optimum near 100 orders per wave in their single-layer setting. This last finding deserves careful framing: Qin's ``wave'' is a \emph{cardinality} parameter (how many orders to process together), not a \emph{composition} decision (which orders to bundle on structured features). Our work extends this single-floor decision class to the multi-storey setting, where shared elevator capacity introduces a vertical-resource coupling that none of these planar precedents addresses.
+
+\subsection{Methodological context}\label{sec:related-method}
+
+Two analytical lines bear on our methodology. First, robust scheduling under model uncertainty \citep{wiesemann2013, lushen2021} handles parametric variation within a known model class (for example, an MDP with uncertain transition probabilities, or a robust OM problem with a known objective form and an uncertain demand parameter). Our elevator-modelling uncertainty is structurally different: throughput-aggregation and true-co-occupancy-batching are \emph{qualitatively distinct} models of how elevators serve fleets, not two parameterisations of the same model family. The Hedge Rule we derive collapses this \emph{structural} model-class disagreement into a single closed-form decision under a per-wave dominance condition. Second, the prediction-to-decision regret literature \citep{elmachtoub2022, vera2021} bounds algorithmic loss when a learned predictor is plugged into a downstream optimiser. Our Bound-and-Gap framework studies a complementary post-hoc quantity: the \emph{information gap} between an oracle on a structured feature partition and a $\Phi$-informed policy on the same partition.
+
+\subsection{Synthesis}\label{sec:related-synthesis}
+
+None of the threads above treats the four problem-defining elements (wave composition as a tactical decision variable, multi-storey deployment, flexible AMR fleets, and shared-elevator capacity coupling) as one coupled system. Order-grouping work \citep{scholz2017, zulj2022, qin2024} addresses wave grouping but in planar settings without elevator coupling. Multi-storey scheduling work \citep{wu2024, keung2023} addresses vertical structure but with tier-captive rather than flexible transport. Multi-agent robot--lift work \citep{chakravarty2025} addresses the AMR--elevator coupling but with task selection treated as exogenous. Device-level VLM batching \citep{lenoble2018} and the methodological literature \citep{wiesemann2013, lushen2021, elmachtoub2022, vera2021} each touch a piece of the technical apparatus but leave the joint problem class open. We formalise that joint class in Section~3 and develop our analytical tools in Section~4.
+
+% Bibliography placeholder (use BibTeX in final draft)
+\begin{thebibliography}{14}
+  \bibitem[Boysen \& de Koster, 2025]{boysendekoster2025} Boysen, N., \& de Koster, R. (2025). 50 years of warehousing research: An operations research perspective. \emph{European Journal of Operational Research}, 320(3), 449--464. \url{https://doi.org/10.1016/j.ejor.2024.03.026}
+  \bibitem[Boysen, Schneider \& \v{Z}ulj, 2025]{boysenschneiderzulj2025} Boysen, N., Schneider, M., \& \v{Z}ulj, I. (2025). Energy management for electric vehicles in facility logistics: A survey from an operational research perspective. \emph{European Journal of Operational Research} (Invited Review, in press). \url{https://doi.org/10.1016/j.ejor.2025.12.031}
+  \bibitem[Chakravarty et al., 2025]{chakravarty2025} Chakravarty, A., Grey, M.\,X., Muthugala, M.\,A.\,V.\,J., \& Elara, R.\,M. (2025). Toward optimal multi-agent robot and lift schedules via Boolean satisfiability. \emph{Mathematics}, 13(18), 3031. \url{https://doi.org/10.3390/math13183031}
+  \bibitem[Elmachtoub \& Grigas, 2022]{elmachtoub2022} Elmachtoub, A.\,N., \& Grigas, P. (2022). Smart ``Predict, then Optimize''. \emph{Management Science}, 68(1), 9--26. \url{https://doi.org/10.1287/mnsc.2020.3922}
+  \bibitem[Keung et al., 2023]{keung2023} Keung, K.\,L., Lee, C.\,K.\,M., \& Ji, P. (2023). Assigning orders and pods to picking stations in a multi-level robotic mobile fulfillment system. \emph{Flexible Services and Manufacturing Journal}. \url{https://doi.org/10.1007/s10696-023-09491-0}
+  \bibitem[Lenoble et al., 2018]{lenoble2018} Lenoble, N., Frein, Y., \& Hammami, R. (2018). Order batching in an automated warehouse with several vertical lift modules: Optimization and experiments with real data. \emph{European Journal of Operational Research}, 267(3), 958--976. \url{https://doi.org/10.1016/j.ejor.2017.12.037}
+  \bibitem[Lu \& Shen, 2021]{lushen2021} Lu, M., \& Shen, Z.-J.\,M. (2021). A review of robust operations management under model uncertainty. \emph{Production and Operations Management}, 30(6), 1927--1943. \url{https://doi.org/10.1111/poms.13239}
+  \bibitem[Qin et al., 2024]{qin2024} Qin, Z., Kang, Y., \& Yang, P. (2024). Making better order fulfillment in multi-tote storage and retrieval autonomous mobile robot systems. \emph{Transportation Research Part E: Logistics and Transportation Review}, 192, 103752. \url{https://doi.org/10.1016/j.tre.2024.103752}
+  \bibitem[Scholz et al., 2017]{scholz2017} Scholz, A., Schubert, D., \& W\"ascher, G. (2017). Order picking with multiple pickers and due dates: Simultaneous solution of Order Batching, Batch Assignment and Sequencing, and Picker Routing Problems. \emph{European Journal of Operational Research}, 263(2), 461--478. \url{https://doi.org/10.1016/j.ejor.2017.04.038}
+  \bibitem[Vera et al., 2021]{vera2021} Vera, A., Banerjee, S., \& Gurvich, I. (2021). Online allocation and pricing: Constant regret via Bellman inequalities. \emph{Operations Research}, 69(3), 821--840. \url{https://doi.org/10.1287/opre.2020.2061}
+  \bibitem[Wiesemann et al., 2013]{wiesemann2013} Wiesemann, W., Kuhn, D., \& Rustem, B. (2013). Robust Markov decision processes. \emph{Mathematics of Operations Research}, 38(1), 153--183. \url{https://doi.org/10.1287/moor.1120.0566}
+  \bibitem[Wu et al., 2024]{wu2024} Wu, Z., Zhang, Y., Li, L., Zhang, Z., Zhao, B., Zhang, Y., \& He, X. (2024). Research on inbound jobs' scheduling in four-way-shuttle-based storage system. \emph{Processes}, 12(1), 223. \url{https://doi.org/10.3390/pr12010223}
+  \bibitem[\v{Z}ulj et al., 2022]{zulj2022} \v{Z}ulj, I., Salewski, H., Goeke, D., \& Schneider, M. (2022). Order batching and batch sequencing in an AMR-assisted picker-to-parts system. \emph{European Journal of Operational Research}, 298(1), 182--201. \url{https://doi.org/10.1016/j.ejor.2021.05.033}
+\end{thebibliography}
+
+\end{document}
