@@ -47,7 +47,7 @@ status: "LOCKED before any simulation runs"
 | Name | Rule | Where to implement |
 |---|---|---|
 | **P0** | Current simulator — elevator serves AMRs in queue-arrival order, batches up to $c$ FIFO | Unchanged from current [simulator.py](../prototype/src/simulator.py) |
-| **P1** | Destination-clustered batching — at each dispatch event, pick $c$ AMRs from the waiting queue that minimise max destination spread; dispatch 1 alone if only 1 is waiting (no artificial hold-off) | New method `.pop_cluster(c)` on `ElevatorBatched` class |
+| **P1** | Destination-clustered batching — at each dispatch event, pick $c$ AMRs from the waiting queue that minimize max destination spread; dispatch 1 alone if only 1 is waiting (no artificial hold-off) | New method `.pop_cluster(c)` on `ElevatorBatched` class |
 
 **P1 is the pre-registered "strong operational layer" heuristic.** It represents what an elevator-scheduling module with near-zero additional infrastructure cost could realistically do.
 

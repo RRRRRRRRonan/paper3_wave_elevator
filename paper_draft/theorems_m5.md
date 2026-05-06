@@ -13,7 +13,7 @@ status: "draft v0.1"
 
 This file contains the formal statement and proof of the **Model-Dominance Collapse Theorem** that underpins C2-M5. The target is a ≤ 1-page derivation suitable for inclusion in Paper 3 §5.4.
 
-The contribution sits at the intersection of **structural-model-class robust optimisation** (Lu–Shen 2021) and **warehouse-OR tactical design**; to our knowledge, the collapse result has not appeared in either literature as a closed-form statement.
+The contribution sits at the intersection of **structural-model-class robust optimization** (Lu–Shen 2021) and **warehouse-OR tactical design**; to our knowledge, the collapse result has not appeared in either literature as a closed-form statement.
 
 ## 1. Setup and notation
 
@@ -79,7 +79,7 @@ Three wins for §5.4 of [outline_v0_1.md](outline_v0_1.md):
 
 1. **M5 is a theorem, not a heuristic.** The collapse under (D) is exact; under (D$_\epsilon$) the rule is stable with a checkable perturbation bound. Reviewers can no longer dismiss M5 as "just an empirical observation".
 2. **The knife-edge observation is predicted, not exceptional.** Corollary M5.2's corner-gap condition *explains* the E2_c2 flip at σ=0.20. This reframes the §8 limitation from "caveat" to "consequence of the theorem's regularity condition".
-3. **The reframe from sign-flip to dominance is formalised.** In Proposition M5.1, the load-bearing input is dominance (D), not the sign of any regression coefficient. β(C) sign behaviour is downstream of — but not equivalent to — dominance. This makes the paper's reframing a statement about *proof structure* rather than a rhetorical choice.
+3. **The reframe from sign-flip to dominance is formalized.** In Proposition M5.1, the load-bearing input is dominance (D), not the sign of any regression coefficient. β(C) sign behavior is downstream of — but not equivalent to — dominance. This makes the paper's reframing a statement about *proof structure* rather than a rhetorical choice.
 
 ## 6. Prior art delta (for the paper body)
 
@@ -97,7 +97,7 @@ Three wins for §5.4 of [outline_v0_1.md](outline_v0_1.md):
 - [x] Formalise the $U_c(\epsilon)$ bound (done 2026-04-22): closed form via the one-sided dominance inequality is $U_c(\epsilon) = (F_2^c)^{-1}(1/2 + \epsilon) - (F_2^c)^{-1}(1/2)$, computable directly from sample quantiles of $\tilde T_{M_2}$ on R3 data.
 - [x] Verify the corner-gap condition numerically on R3 data (done 2026-04-22, [analysis_phase4_v2_m5_delta.py](../prototype/src/analysis_phase4_v2_m5_delta.py)): per-cell $U_c(\epsilon)$ ranges 0–12 wave-time units across the 12 (regime, corner) cells; observed median gaps $m_2^c - m_1^c$ are 28–65 units (M_2 dominates by far more than the bound permits violation), so the median-proximity bound is satisfied trivially for all 12/12 cells. The empirical argmin under the max-of-medians equals $c^\star_{M_2}$ in all 3 regimes. The M3 stochastic extension at $\sigma = 0.20$ exhibits $\epsilon \approx 0.5$ and $U_c$ exceeds inter-corner gaps everywhere → predicted knife-edge confirmed.
 - [ ] Confirm with advisor that the monotone-$s$ generality (median / mean / any quantile) is worth the slight extra abstraction, vs. a median-only statement. Trade-off: 3 extra lines for one level of generality.
-- [ ] Extend Corollary M5.2 to $|\mathcal{M}| > 2$: the collapse generalises to minimum-over-max-of-any-finite-model-set under pairwise dominance. Low priority; note in §5.4 as future work.
+- [ ] Extend Corollary M5.2 to $|\mathcal{M}| > 2$: the collapse generalizes to minimum-over-max-of-any-finite-model-set under pairwise dominance. Low priority; note in §5.4 as future work.
 
 ## 8. Where this feeds into the paper
 

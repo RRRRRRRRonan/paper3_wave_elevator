@@ -1,5 +1,5 @@
 ---
-title: "Wave Release Coordination under Vertical Resource Constraints in Multi-Storey AMR Warehouses"
+title: "Wave Release Coordination under Vertical Resource Constraints in Multi-Story AMR Warehouses"
 target: "Computers & Industrial Engineering (Q1, IF≈6); fallback FSMJ (Q2)"
 budget: "8–10 pages, ~7,500 words main text + figures + appendix"
 status: "outline v0.1 — paper-draft scaffold derived from novelty_analysis_and_contribution.md §11.2 + §11.7–§11.10 and prototype/results/v0_2_phase4_v2_reinforcement.md"
@@ -23,9 +23,9 @@ Total target: **≈ 7,500 words** main text (≈ 8 pages two-column), **+ ≈ 1 
 
 ## §0. Front matter
 
-- **Title**: *Wave Release Coordination under Vertical Resource Constraints: A Bound-and-Gap Framework for Multi-Storey AMR Warehouses*
+- **Title**: *Wave Release Coordination under Vertical Resource Constraints: A Bound-and-Gap Framework for Multi-Story AMR Warehouses*
 - **Authors / affiliations**: TBD.
-- **Keywords**: multi-storey warehouse, autonomous mobile robots, freight elevator, wave picking, robust scheduling, structured decomposition.
+- **Keywords**: multi-story warehouse, autonomous mobile robots, freight elevator, wave picking, robust scheduling, structured decomposition.
 
 ---
 
@@ -34,10 +34,10 @@ Total target: **≈ 7,500 words** main text (≈ 8 pages two-column), **+ ≈ 1 
 **Goal**: in one paragraph, sell C1 (problem), C2-M4 + C2-M5 (methods, with M4-M5 unification), C3-1 + C3-3 (prospective diagnostic + substitutability map).
 
 **Key claims (assemble verbatim from [novelty_analysis_and_contribution.md §11.2](../novelty_analysis_and_contribution.md#112-v04-contributions-paragraph-paste-this-into-paper-3))**:
-1. We formalise the *wave release coordination problem under vertical resource constraints* — a two-stage scheduling problem coupling tactical wave composition and operational AMR–elevator execution.
+1. We formalize the *wave release coordination problem under vertical resource constraints* — a two-stage scheduling problem coupling tactical wave composition and operational AMR–elevator execution.
 2. We propose a three-dimensional structured decomposition $\Phi = (C, I, T)$ of wave composition with physically interpretable per-unit coefficients.
 3. We propose a **Bound-and-Gap framework** that decomposes the value of wave-structure information into an oracle upper bound and a $\Phi$-informed lower bound; the gap is a regime-difficulty diagnostic (mean GAP **5.83 %**, 95 % bootstrap CI excludes 0 in 6/6 cells).
-4. We propose a **Model-Dominance Hedge Rule** that resolves elevator-modelling uncertainty as a minimax wave-corner selection that collapses in $c=2$ regimes to a closed-form rule (always follow the true-batching corner), under which worst-case loss vs. the model-specific optimum is **3.1–9.9 %**.
+4. We propose a **Model-Dominance Hedge Rule** that resolves elevator-modeling uncertainty as a minimax wave-corner selection that collapses in $c=2$ regimes to a closed-form rule (always follow the true-batching corner), under which worst-case loss vs. the model-specific optimum is **3.1–9.9 %**.
 5. Across a 6-regime simulation sweep, the predictive value of structured wave features grows **10×** with elevator-bottleneck relief, indicating that the value of structured wave planning is a function of fleet–elevator capacity balance rather than of waves in isolation.
 6. A pre-registered policy test (destination-clustered batching P1 vs FIFO P0, 14 400 simulations) confirms this regime sensitivity at the **operational** level: P1 reduces mean makespan by up to **9 %** precisely and only in the cells where the M4 elevator-lever term dominates (batched model, $E \in \{2, 3\}$), while remaining neutral or slightly negative elsewhere — a prediction-and-confirmation of the Bound-and-Gap framework's regime-conditional content.
 
@@ -49,13 +49,13 @@ Total target: **≈ 7,500 words** main text (≈ 8 pages two-column), **+ ≈ 1 
 Motivate why the wave–elevator coupling matters, position against the closest precedents, preview the four-beat narrative.
 
 ### 2.1 Motivating scenario (~200 words)
-- Multi-storey AMR fulfilment warehouse: orders span $F$ floors; AMRs are floor-bound; freight elevators are the only vertical transport. Capacity $c$ AMRs per elevator trip.
+- Multi-story AMR fulfillment warehouse: orders span $F$ floors; AMRs are floor-bound; freight elevators are the only vertical transport. Capacity $c$ AMRs per elevator trip.
 - Wave-release decision determines *which orders co-occupy a wave*; this fixes how many vertical transitions happen, in which direction, with what temporal stagger.
 - Operational scheduling (which AMR picks which order, in what sequence) is well studied; **wave composition is the upstream lever that has not been treated as a decision variable in coupling with elevator capacity**.
 
 ### 2.2 Why this is hard now (~250 words)
 - AMR fleets are increasingly flexible (any robot, any zone) — Wu et al. 2024 four-way shuttles, Keung 2023 multi-level RMFS.
-- Elevator coupling cannot be assumed away under multi-storey deployments — Chakravarty et al. 2025 SAT-based optimal lift schedules treat lift availability as a constraint but not as a *design lever* for the wave layer.
+- Elevator coupling cannot be assumed away under multi-story deployments — Chakravarty et al. 2025 SAT-based optimal lift schedules treat lift availability as a constraint but not as a *design lever* for the wave layer.
 - Vertical lift module batching (Lenoble et al. 2018) treats batching at the *device* level; the wave-level question — *what mix of orders should co-occupy a release window* — is still open.
 
 ### 2.3 Two empirical surprises that drive the paper (~250 words)
@@ -63,7 +63,7 @@ Motivate why the wave–elevator coupling matters, position against the closest 
 Bridge from "this problem exists" to "we found something specific":
 
 1. **Surprise A — wave structure has bounded but consistent value.** Across 6 (regime, model) cells, $\Phi$-informed corner picks beat random in 6/6 cells but only by 1.3–7.4 %, while the *maximum* lever (oracle corner) is 5–15 %. A consistent gap — never zero, never the full lever — needs a name. We give it one (§4).
-2. **Surprise B — elevator-modelling assumption flips a structural sign.** Re-running the same waves under throughput-aggregation vs. true co-occupancy batching flips the sign of $\beta(C)$ in 2/3 c=2 regimes. (Yule–Simpson reversal candidate, [§11.7 of the analysis doc](../novelty_analysis_and_contribution.md#117-phase-4-v2-wave-design-experiment--what-we-now-know).) We do not let the noisy sign-flip *motivate* the method; we use the underlying *dominance fact* — true-batching makespan exceeds throughput-abstraction makespan in 92.5–100 % of waves across all 15 cells — to derive a closed-form hedge.
+2. **Surprise B — elevator-modeling assumption flips a structural sign.** Re-running the same waves under throughput-aggregation vs. true co-occupancy batching flips the sign of $\beta(C)$ in 2/3 c=2 regimes. (Yule–Simpson reversal candidate, [§11.7 of the analysis doc](../novelty_analysis_and_contribution.md#117-phase-4-v2-wave-design-experiment--what-we-now-know).) We do not let the noisy sign-flip *motivate* the method; we use the underlying *dominance fact* — true-batching makespan exceeds throughput-abstraction makespan in 92.5–100 % of waves across all 15 cells — to derive a closed-form hedge.
 
 ### 2.4 Contributions (paste from §11.2; ~250 words)
 
@@ -80,12 +80,12 @@ Position against four threads; the *delta* matters more than the breadth. **Intr
 
 | Thread | Representative work | Their problem | Our delta |
 |---|---|---|---|
-| Order batching in vertical lift modules | Lenoble et al. 2018 (*EJOR*) | Device-level optimisation of pick rounds in a single VLM | We treat wave composition at building scale, with multi-elevator coupling |
+| Order batching in vertical lift modules | Lenoble et al. 2018 (*EJOR*) | Device-level optimization of pick rounds in a single VLM | We treat wave composition at building scale, with multi-elevator coupling |
 | Multi-agent robot–lift scheduling | Chakravarty et al. 2025 (*Mathematics*) | SAT-based optimal scheduling with **fixed task set** | We treat task selection (wave composition) as an upstream decision variable |
 | Tier-captive shuttle systems | Wu et al. 2024 (*Processes*) | Inbound jobs on a four-way shuttle | Same outbound flavour, but with floor-bound AMRs and shared elevators (different bottleneck topology) |
-| Multi-level RMFS | Keung 2023 (*FSMJ*) | Architecture and analytics for multi-level RMFS | Closest in setting; they characterise system performance, we characterise the **decision lever** at the wave layer |
-| **Planar picker-to-parts order batching (decision-variable framing)** | **Scholz, Schubert & Wäscher 2017 (*EJOR*)** — manual multi-picker; **Žulj et al. 2022 (*EJOR*)** — AMR-assisted | **Simultaneous OB + BAS + PR with due dates (Scholz); AMR-assisted OB + BS with makespan (Žulj); both planar single-floor** | **Closest precedents for treating order-grouping as a decision variable; our delta is the vertical-resource coupling (shared elevator) absent in both. Removing multi-storey or elevator coupling collapses our problem to a planar subclass** |
-| **Planar AMR with multi-tote + cardinality-"wave"** | **Qin, Kang & Yang 2024 (*TRE*)** | **Order-to-tote + AMR scheduling in single-layer MTSR; uses "wave" for processing batches, identifies optimal wave *cardinality* ≈ 100 orders** | **Their optimum is a wave-cardinality (size) finding in a single-layer setting; we study wave *composition* (which orders to co-release) on structured features $\Phi$ in the multi-storey setting — a distinct decision object** |
+| Multi-level RMFS | Keung 2023 (*FSMJ*) | Architecture and analytics for multi-level RMFS | Closest in setting; they characterize system performance, we characterize the **decision lever** at the wave layer |
+| **Planar picker-to-parts order batching (decision-variable framing)** | **Scholz, Schubert & Wäscher 2017 (*EJOR*)** — manual multi-picker; **Žulj et al. 2022 (*EJOR*)** — AMR-assisted | **Simultaneous OB + BAS + PR with due dates (Scholz); AMR-assisted OB + BS with makespan (Žulj); both planar single-floor** | **Closest precedents for treating order-grouping as a decision variable; our delta is the vertical-resource coupling (shared elevator) absent in both. Removing multi-story or elevator coupling collapses our problem to a planar subclass** |
+| **Planar AMR with multi-tote + cardinality-"wave"** | **Qin, Kang & Yang 2024 (*TRE*)** | **Order-to-tote + AMR scheduling in single-layer MTSR; uses "wave" for processing batches, identifies optimal wave *cardinality* ≈ 100 orders** | **Their optimum is a wave-cardinality (size) finding in a single-layer setting; we study wave *composition* (which orders to co-release) on structured features $\Phi$ in the multi-story setting — a distinct decision object** |
 
 **Two more threads to acknowledge briefly** (1 sentence each):
 - *Robust scheduling under model uncertainty* — Lu & Shen 2021 (*POMS*) review, Wiesemann–Kuhn–Rustem 2013. Delta: parametric uncertainty vs. our structural model-class uncertainty (M5).
@@ -119,7 +119,7 @@ Pin down the decision architecture, the surrogate $\Phi$, and the makespan objec
 - *Conceptual decomposition, not predictive surrogate* — physical-units interpretability claim per [§3 of novelty doc](../novelty_analysis_and_contribution.md). Rank order preservation across elevator models $r \ge 0.85$ (§6).
 
 ### 4.4 Two elevator models $M_1, M_2$ and one stochastic family $M_3$ (~150 words)
-- $M_1$: throughput-aggregation abstraction (batching modelled as throughput multiplier).
+- $M_1$: throughput-aggregation abstraction (batching modeled as throughput multiplier).
 - $M_2$: true co-occupancy batching (per-trip capacity-bounded queueing simulation).
 - $M_3$: stochastic batching with lognormal noise, $\sigma \in \{0.10, 0.20\}$, used for sensitivity in §6.
 
@@ -257,7 +257,7 @@ Reproduce the [reinforcement deliverable](../prototype/results/v0_2_phase4_v2_re
 Pre-registered test of a concrete P1 operating policy against P0 (FIFO) to isolate the *elevator-lever* component of GAP:
 
 - **P0 (FIFO)**: orders dispatched in arrival order; elevator batches opportunistically via `can_board`.
-- **P1 (cluster)**: orders reordered by `ElevatorBatched.pop_cluster(c)` to minimise destination spread within each batch of size $c$; no artificial hold-off.
+- **P1 (cluster)**: orders reordered by `ElevatorBatched.pop_cluster(c)` to minimize destination spread within each batch of size $c$; no artificial hold-off.
 - **Design**: 3 regimes × 2 elevator models × 3 sizes × 2 arms (random / Φ-favorable) × 2 policies × 200 waves = **14 400 sims** ([experiments_phase4_H1.py](../prototype/src/experiments_phase4_H1.py)).
 - **Analysis**: paired-bootstrap 2 000 iter for mean(P1) − mean(P0) per (cell, size, arm); cell-level gate = ≥ 2/3 sizes show significant P1 < P0 on the favorable arm ([analysis_phase4_H1.py](../prototype/src/analysis_phase4_H1.py)).
 
@@ -274,17 +274,17 @@ Pre-registered test of a concrete P1 operating policy against P0 (FIFO) to isola
 
 **Pre-reg verdict**: PARTIAL (2/6 cells). Interpret as a targeted confirmation rather than a failed omnibus test: **P1 wins precisely where M4 predicts** (true-batching model, multi-elevator regimes where the elevator lever dominates). Single-elevator E1_c2 (no elevator lever) and throughput-abstraction cells (capacity invisible in the model) correctly show no benefit. Largest effect is at E3_c2|batched size = 8: Δ = −15.3 s on random, −7.1 s on favorable (both sig).
 
-**Take-away — tactical-operational substitutability map (tight-wave regime).** The PARTIAL result (2/6 cells) is itself the finding, not a weakened omnibus claim. In the **non-substitutable** cells — E2_c2 | batched and E3_c2 | batched, where M4's elevator-lever term is large — tactical wave design and strong operational policy combine for up to ~9 % mean makespan reduction, significant at 2/3 sizes (E2) and 3/3 sizes (E3). In the **substitutable** cells — E1_c2 (no elevator lever) and all three abstraction cells (capacity invisible) — operational clustering absorbs the tactical lever entirely, and H1 is (correctly) null. We read this as a **regime-conditional substitutability map** — to our knowledge the first in the multi-storey AMR warehouse literature — which directly cross-validates M4's elevator-lever diagnostic: high $H_{\mathrm{up}}$ cells are precisely the cells where P1 wins.
+**Take-away — tactical-operational substitutability map (tight-wave regime).** The PARTIAL result (2/6 cells) is itself the finding, not a weakened omnibus claim. In the **non-substitutable** cells — E2_c2 | batched and E3_c2 | batched, where M4's elevator-lever term is large — tactical wave design and strong operational policy combine for up to ~9 % mean makespan reduction, significant at 2/3 sizes (E2) and 3/3 sizes (E3). In the **substitutable** cells — E1_c2 (no elevator lever) and all three abstraction cells (capacity invisible) — operational clustering absorbs the tactical lever entirely, and H1 is (correctly) null. We read this as a **regime-conditional substitutability map** — to our knowledge the first in the multi-story AMR warehouse literature — which directly cross-validates M4's elevator-lever diagnostic: high $H_{\mathrm{up}}$ cells are precisely the cells where P1 wins.
 
-**Scope boundary under order-arrival stagger (Appendix A.2).** A 14 400-simulation cross-check at stagger CV = 0.5 shows the substitutability pattern holds *as a property of tight waves*: when orders arrive with non-trivial inter-arrival gaps, the elevator has forced idle windows during which FIFO and cluster dispatch produce identical sequences, and the P1 advantage collapses (E2_c2|batched mean delta shrinks from −10.6 s to +0.1 s; E3_c2|batched from −6.8 s to −3.4 s with 1/3 sizes sig). We therefore scope the H1 finding to the *wave-release coordination problem* as formalised in §4 — tight release windows — and read the stagger-dependence as a principled boundary rather than a limitation: as $T$-CV grows past the wave regime, our problem class dissolves into a stream-pacing problem outside the paper's scope.
+**Scope boundary under order-arrival stagger (Appendix A.2).** A 14 400-simulation cross-check at stagger CV = 0.5 shows the substitutability pattern holds *as a property of tight waves*: when orders arrive with non-trivial inter-arrival gaps, the elevator has forced idle windows during which FIFO and cluster dispatch produce identical sequences, and the P1 advantage collapses (E2_c2|batched mean delta shrinks from −10.6 s to +0.1 s; E3_c2|batched from −6.8 s to −3.4 s with 1/3 sizes sig). We therefore scope the H1 finding to the *wave-release coordination problem* as formalized in §4 — tight release windows — and read the stagger-dependence as a principled boundary rather than a limitation: as $T$-CV grows past the wave regime, our problem class dissolves into a stream-pacing problem outside the paper's scope.
 
 ### 6.6 Insight readout (C3) — *~320 words*
 
 Three findings, each directly paired with a C2 component. Reading order: C3-1 (M4 side) → C3-2 (M5 side) → C3-3 (joint regime map).
 
 - **C3-1 (paired with C2-M4) — the Bound-and-Gap framework is both diagnostic and prospective.** Across the 6 (regime, model) cells, $R^2$ gain from $\Phi$ over a size-only baseline grows ~10× as fleet–elevator imbalance is relieved, and cell-level $H_{\mathrm{up}}$ (the partition-intrinsic component of the GAP decomposition) tracks this pattern mechanically. Within the batched subset — the domain where M5.2's collapse rule is sharp — $H_{\mathrm{up}}$ **prospectively classifies all 6 cells** on whether destination-clustered batching will beat FIFO in the Phase 4 H1 experiment (composite predictor 6/6 correct; within-batched Pearson$(H_{\mathrm{up}}, \Delta_{\mathrm{H1}}) = -0.67$; Appendix B.1). The GAP decomposition is therefore forward-looking, not only retrospective.
-- **C3-2 (paired with C2-M5) — the Hedge Rule generalises beyond the c = 2 case.** Per-wave stochastic dominance $\mathbb{P}[M_2 \ge M_1] = 99.4 \%$ across $c \in \{2, 3, 4, 5\}$ (Appendix B.3, 8 000 paired sims); the Hedge Rule's applicability persists at higher capacities. $\beta(C)$ sign is retained as a *coarse regime probe* (bootstrap-soft at 76–85 % within regime, cross-regime persistent) — but framed here as a *symptom* of the underlying dominance rather than the load-bearing fact.
-- **C3-3 (paired with C2 as a framework) — the tactical-operational substitutability map is regime-conditional.** Destination-clustered batching beats FIFO (H1 pre-registered 14 400 sims) precisely in the 2/6 cells the Bound-and-Gap framework flags as elevator-lever-dominated, and the non-substitutability decays along two independent axes: the capacity-slack axis (shown by the 6-cell sweep) and the wave-looseness axis (Appendix B.2 phase diagram across stagger CV ∈ {0, 0.2, 0.5, 1.0}). This is, to our knowledge, the first empirical map of tactical-operational substitutability in multi-storey AMR warehouses.
+- **C3-2 (paired with C2-M5) — the Hedge Rule generalizes beyond the c = 2 case.** Per-wave stochastic dominance $\mathbb{P}[M_2 \ge M_1] = 99.4 \%$ across $c \in \{2, 3, 4, 5\}$ (Appendix B.3, 8 000 paired sims); the Hedge Rule's applicability persists at higher capacities. $\beta(C)$ sign is retained as a *coarse regime probe* (bootstrap-soft at 76–85 % within regime, cross-regime persistent) — but framed here as a *symptom* of the underlying dominance rather than the load-bearing fact.
+- **C3-3 (paired with C2 as a framework) — the tactical-operational substitutability map is regime-conditional.** Destination-clustered batching beats FIFO (H1 pre-registered 14 400 sims) precisely in the 2/6 cells the Bound-and-Gap framework flags as elevator-lever-dominated, and the non-substitutability decays along two independent axes: the capacity-slack axis (shown by the 6-cell sweep) and the wave-looseness axis (Appendix B.2 phase diagram across stagger CV ∈ {0, 0.2, 0.5, 1.0}). This is, to our knowledge, the first empirical map of tactical-operational substitutability in multi-story AMR warehouses.
 
 ---
 
@@ -319,7 +319,7 @@ Three findings, each directly paired with a C2 component. Reading order: C3-1 (M
 Be ruthless and concrete; reviewers reward this.
 
 1. **Simulator-only, no real warehouse data** — Wu 2024 and Keung 2023 had real-system grounding; we do not yet. The main experiments run at $F = 5$, $E \in \{1, 2, 3\}$, $c = 2$; Appendix B extends coverage to $F \in \{5, 7, 9\}$ (B.5), $c \in \{2, 3, 4, 5\}$ (B.3) and heterogeneous pools (B.8) to address generalisation concerns, but real-warehouse calibration remains future work.
-2. **Intra-floor AMR motion is abstracted (Gap 1)** — horizontal AMR routing is collapsed into a constant `service_time = 5.0 s` per pickup/dropoff. Appendix A.1 (24 000 sims, 6 cells × 4 σ) shows the M4 GAP framework's best-corner identification is invariant in 5/6 cells up to service-time CV = 131 % and MOSTLY ROBUST in the remaining cell (flips only at CV = 1.0). Explicit path-congestion modelling (Srinivas–Yu 2022; Zhang et al. 2025) is orthogonal future work.
+2. **Intra-floor AMR motion is abstracted (Gap 1)** — horizontal AMR routing is collapsed into a constant `service_time = 5.0 s` per pickup/dropoff. Appendix A.1 (24 000 sims, 6 cells × 4 σ) shows the M4 GAP framework's best-corner identification is invariant in 5/6 cells up to service-time CV = 131 % and MOSTLY ROBUST in the remaining cell (flips only at CV = 1.0). Explicit path-congestion modeling (Srinivas–Yu 2022; Zhang et al. 2025) is orthogonal future work.
 3. **$T$ dimension is activated, not empty (Gap 2)** — we instrument the simulator with per-order `release_time`, re-run the Phase 1.5 regression at stagger CV = 0.5, and compute the activated $T$ feature across 3 000 waves. $T$ has non-trivial variance (empirical mean 0.48, std 0.10); the M4 best-corner identification holds in 5/6 cells at stagger CV up to 1.0 (Appendix A.2, 24 000 sims). The H1 substitutability map is tight-wave-specific: a 14 400-simulation cross-check at CV = 0.5 shows the P1-over-P0 advantage concentrates in burst wave-releases, consistent with our formalisation of the wave-release coordination problem in §4. $\beta(T)$ is the weakest of the three $\Phi$ coefficients, consistent with our framing of $\Phi$ as conceptual (L7).
 4. **Directional elevator dynamics tested as a fourth model (Gap 3)** — Appendix A.3 (12 000 paired sims across all 6 cells) introduces $M_4$ = directional batching (3 s switch penalty). Per-wave dominance $\mathbb{P}[M_4 \ge M_{\mathrm{ref}}] = 97.7 \%$ extends Proposition M5.1's assumption (D) at $\epsilon \approx 0.023$; the corner-argmin stability pattern — preserved in 3/3 batched reference cells, flipped in 3/3 abstraction reference cells — is a textbook empirical case of Corollary M5.2's stable-argmin condition, reinforcing rather than weakening M5.
 5. **$\beta(C)$ sign within regime is bootstrap-soft (76–85 %)** — we use it as a coarse cross-regime probe, not a fine-grained classifier. (Cited at every place where the sign-flip appears.)
@@ -349,7 +349,7 @@ Be ruthless and concrete; reviewers reward this.
 - Keung, K. L. (2023). Multi-level RMFS architecture and analytics. *FSMJ*.
 - Lenoble, N., Frein, Y., Hammami, R. (2018). Order batching in an automated warehouse with several vertical lift modules: Optimization and experiments with real data. *EJOR*. [PDF in papers/](../papers/)
 - Lu, M., & Shen, Z.-J. M. (2021). A review of robust operations management under model uncertainty. *POMS* 30(6), 1927–1943.
-- **Qin, Z., Kang, Y., & Yang, P. (2024). Making better order fulfillment in multi-tote storage and retrieval autonomous mobile robot systems. *Transportation Research Part E*, 192, 103752** (planar MTSR neighbour — see [reading log](../papers/reading_log_qin_kang_yang_2024.md))
+- **Qin, Z., Kang, Y., & Yang, P. (2024). Making better order fulfillment in multi-tote storage and retrieval autonomous mobile robot systems. *Transportation Research Part E*, 192, 103752** (planar MTSR neighbor — see [reading log](../papers/reading_log_qin_kang_yang_2024.md))
 - **Scholz, A., Schubert, D., & Wäscher, G. (2017). Order picking with multiple pickers and due dates — Simultaneous solution of Order Batching, Batch Assignment and Sequencing, and Picker Routing Problems. *European Journal of Operational Research*, 263(2), 461–478** (planar manual multi-picker OB precedent — see [reading log](../papers/reading_log_scholz_et_al_2017.md))
 - Vera, A., Banerjee, S., & Gurvich, I. (2021). Online allocation and pricing: Constant regret via Bellman inequalities. *Operations Research* 69(3), 821–840. https://doi.org/10.1287/opre.2020.2061
 - Wiesemann, W., Kuhn, D., & Rustem, B. (2013). Robust Markov decision processes. *Mathematics of Operations Research* 38(1), 153–183. https://doi.org/10.1287/moor.1120.0566

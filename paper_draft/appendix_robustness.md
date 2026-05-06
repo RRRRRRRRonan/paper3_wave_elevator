@@ -13,7 +13,7 @@ Each section reports: (i) the parameter sweep, (ii) per-cell best-corner stabili
 
 ## A.1 Service-time heterogeneity (Gap 1) — 6-cell version
 
-**Motivation.** Each order's intra-floor service is modelled as a constant `service_time = 5.0` s for pickup and dropoff in v0.2, which collapses the AMR routing and path-congestion literature ([Srinivas and Yu, 2022; Zhang et al., 2025]) into a single deterministic number. We ask whether the M4 GAP framework's qualitative findings — specifically the identification of the best corner on the $(C, I)$ quartile partition — are preserved when service time becomes heterogeneous across *all* 6 cells.
+**Motivation.** Each order's intra-floor service is modeled as a constant `service_time = 5.0` s for pickup and dropoff in v0.2, which collapses the AMR routing and path-congestion literature ([Srinivas and Yu, 2022; Zhang et al., 2025]) into a single deterministic number. We ask whether the M4 GAP framework's qualitative findings — specifically the identification of the best corner on the $(C, I)$ quartile partition — are preserved when service time becomes heterogeneous across *all* 6 cells.
 
 **Perturbation.** Each pickup and each dropoff within a wave is multiplied by an independent lognormal draw with unit mean and parameter $\sigma_{\mathrm{svc}}$. We sweep $\sigma_{\mathrm{svc}} \in \{0, 0.2, 0.5, 1.0\}$, corresponding to service-time CV of $\{0\%, 20\%, 51\%, 131\%\}$. Experiment [experiments_gap1_service_sensitivity.py](../prototype/src/experiments_gap1_service_sensitivity.py); **24 000 simulations** across 6 cells × 4 sigmas × 5 arms × 200 waves at size = 6.
 
@@ -64,7 +64,7 @@ Each section reports: (i) the parameter sweep, (ii) per-cell best-corner stabili
 
 **Interpretation — honest finding.** The two non-substitutable cells from the T = 0 baseline (E2_c2|batched and E3_c2|batched) lose statistical significance under non-trivial stagger: E2_c2|batched's mean delta collapses from −10.6 s to +0.1 s and E3_c2|batched's from −6.8 s to −3.4 s (direction preserved but only 1/3 sizes significant). The mechanism is intuitive — when orders arrive with CV = 0.5 gaps, the elevator has forced idle windows between arrivals, during which FIFO and destination-cluster dispatch produce identical boarding sequences (only one order waits at a time). The clustering advantage therefore scales with wave burstiness: **the tactical-operational non-substitutability the paper documents is a property of tight waves, not a universal claim about the P1 heuristic.**
 
-This is reported as a scope statement, not a failure. The paper's object of study is the *wave-release coordination problem* — the tight-window decision. In deployments where orders arrive with CV ≥ 0.5 inter-arrival, the object itself dissolves into a pacing/stream problem and tactical wave composition becomes moot. Our §6.4.5 H1 finding therefore maps cleanly onto the problem class we formalise in §4.
+This is reported as a scope statement, not a failure. The paper's object of study is the *wave-release coordination problem* — the tight-window decision. In deployments where orders arrive with CV ≥ 0.5 inter-arrival, the object itself dissolves into a pacing/stream problem and tactical wave composition becomes moot. Our §6.4.5 H1 finding therefore maps cleanly onto the problem class we formalize in §4.
 
 ## A.3 Directional elevator dynamics (Gap 3) — 6-cell version
 
@@ -169,7 +169,7 @@ Tests whether per-corner stratified OLS is more bootstrap-stable than pooled OLS
 
 ## B.5 Floors sweep F ∈ {5, 7, 9} (A1)
 
-v0.2 main experiments use F = 5. Extended to F = 7 and F = 9 to test realistic multi-storey warehouse scale. **6 000 sims** at $E = 2$, cap = 2, size = 6.
+v0.2 main experiments use F = 5. Extended to F = 7 and F = 9 to test realistic multi-story warehouse scale. **6 000 sims** at $E = 2$, cap = 2, size = 6.
 
 | F | model | best corner | GAP % | med(random) |
 |---|---|---|---|---|
@@ -218,7 +218,7 @@ yielding positive β(C) in low-E batched cells (consistent with the batching-lim
 
 ## B.8 Heterogeneous elevator pool (B1)
 
-Real multi-storey warehouses mix freight and passenger elevators with different capacities. v0.2 assumes homogeneous pools. We add `ElevatorPoolBatchedHeterogeneous` to the simulator and test whether the M4 best-corner identification survives pool heterogeneity. **4 000 sims**, $E = 3$ fixed, 5 arms × 200 waves at size = 6.
+Real multi-story warehouses mix freight and passenger elevators with different capacities. v0.2 assumes homogeneous pools. We add `ElevatorPoolBatchedHeterogeneous` to the simulator and test whether the M4 best-corner identification survives pool heterogeneity. **4 000 sims**, $E = 3$ fixed, 5 arms × 200 waves at size = 6.
 
 | config | capacities | total | best corner | GAP % | stable vs homog? |
 |---|---|---|---|---|---|
@@ -235,7 +235,7 @@ Real multi-storey warehouses mix freight and passenger elevators with different 
 |---|---|---|---|
 | S1 — M4 predictive | convert M4 from retrospective to prospective | composite predictor 6/6 correct; within-batched Pearson = −0.67 | C2-M4 gains "prospective diagnostic" framing |
 | S2 — stagger phase diagram | 2-D substitutability map | 57 600 sims; E3_c2 stagger-robust, E2_c2 stagger-sensitive | C3 upgrades to 2-D map |
-| S3 — c sweep | generalise beyond c=2 | P[M_2 ≥ M_1] = 99.4 %; Hedge Rule applicability persists across c ∈ {2, 3, 4, 5} | §8 c=2 scope removed; framework generalises |
+| S3 — c sweep | generalize beyond c=2 | P[M_2 ≥ M_1] = 99.4 %; Hedge Rule applicability persists across c ∈ {2, 3, 4, 5} | §8 c=2 scope removed; framework generalizes |
 | S4 — β stratification | rescue bootstrap stability | stratification fails; sample design beats post-hoc stratification | honest practitioner rule |
 | A1 — F sweep | realistic building heights | C-axis invariant, I-axis F-sensitive; GAP grows with F | §8 F=5 scope removed |
 | A2 — FCFS baseline | anchor P1 lift | P0 saves 15 %, P1 adds 5 %, total 19–21 % vs FCFS | counters "P0 already strong" objection |

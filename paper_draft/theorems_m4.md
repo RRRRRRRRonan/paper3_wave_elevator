@@ -116,8 +116,8 @@ Verified by [analysis_phase4_v2_m4_decomposition.py](../prototype/src/analysis_p
 | Elmachtoub–Grigas 2022 SPO+ (*Mgmt Sci*) | Training-loss regret bound for prediction-to-decision pipelines | Training-time object; no post-hoc decomposition |
 | Chenreddy–Delage 2023 | Learnable decision-focused uncertainty set | Set is learned; M4 bounds a fixed-partition information gap |
 | Vera et al. 2021 (*OR*) | Bounded regret in greedy multiway matching | Algorithmic regret on a static LP; M4 decomposes policy regret over a structured feature partition |
-| Ben-Tal–Nemirovski robust optimisation | Worst-case bound over uncertainty ball | Parametric uncertainty; M4 is a *non-parametric* decomposition over finite corners |
-| Lenoble 2018 VLM batching (*EJOR*) | Device-level optimisation | No value-of-information framing |
+| Ben-Tal–Nemirovski robust optimization | Worst-case bound over uncertainty ball | Parametric uncertainty; M4 is a *non-parametric* decomposition over finite corners |
+| Lenoble 2018 VLM batching (*EJOR*) | Device-level optimization | No value-of-information framing |
 
 **Novelty label**: decomposition of policy-regret gap into *partition-intrinsic* and *policy* components under a finite corner scheme — genuinely new as a warehouse-OR diagnostic object; partially incremental as an abstract decomposition (similar splits appear in classical regret analysis, but not with the partition-over-features structure).
 
