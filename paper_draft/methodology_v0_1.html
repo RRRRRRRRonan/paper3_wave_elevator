@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Wave Release Coordination — Methodology (v0.1)</title>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  :root {
+    --serif: "Latin Modern Roman", "Computer Modern Serif", Georgia, "Times New Roman", serif;
+    --sans:  "Latin Modern Sans", "Helvetica Neue", Arial, sans-serif;
+    --text:  #1a1a1a;
+    --muted: #555;
+    --accent: #1f4e79;
+    --bg:    #fafaf7;
+    --paper: #ffffff;
+    --rule:  #cfcfcf;
+    --thmbg: #f4f6fb;
+    --thmrule: #c5d2e8;
+  }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--serif);
+    line-height: 1.55;
+    font-size: 17px;
+  }
+  .paper {
+    max-width: 760px;
+    margin: 40px auto 80px auto;
+    background: var(--paper);
+    padding: 60px 70px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    border-radius: 4px;
+  }
+  h1.title {
+    font-size: 1.7em;
+    line-height: 1.25;
+    text-align: center;
+    margin: 0 0 0.4em 0;
+    font-weight: 600;
+  }
+  .author {
+    text-align: center;
+    margin-bottom: 0.3em;
+    font-size: 1.05em;
+  }
+  .date {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 2em;
+    font-size: 0.95em;
+  }
+  h1, h2, h3, h4 { font-family: var(--serif); }
+  h2 {
+    font-size: 1.2em;
+    margin-top: 2em;
+    margin-bottom: 0.8em;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.2em;
+  }
+  p {
+    margin: 0.7em 0 0.9em 0;
+    text-align: justify;
+    hyphens: auto;
+  }
+  /* Body paragraphs indent first line (academic print style) */
+  article > p {
+    text-indent: 2em;
+  }
+  .formal-lead {
+    font-weight: 700;
+  }
+  .theorem-block, .corollary-block {
+    background: var(--thmbg);
+    border-left: 3px solid var(--thmrule);
+    padding: 0.7em 1em;
+    margin: 1em 0 1em 0;
+    font-style: italic;
+  }
+  .theorem-block .formal-lead, .corollary-block .formal-lead {
+    font-style: normal;
+  }
+  .theorem-block p, .corollary-block p {
+    text-indent: 0;
+    margin: 0.4em 0;
+  }
+  .proof {
+    margin: 0.7em 0 0.9em 0;
+  }
+  .proof-lead {
+    font-style: italic;
+    font-weight: 600;
+  }
+  strong { font-weight: 700; }
+  em { font-style: italic; }
+  code {
+    background: #f0f0eb;
+    padding: 0 0.25em;
+    border-radius: 2px;
+    font-size: 0.92em;
+    font-family: "JetBrains Mono", Menlo, Consolas, monospace;
+  }
+  .meta-banner {
+    text-align: center;
+    background: #fff8e1;
+    padding: 8px 12px;
+    border-bottom: 1px solid #f0e0a0;
+    font-family: var(--sans);
+    font-size: 13px;
+    color: #6b5500;
+  }
+  .footer {
+    margin-top: 3em;
+    padding-top: 1em;
+    border-top: 1px solid var(--rule);
+    font-size: 0.85em;
+    color: var(--muted);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="meta-banner">
+  HTML preview rendered with MathJax. Paired LaTeX source: <code>methodology_v0_1.tex</code>.
+  Word count — §4 Methodology ≈ 1380 (target ~1400). Develops Theorem 1 (Bound-and-Gap decomposition) + Theorem 2 (Model-Dominance Hedge Rule) operating on Φ from §3.
+</div>
+
+<article class="paper">
+
+<h1 class="title">Wave Release Coordination under Vertical Resource Constraints in Multi-Story AMR Warehouses</h1>
+<div class="author">Shiyue Hu &middot; (co-authors TBD)</div>
+<div class="date">§4 Methodology, draft v0.1, May 2026</div>
+
+<h2>4. Methodology</h2>
+
+<p>
+We address optimization (1) by replacing direct search over the combinatorial decision space $W \subseteq \mathcal{O}$ with two analytical tools that operate on the structured-feature representation $\Phi(W)$ defined in &sect;3. The first, a <em>Bound-and-Gap framework</em>, decomposes the value of structured-feature information for any fixed partition of $\Phi$ space into two non-negative components, yielding a per-regime diagnostic of where wave-design effort pays off. The second, a <em>Model-Dominance Hedge Rule</em>, collapses the minimax decision over competing elevator abstractions $\{M_1, M_2\}$ into a one-line closed-form rule under a per-wave dominance condition, with a bound on worst-case loss when dominance is approximate. Both tools take optimization (1) as their starting point and target the per-cell tactical decision: which corner of $\Phi$ space to release a wave from.
+</p>
+
+<p>
+<span class="formal-lead">Bound-and-Gap framework.</span>
+Fix an operating regime, namely a tuple of system parameters $(F, |\mathcal{A}|, E, c)$ together with an elevator model $M$. Partition $\Phi$ space into a finite set of corners $\mathcal{Q}$ (in our experiments, the four quartile corners on $(C, I)$). For each corner $q \in \mathcal{Q}$, let $m_q = m_q(M)$ denote the median makespan of waves whose $\Phi$ falls in $q$ when simulated under $M$, and let $m_0 = m_0(M)$ denote the median makespan over a random pool of waves of the same cardinality. The partition's <em>value of structured-feature information</em> is then
+$$
+\text{GAP}(\mathcal{Q}, M) := \frac{m_{q_{\max}} - m_{q_\Phi}}{m_0}, \tag{7}
+$$
+where $q_{\max} := \arg\max_{q \in \mathcal{Q}} m_q$ is the worst corner (oracle-pessimistic upper anchor), and $q_\Phi$ is the corner selected by a $\Phi$-informed policy that picks the empirically best corner on $\Phi$.
+</p>
+
+<div class="theorem-block">
+<span class="formal-lead">Theorem 1 (Bound-and-Gap decomposition).</span>
+<p>Under any fixed partition $\mathcal{Q}$ of $\Phi$ space and any elevator model $M$, the value of structured-feature information decomposes as
+$$
+\text{GAP}(\mathcal{Q}, M) = H_{\text{up}}(\mathcal{Q}, M) + M_\Phi(\mathcal{Q}, M), \tag{8}
+$$
+where $H_{\text{up}} := (m_{q_{\max}} - m_0) / m_0$ is the partition-intrinsic upper-tail headroom and $M_\Phi := (m_0 - m_{q_\Phi}) / m_0$ is the $\Phi$-policy slack. Both components are non-negative.</p>
+</div>
+
+<div class="proof">
+<span class="proof-lead">Proof.</span>
+By definition (7), $\text{GAP} = (m_{q_{\max}} - m_{q_\Phi}) / m_0$. Adding and subtracting $m_0$ in the numerator gives
+$$
+\text{GAP} = \frac{m_{q_{\max}} - m_0}{m_0} + \frac{m_0 - m_{q_\Phi}}{m_0} = H_{\text{up}} + M_\Phi.
+$$
+Non-negativity of $H_{\text{up}}$ follows because $m_{q_{\max}} \geq m_0$: the worst corner has median makespan at least as large as the random-pool median, since $m_{q_{\max}}$ is selected by maximization. Non-negativity of $M_\Phi$ follows because $m_0 \geq m_{q_\Phi}$: the $\Phi$-informed policy selects a corner whose median is no worse than the random-pool median in expectation under the partition's optimal selection rule. $\square$
+</div>
+
+<div class="corollary-block">
+<span class="formal-lead">Corollary 1 (Refinement monotonicity).</span>
+<p>The partition-intrinsic upper-tail headroom $H_{\text{up}}$ is monotone under partition refinement: if $\mathcal{Q}'$ refines $\mathcal{Q}$, then $H_{\text{up}}(\mathcal{Q}') \geq H_{\text{up}}(\mathcal{Q})$. This holds because refining can only weakly increase $m_{q_{\max}'}$ relative to $m_{q_{\max}}$. Corollary 1 explains why finer partitions inflate the upper-bound term mechanically rather than capturing genuinely new information.</p>
+</div>
+
+<p>
+<span class="formal-lead">Operational interpretation of Theorem 1.</span>
+Theorem 1 partitions per-cell wave-design value into two diagnostic axes that operators can act on independently: $H_{\text{up}}$ measures how much room there is between the worst corner and the random-pool baseline (a partition-intrinsic upper anchor on what wave structure could possibly buy), while $M_\Phi$ measures how much slack the $\Phi$-informed policy leaves against the random-pool baseline (a policy-intrinsic gap). Operators read this diagnostic per regime: when $H_{\text{up}}$ dominates and $M_\Phi$ is small, additional elevator capacity is the right lever; when $M_\Phi$ dominates and $H_{\text{up}}$ is small, better $\Phi$-policy design is the right lever; when both are small, neither lever pays off and the wave layer can be left to a heuristic. &sect;5 verifies (8) empirically across 18 (regime, size) cells, every one of which satisfies both non-negativity conditions.
+</p>
+
+<p>
+<span class="formal-lead">Model-Dominance Hedge Rule.</span>
+When operations managers face uncertainty about which elevator model best represents their warehouse (for example, whether throughput aggregation $M_1$ or true co-occupancy batching $M_2$ better captures their site), the natural conservative decision is the <em>minimax wave-corner selection</em>
+$$
+c^\star := \arg\min_{c \in \mathcal{Q}} \, \max\{m_c(M_1), \, m_c(M_2)\}, \tag{9}
+$$
+which picks the corner with the best worst-case median makespan over the two models. Solving (9) directly requires evaluating both models on every corner, which is operationally costly under live deployment. We show that under a mild per-wave dominance condition, the minimax decision admits a one-line closed-form solution.
+</p>
+
+<div class="theorem-block">
+<span class="formal-lead">Theorem 2 (Model-Dominance Hedge Rule).</span>
+<p>Suppose for every wave $W$ in the corner pool, $\mathcal{T}_{M_2}(W) \geq \mathcal{T}_{M_1}(W)$ almost surely (per-wave dominance). Then the minimax wave-corner selection (9) collapses to
+$$
+c^\star = \arg\min_{c \in \mathcal{Q}} \, m_c(M_2). \tag{10}
+$$</p>
+</div>
+
+<div class="proof">
+<span class="proof-lead">Proof.</span>
+Per-wave dominance, $\mathcal{T}_{M_2}(W) \geq \mathcal{T}_{M_1}(W)$ for every wave, implies $m_c(M_2) \geq m_c(M_1)$ for every corner $c$, since the median is monotone under per-wave domination of CDFs. Therefore $\max\{m_c(M_1), m_c(M_2)\} = m_c(M_2)$ for every $c$, and (9) reduces to $\arg\min_c m_c(M_2)$, the corner preferred by the dominant model $M_2$ alone. $\square$
+</div>
+
+<div class="corollary-block">
+<span class="formal-lead">Corollary 2 (One-sided $\varepsilon$-bound for relaxed dominance).</span>
+<p>Suppose per-wave dominance holds only with probability $1 - \varepsilon$, namely $\Pr[\mathcal{T}_{M_2}(W) \geq \mathcal{T}_{M_1}(W)] \geq 1 - \varepsilon$. Then the corner-wise median bound
+$$
+m_c(M_1) - m_c(M_2) \leq U_c(\varepsilon) := F_{M_2,c}^{-1}\!\left(\tfrac{1}{2} + \varepsilon\right) - F_{M_2,c}^{-1}\!\left(\tfrac{1}{2}\right) \tag{11}
+$$
+holds for every $c$, where $F_{M_2,c}$ is the CDF of $\mathcal{T}_{M_2}(W)$ on corner $c$. The hedge rule (10) thus retains its argmin choice as long as the inter-corner $M_2$-median gaps exceed $\max_c U_c(\varepsilon)$, with worst-case loss against the model-specific optimum bounded by $\max_c U_c(\varepsilon) / m_0$.</p>
+</div>
+
+<p>
+<span class="formal-lead">Operational interpretation of Theorem 2.</span>
+Theorem 2 collapses the minimax wave-corner decision over competing elevator models to a one-line closed-form rule, eliminating the need for online model selection. The operator computes $m_c(M_2)$ once for each corner (using the more conservative model $M_2$ alone), and picks the argmin. Corollary 2 quantifies the rule's robustness when dominance is only approximate: the operator can compute $U_c(\varepsilon)$ from the $M_2$-CDF alone, without needing $M_1$, and check whether the inter-corner $M_2$-gap exceeds it; if yes, the argmin choice (10) is unchanged. In our experiments (&sect;5), per-wave $\mathcal{T}_{M_2} \geq \mathcal{T}_{M_1}$ holds in 92.5&ndash;100% of waves across all 15 (regime, arm) cells, well within the regime where Corollary 2's bound is tight.
+</p>
+
+<p>
+&sect;5 and &sect;6 validate these tools through pre-registered simulation experiments. The Bound-and-Gap diagnostic prospectively classifies every (regime, model) cell on whether destination-clustered batching beats first-come-first-served dispatch (6/6 correct), and the Hedge Rule's underlying dominance condition holds robustly at elevator capacities $c \in \{2, 3, 4, 5\}$ beyond the $c = 2$ case for which the rule was originally derived.
+</p>
+
+<div class="footer">
+  Paper 3 &middot; Wave Release Coordination &middot; v0.1 prose draft<br>
+  Companion files: <code>methodology_v0_1.tex</code> (LaTeX source); <code>abstract_intro_v0_1.{md,tex,html}</code> (Abstract + §1 Introduction); <code>related_work_v0_1.{md,tex,html}</code> (§2 Related Work); <code>problem_formulation_v0_1.{md,tex,html}</code> (§3 Problem Formulation).
+</div>
+
+</article>
+
+</body>
+</html>

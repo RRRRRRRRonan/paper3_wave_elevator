@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Wave Release Coordination — Related Work (v0.1)</title>
+<title>Wave Release Coordination — Related Work (v0.2)</title>
 <script>
   window.MathJax = {
     tex: {
@@ -67,12 +67,6 @@
     margin-bottom: 0.8em;
     border-bottom: 1px solid var(--rule);
     padding-bottom: 0.2em;
-  }
-  h3 {
-    font-size: 1.05em;
-    margin-top: 1.5em;
-    margin-bottom: 0.6em;
-    color: var(--accent);
   }
   p {
     margin: 0.7em 0 0.9em 0;
@@ -139,55 +133,51 @@
 
 <div class="meta-banner">
   HTML preview rendered with MathJax. Paired LaTeX source: <code>related_work_v0_1.tex</code>.
-  Word count — §2 Related Work ≈ 920 (target 800 + 15% buffer); 13 references with verified DOIs.
+  Word count — §2 Related Work ≈ 800 (compressed from ~1110 in v0.1; 8 paragraphs flowing under one §2 heading; subsection numbering removed). Each paragraph follows prior-research → limitation → contribution logic.
 </div>
 
 <article class="paper">
 
 <h1 class="title">Wave Release Coordination under Vertical Resource Constraints in Multi-Story AMR Warehouses</h1>
 <div class="author">Shiyue Hu &middot; (co-authors TBD)</div>
-<div class="date">§2 Related Work, draft v0.1, May 2026</div>
+<div class="date">§2 Related Work, draft v0.2, May 2026</div>
 
 <h2>2. Related Work</h2>
 
 <p>
-The relevant literature falls into two strands: (i) operations research on warehouse problems that share part of our setting (multi-story deployment, AMR fleets, lift coupling, or wave-scale grouping decisions), and (ii) methodological tools that bear on our analytical apparatus (robust scheduling under structural model uncertainty, and prediction-to-decision regret bounds). We organize the first strand into four problem-class threads and survey the second more briefly. Two recent surveys place this work in context: [Boysen and de Koster, 2025] provides a fifty-year retrospective of warehousing OR organized across three generations of distribution-center architecture, and [Boysen, Schneider, and Žulj, 2025] reviews fleet coordination problems for electric vehicles in facility logistics, including AMR fleets.
+We organize the relevant literature into four problem-class threads (warehouse OR sharing part of our setting) and three methodological threads (analytical tools bearing on our framework). Two recent surveys provide context: [Boysen and de Koster, 2025] retrospects fifty years of warehousing OR across three generations of distribution-center architecture, and [Boysen, Schneider, and Žulj, 2025] reviews fleet-coordination problems for electric vehicles in facility logistics, including AMR fleets.
 </p>
 
-<h3>2.1 Device-level order batching in vertical lift modules</h3>
-
 <p>
-The work of [Lenoble, Frein, and Hammami, 2018] is closest to our framing in name (it studies &ldquo;order batching&rdquo; with a &ldquo;vertical&rdquo; element) but most distant in physical scale. They formulate order batching in an automated warehouse equipped with one to four vertical lift modules (VLMs); each VLM is a single mechanical device with a tray that travels vertically. Their decision is which item-orders to retrieve in a single tray-load, with the objective of minimizing total completion time, validated on real data from two firms. The mathematics is internal to each device: a VLM is a piece of equipment, not a building. Our setting differs at every scale of this comparison: the &ldquo;vertical resource&rdquo; we study is a freight elevator carrying AMRs across building floors, the wave we release is a fleet-level co-occupation window, and the coupling we treat (multi-elevator capacity shared across a horizontal AMR fleet) does not arise inside a single VLM.
+[Lenoble, Frein, and Hammami, 2018] formulate order batching for vertical lift modules (VLMs), where each VLM is a single mechanical device and the decision is which item-orders to retrieve in one tray-load; the mathematics is internal to the device. Our setting differs at every scale: the vertical resource is a freight elevator carrying AMRs across building floors, the wave is a fleet-level co-occupation window, and multi-elevator capacity shared across a horizontal AMR fleet does not arise inside a single VLM.
 </p>
 
-<h3>2.2 Multi-agent robot&ndash;lift scheduling with fixed task sets</h3>
-
 <p>
-[Chakravarty, Grey, Muthugala, and Elara, 2025] address the operational scheduling of AMR fleets coordinating with shared lifts in hotel and hospital deployments. Using Boolean satisfiability (SAT) solvers with anytime constraint-programming techniques, they compute provably optimal lift schedules and report up to 4.34 times speedup over a baseline. The decision space they address is downstream of ours: their SAT formulation takes a list of robot&ndash;task assignments as exogenous input and finds the time-optimal lift schedule for delivering them. Our problem is upstream of theirs: we treat the <em>selection</em> of which orders enter the system together (wave composition) as a tactical decision variable, with the operational AMR&ndash;elevator dispatch then taking that wave as input. The scaling profile also differs: their SAT approach caps practically at small fleets (around thirty agents per scenario), whereas we target hundreds of orders per wave through a heuristic-friendly two-stage decomposition.
+[Chakravarty, Grey, Muthugala, and Elara, 2025] compute provably optimal lift schedules for AMR fleets using Boolean satisfiability (SAT) in hotel and hospital deployments. Their decision space is downstream of ours: the SAT formulation takes robot&ndash;task assignments as exogenous and finds the time-optimal schedule. We instead treat the <em>selection</em> of which orders enter the system together (wave composition) as an upstream tactical decision variable, with operational dispatch then taking that wave as input. Their SAT scaling caps near thirty agents per scenario; we target hundreds of orders per wave through a heuristic-friendly two-stage decomposition.
 </p>
 
-<h3>2.3 Multi-story scheduling with tier-captive transport</h3>
-
 <p>
-A growing literature studies multi-story warehouses where each tier has its own dedicated vehicles. [Wu et al., 2024] address inbound job scheduling in four-way shuttle systems, formulating a flexible flow-shop problem and proposing a double-encoded genetic algorithm with embedded simulated annealing; their DELO-GA solves 100-job instances in under 100 seconds with sub-1% optimality gap. [Keung, Lee, and Ji, 2023] study order and pod assignment in multi-level robotic mobile fulfillment systems (RMFS). Both adopt a <em>tier-captive</em> transport model: each shuttle is bound to a specific layer, and inter-layer transport happens via dedicated lift&ndash;shuttle handover, rather than via a fleet of horizontally flexible robots queueing at shared elevators. The bottleneck topology this produces is fundamentally different from ours: in tier-captive systems, a layer-bound shuttle's queue depends only on its own layer's demand, whereas in our setting AMRs from any floor compete concurrently for elevator service. This concurrency is what makes wave composition (which floors and which directions to release together) the binding tactical lever in our problem class but not in theirs.
+[Wu et al., 2024] address inbound job scheduling in four-way shuttle systems via a flexible flow-shop formulation, and [Keung, Lee, and Ji, 2023] study order and pod assignment in multi-level robotic mobile fulfillment systems (RMFS). Both adopt a <em>tier-captive</em> transport model: each shuttle is bound to a specific layer, with inter-layer transfers via dedicated lift&ndash;shuttle handover. Our setting has flexible AMRs queueing at shared elevators, producing a different bottleneck topology because AMRs from any floor compete concurrently for elevator service. This concurrency is what makes wave composition the binding tactical lever in our problem class but not in theirs.
 </p>
 
-<h3>2.4 Order-grouping as a decision variable in planar picker-to-parts systems</h3>
-
 <p>
-The work most directly relevant to our tactical layer treats order grouping itself as a decision variable, in planar (single-floor) settings without vertical resource coupling. [Scholz, Schubert, and Wäscher, 2017] formulate the <em>Joint Order Batching, Assignment and Sequencing, and Picker Routing Problem</em> (JOBASRP) for multi-picker manual warehouses with due-date objectives, demonstrating through variable neighborhood descent that the holistic joint solution outperforms sequential decomposition by up to 84% in total tardiness. [Žulj, Salewski, Goeke, and Schneider, 2022] extend this line to AMR-assisted picker-to-parts systems, where robots transport totes between human pickers and a depot, and develop a hybrid ALNS&ndash;tabu heuristic for the joint batching and sequencing problem. [Qin, Kang, and Yang, 2024] study order fulfillment in multi-tote storage and retrieval (MTSR) AMR systems and notably <em>use the term &ldquo;wave&rdquo;</em> for processing batches, identifying through an item-popularity-driven adaptive large neighborhood search an empirical optimum near 100 orders per wave in their single-layer setting. This last finding deserves careful framing: Qin's &ldquo;wave&rdquo; is a <em>cardinality</em> parameter (how many orders to process together), not a <em>composition</em> decision (which orders to bundle on structured features). Our work extends this single-floor decision class to the multi-story setting, where shared elevator capacity introduces a vertical-resource coupling that none of these planar precedents addresses.
+The work most directly relevant to our tactical layer treats order grouping as a decision variable in planar (single-floor) settings without vertical resource coupling. [Scholz, Schubert, and Wäscher, 2017] formulate the <em>Joint Order Batching, Assignment and Sequencing, and Picker Routing Problem</em> (JOBASRP) for multi-picker manual warehouses, showing the joint solution outperforms sequential decomposition by up to 84%. [Žulj, Salewski, Goeke, and Schneider, 2022] extend this line to AMR-assisted picker-to-parts systems with a hybrid ALNS&ndash;tabu heuristic. [Qin, Kang, and Yang, 2024] study multi-tote AMR fulfillment and notably <em>use the term &ldquo;wave&rdquo;</em> for processing batches, identifying an empirical optimum near 100 orders per wave in their single-layer setting; their &ldquo;wave&rdquo; is a <em>cardinality</em> parameter, not a <em>composition</em> decision on structured features. Our work extends this single-floor decision class to the multi-story setting where shared elevator capacity introduces a vertical-resource coupling absent from these planar precedents.
 </p>
 
-<h3>2.5 Methodological context</h3>
-
 <p>
-Two analytical lines bear on our methodology. First, robust scheduling under model uncertainty [Wiesemann, Kuhn, and Rustem, 2013; Lu and Shen, 2021] handles parametric variation within a known model class (for example, an MDP with uncertain transition probabilities, or a robust OM problem with a known objective form and an uncertain demand parameter). Our elevator-modeling uncertainty is structurally different: throughput-aggregation and true-co-occupancy-batching are <em>qualitatively distinct</em> models of how elevators serve fleets, not two parameterizations of the same model family. The Hedge Rule we derive collapses this <em>structural</em> model-class disagreement into a single closed-form decision under a per-wave dominance condition. Second, the prediction-to-decision regret literature [Elmachtoub and Grigas, 2022; Vera, Banerjee, and Gurvich, 2021] bounds algorithmic loss when a learned predictor is plugged into a downstream optimiser. Our Bound-and-Gap framework studies a complementary post-hoc quantity: the <em>information gap</em> between an oracle on a structured feature partition and a $\Phi$-informed policy on the same partition.
+Beyond these problem-class neighbors, three methodological lines bear on our analytical apparatus, each addressing a precise gap one of our methodological contributions fills. Robust scheduling under model uncertainty [Wiesemann, Kuhn, and Rustem, 2013; Lu and Shen, 2021] handles parametric variation within a known model class, presupposing a single agreed-upon model family with an unknown parameter. Our elevator-modeling uncertainty is structurally different: throughput-aggregation and true-co-occupancy-batching are <em>qualitatively distinct</em> models, not parameterizations of the same family. Our <strong>Model-Dominance Hedge Rule</strong> addresses this gap by collapsing structural model-class disagreement into a single closed-form decision under a per-wave dominance condition, with a worst-case loss bound that requires no online model selection.
 </p>
 
-<h3>2.6 Synthesis</h3>
+<p>
+The prediction-to-decision regret literature [Elmachtoub and Grigas, 2022; Vera, Banerjee, and Gurvich, 2021] bounds algorithmic loss when a learned predictor drives a downstream optimizer. These bounds are <em>training-time and pre-commitment</em>: they describe a specific algorithm's regret, not the <em>post-hoc</em> gap between an oracle on a structured feature partition and a feature-informed policy on the same partition. Our <strong>Bound-and-Gap framework</strong> addresses this gap by formalizing that information gap, decomposable into a partition-intrinsic upper-tail term ($H_{\mathrm{up}}$) and a $\Phi$-policy slack term ($M_\Phi$).
+</p>
 
 <p>
-None of the threads above treats the four problem-defining elements (wave composition as a tactical decision variable, multi-story deployment, flexible AMR fleets, and shared-elevator capacity coupling) as one coupled system. Order-grouping work [Scholz et al., 2017; Žulj et al., 2022; Qin et al., 2024] addresses wave grouping but in planar settings without elevator coupling. Multi-story scheduling work [Wu et al., 2024; Keung et al., 2023] addresses vertical structure but with tier-captive rather than flexible transport. Multi-agent robot&ndash;lift work [Chakravarty et al., 2025] addresses the AMR&ndash;elevator coupling but with task selection treated as exogenous. Device-level VLM batching [Lenoble et al., 2018] and the methodological literature [Wiesemann et al., 2013; Lu and Shen, 2021; Elmachtoub and Grigas, 2022; Vera et al., 2021] each touch a piece of the technical apparatus but leave the joint problem class open. We formalize that joint class in &sect;3 and develop our analytical tools in &sect;4.
+Structural-feature decomposition of order properties has been treated via raw operational attributes: due dates and item locations [Scholz et al., 2017], tour feasibility [Žulj et al., 2022], and item popularity [Qin et al., 2024]. These characterizations are <em>decision-driven</em> (capturing whether an order fits a tour) rather than <em>structurally diagnostic</em> (decomposing why one wave is harder than another into orthogonal physical mechanisms), leaving operators without a way to localize the source of difficulty. Our <strong>three-dimensional structured decomposition</strong> $\Phi = (C, I, T)$, namely vertical concentration, directional imbalance, and temporal clustering, addresses this gap with physically interpretable per-unit coefficients along three orthogonal axes, each capturing a distinct vertical-resource stress.
+</p>
+
+<p>
+None of the threads above treats the four problem-defining elements (wave composition as tactical decision variable, multi-story deployment, flexible AMR fleets, shared-elevator capacity coupling) as one coupled system: order-grouping work is planar; multi-story scheduling work is tier-captive; multi-agent robot&ndash;lift work has exogenous task selection; device-level VLM batching and the methodological literature each touch one piece. We formalize the joint problem class in &sect;3 and develop our analytical tools ($\Phi$, the Bound-and-Gap framework, and the Model-Dominance Hedge Rule) in &sect;4.
 </p>
 
 <div class="references">
@@ -224,7 +214,7 @@ None of the threads above treats the four problem-defining elements (wave compos
 </div>
 
 <div class="footer">
-  Paper 3 &middot; Wave Release Coordination &middot; v0.1 prose draft<br>
+  Paper 3 &middot; Wave Release Coordination &middot; v0.2 prose draft<br>
   Companion files: <code>related_work_v0_1.tex</code> (LaTeX source), <code>abstract_intro_v0_1.{md,tex,html}</code> (Abstract + §1 Introduction).
 </div>
 
