@@ -1,0 +1,246 @@
+{
+  "generated": "2026-05-19",
+  "purpose": "D3 salvage investigation: the proposed 'H_up monotone in chain' claim fails 0/3; search for a chain object that holds so D3 can be reformulated.",
+  "source_csv": "mvs_v0_2_phase4_v2_m3_samples.csv",
+  "identity_invariants": [
+    {
+      "regime": "E1_c2",
+      "object": "q_max",
+      "values": {
+        "M1": "LC_LI",
+        "M2": "HC_LI",
+        "M3s10": "LC_LI",
+        "M3s20": "LC_LI"
+      },
+      "invariant": false
+    },
+    {
+      "regime": "E1_c2",
+      "object": "q_min",
+      "values": {
+        "M1": "HC_HI",
+        "M2": "LC_HI",
+        "M3s10": "LC_HI",
+        "M3s20": "LC_HI"
+      },
+      "invariant": false
+    },
+    {
+      "regime": "E2_c2",
+      "object": "q_max",
+      "values": {
+        "M1": "LC_LI",
+        "M2": "HC_LI",
+        "M3s10": "HC_LI",
+        "M3s20": "HC_LI"
+      },
+      "invariant": false
+    },
+    {
+      "regime": "E2_c2",
+      "object": "q_min",
+      "values": {
+        "M1": "HC_HI",
+        "M2": "HC_HI",
+        "M3s10": "HC_HI",
+        "M3s20": "LC_LI"
+      },
+      "invariant": false
+    },
+    {
+      "regime": "E3_c2",
+      "object": "q_max",
+      "values": {
+        "M1": "HC_LI",
+        "M2": "HC_LI",
+        "M3s10": "HC_LI",
+        "M3s20": "HC_LI"
+      },
+      "invariant": true
+    },
+    {
+      "regime": "E3_c2",
+      "object": "q_min",
+      "values": {
+        "M1": "HC_HI",
+        "M2": "LC_HI",
+        "M3s10": "LC_HI",
+        "M3s20": "LC_HI"
+      },
+      "invariant": false
+    }
+  ],
+  "corner_ranking": [
+    {
+      "regime": "E1_c2",
+      "spearman_vs_M1": {
+        "M2": -0.6000000000000001,
+        "M3s10": 0.39999999999999997,
+        "M3s20": 0.19999999999999998
+      },
+      "ranking_invariant": false
+    },
+    {
+      "regime": "E2_c2",
+      "spearman_vs_M1": {
+        "M2": 0.7999999999999999,
+        "M3s10": 0.7999999999999999,
+        "M3s20": -0.19999999999999998
+      },
+      "ranking_invariant": false
+    },
+    {
+      "regime": "E3_c2",
+      "spearman_vs_M1": {
+        "M2": 0.7378647873726218,
+        "M3s10": 0.7378647873726218,
+        "M3s20": 0.7378647873726218
+      },
+      "ranking_invariant": false
+    }
+  ],
+  "magnitude_objects": [
+    {
+      "regime": "E1_c2",
+      "object": "raw_headroom",
+      "values": {
+        "M1": 15.5,
+        "M2": 4.0,
+        "M3s10": 2.3657856002697315,
+        "M3s20": 6.224566015668074
+      },
+      "monotone_M1_le_M2": false
+    },
+    {
+      "regime": "E1_c2",
+      "object": "raw_spread",
+      "values": {
+        "M1": 15.5,
+        "M2": 4.5,
+        "M3s10": 4.37618979498933,
+        "M3s20": 7.523248719588196
+      },
+      "monotone_M1_le_M2": false
+    },
+    {
+      "regime": "E1_c2",
+      "object": "norm_spread_UB",
+      "values": {
+        "M1": 0.08908045977011494,
+        "M2": 0.019067796610169493,
+        "M3s10": 0.018420693186715617,
+        "M3s20": 0.03170785859349924
+      },
+      "monotone_M1_le_M2": false
+    },
+    {
+      "regime": "E1_c2",
+      "object": "norm_H_up",
+      "values": {
+        "M1": 0.08908045977011494,
+        "M2": 0.01694915254237288,
+        "M3s10": 0.009958299966335172,
+        "M3s20": 0.026234365815504725
+      },
+      "monotone_M1_le_M2": false
+    },
+    {
+      "regime": "E2_c2",
+      "object": "raw_headroom",
+      "values": {
+        "M1": 5.0,
+        "M2": 9.0,
+        "M3s10": 7.714741665305041,
+        "M3s20": 5.012599967894573
+      },
+      "monotone_M1_le_M2": true
+    },
+    {
+      "regime": "E2_c2",
+      "object": "raw_spread",
+      "values": {
+        "M1": 11.0,
+        "M2": 9.0,
+        "M3s10": 6.259701356876008,
+        "M3s20": 4.042918655061726
+      },
+      "monotone_M1_le_M2": false
+    },
+    {
+      "regime": "E2_c2",
+      "object": "norm_spread_UB",
+      "values": {
+        "M1": 0.0990990990990991,
+        "M2": 0.05844155844155844,
+        "M3s10": 0.0404594180132629,
+        "M3s20": 0.025965670010936748
+      },
+      "monotone_M1_le_M2": false
+    },
+    {
+      "regime": "E2_c2",
+      "object": "norm_H_up",
+      "values": {
+        "M1": 0.04504504504504504,
+        "M2": 0.05844155844155844,
+        "M3s10": 0.04986403345872837,
+        "M3s20": 0.032193454226497525
+      },
+      "monotone_M1_le_M2": true
+    },
+    {
+      "regime": "E3_c2",
+      "object": "raw_headroom",
+      "values": {
+        "M1": 5.0,
+        "M2": 9.0,
+        "M3s10": 7.4841313397475915,
+        "M3s20": 6.912603969535525
+      },
+      "monotone_M1_le_M2": true
+    },
+    {
+      "regime": "E3_c2",
+      "object": "raw_spread",
+      "values": {
+        "M1": 5.0,
+        "M2": 13.0,
+        "M3s10": 11.778543211067898,
+        "M3s20": 13.004650100942953
+      },
+      "monotone_M1_le_M2": true
+    },
+    {
+      "regime": "E3_c2",
+      "object": "norm_spread_UB",
+      "values": {
+        "M1": 0.06097560975609756,
+        "M2": 0.11206896551724138,
+        "M3s10": 0.1010981636439603,
+        "M3s20": 0.10984383509542799
+      },
+      "monotone_M1_le_M2": true
+    },
+    {
+      "regime": "E3_c2",
+      "object": "norm_H_up",
+      "values": {
+        "M1": 0.06097560975609756,
+        "M2": 0.07758620689655173,
+        "M3s10": 0.06423815928337491,
+        "M3s20": 0.05838734026797111
+      },
+      "monotone_M1_le_M2": true
+    }
+  ],
+  "candidate_scoreboard": {
+    "C1_worst_corner_identity": 1,
+    "C2_best_corner_identity": 0,
+    "C3_corner_ranking": 0,
+    "C4_raw_headroom_mono": 2,
+    "C5_raw_spread_mono": 1,
+    "C6_norm_spread_UB_mono": 1,
+    "C7_norm_H_up_mono": 2
+  },
+  "viable_D3_objects": []
+}

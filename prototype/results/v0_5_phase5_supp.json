@@ -1,0 +1,979 @@
+{
+  "generated": "2026-05-19",
+  "purpose": "Phase 5 supplementary experiments for C3 (pre-reg \u00a79.2 amendment).",
+  "Supp1_H1_at_scale": {
+    "per_cell": [
+      {
+        "config_id": 1,
+        "size": 8,
+        "arm": "phi_corner",
+        "median_fifo": 97.5,
+        "median_cluster": 89.5,
+        "MV": 0.08205128205128205,
+        "H_up": 0.08653846153846154
+      },
+      {
+        "config_id": 1,
+        "size": 8,
+        "arm": "random",
+        "median_fifo": 101.5,
+        "median_cluster": 90.0,
+        "MV": 0.11330049261083744,
+        "H_up": 0.08653846153846154
+      },
+      {
+        "config_id": 1,
+        "size": 30,
+        "arm": "phi_corner",
+        "median_fifo": 321.0,
+        "median_cluster": 290.0,
+        "MV": 0.09657320872274143,
+        "H_up": 0.03188405797101449
+      },
+      {
+        "config_id": 1,
+        "size": 30,
+        "arm": "random",
+        "median_fifo": 340.0,
+        "median_cluster": 308.0,
+        "MV": 0.09411764705882353,
+        "H_up": 0.03188405797101449
+      },
+      {
+        "config_id": 3,
+        "size": 8,
+        "arm": "phi_corner",
+        "median_fifo": 71.0,
+        "median_cluster": 57.0,
+        "MV": 0.19718309859154928,
+        "H_up": 0.09
+      },
+      {
+        "config_id": 3,
+        "size": 8,
+        "arm": "random",
+        "median_fifo": 100.0,
+        "median_cluster": 81.0,
+        "MV": 0.19,
+        "H_up": 0.09
+      },
+      {
+        "config_id": 3,
+        "size": 30,
+        "arm": "phi_corner",
+        "median_fifo": 319.0,
+        "median_cluster": 280.0,
+        "MV": 0.12225705329153605,
+        "H_up": 0.03818953323903819
+      },
+      {
+        "config_id": 3,
+        "size": 30,
+        "arm": "random",
+        "median_fifo": 353.5,
+        "median_cluster": 302.0,
+        "MV": 0.1456859971711457,
+        "H_up": 0.03818953323903819
+      },
+      {
+        "config_id": 5,
+        "size": 8,
+        "arm": "phi_corner",
+        "median_fifo": 117.31561496219902,
+        "median_cluster": 114.31574126033149,
+        "MV": 0.025570966855811447,
+        "H_up": 0.05663968260912968
+      },
+      {
+        "config_id": 5,
+        "size": 8,
+        "arm": "random",
+        "median_fifo": 120.78487368905495,
+        "median_cluster": 119.97207414819005,
+        "MV": 0.006729315650545355,
+        "H_up": 0.05663968260912968
+      },
+      {
+        "config_id": 5,
+        "size": 30,
+        "arm": "phi_corner",
+        "median_fifo": 354.0262515884581,
+        "median_cluster": 306.74152946634,
+        "MV": 0.13356275674461773,
+        "H_up": 0.015371709355367942
+      },
+      {
+        "config_id": 5,
+        "size": 30,
+        "arm": "random",
+        "median_fifo": 364.7828555435304,
+        "median_cluster": 309.7148940016229,
+        "MV": 0.15096093663682641,
+        "H_up": 0.015371709355367942
+      },
+      {
+        "config_id": 7,
+        "size": 8,
+        "arm": "phi_corner",
+        "median_fifo": 119.5,
+        "median_cluster": 109.5,
+        "MV": 0.08368200836820083,
+        "H_up": 0.156794425087108
+      },
+      {
+        "config_id": 7,
+        "size": 8,
+        "arm": "random",
+        "median_fifo": 144.0,
+        "median_cluster": 134.0,
+        "MV": 0.06944444444444445,
+        "H_up": 0.156794425087108
+      },
+      {
+        "config_id": 7,
+        "size": 30,
+        "arm": "phi_corner",
+        "median_fifo": 459.0,
+        "median_cluster": 420.0,
+        "MV": 0.08496732026143791,
+        "H_up": 0.0892156862745098
+      },
+      {
+        "config_id": 7,
+        "size": 30,
+        "arm": "random",
+        "median_fifo": 512.5,
+        "median_cluster": 453.5,
+        "MV": 0.1151219512195122,
+        "H_up": 0.0892156862745098
+      },
+      {
+        "config_id": 9,
+        "size": 8,
+        "arm": "phi_corner",
+        "median_fifo": 196.32335850537402,
+        "median_cluster": 190.26602426347284,
+        "MV": 0.030853864196375615,
+        "H_up": 0.02999452910160327
+      },
+      {
+        "config_id": 9,
+        "size": 8,
+        "arm": "random",
+        "median_fifo": 206.83247179698503,
+        "median_cluster": 205.63186793646298,
+        "MV": 0.0058047164939386085,
+        "H_up": 0.02999452910160327
+      },
+      {
+        "config_id": 9,
+        "size": 30,
+        "arm": "phi_corner",
+        "median_fifo": 664.8518788818075,
+        "median_cluster": 566.5564962103884,
+        "MV": 0.147845536417433,
+        "H_up": 0.015173159761427303
+      },
+      {
+        "config_id": 9,
+        "size": 30,
+        "arm": "random",
+        "median_fifo": 658.3016055753062,
+        "median_cluster": 560.0123545807796,
+        "MV": 0.14930732381949632,
+        "H_up": 0.015173159761427303
+      },
+      {
+        "config_id": 11,
+        "size": 8,
+        "arm": "phi_corner",
+        "median_fifo": 186.5,
+        "median_cluster": 174.0,
+        "MV": 0.06702412868632708,
+        "H_up": 0.047979797979797977
+      },
+      {
+        "config_id": 11,
+        "size": 8,
+        "arm": "random",
+        "median_fifo": 197.0,
+        "median_cluster": 185.5,
+        "MV": 0.0583756345177665,
+        "H_up": 0.047979797979797977
+      },
+      {
+        "config_id": 11,
+        "size": 30,
+        "arm": "phi_corner",
+        "median_fifo": 697.5,
+        "median_cluster": 587.5,
+        "MV": 0.15770609318996415,
+        "H_up": 0.03127272727272727
+      },
+      {
+        "config_id": 11,
+        "size": 30,
+        "arm": "random",
+        "median_fifo": 688.5,
+        "median_cluster": 577.5,
+        "MV": 0.16122004357298475,
+        "H_up": 0.03127272727272727
+      }
+    ],
+    "n_phi_cells": 12,
+    "pearson_Hup_MV": -0.10588635950539083,
+    "n_MV_gt_1pct": 12,
+    "mean_MV_phi": 0.10243977644810637,
+    "supp1a_pass": true,
+    "supp1b_pass": false,
+    "verdict": "PARTIAL"
+  },
+  "Supp2_capacity_sweep": {
+    "per_capacity": {
+      "2": {
+        "avg": 0.9974999999999999,
+        "worst": 0.98,
+        "n_cells": 30
+      },
+      "3": {
+        "avg": 0.9996666666666667,
+        "worst": 0.99,
+        "n_cells": 30
+      },
+      "4": {
+        "avg": 0.9990000000000001,
+        "worst": 0.99,
+        "n_cells": 30
+      },
+      "5": {
+        "avg": 0.9993333333333333,
+        "worst": 0.99,
+        "n_cells": 30
+      }
+    },
+    "per_cell": [
+      {
+        "config_id": 1,
+        "capacity": 2,
+        "arm": "HC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 1,
+        "capacity": 2,
+        "arm": "HC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 1,
+        "capacity": 2,
+        "arm": "LC_HI",
+        "perwave_dom": 0.99
+      },
+      {
+        "config_id": 1,
+        "capacity": 2,
+        "arm": "LC_LI",
+        "perwave_dom": 0.99
+      },
+      {
+        "config_id": 1,
+        "capacity": 2,
+        "arm": "random",
+        "perwave_dom": 0.995
+      },
+      {
+        "config_id": 1,
+        "capacity": 3,
+        "arm": "HC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 1,
+        "capacity": 3,
+        "arm": "HC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 1,
+        "capacity": 3,
+        "arm": "LC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 1,
+        "capacity": 3,
+        "arm": "LC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 1,
+        "capacity": 3,
+        "arm": "random",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 1,
+        "capacity": 4,
+        "arm": "HC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 1,
+        "capacity": 4,
+        "arm": "HC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 1,
+        "capacity": 4,
+        "arm": "LC_HI",
+        "perwave_dom": 0.995
+      },
+      {
+        "config_id": 1,
+        "capacity": 4,
+        "arm": "LC_LI",
+        "perwave_dom": 0.995
+      },
+      {
+        "config_id": 1,
+        "capacity": 4,
+        "arm": "random",
+        "perwave_dom": 0.995
+      },
+      {
+        "config_id": 1,
+        "capacity": 5,
+        "arm": "HC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 1,
+        "capacity": 5,
+        "arm": "HC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 1,
+        "capacity": 5,
+        "arm": "LC_HI",
+        "perwave_dom": 0.995
+      },
+      {
+        "config_id": 1,
+        "capacity": 5,
+        "arm": "LC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 1,
+        "capacity": 5,
+        "arm": "random",
+        "perwave_dom": 0.99
+      },
+      {
+        "config_id": 3,
+        "capacity": 2,
+        "arm": "HC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 3,
+        "capacity": 2,
+        "arm": "HC_LI",
+        "perwave_dom": 0.995
+      },
+      {
+        "config_id": 3,
+        "capacity": 2,
+        "arm": "LC_HI",
+        "perwave_dom": 0.995
+      },
+      {
+        "config_id": 3,
+        "capacity": 2,
+        "arm": "LC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 3,
+        "capacity": 2,
+        "arm": "random",
+        "perwave_dom": 0.995
+      },
+      {
+        "config_id": 3,
+        "capacity": 3,
+        "arm": "HC_HI",
+        "perwave_dom": 0.99
+      },
+      {
+        "config_id": 3,
+        "capacity": 3,
+        "arm": "HC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 3,
+        "capacity": 3,
+        "arm": "LC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 3,
+        "capacity": 3,
+        "arm": "LC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 3,
+        "capacity": 3,
+        "arm": "random",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 3,
+        "capacity": 4,
+        "arm": "HC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 3,
+        "capacity": 4,
+        "arm": "HC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 3,
+        "capacity": 4,
+        "arm": "LC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 3,
+        "capacity": 4,
+        "arm": "LC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 3,
+        "capacity": 4,
+        "arm": "random",
+        "perwave_dom": 0.995
+      },
+      {
+        "config_id": 3,
+        "capacity": 5,
+        "arm": "HC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 3,
+        "capacity": 5,
+        "arm": "HC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 3,
+        "capacity": 5,
+        "arm": "LC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 3,
+        "capacity": 5,
+        "arm": "LC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 3,
+        "capacity": 5,
+        "arm": "random",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 5,
+        "capacity": 2,
+        "arm": "HC_HI",
+        "perwave_dom": 0.995
+      },
+      {
+        "config_id": 5,
+        "capacity": 2,
+        "arm": "HC_LI",
+        "perwave_dom": 0.99
+      },
+      {
+        "config_id": 5,
+        "capacity": 2,
+        "arm": "LC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 5,
+        "capacity": 2,
+        "arm": "LC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 5,
+        "capacity": 2,
+        "arm": "random",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 5,
+        "capacity": 3,
+        "arm": "HC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 5,
+        "capacity": 3,
+        "arm": "HC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 5,
+        "capacity": 3,
+        "arm": "LC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 5,
+        "capacity": 3,
+        "arm": "LC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 5,
+        "capacity": 3,
+        "arm": "random",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 5,
+        "capacity": 4,
+        "arm": "HC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 5,
+        "capacity": 4,
+        "arm": "HC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 5,
+        "capacity": 4,
+        "arm": "LC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 5,
+        "capacity": 4,
+        "arm": "LC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 5,
+        "capacity": 4,
+        "arm": "random",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 5,
+        "capacity": 5,
+        "arm": "HC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 5,
+        "capacity": 5,
+        "arm": "HC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 5,
+        "capacity": 5,
+        "arm": "LC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 5,
+        "capacity": 5,
+        "arm": "LC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 5,
+        "capacity": 5,
+        "arm": "random",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 7,
+        "capacity": 2,
+        "arm": "HC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 7,
+        "capacity": 2,
+        "arm": "HC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 7,
+        "capacity": 2,
+        "arm": "LC_HI",
+        "perwave_dom": 0.98
+      },
+      {
+        "config_id": 7,
+        "capacity": 2,
+        "arm": "LC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 7,
+        "capacity": 2,
+        "arm": "random",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 7,
+        "capacity": 3,
+        "arm": "HC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 7,
+        "capacity": 3,
+        "arm": "HC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 7,
+        "capacity": 3,
+        "arm": "LC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 7,
+        "capacity": 3,
+        "arm": "LC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 7,
+        "capacity": 3,
+        "arm": "random",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 7,
+        "capacity": 4,
+        "arm": "HC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 7,
+        "capacity": 4,
+        "arm": "HC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 7,
+        "capacity": 4,
+        "arm": "LC_HI",
+        "perwave_dom": 0.99
+      },
+      {
+        "config_id": 7,
+        "capacity": 4,
+        "arm": "LC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 7,
+        "capacity": 4,
+        "arm": "random",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 7,
+        "capacity": 5,
+        "arm": "HC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 7,
+        "capacity": 5,
+        "arm": "HC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 7,
+        "capacity": 5,
+        "arm": "LC_HI",
+        "perwave_dom": 0.995
+      },
+      {
+        "config_id": 7,
+        "capacity": 5,
+        "arm": "LC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 7,
+        "capacity": 5,
+        "arm": "random",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 9,
+        "capacity": 2,
+        "arm": "HC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 9,
+        "capacity": 2,
+        "arm": "HC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 9,
+        "capacity": 2,
+        "arm": "LC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 9,
+        "capacity": 2,
+        "arm": "LC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 9,
+        "capacity": 2,
+        "arm": "random",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 9,
+        "capacity": 3,
+        "arm": "HC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 9,
+        "capacity": 3,
+        "arm": "HC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 9,
+        "capacity": 3,
+        "arm": "LC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 9,
+        "capacity": 3,
+        "arm": "LC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 9,
+        "capacity": 3,
+        "arm": "random",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 9,
+        "capacity": 4,
+        "arm": "HC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 9,
+        "capacity": 4,
+        "arm": "HC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 9,
+        "capacity": 4,
+        "arm": "LC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 9,
+        "capacity": 4,
+        "arm": "LC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 9,
+        "capacity": 4,
+        "arm": "random",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 9,
+        "capacity": 5,
+        "arm": "HC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 9,
+        "capacity": 5,
+        "arm": "HC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 9,
+        "capacity": 5,
+        "arm": "LC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 9,
+        "capacity": 5,
+        "arm": "LC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 9,
+        "capacity": 5,
+        "arm": "random",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 11,
+        "capacity": 2,
+        "arm": "HC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 11,
+        "capacity": 2,
+        "arm": "HC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 11,
+        "capacity": 2,
+        "arm": "LC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 11,
+        "capacity": 2,
+        "arm": "LC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 11,
+        "capacity": 2,
+        "arm": "random",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 11,
+        "capacity": 3,
+        "arm": "HC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 11,
+        "capacity": 3,
+        "arm": "HC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 11,
+        "capacity": 3,
+        "arm": "LC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 11,
+        "capacity": 3,
+        "arm": "LC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 11,
+        "capacity": 3,
+        "arm": "random",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 11,
+        "capacity": 4,
+        "arm": "HC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 11,
+        "capacity": 4,
+        "arm": "HC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 11,
+        "capacity": 4,
+        "arm": "LC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 11,
+        "capacity": 4,
+        "arm": "LC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 11,
+        "capacity": 4,
+        "arm": "random",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 11,
+        "capacity": 5,
+        "arm": "HC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 11,
+        "capacity": 5,
+        "arm": "HC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 11,
+        "capacity": 5,
+        "arm": "LC_HI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 11,
+        "capacity": 5,
+        "arm": "LC_LI",
+        "perwave_dom": 1.0
+      },
+      {
+        "config_id": 11,
+        "capacity": 5,
+        "arm": "random",
+        "perwave_dom": 1.0
+      }
+    ],
+    "supp2a_pass": true,
+    "verdict": "PASS"
+  }
+}

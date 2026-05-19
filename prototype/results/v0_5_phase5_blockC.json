@@ -1,0 +1,374 @@
+{
+  "generated": "2026-05-19",
+  "block": "C",
+  "H_D2": {
+    "n_cells": 24,
+    "perwave_avg": 0.9920833333333333,
+    "perwave_worst": 0.96,
+    "n_fosd": 24,
+    "n_U_c_ok": 24,
+    "n_collapse": 6,
+    "n_configs": 6,
+    "D2a": true,
+    "D2b": true,
+    "D2c": true,
+    "D2d": true,
+    "verdict": "PASS",
+    "per_cell": [
+      {
+        "config_id": 1,
+        "corner": "HC_HI",
+        "perwave_dom": 0.985,
+        "fosd": 1.0,
+        "W1": 56.26499999999999,
+        "U_c_005": 5.449999999999989,
+        "m0": 190.0,
+        "U_c_lt_5pct": true,
+        "fosd_ok": true
+      },
+      {
+        "config_id": 1,
+        "corner": "HC_LI",
+        "perwave_dom": 0.995,
+        "fosd": 1.0,
+        "W1": 60.21000000000001,
+        "U_c_005": 3.9499999999999886,
+        "m0": 190.0,
+        "U_c_lt_5pct": true,
+        "fosd_ok": true
+      },
+      {
+        "config_id": 1,
+        "corner": "LC_HI",
+        "perwave_dom": 0.985,
+        "fosd": 1.0,
+        "W1": 46.28999999999999,
+        "U_c_005": 2.0,
+        "m0": 190.0,
+        "U_c_lt_5pct": true,
+        "fosd_ok": true
+      },
+      {
+        "config_id": 1,
+        "corner": "LC_LI",
+        "perwave_dom": 0.96,
+        "fosd": 1.0,
+        "W1": 45.18,
+        "U_c_005": 1.0,
+        "m0": 190.0,
+        "U_c_lt_5pct": true,
+        "fosd_ok": true
+      },
+      {
+        "config_id": 3,
+        "corner": "HC_HI",
+        "perwave_dom": 0.98,
+        "fosd": 1.0,
+        "W1": 42.03,
+        "U_c_005": 1.0,
+        "m0": 189.0,
+        "U_c_lt_5pct": true,
+        "fosd_ok": true
+      },
+      {
+        "config_id": 3,
+        "corner": "HC_LI",
+        "perwave_dom": 1.0,
+        "fosd": 1.0,
+        "W1": 54.40999999999999,
+        "U_c_005": 5.0,
+        "m0": 189.0,
+        "U_c_lt_5pct": true,
+        "fosd_ok": true
+      },
+      {
+        "config_id": 3,
+        "corner": "LC_HI",
+        "perwave_dom": 0.99,
+        "fosd": 1.0,
+        "W1": 41.010000000000005,
+        "U_c_005": 5.0,
+        "m0": 189.0,
+        "U_c_lt_5pct": true,
+        "fosd_ok": true
+      },
+      {
+        "config_id": 3,
+        "corner": "LC_LI",
+        "perwave_dom": 0.97,
+        "fosd": 1.0,
+        "W1": 52.125,
+        "U_c_005": 5.0,
+        "m0": 189.0,
+        "U_c_lt_5pct": true,
+        "fosd_ok": true
+      },
+      {
+        "config_id": 5,
+        "corner": "HC_HI",
+        "perwave_dom": 1.0,
+        "fosd": 1.0,
+        "W1": 49.79155323739617,
+        "U_c_005": 4.615000004777642,
+        "m0": 205.96136820279446,
+        "U_c_lt_5pct": true,
+        "fosd_ok": true
+      },
+      {
+        "config_id": 5,
+        "corner": "HC_LI",
+        "perwave_dom": 0.99,
+        "fosd": 1.0,
+        "W1": 46.717944903633416,
+        "U_c_005": 2.689428983407936,
+        "m0": 205.96136820279446,
+        "U_c_lt_5pct": true,
+        "fosd_ok": true
+      },
+      {
+        "config_id": 5,
+        "corner": "LC_HI",
+        "perwave_dom": 0.995,
+        "fosd": 1.0,
+        "W1": 49.27010789276445,
+        "U_c_005": 4.849441550278556,
+        "m0": 205.96136820279446,
+        "U_c_lt_5pct": true,
+        "fosd_ok": true
+      },
+      {
+        "config_id": 5,
+        "corner": "LC_LI",
+        "perwave_dom": 0.99,
+        "fosd": 1.0,
+        "W1": 48.47464431094453,
+        "U_c_005": 2.6605245462968696,
+        "m0": 205.96136820279446,
+        "U_c_lt_5pct": true,
+        "fosd_ok": true
+      },
+      {
+        "config_id": 7,
+        "corner": "HC_HI",
+        "perwave_dom": 1.0,
+        "fosd": 1.0,
+        "W1": 106.655,
+        "U_c_005": 3.0,
+        "m0": 283.0,
+        "U_c_lt_5pct": true,
+        "fosd_ok": true
+      },
+      {
+        "config_id": 7,
+        "corner": "HC_LI",
+        "perwave_dom": 1.0,
+        "fosd": 1.0,
+        "W1": 112.84,
+        "U_c_005": 7.449999999999989,
+        "m0": 283.0,
+        "U_c_lt_5pct": true,
+        "fosd_ok": true
+      },
+      {
+        "config_id": 7,
+        "corner": "LC_HI",
+        "perwave_dom": 0.99,
+        "fosd": 1.0,
+        "W1": 76.45500000000001,
+        "U_c_005": 9.5,
+        "m0": 283.0,
+        "U_c_lt_5pct": true,
+        "fosd_ok": true
+      },
+      {
+        "config_id": 7,
+        "corner": "LC_LI",
+        "perwave_dom": 0.98,
+        "fosd": 1.0,
+        "W1": 76.10499999999999,
+        "U_c_005": 10.0,
+        "m0": 283.0,
+        "U_c_lt_5pct": true,
+        "fosd_ok": true
+      },
+      {
+        "config_id": 9,
+        "corner": "HC_HI",
+        "perwave_dom": 1.0,
+        "fosd": 1.0,
+        "W1": 126.18090473465813,
+        "U_c_005": 3.2712280795179254,
+        "m0": 380.61200273212,
+        "U_c_lt_5pct": true,
+        "fosd_ok": true
+      },
+      {
+        "config_id": 9,
+        "corner": "HC_LI",
+        "perwave_dom": 1.0,
+        "fosd": 1.0,
+        "W1": 132.48322595061427,
+        "U_c_005": 2.981061426146539,
+        "m0": 380.61200273212,
+        "U_c_lt_5pct": true,
+        "fosd_ok": true
+      },
+      {
+        "config_id": 9,
+        "corner": "LC_HI",
+        "perwave_dom": 1.0,
+        "fosd": 1.0,
+        "W1": 118.14680625236647,
+        "U_c_005": 8.840250208595137,
+        "m0": 380.61200273212,
+        "U_c_lt_5pct": true,
+        "fosd_ok": true
+      },
+      {
+        "config_id": 9,
+        "corner": "LC_LI",
+        "perwave_dom": 1.0,
+        "fosd": 1.0,
+        "W1": 115.36875169398424,
+        "U_c_005": 4.182717413575176,
+        "m0": 380.61200273212,
+        "U_c_lt_5pct": true,
+        "fosd_ok": true
+      },
+      {
+        "config_id": 11,
+        "corner": "HC_HI",
+        "perwave_dom": 1.0,
+        "fosd": 1.0,
+        "W1": 132.82500000000002,
+        "U_c_005": 4.800000000000011,
+        "m0": 380.0,
+        "U_c_lt_5pct": true,
+        "fosd_ok": true
+      },
+      {
+        "config_id": 11,
+        "corner": "HC_LI",
+        "perwave_dom": 1.0,
+        "fosd": 1.0,
+        "W1": 122.07,
+        "U_c_005": 4.5,
+        "m0": 380.0,
+        "U_c_lt_5pct": true,
+        "fosd_ok": true
+      },
+      {
+        "config_id": 11,
+        "corner": "LC_HI",
+        "perwave_dom": 1.0,
+        "fosd": 1.0,
+        "W1": 121.17500000000001,
+        "U_c_005": 9.0,
+        "m0": 380.0,
+        "U_c_lt_5pct": true,
+        "fosd_ok": true
+      },
+      {
+        "config_id": 11,
+        "corner": "LC_LI",
+        "perwave_dom": 1.0,
+        "fosd": 1.0,
+        "W1": 118.63999999999999,
+        "U_c_005": 6.0,
+        "m0": 380.0,
+        "U_c_lt_5pct": true,
+        "fosd_ok": true
+      }
+    ],
+    "per_config_collapse": [
+      {
+        "config_id": 1,
+        "c_star_Hedge": "LC_HI",
+        "c_star_DRO": "LC_HI",
+        "collapse": true
+      },
+      {
+        "config_id": 3,
+        "c_star_Hedge": "LC_HI",
+        "c_star_DRO": "LC_HI",
+        "collapse": true
+      },
+      {
+        "config_id": 5,
+        "c_star_Hedge": "HC_LI",
+        "c_star_DRO": "HC_LI",
+        "collapse": true
+      },
+      {
+        "config_id": 7,
+        "c_star_Hedge": "LC_HI",
+        "c_star_DRO": "LC_HI",
+        "collapse": true
+      },
+      {
+        "config_id": 9,
+        "c_star_Hedge": "HC_HI",
+        "c_star_DRO": "HC_HI",
+        "collapse": true
+      },
+      {
+        "config_id": 11,
+        "c_star_Hedge": "LC_LI",
+        "c_star_DRO": "LC_LI",
+        "collapse": true
+      }
+    ]
+  },
+  "H_D3_exploratory": {
+    "n_configs": 6,
+    "n_qmax_invariant": 2,
+    "n_qmin_invariant": 5,
+    "n_identity_invariant": 2,
+    "mean_spearman_rho": 0.7499999999999999,
+    "branch": "model-sensitive",
+    "per_config": [
+      {
+        "config_id": 1,
+        "qmax_invariant": false,
+        "qmin_invariant": true,
+        "spearman_M2": 0.7999999999999999,
+        "spearman_M3": 0.7999999999999999
+      },
+      {
+        "config_id": 3,
+        "qmax_invariant": true,
+        "qmin_invariant": true,
+        "spearman_M2": 1.0,
+        "spearman_M3": 1.0
+      },
+      {
+        "config_id": 5,
+        "qmax_invariant": true,
+        "qmin_invariant": true,
+        "spearman_M2": 0.7999999999999999,
+        "spearman_M3": 1.0
+      },
+      {
+        "config_id": 7,
+        "qmax_invariant": false,
+        "qmin_invariant": true,
+        "spearman_M2": 1.0,
+        "spearman_M3": 0.7999999999999999
+      },
+      {
+        "config_id": 9,
+        "qmax_invariant": false,
+        "qmin_invariant": true,
+        "spearman_M2": 0.7999999999999999,
+        "spearman_M3": 1.0
+      },
+      {
+        "config_id": 11,
+        "qmax_invariant": false,
+        "qmin_invariant": false,
+        "spearman_M2": -0.39999999999999997,
+        "spearman_M3": 0.39999999999999997
+      }
+    ]
+  }
+}
