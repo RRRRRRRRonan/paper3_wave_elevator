@@ -1,23 +1,30 @@
 ---
-title: "PDF 定稿内容修改对照 — Option B (C3 收缩为 2 个 outcome) + Phase 5 结果"
-date: 2026-05-19
-purpose: "列出当前 PDF (Abstract/Intro/Related Works/Problem Formulation) 中所有需要修改的部分，附修改前后对照"
+title: "PDF 定稿内容修改对照 — Option B + methodology 定位（最终完整方案）"
+date: 2026-05-20
+purpose: "当前 PDF (Abstract/Intro/Related Works/Problem Formulation) 全部需要修改的部分，附修改前后对照。涵盖 (a) Option B 的 C3 收缩，(b) methodology 定位。"
+status: "完整 —— 这是截至目前 PDF 内容的最终修改方案"
 ---
 
-# PDF 定稿内容修改对照表
+# PDF 定稿内容修改对照表（最终完整版）
 
 ## 适用范围
 
-当前 PDF 定稿 = **Abstract、Introduction、Related Works、Problem Formulation**（§1–§3）。
+当前 PDF 定稿 = **Abstract、Introduction、Related Works、Problem Formulation**（§1–§3）。§4 Methodology、§5 不在 PDF 里（它们以 [section4_draft_v0_1.md](section4_draft_v0_1.md) / [section5_draft_v0_1.md](section5_draft_v0_1.md) 草稿存在，是*新增章节*，不属于本"PDF 修订"）。
 
-- **需要修改**：Abstract（贡献句）、Introduction 的 **C2 段一处**、**C3 段整段**、**C3 后的"operational implication"句**。
-- **不需要修改**：**Related Works** 与 **Problem Formulation (§3)** —— 它们定位方法、定义问题，不含被 Phase 5 推翻的经验主张。Φ=(C,I,T) 在 §3 已声明为"conceptual decomposition rather than a predictive surrogate"，与消融发现（C 主导、I/T 弱）不冲突。
+- **需要修改**：Abstract（贡献句）、Introduction 的 C2 段、C3 段、"operational implication"句、"two tools"预告段 —— **全部在 Abstract + §1 范围内**。
+- **不需要修改**：Related Works (§2) 与 Problem Formulation (§3)。
 
-**两个驱动因素**：(a) 你选了 **Option B** —— C3 从 3 个 managerial outcome 收缩为 2；(b) **Phase 5 Supp-1** —— destination-clustered dispatch 在 publication scale 普遍降 makespan ~10%（12/12 cell），**不是** regime-conditional，因此原 C3-1 的"prospectively classifies which regimes"和 C3-3 的"substitutability map"站不住。
+**两个驱动因素**：
+- **(a) Option B** —— C3 从 3 个 managerial outcome 收缩为 2（修改 1–4）。
+- **(b) methodology 定位** —— 论文目标从 Q1-application 改为 Q1-methodology；需软化 §1 残留的"which lever / regime 分类器"口径（修改 5）。
 
-> 注："...constitute **three contributions** of this paper"一句**不用改** —— 它指 C1/C2/C3 三个 contribution，仍是三个；Option B 只把 C3 *内部*的 outcome 从 3 减到 2。
+> **诚实说明**：methodology 定位的额外改动**很小** —— 只有修改 5 一处必改。原因:PDF 本来就是 methodology 语气("two analytical tools / decomposition theorem / Hedge Rule / pre-registered simulation"),且 Option B 的 C3 重写已完成大部分"去 application 化"。我上一轮说"一整批改动"是高估,据实更正。
+
+> 注："...constitute **three contributions** of this paper"一句**不用改** —— 指 C1/C2/C3 三个 contribution,仍是三个;Option B 只把 C3 *内部*的 outcome 从 3 减到 2。
 
 ---
+
+# 第一组：Option B 改动（C3 三 outcome → 两）
 
 ## 修改 1 — Abstract，贡献句
 
@@ -71,16 +78,41 @@ purpose: "列出当前 PDF (Abstract/Intro/Related Works/Problem Formulation) �
 
 ---
 
-## 可选 / 建议复核（非强制，不属"必须改"）
+# 第二组：methodology 定位改动
 
-| 位置 | 现状 | 建议 |
-|---|---|---|
-| Intro "two structural features" 第 1 条 | "wave composition has a small but real effect... that **varies systematically across regimes**" | 可略软化措辞；非强制（这是 motivating 的 preliminary sweep 观察，已声明为 preliminary）|
-| Intro "two structural features" 第 2 条 | "per-wave dominance... holds in **92.5–100% of waves**" | 可加一句"(confirmed at ≈99% per-wave dominance at publication scale, Section 5)"—— 增强，非强制 |
-| C2 段 | "our rule hedges across **two** structural model classes" | Abstract 已写 {M1,M2,M3} 三模型链；此处"two"与之略不一致，可统一为"a chain of structural model classes"。非 Option-B 引起，但顺手可改 |
+## 修改 5 — Introduction，"two tools"预告段（Bound-and-Gap 句尾）
+
+**原文 (PDF p.2)**：
+> We develop two analytical tools to address these features. The first is a Bound-and-Gap framework: a decomposition theorem that splits the value of wave-structure information into two non-negative components **and, regime by regime, tells operators whether wave design or elevator capacity is the binding lever**. The second is a Model-Dominance Hedge Rule: a closed-form dispatch policy that handles uncertainty over which elevator model best describes a warehouse, telling operators which wave to release without identifying the true model online and bounding the cost of being wrong.
+
+**改后**：
+> We develop two analytical tools to address these features. The first is a Bound-and-Gap framework: a decomposition theorem that splits the value of wave-structure information into two non-negative components **— a partition-intrinsic upper-tail component and a recoverable policy component**. The second is a Model-Dominance Hedge Rule: a closed-form dispatch policy that handles uncertainty over which elevator model best describes a warehouse, telling operators which wave to release without identifying the true model online and bounding the cost of being wrong.
+
+**原因**：methodology 定位下,论文不主张"诊断告诉运营者该拉哪个杠杆"这种 regime-分类器口径(也已被 Supp-1 削弱)。改为中性的"结构分解"描述。Hedge Rule 那一句**不动** —— 它只是描述工具输出,与 methodology 定位相容。
+
+---
+
+## 可选 / 建议复核（非强制）
+
+| # | 位置 | 现状 | 建议 |
+|---|---|---|---|
+| O1 | Abstract | "Both tools are validated by **pre-registered simulation experiments**." | 强化为 "...by a **pre-registered, publication-scale simulation study**." —— 把"严谨度"这个 methodology 卖点显化。低风险,建议改。 |
+| O2 | Intro "two structural features" 第 1 条 | "...effect on makespan that **varies systematically across regimes**" | 可略软化;非强制(motivating 的 preliminary 观察)。 |
+| O3 | Intro "two structural features" 第 2 条 | "per-wave dominance... holds in **92.5–100% of waves**" | 可加"(confirmed at ≈99% at publication scale, Section 5)"。增强,非强制。 |
+| O4 | C2 段 | "our rule hedges across **two** structural model classes" | Abstract 已写 {M1,M2,M3} 三模型链;"two"与之不一致,建议统一为"a chain of structural model classes"。 |
+| O5 | Abstract / §1 | （无）| 可加一句明确把贡献定位为 methodological;但论文已实质是 methodology 语气,**非必须**。 |
 
 ---
 
 ## 小结
 
-**必须改 4 处**，全部在 **Abstract + Introduction**；Related Works 与 Problem Formulation 不动。改动核心：(1) C3 三 outcome → 两 outcome；(2) "regime 诊断 / which lever / substitutability map"口径 → "结构分解 + 普遍 ~10% 价值"口径。改动后 PDF 的 §1 与即将写的 §5（见 [section5_draft_v0_1.md](section5_draft_v0_1.md)）一致。
+**必须改 5 处**，全部在 **Abstract + §1 Introduction**；Related Works、Problem Formulation 不动。
+
+| 组 | 修改 | 核心 |
+|---|---|---|
+| Option B | 修改 1–4 | C3 三 outcome → 两；"regime 诊断 / which lever / substitutability map" → "结构分解 + 普遍 ~10% 价值" |
+| methodology 定位 | 修改 5 | §1 预告段去掉"tells operators which lever is the binding lever"的 regime-分类器口径 |
+
+加 O1（建议）、O2–O5（可选）。改动后 PDF 的 Abstract+§1 与新增的 §4（[section4_draft_v0_1.md](section4_draft_v0_1.md)）、§5（[section5_draft_v0_1.md](section5_draft_v0_1.md)）一致 —— 同走 Option B、同为 methodology 定位、同用 Phase 5 的诚实数字。
+
+**这份文件即截至目前 PDF 内容的最终完整修改方案。**
