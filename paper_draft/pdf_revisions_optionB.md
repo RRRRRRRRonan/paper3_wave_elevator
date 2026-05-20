@@ -11,13 +11,13 @@ status: "完整 v2 —— 已修正 v1 的两处遗漏 (Abstract 轴命名、§2
 
 当前 PDF 定稿 = **Abstract、Introduction、Related Works、Problem Formulation**（§1–§3）。§4、§5 不在 PDF（以 [section4_draft_v0_1.md](section4_draft_v0_1.md) / [section5_draft_v0_1.md](section5_draft_v0_1.md) 存在,属新增章节)。
 
-- **需要修改**:**Abstract**(贡献句 **+ Φ 轴命名句**);§1 的 C2 段 / C3 段 / "operational implication"句 / "two tools"预告段;**§2 的 methodology 段(整段重写 + 开头/结尾的 "two threads" 措辞**同步更新**)**;§3 的 4 处与实现对齐。
+- **需要修改**:**Abstract**(贡献句 **+ Φ 轴命名句**);§1 的 C2 段 / C3 段 / "operational implication"句 / "two tools"预告段;**§2 的 methodology 段(整段重写 + 开头/结尾的 "two threads" 措辞**同步更新**)**;§3 的 **5 处**(4 处与实现对齐 + Constraints 末段 invariants 列表 1 处 propagation)。
 - **不需要修改**:§2 的*问题类*线(4 个 problem-class threads 不动);§3 的其余部分。
 
 **四个驱动因素**:
 - **(a) Option B** —— C3 三 outcome → 两(修改 1–4)。
 - **(b) methodology 定位** —— 软化 §1 残留的"binding lever"口径(修改 5)。
-- **(c) §3 与实现对齐** —— C 公式与语义、I 分母、d_o 同层、调度策略 + Abstract 轴名连带(修改 6–9 + 修改 11)。
+- **(c) §3 与实现对齐** —— C 公式与语义、I 分母、d_o 同层、调度策略 + Abstract 轴名连带 + Constraints 末段 invariants 列表 propagation(修改 6–9 + 修改 11 + 修改 12)。
 - **(d) §2 把 D1/D2 显化为 bridge** —— 否则 §4 prove "equal"、§2 写 "differ" 自相矛盾(修改 10,**含 §2 开头+结尾的 "two threads" 同步更新**)。
 
 > 注:"...constitute **three contributions** of this paper"一句**不用改** —— 指 C1/C2/C3,仍三个。
@@ -162,6 +162,20 @@ status: "完整 v2 —— 已修正 v1 的两处遗漏 (Abstract 轴命名、§2
 
 ---
 
+## 修改 12 — §3 Constraints,operational invariants 列表（**propagates 修改 9**）
+
+> v2 之后用户审查发现:修改 9 把 A3 从"FIFO boarding"改为"FIFO (default) + cluster alternative",但 §3 Constraints 末段的"operational invariants 列表"还写着"**FIFO boarding**",与改后的 A3 不一致。reviewer 顺读 §3 立刻能发现。
+
+**原文 (PDF p.9, Constraints 末段)**:
+> The operational invariants from Assumptions A1-A3 (single-order carriage, source-before-destination sequencing, **FIFO boarding**) are realized through the simulator C_max(W;M) rather than as formal optimization constraints.
+
+**改后**:
+> The operational invariants from Assumptions A1-A3 (single-order carriage, source-before-destination sequencing, **capacity-bounded deterministic boarding under the policy chosen per A3**) are realized through the simulator C_max(W;M) rather than as formal optimization constraints.
+
+**原因**:与修改 9 的 A3 表述对齐。原文"FIFO boarding"与 A3 改后(默认 FIFO + §5 评估 cluster 作 treatment factor)矛盾;改为中性的"under the policy chosen per A3",不破坏 §3 "single decision variable" 的干净叙述,也不让 cluster 升格为决策变量。
+
+---
+
 # 第四组：§2 methodology 段深化（把 D1/D2 显化为 bridge）
 
 > **v2 修订**:不仅重写 §2 的 methodology 段(原修改 10),还**同步更新 §2 开头段和结尾段**对 "two methodological threads" 的引用 —— 否则中间改成 3 条线,开头说 "two threads / 1:1 对应"、结尾说 "two threads each provide tools" 会自相冲突。
@@ -241,13 +255,13 @@ status: "完整 v2 —— 已修正 v1 的两处遗漏 (Abstract 轴命名、§2
 
 ## 小结
 
-**必须改 11 处**,四组:
+**必须改 12 处**,四组:
 
 | 组 | 修改 | 位置 | 核心 |
 |---|---|---|---|
 | 第一组 Option B | 1–4 | Abstract + §1 | C3 三 outcome → 两;regime-分类口径 → 结构分解 + 普遍 ~10% |
 | 第二组 methodology 定位 | 5 | §1 | "binding lever"口径去掉 |
-| 第三组 §3-实现对齐(+ Abstract 轴名连带) | 6–9, **11** | §3 + **Abstract** | C 公式/语义对齐(改名 diversity);I 分母;允许同层订单;调度策略含 FIFO + cluster(cluster 定位为 §5 处理因子);**Abstract 轴名同步** |
+| 第三组 §3-实现对齐(+ Abstract 轴名 + Constraints invariants 连带) | 6–9, 11, **12** | §3 + Abstract | C 公式/语义对齐(改名 diversity);I 分母;允许同层订单;调度策略含 FIFO + cluster(cluster 定位为 §5 处理因子);**Abstract 轴名同步**;**Constraints 末段 invariants 列表同步 propagates 修改 9** |
 | 第四组 §2-bridges 深化 | 10(三处:**开头 + 中段 + 结尾**) | §2 | methodology 段从 2 条 contrast → 3 条(2 bridge + 1 contrast);新增 Wasserstein-DRO 整条线 + 4 篇引用;**开头/结尾 "two threads" 同步更新** |
 
 加 O1–O5 可选;V1–V3 年份核验(建议全文统一用正式期刊年份)。
