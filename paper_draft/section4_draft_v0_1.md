@@ -56,7 +56,7 @@ the partition is non-degenerate. The two components have distinct readings.
 penalty of the worst corner, structural and present even when `Φ` selects
 perfectly. `M_Φ` is the *Φ-policy miss* — the relative cost of `Φ` choosing
 its corner rather than the oracle-best one, a residual that better feature
-engineering can recover.
+engineering can recover (Figure 1).
 
 ### 4.1.2 The policy component is an SPO regret
 
@@ -104,6 +104,14 @@ reading of the *components*, not a predictor of which regime a given operating
 policy will favour; Section 5 shows the realized value of structured design to
 be broad rather than sharply regime-specific.
 
+**Figure 1.** The Bound-and-Gap decomposition on a stylized
+`(regime, model, size)` sub-cell. The four corner medians
+(`m_{q_min}`, `m_{q_Φ}`, `m_0`, `m_{q_max}`) tile the oracle spread `UB` into
+three contiguous segments — `M_Φ`, `LB`, `H_up` — and the gap is the sum of
+the two outside tiles: `GAP = M_Φ + H_up = UB − LB`. *(Source:
+`prototype/results/figures/fig_bound_and_gap_schematic.png`; generator
+`prototype/src/figure_methodology_schematics.py`.)*
+
 ## 4.2 The Model-Dominance Hedge Rule
 
 ### 4.2.1 Model uncertainty and the minimax corner
@@ -145,12 +153,22 @@ mean gap exactly under dominance, so the worst case over the ambiguity ball is
 attained at the dominant model; the two `argmin`s therefore agree (full proof
 in Appendix). ∎
 
-Theorem 2 yields a **closed-form dispatch policy**: release waves from the
-corner that is optimal under the true-batching model `M2` — no online model
-identification, and no distributionally-robust optimization to solve. Where
-robust scheduling hedges over a parameter within one model class, this rule
-hedges across *structurally distinct* model classes by exploiting a verified
-dominance.
+Theorem 2 yields a **closed-form dispatch policy** (Figure 2): release waves
+from the corner that is optimal under the true-batching model `M2` — no
+online model identification, and no distributionally-robust optimization to
+solve. Where robust scheduling hedges over a parameter within one model class,
+this rule hedges across *structurally distinct* model classes by exploiting a
+verified dominance.
+
+**Figure 2.** The Model-Dominance Hedge Rule. (a) Chain dominance of `M2`
+over `M1` in cumulative-distribution terms: `F_{M_1}(t) ≥ F_{M_2}(t)`
+pointwise, so `M2` is stochastically larger and the worst case in the
+Wasserstein-1 ball `B_ρ(M1)` of radius `ρ = W₁(M1, M2)` is attained at `M2`
+(Theorem 2's DRO clause). (b) The closed-form decision flow: verify chain
+dominance empirically, then follow the `M2`-optimal corner; no online model
+identification is required. *(Source:
+`prototype/results/figures/fig_hedge_rule_schematic.png`; generator
+`prototype/src/figure_methodology_schematics.py`.)*
 
 ### 4.2.3 Approximate dominance and the worst-case bound
 
