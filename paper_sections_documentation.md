@@ -439,3 +439,7 @@ Abstract                                    [1 段]
 ---
 
 **文件状态**：对应 docx 当前定稿（2026-05-23）。如后续 §1–§3 文本有修改，请同步更新本文件。
+
+note: 
+section 4需要加入以下内容：
+Section 3 introduced a family M = {M1, M2, M3} of elevator-modeling conventions documented in the warehouse OR literature. Different conventions can yield different optimal wave compositions, so an operator who commits to one convention risks performance loss if a different convention better describes their warehouse. The Model-Dominance Hedge Rule developed below addresses this risk by providing a closed-form policy whose worst-case loss across the entire family M is bounded by an explicit, computable expression—a robustness certificate on the chosen decision, valid within the studied family without requiring online model identification.
