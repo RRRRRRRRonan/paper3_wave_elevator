@@ -68,7 +68,14 @@ are confirmed at publication scale, not merely at the prototype scale on which
 they were derived. Non-negativity holds in 70/72; the two exceptions are
 near-degenerate sub-cells in which the random-pool *sample* median marginally
 exceeds the worst-corner sample median, a finite-sample artefact that does not
-contradict the population inequality. The mean decomposition is
+contradict the population inequality. The two violating sub-cells are both
+small in magnitude (`H_up = −0.0021` in the `F=8 / |A|=15 / E=1 / uniform /
+M2 / size-8` cell and `H_up = −0.0044` in the `F=8 / |A|=30 / E=2 / clustered
+/ M1 / size-8` cell), each less than 0.5 % of the cell scale; the 95 %
+bootstrap CI of `GAP` straddles zero in the second cell and lies just above
+zero in the first, locating both near the population-`GAP ≈ 0` boundary
+where the sample sign of the corner-median difference is intrinsically
+unstable. The mean decomposition is
 `GAP = 0.060 (H_up = 0.043, M_Φ = 0.017)`.
 
 The signal-resolution gate is the demanding one: the 95 % bootstrap CI of
@@ -120,12 +127,19 @@ the distributionally-robust decision exactly under chain dominance. The
 Model-Dominance Hedge Rule is thus **confirmed at publication scale** — the
 firmer of the paper's two empirical pillars.
 
-An exploratory probe (non-gating) finds the corner *ranking* itself to be
-model-dependent: the worst/best corners are not invariant across `M1`/`M2`/`M3`
-(mean rank correlation 0.75). This model-sensitivity is not a defect — it is
-precisely the motivation for the Hedge Rule: because the wave-design corner
-depends on which elevator model is believed, a rule that is robust to that
-choice is necessary rather than optional.
+An exploratory probe (non-gating) tests whether the corner *ranking* itself
+is invariant across `M1`/`M2`/`M3` and finds it is not: the worst/best corners
+differ across models, with a mean rank correlation of 0.75 against `M1`'s
+ranking. The probe is **not the motivation** for the Hedge Rule —
+Theorem 2's collapse under chain dominance, derived from the structural
+model-uncertainty argument in §4.2, is the methodological motivation, fixed
+before any scale-up data was seen and pre-registered as a gating hypothesis.
+The probe is the *empirical confirmation* that the model-uncertainty premise
+on which §4.2 rests is non-vacuous at publication scale: because the
+wave-design corner does in fact depend on which elevator model is believed,
+a rule whose dispatch decision is robust to that choice is operationally
+relevant, not merely formally robust against a hypothetical uncertainty that
+never materialises.
 
 ## 5.4 Managerial outcomes
 
@@ -166,12 +180,24 @@ below the diagonal mark cells where P5 is faster. *(Source:
 `prototype/results/figures/phase5_fig2_p5_vs_p6.png`.)*
 
 Honesty requires the last row of Table 4: against a local-search reference
-optimizer (P7), P5 never wins and sits roughly 46 % above it, capturing about
-19 % of the achievable improvement. P5 is therefore a cheap, interpretable,
-no-simulation heuristic that improves on naive and practitioner baselines —
-not a substitute for direct optimization. The paper's contribution here is the
-*structural account* of where wave-design value sits, delivered by the
-decomposition, rather than P5 as a competitive policy.
+optimizer (P7), P5 never wins, sits roughly 46 % above P7, and captures only
+about 19 % of the `P0 → P7` gap. We interpret this not as a defect of `Φ` but
+as a structural prediction of the decomposition itself. The Bound-and-Gap
+framework partitions `GAP` into a policy-recoverable component `M_Φ` and a
+partition-intrinsic component `H_up`; across the 72 sub-cells the
+policy-recoverable share averages `M_Φ / GAP ≈ 28 %`, while the structural
+share `H_up / GAP ≈ 72 %` (Table 2). A corner-level rule on `Φ` — which is
+what P5 is — can in principle reach only the policy-recoverable share;
+closing the remainder requires either a finer `Φ`-partition (the path
+Corollary 1 opens) or capacity-side intervention, both diagnosed by the
+decomposition and neither inside P5's design scope. The 19 % capture P5
+realises is consistent with this ceiling: P5 is a *diagnostic-aligned*
+heuristic at the partition's resolution, and the 81 % residual it leaves to
+P7 is the structural slice the decomposition pre-identifies as outside any
+corner rule's reach. The paper's contribution here is therefore the
+*diagnostic decomposition* — which predicts and explains where wave-design
+value can and cannot be captured at a given partition resolution — not P5 as
+a competitive policy.
 
 ### 5.4.2 The Hedge Rule extends beyond its derivation capacity
 

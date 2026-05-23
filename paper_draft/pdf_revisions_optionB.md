@@ -1,11 +1,11 @@
 ---
-title: "PDF 定稿内容修改对照 — Option B + methodology 定位 + §3-实现对齐 + §2-bridges 深化（最终完整方案 v2）"
-date: 2026-05-20
-purpose: "当前 PDF (Abstract/§1/§2/§3) 全部需要修改的部分，附修改前后对照。涵盖 (a) Option B 的 C3 收缩，(b) methodology 定位，(c) §3 与代码实现的 4 处对齐 + Abstract 轴名连带，(d) §2 把 D1/D2 显化为 bridge 并补 Wasserstein-DRO 文献根基。"
-status: "完整 v2 —— 已修正 v1 的两处遗漏 (Abstract 轴命名、§2 开头/结尾'two threads')"
+title: "PDF 定稿内容修改对照 — Option B + methodology 定位 + §3-实现对齐 + §2-bridges 深化 + C3 路径-A 重排（最终完整方案 v3）"
+date: 2026-05-21
+purpose: "当前 PDF (Abstract/§1/§2/§3) 全部需要修改的部分，附修改前后对照。涵盖 (a) Option B 的 C3 收缩 + 路径-A 重排（修改 1, 3 在 v3 锐化：Outcome 1 由「10% 头条」改为「H_up > M_Φ 的容量-政策诊断」，10% 下沉为辅助证据并显式 FIFO baseline），(b) methodology 定位，(c) §3 与代码实现的 4 处对齐 + Abstract 轴名连带，(d) §2 把 D1/D2 显化为 bridge 并补 Wasserstein-DRO 文献根基。"
+status: "完整 v3 —— v2 基础上对修改 1/修改 3 应用 C3 路径-A 重排（避免 'managerial outcomes' overclaim、显式 FIFO baseline、用 H_up vs M_Φ 量值给出真正的 managerial 诊断）"
 ---
 
-# PDF 定稿内容修改对照表（最终完整版 v2）
+# PDF 定稿内容修改对照表（最终完整版 v3）
 
 ## 适用范围
 
@@ -31,10 +31,10 @@ status: "完整 v2 —— 已修正 v1 的两处遗漏 (Abstract 轴命名、§2
 **原文 (PDF p.1)**:
 > The framework then delivers **three managerial outcomes**: from this decomposition, **(i) a regime-level diagnostic that tells operators which lever to pull, such as wave design, additional elevator capacity, or neither**; from the hedge rule, (ii) a closed-form dispatch policy that operators apply without identifying the true elevator model online, with worst-case loss bounded against any model-specific optimum; and combining the two, **(iii) a tactical–operational substitutability map that identifies the regimes in which wave-composition redesign substitutes for capacity expansion**.
 
-**改后**:
-> The framework then delivers **two managerial outcomes**: from the decomposition, **(i) a structural account of the value of wave design, separating a partition-intrinsic upper-tail component from a component a better policy can recover**; and from the hedge rule, (ii) a closed-form dispatch policy that operators apply without identifying the true elevator model online, with worst-case loss bounded against any model-specific optimum.
+**改后 (v3, 路径 A)**:
+> The framework then delivers **two managerial outcomes**, each established by pre-registered publication-scale simulation. **(i) The Bound-and-Gap decomposition isolates a structural lever in the makespan distribution: across the tested warehouse configurations the partition-intrinsic upper-tail component H_up exceeds the policy-recoverable component M_Φ on average (mean H_up = 0.043 vs M_Φ = 0.017, normalized to the random-pool baseline), telling operators that the dominant ceiling in these regimes is capacity-side rather than policy-side — even though a simple Φ-informed clustering policy already realizes a ~10 % makespan reduction over a first-come-first-served baseline.** (ii) From the hedge rule, a closed-form dispatch policy that operators apply without identifying the true elevator model online, with worst-case loss bounded against any model-specific optimum, and whose chain-dominance condition extends to elevator capacities c ∈ {2,3,4,5} beyond its low-capacity derivation point.
 
-**原因**:Option B 把 C3 收缩为 2 个 outcome;(i) 由"regime 分类器"改为"结构分解";(iii) substitutability map 大规模无 regime 区分度,删除。
+**原因 (v3)**:Option B 把 C3 收缩为 2 个 outcome;路径 A 重排把 (i) 从"结构分解的口号"锐化为"H_up vs M_Φ 的*managerial 诊断*"——这是真正符合 Q1 "managerial outcome" 标签的内容(capacity-bound > policy-bound),而非泛泛"separation"陈述;10% 在(i)末显式 named FIFO baseline,降级为辅助证据,避免 abstract 隐式 overclaim;(ii) 合并入 Hedge c-sweep generality,与 §1 修改 3 措辞保持一致;原 v2 的(iii) substitutability map 大规模无 regime 区分度,删除。
 
 ---
 
@@ -55,10 +55,10 @@ status: "完整 v2 —— 已修正 v1 的两处遗漏 (Abstract 轴命名、§2
 **原文 (PDF p.3)**:
 > **Empirical insights (C3)**: **Three managerial outcomes** from the two tools translate into operational gains. **First, the Bound-and-Gap diagnostic prospectively classifies, before any policy run, the operating regimes in which destination-clustered batching outperforms first-come, first-served dispatch, turning a post hoc decomposition into a forward-looking signal of where tactical wave design will pay off.** Second, the Hedge Rule's per-wave dominance condition holds at higher elevator capacities than the low-capacity setting for which the rule was derived, extending its reach without re-derivation. **Third, combining the two tools yields a tactical-operational substitutability map that identifies, regime by regime, when wave-composition redesign substitutes for elevator-capacity expansion.**
 
-**改后**:
-> **Empirical insights (C3)**: **Two managerial outcomes** follow from the two tools, established by pre-registered publication-scale simulation. **First, structured wave-and-dispatch design delivers a broad and substantial makespan reduction: destination-clustered dispatch lowers makespan by roughly 10% across the tested warehouse configurations, and the Bound-and-Gap decomposition characterizes the structure of this value, separating the partition-intrinsic headroom from the component a better policy can recover.** Second, the Hedge Rule's per-wave dominance condition holds at elevator capacities beyond the low-capacity setting for which the rule was derived — confirmed across c ∈ {2,3,4,5} — extending the rule's reach without re-derivation.
+**改后 (v3, 路径 A)**:
+> **Empirical insights (C3)**: **Two managerial outcomes** follow from the two tools, each established by pre-registered publication-scale simulation rather than by single-instance illustration. **First, the Bound-and-Gap decomposition surfaces a structural diagnosis: across 72 sub-cells the partition-intrinsic component H_up averages 0.043 while the policy-recoverable component M_Φ averages 0.017 (both relative to the random-pool baseline). The structural component dominates the policy component by a factor of roughly 2.5, identifying the dominant ceiling as capacity-side rather than policy-side — even though a simple Φ-informed clustering policy already realizes a ~10 % makespan reduction over a first-come-first-served baseline, indicating that wave composition is a real, but not yet exhausted, lever.** Second, the Hedge Rule's per-wave chain-dominance condition holds at elevator capacities beyond the low-capacity setting for which the rule was derived — confirmed across c ∈ {2,3,4,5} with per-wave dominance ≥ 98 % in the worst cell — so the closed-form rule extends to realistic warehouse capacities without re-derivation.
 
-**原因**:"Three"→"Two";原 First 被 Supp-1 推翻(clustering 12/12 普遍降 ~10%,F=3 假象不复存在);原 Third 删除;Second 加"confirmed across c ∈ {2,3,4,5}"(Supp-2)。
+**原因 (v3)**:"Three"→"Two";v2 First 被批为"FIFO ablation 而非 managerial 诊断"——路径 A 重排把 First 改为"H_up/M_Φ ≈ 2.5 → 容量-政策诊断",这是 Φ-axis 真正可解释的 managerial 输出;10% 保留但显式 named FIFO baseline 并降为辅助证据(不再做 abstract 担保);Second 加"≥ 98 % 最差 cell"提升 robustness 陈述的具体度;原 v2 Third (substitutability map) 删除。
 
 ---
 
@@ -67,10 +67,10 @@ status: "完整 v2 —— 已修正 v1 的两处遗漏 (Abstract 轴命名、§2
 **原文 (PDF p.3)**:
 > The operational implication is that the same warehouse data that informs heuristic batching decisions can, with these tools, support **quantified diagnoses about which lever to pull and the worst-case cost**.
 
-**改后**:
-> The operational implication is that the same warehouse data that informs heuristic batching decisions can, with these tools, support **a quantified account of where structured wave design adds value and of the worst-case cost of model misspecification**.
+**改后 (v3, 路径 A — 与修改 1/3 同步)**:
+> The operational implication is that the same warehouse data that informs heuristic batching decisions can, with these tools, support **a quantified diagnosis of whether capacity-side or policy-side intervention is the dominant ceiling on makespan — read directly from the H_up vs M_Φ split of the Bound-and-Gap decomposition — together with a closed-form, model-agnostic dispatch decision whose worst-case loss against any model-specific optimum is bounded a priori by the Hedge Rule**.
 
-**原因**:"which lever to pull"已被 Supp-1 削弱,改为中性可支撑措辞。
+**原因 (v3)**:v2 把"which lever to pull"软化为中性"where structured wave design adds value",但与修改 1/3 v3 的 path-A 头条仍不一致——修改 1/3 已经把 C3 头条锐化为「H_up vs M_Φ 的 capacity-vs-policy 诊断」+「Hedge Rule 的 worst-case 上界」,operational implication 句必须同步,否则 abstract 头条与紧随其后的 operational implication 一软一硬,自相矛盾。改后版本把两件工具各自的 operational 落脚点显式化:Bound-and-Gap → capacity-vs-policy 诊断;Hedge Rule → 闭式 + model-agnostic + a priori worst-case bound。三处 outward-facing 措辞(abstract 修改 1 / §1 C3 修改 3 / operational implication 修改 4)现在完全一致。
 
 ---
 
