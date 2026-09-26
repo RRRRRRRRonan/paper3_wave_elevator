@@ -9,12 +9,10 @@ Registration:
   unspecified execution details and points at the ORIGINAL signed design in
   revision_2026-07-08/amendments/AMEND-2026-07-08-B_deferred_experiments.md,
   sections B-4 and B-6(ii)).
-Guard key: "S1C" (author_signoff of the EXECUTION NOTE is
-"PENDING (acknowledgement only; the designs and gates were signed on
-2026-07-08)" as of 2026-09-26 -- so even though B-4/B-6's own DESIGN was
-signed 2026-07-08, `registration_guard.require_signed("S1C")` reads the
-EXECUTION NOTE's own front matter, which is still PENDING, and stops. This
-is the guard key the task brief specifies for S1-4/S1-5.
+Guard key: "S1C". The designs and gates of B-4/B-6 were signed on
+2026-07-08; `registration_guard.require_signed("S1C")` reads the EXECUTION
+NOTE's own front matter, which was ACKNOWLEDGED on 2026-09-26, and also
+requires the S1D deviation note (acknowledged the same day).
 
 S1-4 (B-4): directional switch penalty 3s, heterogeneous capacities [1, 3],
 service_sigma in {0.2, 0.5}; matched waves on the 6 Block C configs via
@@ -28,13 +26,13 @@ at order pool 600, order pool 300 and 1,200 at candidate pool 3,000; each
 robustness claimed only if at least 5/6 of the 32 (cell, setting) pairs keep
 the favourable corner, q_max, and q_min (execution note S1C, item 2).
 
-Real mode never executes tonight: `require_signed("S1C")` stops the script
-first. Self-test mode patches `phase5_config.SEED_BASE` to
+Real mode runs only after `require_signed("S1C")` passes; the registered
+run took place on 2026-09-26 (revision_2026-09-26_ijpr/study1_run_2026-09-26/). Self-test mode patches `phase5_config.SEED_BASE` to
 `registration_guard.TOY_SEED_BASE`, uses tiny configs/n_per_arm/pool sizes,
 and writes only to registration_guard.scratch_dir().
 
 Run:
-  python -m src.experiments_S1_B4_B6             # stops at the guard
+  python -m src.experiments_S1_B4_B6             # real run: writes into prototype/results/; only at the author's request
   python -m src.experiments_S1_B4_B6 --selftest  # toy run to scratch
 """
 from __future__ import annotations

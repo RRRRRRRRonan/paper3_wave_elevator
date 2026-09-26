@@ -5,17 +5,17 @@ Registration: revision_2026-09-26_ijpr/amendments/AMEND-2026-09-26-S1A_reanalyse
   S1-6  "Minimax-regret row and stability of the Hedge corner"
   S1-7  "Supp-1 coupling display" [RA, prior-exposed]
   TH-2  "Abstraction-bias display"
-Guard key: "S1A" (author_signoff PENDING as of 2026-09-26).
+Guard key: "S1A" (signed 2026-09-26; the guard also requires the S1D note).
 
 None of these three changes a locked verdict (S1A "General rules" #1); each
 is reported beside the locked result. Real mode reads the stored raw CSVs
-the registration names and never executes tonight: `require_signed("S1A")`
-stops the script first. Self-test mode never touches prototype/results; it
+the registration names and runs only after `require_signed("S1A")` passes;
+the registered run took place on 2026-09-26 (revision_2026-09-26_ijpr/study1_run_2026-09-26/). Self-test mode never touches prototype/results; it
 fabricates small synthetic CSVs with the same column schema and writes to
 registration_guard.scratch_dir().
 
 Run:
-  python -m src.analysis_S1_displays s1-6             # stops at the guard
+  python -m src.analysis_S1_displays s1-6             # real run: writes into prototype/results/; only at the author's request
   python -m src.analysis_S1_displays s1-6 --selftest  # toy run to scratch
   python -m src.analysis_S1_displays s1-7 --selftest
   python -m src.analysis_S1_displays th-2 --selftest

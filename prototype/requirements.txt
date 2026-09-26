@@ -5,3 +5,4 @@ matplotlib>=3.7
 seaborn>=0.12
 jupyter>=1.0
 scipy>=1.14  # Study 2 Wilcoxon, Study 1 Spearman and Wasserstein; tested with 1.14.1, version recorded in every Study 2 output
+openpyxl>=3.1  # reads the Online Retail II workbook for the Study 2 case (protocol §11.2); tested with 3.1.5

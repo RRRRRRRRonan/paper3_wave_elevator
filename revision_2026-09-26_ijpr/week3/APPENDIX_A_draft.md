@@ -1,16 +1,16 @@
 ---
-title: "Appendix A draft: proof of the conditional evaluator ordering (Proposition 3)"
+title: "Appendix A draft: proof of the conditional evaluator ordering (Theorem 1)"
 date: 2026-09-26
-status: "DRAFT FOR AUTHOR VERIFICATION (TH-1). Not inserted into any Word file. Proposition 3 keeps its label; it becomes Theorem 1 only after rows 4 to 12 of revision_2026-09-26_ijpr/MATH_VERIFICATION_LOG.md are signed (plan v0.2 D-3, master §00.5)."
+status: "VERIFIED BY THE AUTHOR (TH-1): MATH_VERIFICATION_LOG rows 4 to 12 entered on 2026-09-27 at the author's instruction; Proposition 3 renamed Theorem 1 the same day. Assembled into Word as revision_2026-09-26_ijpr/week3/Appendix_A_2026-09-27.docx."
 sources: "revision_2026-07-08/tier1_manuscript/W3_prop2_induction.md (Edits W3-E1 to W3-E3); W9_prongA_induction_verification.md (§2 code semantics, §5.2 Lemma 6 and the case-B corollary); W10_final_integration.md (§1 to §3, presentational fixes 1 to 4); the final Section 3 in Problem formulation.docx (bilingual mirror revision_2026-09-24/section3_bilingual_2026-09-24.md) §3.1, §3.2.3, §3.4.1, §3.5; revision_2026-09-02/SECTION_4_METHODOLOGY.md §4.3"
 scope: "Assembly and translation into the manuscript notation only. No new mathematical claim; every step is traceable to W3, W9, or W10 (map in the review notes at the end). Examples are hand-constructed minimal instances, neither publication scale nor prototype scale."
 ---
 
 # Appendix A. Proof of the conditional evaluator ordering / 附录 A 评估器条件性排序的证明
 
-This appendix proves Proposition 3 of Section 4.3.1. Section A.1 fixes the setting and the conventions used throughout. Section A.2 states five lemmas and a corollary. Section A.3 carries out the induction over the reservation order, and Section A.4 gives the two counterexamples of Section 4.3.2 with complete timelines.
+This appendix proves Theorem 1 of Section 4.3.1. Section A.1 fixes the setting and the conventions used throughout. Section A.2 states five lemmas and a corollary. Section A.3 carries out the induction over the reservation order, and Section A.4 gives the two counterexamples of Section 4.3.2 with complete timelines.
 
-> **中文：** 本附录证明第 4.3.1 节的命题 3。A.1 节给出证明所用的设定与约定；A.2 节陈述五个引理和一个推论；A.3 节沿预约顺序完成归纳；A.4 节给出第 4.3.2 节两个反例的完整时间线。
+> **中文：** 本附录证明第 4.3.1 节的定理 1。A.1 节给出证明所用的设定与约定；A.2 节陈述五个引理和一个推论；A.3 节沿预约顺序完成归纳；A.4 节给出第 4.3.2 节两个反例的完整时间线。
 
 ## A.1 Setting and conventions / 设定与约定
 
@@ -72,9 +72,9 @@ under both \(M_1\) and \(M_2\). The function \(\theta\) is nondecreasing in \(t\
 
 > **中文：** *证明。* 式 (24) 即所选服务槽情形下的 (A.2)。式 (28) 给出 \(D_{e^\star}=L_{e^\star}+\gamma|g-h|+\tau^U\)，其中 \(L_{e^\star}=\max\{t,B_{e^\star}\}+\gamma|G_{e^\star}-g|+\tau^L\)，即所选轿厢情形下的 (A.2)。行程搭载的请求数不进入任何一个公式。单调性与 \(\theta\ge B\) 可直接得到。\(\square\)
 
-**Lemma A.2 (request alignment and monotone recursions).** Suppose conditions (a) and (b) of Proposition 3 hold.
+**Lemma A.2 (request alignment and monotone recursions).** Suppose conditions (a) and (b) of Theorem 1 hold.
 
-> **中文：** **引理 A.2（请求对应与单调递推）。** 设命题 3 的条件（a）与（b）成立。
+> **中文：** **引理 A.2（请求对应与单调递推）。** 设定理 1 的条件（a）与（b）成立。
 
 (i) The two evaluations generate the same requests in the same reservation order: for every \(j\), the request \(\varrho_j^S\) exists in both or in neither, and likewise \(\varrho_j^D\), with identical origin and destination floors and the same issuing AMR. Only request times and completion times may differ.
 
@@ -169,7 +169,7 @@ The corollary uses condition (c) only for the joining request. The request that 
 
 > **中文：** 该推论只对加入行程的请求使用条件（c）；建立行程 \(\tau\) 的请求在 \(\tau\) 建立时已作为新建步骤处理。
 
-## A.3 Proof of Proposition 3 / 命题 3 的证明
+## A.3 Proof of Theorem 1 / 定理 1 的证明
 
 ### A.3.1 Invariants / 不变量
 
@@ -192,9 +192,9 @@ The proof proceeds by induction along the reservation order \(\prec\). After the
 
 ### A.3.2 Base case / 初始情形
 
-Before the first request, every slot and every car has availability \(t_W\) and floor \(f^0\), so (I3) holds with equality, and (I1) and (I2) are vacuous. No elevator completion enters the time of the first request, so, by Lemma A.2(ii), its request time is the same in both evaluations. \(M_2\) stores no trip, so the request creates a new trip in both evaluations, on resources with availability \(t_W\) at floor \(f^0\). By Lemma A.1, its two completion times coincide. (I3) is restored by Lemma A.4(i) with \(\omega_1=\omega_2\).
+Before the first request, every slot and every car has availability \(t_W\) and floor \(f^0\), so (I3) holds with equality, and (I1) and (I2) are vacuous. No elevator completion enters the time of the first request, so, by Lemma A.2(ii), its request time is the same in both evaluations. \(M_2\) stores no trip, so the request creates a new trip in both evaluations, on resources with availability \(t_W\) at floor \(f^0\). By Lemma A.1, its two completion times coincide. (I3) is restored by Lemma A.4 with \(\omega_1=\omega_2\).
 
-> **中文：** 第一个请求之前，所有服务槽与轿厢的可用时刻均为 \(t_W\)、楼层均为 \(f^0\)，故（I3）以等号成立，（I1）与（I2）为空真。第一个请求的请求时刻中不含任何电梯完成时刻，由引理 A.2（ii），其请求时刻在两次评价中相同。\(M_2\) 尚未保存行程，因此该请求在两次评价中都在可用时刻为 \(t_W\)、位于 \(f^0\) 的资源上新建行程。由引理 A.1，两个完成时刻相同。取 \(\omega_1=\omega_2\)，由引理 A.4（i）恢复（I3）。
+> **中文：** 第一个请求之前，所有服务槽与轿厢的可用时刻均为 \(t_W\)、楼层均为 \(f^0\)，故（I3）以等号成立，（I1）与（I2）为空真。第一个请求的请求时刻中不含任何电梯完成时刻，由引理 A.2（ii），其请求时刻在两次评价中相同。\(M_2\) 尚未保存行程，因此该请求在两次评价中都在可用时刻为 \(t_W\)、位于 \(f^0\) 的资源上新建行程。由引理 A.1，两个完成时刻相同。取 \(\omega_1=\omega_2\)，由引理 A.4恢复（I3）。
 
 ### A.3.3 Inductive step: new-trip step / 归纳步骤：新建步骤
 
@@ -210,9 +210,9 @@ D_1(\varrho)
 \tag{A.5}
 \]
 
-which extends (I2). \(M_1\) replaces one instance of \(x_{(1)}\) by \(\omega_1=D_1(\varrho)\), and \(M_2\) replaces one instance of \(y_{(1)}\) by \(\omega_2=D_2(\varrho)\). Lemma A.1 gives \(\omega_1\ge x_{(1)}\) and \(\omega_2\ge y_{(1)}\), and (A.5) gives \(\omega_1\le\omega_2\), so Lemma A.4(i) restores (I3).
+which extends (I2). \(M_1\) replaces one instance of \(x_{(1)}\) by \(\omega_1=D_1(\varrho)\), and \(M_2\) replaces one instance of \(y_{(1)}\) by \(\omega_2=D_2(\varrho)\). Lemma A.1 gives \(\omega_1\ge x_{(1)}\) and \(\omega_2\ge y_{(1)}\), and (A.5) gives \(\omega_1\le\omega_2\), so Lemma A.4 restores (I3).
 
-> **中文：** 这就把（I2）推广到 \(\varrho\)。\(M_1\) 把一个 \(x_{(1)}\) 替换为 \(\omega_1=D_1(\varrho)\)，\(M_2\) 把一个 \(y_{(1)}\) 替换为 \(\omega_2=D_2(\varrho)\)。由引理 A.1，\(\omega_1\ge x_{(1)}\)，\(\omega_2\ge y_{(1)}\)；由 (A.5)，\(\omega_1\le\omega_2\)。于是由引理 A.4（i）恢复（I3）。
+> **中文：** 这就把（I2）推广到 \(\varrho\)。\(M_1\) 把一个 \(x_{(1)}\) 替换为 \(\omega_1=D_1(\varrho)\)，\(M_2\) 把一个 \(y_{(1)}\) 替换为 \(\omega_2=D_2(\varrho)\)。由引理 A.1，\(\omega_1\ge x_{(1)}\)，\(\omega_2\ge y_{(1)}\)；由 (A.5)，\(\omega_1\le\omega_2\)。于是由引理 A.4恢复（I3）。
 
 ### A.3.4 Inductive step: joining step / 归纳步骤：加入步骤
 
@@ -245,15 +245,15 @@ With \(c=1\), no request can join a trip: initially no trip is stored, and after
 
 ### A.3.7 What the proof uses / 证明所用的条件
 
-Conditions (a) and (b) enter through Lemma A.2, which aligns the requests and orders their times. Condition (d) is used only in new-trip steps, and condition (c) only in joining steps, for the joining request. Everything else is derived from the reservation rules of Section 3.5. Read in the contrapositive, the proposition classifies failures: when (a) and (b) hold, a reversal of either inequality in Equation (46) requires condition (c) or condition (d) to fail on the paired reservation paths. The converse does not hold, since a violated condition need not produce a reversal (Section 4.3.2).
+Conditions (a) and (b) enter through Lemma A.2, which aligns the requests and orders their times. Condition (d) is used only in new-trip steps, and condition (c) only in joining steps, for the joining request. Everything else is derived from the reservation rules of Section 3.5. Read in the contrapositive, the theorem classifies failures: when (a) and (b) hold, a reversal of either inequality in Equation (46) requires condition (c) or condition (d) to fail on the paired reservation paths. The converse does not hold, since a violated condition need not produce a reversal (Section 4.3.2).
 
-> **中文：** 条件（a）与（b）通过引理 A.2 起作用：它使请求一一对应并使请求时刻有序。条件（d）只在新建步骤中使用，条件（c）只在加入步骤中、且只对加入行程的请求使用。其余内容均由第 3.5 节的预约规则推出。从逆否命题看，该命题给出失效分类：当（a）与（b）成立时，式 (46) 中任一不等式发生反转，都要求条件（c）或条件（d）在对应的预约路径上失效。反之不成立：条件失效未必导致反转（第 4.3.2 节）。
+> **中文：** 条件（a）与（b）通过引理 A.2 起作用：它使请求一一对应并使请求时刻有序。条件（d）只在新建步骤中使用，条件（c）只在加入步骤中、且只对加入行程的请求使用。其余内容均由第 3.5 节的预约规则推出。从逆否命题看，该定理给出失效分类：当（a）与（b）成立时，式 (46) 中任一不等式发生反转，都要求条件（c）或条件（d）在对应的预约路径上失效。反之不成立：条件失效未必导致反转（第 4.3.2 节）。
 
 ## A.4 Neither (c) nor (d) can be dropped: two examples / 条件（c）与（d）都不能去掉：两个实例
 
-Both examples use \(t_W=0\), \(f^0=1\), \(E=1\), \(c=2\), \(\gamma=5\), \(\tau^L=\tau^U=2\), and \(\tau^P=\tau^D=5\), with times in seconds, as in Section 4.3.2. They are hand-constructed minimal instances, not drawn from any experiment. In each, conditions (a) and (b) hold, exactly one of (c) and (d) fails, and the makespan ordering reverses, so neither condition can be dropped from Proposition 3. A violated condition alone need not produce a reversal (Section 4.3.2). Each example can be reproduced by one deterministic call of the closed-form evaluators.
+Both examples use \(t_W=0\), \(f^0=1\), \(E=1\), \(c=2\), \(\gamma=5\), \(\tau^L=\tau^U=2\), and \(\tau^P=\tau^D=5\), with times in seconds, as in Section 4.3.2. They are hand-constructed minimal instances, not drawn from any experiment. In each, conditions (a) and (b) hold, exactly one of (c) and (d) fails, and the makespan ordering reverses, so neither condition can be dropped from Theorem 1. A violated condition alone need not produce a reversal (Section 4.3.2). Each example can be reproduced by one deterministic call of the closed-form evaluators.
 
-> **中文：** 两个实例均采用 \(t_W=0\)、\(f^0=1\)、\(E=1\)、\(c=2\)、\(\gamma=5\)、\(\tau^L=\tau^U=2\)、\(\tau^P=\tau^D=5\)，时间单位为秒，与第 4.3.2 节相同。它们是人工构造的最小实例，不来自任何实验。在每个实例中，条件（a）与（b）成立，（c）与（d）中恰有一个失效，完工期排序发生反转，因此两个条件都不能从命题 3 中去掉。单个条件失效本身未必导致反转（第 4.3.2 节）。每个实例都可以通过一次确定性的闭式评估器调用复现。
+> **中文：** 两个实例均采用 \(t_W=0\)、\(f^0=1\)、\(E=1\)、\(c=2\)、\(\gamma=5\)、\(\tau^L=\tau^U=2\)、\(\tau^P=\tau^D=5\)，时间单位为秒，与第 4.3.2 节相同。它们是人工构造的最小实例，不来自任何实验。在每个实例中，条件（a）与（b）成立，（c）与（d）中恰有一个失效，完工期排序发生反转，因此两个条件都不能从定理 1 中去掉。单个条件失效本身未必导致反转（第 4.3.2 节）。每个实例都可以通过一次确定性的闭式评估器调用复现。
 
 ### Example A.1 (shared-trip overtaking: condition (c) cannot be dropped) / 例 A.1（共享行程超越：条件（c）不能去掉）
 
@@ -341,6 +341,10 @@ The makespans are \(C_{\max}(W^k,\pi^k;M_1)=103\) and \(C_{\max}(W^k,\pi^k;M_2)=
 It also found two gaps, both closed: Remark A.2 compared the fleet-level condition with all of (c) instead of its joining-request part (counterexample: \(E=1\), \(c=3\), \(A=2\), orders \((1\to8)\), \((1\to8)\), \((8\to7)\), \((8\to7)\), where every joiner satisfies the fleet-level condition but the creator of the second shared trip violates (c); makespans 103 and 68); and A.3.6 skipped the AMR layer. Nine presentation points were applied: the order-completion index, request notation without evaluator-specific times in (A.1), "immediately before its state update", "cannot be dropped" instead of "necessity", "(b), (c), and (d)" in the tie paragraph, the A.3.1 preamble, the processing sequence stated explicitly in Example A.2, \(C_{\max}(W^k,\pi^k;\cdot)\) in the examples, and the step names. The assistant recomputed both counterexamples by hand and with the simulator (49 and 49; 103 and 68) before correcting.
 
 **8. Decisions of 2026-09-26 (the author delegated the choice: "帮我进行这四点的抉择，然后完成这四点").**
-- **Remark A.2 and Lemma A.4(ii): deleted.** Part (ii) was used only by the remark, and the remark is not part of the proof chain; it was also where the independent check found both false sentences (note 7). Deleting them shortens the reading for rows 6, 7 and 9 of the verification log and removes the only place where the stronger fleet-level condition (c*) appeared. Lemma A.4 now has a single part; no other text referred to "A.4(i)".
+- **Remark A.2 and Lemma A.4(ii): deleted.** Part (ii) was used only by the remark, and the remark is not part of the proof chain; it was also where the independent check found both false sentences (note 7). Deleting them shortens the reading for rows 6, 7 and 9 of the verification log and removes the only place where the stronger fleet-level condition (c*) appeared. Lemma A.4 now has a single part. (Correction of 2026-09-27: two proof steps, A.3.2 and A.3.3, still cited "Lemma A.4(i)"; see note 10.)
 - **Sentence after Equation (46): added.** "Equivalently, when (a) and (b) hold, a reversal of either inequality in Equation (46) requires (c) or (d) to fail." It is inserted in Section 4.3.1 of `Methodology.docx`, as a tracked change, directly after Equation (46), so that the statement of Proposition 3 carries it (TH-1). It is the contrapositive of the proposition under (a) and (b), not a new claim; A.3.7 already states it inside the appendix.
 - **Letter D: not renamed.** \(D_e\) (Section 3.5) and \(D_1(\varrho)\), \(D_2(\varrho)\) (Section 4.3.1) stay as they are, because Section 3 is final and the Section 4.3.1 symbols are MathType objects in the Word file; the appendix and the new Section 4 text always write the argument \((\varrho)\), which is what keeps the two apart.
+
+**9. Theorem 1 (2026-09-27).** After the author's verification (MATH_VERIFICATION_LOG rows 4 to 12), "Proposition 3" is renamed "Theorem 1" in the manuscript text of this file (4 English and 4 Chinese occurrences); older labels in the notes above are kept as written.
+
+**10. Label fix (2026-09-27).** While assembling the Word file, the assistant found that A.3.2 and A.3.3 still cited "Lemma A.4(i)" (English) and "引理 A.4（i）" (Chinese) after part (ii) was deleted on 2026-09-26. Both now read "Lemma A.4" / "引理 A.4". The cited statement is the one the author verified (row 6 of the verification log); only the part label changed, so no row needs re-reading. In the same pass, A.3.7 still called the result "the proposition" ("该命题"), which the rename of note 9 did not catch; it now reads "the theorem" ("该定理").

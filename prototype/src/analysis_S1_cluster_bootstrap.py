@@ -3,8 +3,9 @@ S1-1 -- Candidate-clustered bootstrap for the Phase 5 intervals [RA].
 
 Registration: revision_2026-09-26_ijpr/amendments/AMEND-2026-09-26-S1A_reanalyses.md
 (section "S1-1. Candidate-clustered bootstrap for the Phase 5 intervals [RA]").
-Guard key: "S1A" (author_signoff PENDING as of 2026-09-26 -- real mode refuses
-to run until signed; --selftest exercises the code on fabricated data only).
+Guard key: "S1A" (signed 2026-09-26; the guard also requires the S1D note;
+registered run on 2026-09-26, revision_2026-09-26_ijpr/study1_run_2026-09-26/;
+--selftest exercises the code on fabricated data only).
 
 Corner arms of Blocks A and C draw N_PER_ARM waves WITH REPLACEMENT from a
 finite corner class, so the same candidate_id repeats within an arm. The
@@ -22,7 +23,7 @@ small synthetic CSVs with the same column schema, runs the identical code
 path, and writes to registration_guard.scratch_dir().
 
 Run:
-  python -m src.analysis_S1_cluster_bootstrap            # stops at the guard
+  python -m src.analysis_S1_cluster_bootstrap            # real run: writes into prototype/results/; only at the author's request
   python -m src.analysis_S1_cluster_bootstrap --selftest # toy run to scratch
 """
 from __future__ import annotations

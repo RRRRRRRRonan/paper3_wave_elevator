@@ -1,0 +1,7 @@
+  [OK] single order = closed form exactly (7200 cases)
+  [OK] single-AMR waves (with ready times) = closed form exactly (4800 cases)
+  [OK] hand-computed multi-AMR, ready-time, M1-slot, timing and same-floor cases
+  [OK] board-first semantics: 24 (= closed form); B-5 semantics: 43
+  [OK] b5_compat reproduces B-5 exactly (800 cases); the default (board-first) rule changes 73 of 400 DES-M2 cases and 0 of 400 DES-M1 cases (seed 424,244)
+  [OK] phase noise: sigma 0 = deterministic; reproducible by seed; centred near the deterministic value
+  [OK] deterministic

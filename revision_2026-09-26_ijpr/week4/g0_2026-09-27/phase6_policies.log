@@ -1,0 +1,6 @@
+  [OK] P10 / P10g hand-built cases
+  [OK] P10: permutation, idempotent, blocks contiguous (2,000 toy waves with and without ready times); P10g permutation
+  [OK] P11: distinct orders, cross-floor seed, deterministic, pairing weight closes co-ride pairs
+  [OK] P8 hand case; P9 fit identical to the AMEND-C code (20 draws)
+  [OK] budgeted local search: first run = optimize_wave_localsearch; budget exact, also with the P10 end-point hook
+  [OK] one-wave chain = single wave (closed form and DES); ranking, GSV tie rule, distinct-signature selection

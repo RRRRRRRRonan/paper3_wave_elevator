@@ -3,7 +3,7 @@ S1-9 -- Tie-break regeneration of Blocks A and B [QA].
 
 Registration: revision_2026-09-26_ijpr/amendments/AMEND-2026-09-26-S1B_new_simulations.md
 ("S1-9. Tie-break regeneration of Blocks A and B [QA]"). Guard key: "S1B"
-(author_signoff PENDING as of 2026-09-26).
+(signed 2026-09-26; the guard also requires the S1D note).
 
 Re-runs `run_corner_block` (Block A), `run_policy_block` (Block B), and the
 P7 ablation with the CURRENT simulator (the 2026-09-11 index-stable
@@ -18,16 +18,16 @@ written; their hashes are checked before and after). A side-by-side
 comparison of stored vs regenerated gate counts is written alongside.
 
 Real mode replays Block A + B at FULL scale under the REGISTERED seeds
-(phase5_config.SEED_BASE, experiments_phase5._seed) -- exactly what Absolute
-Rule 2 forbids running tonight. `require_signed("S1B", selftest=False)`
-stops the script before any of this executes; the registration is unsigned.
+(phase5_config.SEED_BASE, experiments_phase5._seed), and runs only after
+`require_signed("S1B", selftest=False)` passes; the registered run took
+place on 2026-09-26 (revision_2026-09-26_ijpr/study1_run_2026-09-26/).
 Self-test mode patches `phase5_config.SEED_BASE` to
 `registration_guard.TOY_SEED_BASE`, uses 1-2 tiny configs and small
 n_per_arm / candidate-pool / P7-iteration counts, and writes only to
 registration_guard.scratch_dir() -- never to prototype/results.
 
 Run:
-  python -m src.experiments_S1_tiebreak_regen             # stops at guard
+  python -m src.experiments_S1_tiebreak_regen             # real run: writes into prototype/results/; only at the author's request
   python -m src.experiments_S1_tiebreak_regen --selftest  # toy run to scratch
 """
 from __future__ import annotations

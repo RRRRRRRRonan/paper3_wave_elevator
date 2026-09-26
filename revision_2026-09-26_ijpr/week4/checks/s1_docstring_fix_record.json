@@ -1,0 +1,38 @@
+{
+  "experiments_S1_B4_B6.py": {
+    "sha256_before": "12d136d6109171ac6a54ca4cdeed6f7e6110c45a3691cf3e1516490d4db08dd8",
+    "sha256_after": "3a8f85c463b93aab402a9061d6668bf2a6583499dab94b3a63ec00d7d9966637",
+    "replacements": 3,
+    "code_outside_docstring_unchanged": true
+  },
+  "experiments_S1_enumeration.py": {
+    "sha256_before": "7f505d6a6bf900cd40a27964a3e7c98a3a6a386f65dd514a7c899e1ed178f9b4",
+    "sha256_after": "593bf5a267e25165e42a2bf5e5c7fd875c8fbbc7f52fb32b785249621bde8cbc",
+    "replacements": 3,
+    "code_outside_docstring_unchanged": true
+  },
+  "experiments_S1_blockC_ext.py": {
+    "sha256_before": "8a143bee8a5c882bacd80e71073555952daf004607cc0c268f66fbfdf6ac9060",
+    "sha256_after": "2f44f3da6e78820e0de9b1e59c4cd507b9a3d0e0a40513bf5d505eddcb0c0d39",
+    "replacements": 2,
+    "code_outside_docstring_unchanged": true
+  },
+  "experiments_S1_tiebreak_regen.py": {
+    "sha256_before": "dd0d64ef76a3b3e304fa5982bfe8388dbb1dc6d0af39a07f1d53ca548d761170",
+    "sha256_after": "2b186d511badf6d6b0c139f95e314b42e7a7957d3f9d425be5fffa10db0ea1c0",
+    "replacements": 3,
+    "code_outside_docstring_unchanged": true
+  },
+  "analysis_S1_cluster_bootstrap.py": {
+    "sha256_before": "7df761f222ea005daf51426212b07544a2bbea3c3e3ee0262be21a129e6a137e",
+    "sha256_after": "cd1bd3acf9b4eb8546f836d10d323ac472712ef34cbed5bbb6fb3d84c0276039",
+    "replacements": 2,
+    "code_outside_docstring_unchanged": true
+  },
+  "analysis_S1_displays.py": {
+    "sha256_before": "147b7acd2037d50c381402a72e55bebf6adb6b4240b0df5ccbf775c0893c27b0",
+    "sha256_after": "4258a7e5960d3f273ac5f1c36088d3cd5d7d88c43a79bd4bc06cd3a863ab439a",
+    "replacements": 3,
+    "code_outside_docstring_unchanged": true
+  }
+}

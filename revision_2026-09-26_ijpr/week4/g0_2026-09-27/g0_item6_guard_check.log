@@ -1,0 +1,17 @@
+  [OK] experiments_phase6 main: REGISTRATION GUARD: phase6_protocol_L2_addendum.md is not signed (author_signoff = 'PENDING'). Regis
+  [OK] experiments_phase6 merge: REGISTRATION GUARD: phase6_protocol_L2_addendum.md is not signed (author_signoff = 'PENDING'). Regis
+  [OK] experiments_phase6 warmstart: REGISTRATION GUARD: phase6_protocol_L2_addendum.md is not signed (author_signoff = 'PENDING'). Regis
+  [OK] experiments_phase6 runtime: REGISTRATION GUARD: phase6_protocol_L2_addendum.md is not signed (author_signoff = 'PENDING'). Regis
+  [OK] experiments_phase6 case: REGISTRATION GUARD: phase6_protocol_L2_addendum.md is not signed (author_signoff = 'PENDING'). Regis
+  [OK] experiments_phase6 case --case-data: REGISTRATION GUARD: phase6_protocol_L2_addendum.md is not signed (author_signoff = 'PENDING'). Regis
+  [OK] analysis_phase6: REGISTRATION GUARD: phase6_protocol_L2_addendum.md is not signed (author_signoff = 'PENDING'). Regis
+  [OK] require_l2 unsigned: stops: REGISTRATION GUARD: l2
+  [OK] require_l2 signed, not pinned: stops: REGISTRATION GUARD: l2
+  [OK] require_l2 signed and pinned, correct hashes: passes (returns None)
+  [OK] require_l2 wrong protocol_L1_sha256: stops: REGISTRATION GUARD: the L2 addendum's protocol_L1_sha256 does not match the signed protocol
+  [OK] require_l2 empty code_tree_sha256: stops: REGISTRATION GUARD: code_tree_sha256 is empty in the L2 addendum
+  [OK] require_l2 code differs from L2: stops: REGISTRATION GUARD: the code differs from the code frozen in L2
+  [OK] require_l2 code differs, --allow-code-change given: passes (returns 'EXECUTION-LOG entry 99 (test)')
+  [OK] require_l2 superseded manifest pins a different signed version: stops: REGISTRATION GUARD: l2
+  [OK] require_l2 passing case again after removing the superseded manifest: passes (returns None)
+G0 item 6 (real-mode half): PASS

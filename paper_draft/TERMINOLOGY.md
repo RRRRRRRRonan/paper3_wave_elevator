@@ -91,7 +91,7 @@ A reference for keeping wording consistent. Each row: **canonical term** | what 
 | Canonical | Meaning |
 |---|---|
 | **evaluator ordering** | per wave, `C_max(W; M1) ≤ C_max(W; M2)` (the throughput abstraction is optimistic) |
-| **ordering theorem** | the conditional all-E, all-c result with conditions (a) to (d); Proposition 3 in SECTION_4_METHODOLOGY.md; becomes **Theorem 1** only after Appendix A is assembled and read through by the author |
+| **ordering theorem** | the conditional all-E, all-c result with conditions (a) to (d): **Theorem 1** of the manuscript since 2026-09-27 (renamed from Proposition 3 after the author's verification of Appendix A, MATH_VERIFICATION_LOG rows 4 to 12); SECTION_4_METHODOLOGY.md and the signed registrations still call it Proposition 3 |
 | **batch overtaking**, **adverse repositioning** | the two reversal channels; with aligned sequence and assignment they are exhaustive (18 and 2 of 20 enforced-run violations; "all violations are overtaking" is RETIRED) |
 
 - Report separately: condition coverage (joint conditions hold in < 1% of waves) and ordering frequency (99.2% of matched waves). Never "the theorem explains 99.2%".

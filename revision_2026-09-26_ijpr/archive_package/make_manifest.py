@@ -64,6 +64,13 @@ GROUPS = {
     "code_prototype_src": sorted(
         str(p.relative_to(ROOT)).replace("\\", "/")
         for p in (ROOT / "prototype" / "src").glob("*.py")),
+    # Stage L2 (2026-09-27): the tuning output, the G0 logs and checks, the case
+    # data check and parameter record, and the data README (the data file itself
+    # is not in the repository; its SHA-256 is in the README and in L2)
+    "stage_L2_2026-09-27": sorted(
+        [str(p.relative_to(ROOT)).replace("\\", "/")
+         for p in (ROOT / "revision_2026-09-26_ijpr" / "week4").rglob("*") if p.is_file()]
+        + ["prototype/results/v0_6_phase6_L2_tuning.json", "prototype/data/README.md"]),
 }
 
 # Result files: the stored Phase 5 artefacts are the ones the first signed

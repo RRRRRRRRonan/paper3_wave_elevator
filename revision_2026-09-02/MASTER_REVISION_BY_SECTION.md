@@ -50,7 +50,7 @@ preserves_as_evidence: "冻结预注册、签署修正案、EXECUTION-LOG、原�
 | 诊断恒等式 | Proposition 1 | Proposition 1 | 无 |
 | 类别动作 SPO 损失解释 | Proposition 2 | Remark 1 | 无 |
 | 嵌套覆盖分区细化（含原 Corollary 1） | Theorem 1、Corollary 1 | Proposition 2 | 无 |
-| 全 E 条件性样本路径排序 | Proposition 3 | Theorem 1 | 附录 A 组装完成且作者逐行通读（TH-1） |
+| 全 E 条件性样本路径排序 | Proposition 3 | Theorem 1 | 附录 A 组装完成且作者逐行通读（TH-1）；2026-09-27 已满足，已改名 |
 | 条件性 minimax 归约（类别层）与候选层筛选保证 | Theorem 2 | Corollary 1（a）类别层、（b）候选层 | 无 |
 | 超额损失与中点分位数界 | Corollary 2 | Corollary 2（主文只留一句边界） | 无 |
 | 模型校准的均值 DRO 比较 | Corollary 3 | Remark 2（一句，指向 Fu, Li and Zhang 2024） | 无 |
@@ -65,15 +65,15 @@ preserves_as_evidence: "冻结预注册、签署修正案、EXECUTION-LOG、原�
 4. 推论 4（原式 (58)）删除。
 5. 图 5 不进入 IJPR 稿：它的三块内容中，DRO 与模型族扩展已降级或删除。图 4 以现有 v1 插入，与已在 Word 中的图 2、图 3 同一版本；三张图在图件统一重绘时按 W-10（Times New Roman、15 cm、矢量 PDF 与 600 dpi PNG）一起处理。
 6. 新编号下 §4 的公式为：(47) 类别层随机排序；(48) 记号；(49) 推论 1(a)；(50) 推论 1(b)；(51) 至 (53) 推论 2；(54) 至 (57) §4.5 的 GSV 式；§4.6 没有公式。
-7. 命题 3 仍称 Proposition 3，直到 `revision_2026-09-26_ijpr/MATH_VERIFICATION_LOG.md` 第 4 至 12 行由作者本人签完；这一步不能代签。
+7. 命题 3 仍称 Proposition 3，直到 `revision_2026-09-26_ijpr/MATH_VERIFICATION_LOG.md` 第 4 至 12 行由作者本人签完；这一步不能代签。2026-09-27：作者报告已逐行读完附录 A、全部通过，并指示助手录入第 4 至 12 行；自此改称 Theorem 1（Word 版 §4 以修订模式修改）。
 
 ### 00.6 IJPR 施工阶段（接在 §12 之后执行；详细清单见计划 v2 第二部分）
 
 - [x] 第 1 周：签署 D-A 到 D-M；故事契约；本覆盖层；术语表与 CLAUDE.md；研究一登记文件；第六阶段协议（设计与门槛）；OSF 登记包。（2026-09-26 已签字；OSF 登记 kps2c，禁运；见 EXECUTION-LOG 第 50 至 52 条）
 - [x] 第 2 周：研究一重分析脚本与研究二代码（P10、P11、DES 模块、热启动、GSV 驱动、案例生成器骨架）及测试。（2026-09-26 完成；完备性审计见 EXECUTION-LOG 第 59 条）
 - [x] 第 2 到 3 周：签字后运行研究一重分析。（2026-09-26 运行并补齐，EXECUTION-LOG 第 53 至 58 条；结果见 `revision_2026-09-26_ijpr/study1_run_2026-09-26/STUDY1_RESULTS_SUMMARY.md`）
-- [ ] 第 3 到 4 周：附录 A 组装与作者通读（TH-1）；补完 Word 版 §4 并新增 4.5 GSV。（2026-09-26：附录 A 已组装并经独立审查；Word 版 §4 已按上面 §00.5 的决定以修订模式补完 4.3.2 至 4.6；待作者通读附录 A 并签核验记录第 4 至 12 行、接受 Word 修订）
-- [ ] 第 4 周：P11 按预先写定的训练池规则调参，结果写进单独签字的 L2 附录（`paper_draft/phase6_protocol_L2_addendum.md`；协议本身签字后不改）；然后才生成测试池种子。
+- [x] 第 3 到 4 周：附录 A 组装与作者通读（TH-1）；补完 Word 版 §4 并新增 4.5 GSV。（2026-09-26：附录 A 已组装并经独立审查；Word 版 §4 已按上面 §00.5 的决定以修订模式补完 4.3.2 至 4.6。2026-09-27：作者报告已逐行读完附录 A，核验记录第 4 至 12 行已按其指示录入，命题 3 改称定理 1；附录 A 的 Word 版为 `revision_2026-09-26_ijpr/week3/Appendix_A_2026-09-27.docx`。仍待作者在 Word 中接受修订；EXECUTION-LOG 第 62 条）
+- [ ] 第 4 周：P11 按预先写定的训练池规则调参，结果写进单独签字的 L2 附录（`paper_draft/phase6_protocol_L2_addendum.md`；协议本身签字后不改）；然后才生成测试池种子。（2026-09-27：G0 第 1 至 7 项通过；训练池调参完成，选 (α, β, γ) = (1, 1, 0.5)，主研究预计 2.6 小时、不启用子集模式；案例数据下载并通过 §11.2 检查；案例四个时间参数的范围与来源已查证；L2 已填好，待作者审阅签字后运行 `make_manifest.py SIGNED_L2` 并更新 OSF；EXECUTION-LOG 第 62 条）
 - [ ] 第 5 到 7 周：运行研究二；分析；图表。
 - [ ] 第 8 到 10 周：冻结数据哈希；写 §5、§6 与附录。
 - [ ] 第 11 到 12 周：写 §2（定位表）、§1、摘要、亮点；定题。

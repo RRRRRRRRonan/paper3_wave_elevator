@@ -1,0 +1,22 @@
+  [OK] test_single_order: makespan=19.0
+============================================================
+Sanity check (v0.1 regime: E=1, capacity=1): hand-computed vs simulator
+============================================================
+  [OK] A (concentrated 1->3)               expected= 120.0  got= 120.0
+  [OK] B (uniform mixed)                   expected= 137.0  got= 137.0
+  [OK] C (counterbalanced 3up/2down)       expected= 148.0  got= 148.0
+============================================================
+All sanity checks passed.
+  [OK] pool regime: E=1,c=1=120.0  E=2,c=1=72.0  E=1,c=2=72.0  E=3,c=2=24.0
+  [OK] batched scenario A (E=1,c=2): expected=72.0  got=72.0
+  [OK] batched (72.0) <= abstraction (72.0) for matched-direction wave
+  [OK] pop_cluster: 4/4 sub-tests
+  [OK] policy=cluster: shuffled-wave fifo=76.0 cluster=38.0 (cluster wins)
+  [OK] policy=cluster: 4/4 sub-tests
+  [OK] service_sigma: baseline 120.0, noisy mean 119.81 (50 distinct of 50)
+  [OK] order release_time: baseline 120.0, staggered (CV>0) 120.0
+  [OK] order release_time: huge stagger -> 2034.0
+  [OK] directional: same-dir wave dir==batched (72.0); mixed wave batched=100.0 directional(p=5)=115.0
+  [OK] backward-compat: all new params at defaults reproduce baseline 120.0
+  [OK] timing pass-through: None = defaults; explicit values reach all five pool types
+  [OK] timing defaults: explicit (5, 2, 2) = omitted, 2100 randomized calls

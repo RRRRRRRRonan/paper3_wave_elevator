@@ -17,13 +17,13 @@ Design (S1-3 "Design", unchanged code path `run_chain_block`):
   - all 18 configurations at sizes 8 and 30.
   The 6 original Block C configs at size 16 are NOT rerun here.
 
-Real mode never executes tonight: `require_signed("S1B")` stops the script
-first. Self-test mode never touches prototype/results; it patches
+Real mode runs only after `require_signed("S1B")` passes; the registered
+run took place on 2026-09-26 (revision_2026-09-26_ijpr/study1_run_2026-09-26/). Self-test mode never touches prototype/results; it patches
 `phase5_config.SEED_BASE` to `registration_guard.TOY_SEED_BASE`, uses a
 handful of toy configs, and tiny n_per_arm / candidate-pool sizes.
 
 Run:
-  python -m src.experiments_S1_blockC_ext             # stops at the guard
+  python -m src.experiments_S1_blockC_ext             # real run: writes into prototype/results/; only at the author's request
   python -m src.experiments_S1_blockC_ext --selftest  # toy run to scratch
 """
 from __future__ import annotations

@@ -3,3 +3,10 @@
 ~WRL*.tmp
 __pycache__/
 *.pyc
+
+# Case data (UCI Online Retail II, CC BY 4.0): not committed; see prototype/data/README.md for source and SHA-256
+prototype/data/*.zip
+prototype/data/*.xlsx
+
+# Self-test scratch output of the registered drivers (never prototype/results)
+prototype/scratch_selftest/

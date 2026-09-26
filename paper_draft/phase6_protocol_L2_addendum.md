@@ -1,23 +1,23 @@
 ---
 title: "Phase 6 protocol, Stage L2 addendum (P11 weights, case parameters, code freeze)"
 parent: "paper_draft/phase6_method_study_protocol.md (L1; its bytes are frozen at signature and pinned in revision_2026-09-26_ijpr/archive_package/MANIFEST_SIGNED.json)"
-date: ""
-status: "TEMPLATE. Filled in week 4 after the Stage L2 tuning on training pools, before any test pool exists."
-author_signoff: "PENDING"
-protocol_L1_sha256: ""
-osf_registration_id: ""
-code_tree_sha256: ""
-p11_weights: ""
-des_subset_mode: ""
-case_included: ""
-case_speed_per_floor: ""
-case_load_time: ""
-case_unload_time: ""
-case_service_time: ""
-case_speed_per_floor_range: ""
-case_load_time_range: ""
-case_unload_time_range: ""
-case_service_time_range: ""
+date: "2026-09-27"
+status: "SIGNED 2026-09-27 after the Stage L2 tuning on training pools; no test pool exists. Pinned by make_manifest.py SIGNED_L2; to be registered on OSF as an update of kps2c before any test pool is generated."
+author_signoff: "SIGNED (Shiyue Hu, 2026-09-27). Authorization given by explicit author instruction in the 2026-09-27 working session ('帮我签字，git push，并进行第四周剩余的内容'), after the author's review of the pre-signing audit and the three decisions recorded below (EXECUTION-LOG entry 63); the assistant entered the signature at that instruction."
+protocol_L1_sha256: "a92d93c1a1cbe900c29c50734b2de0802fc7dd01afa99f378761f7a8ecc0d0d7"
+osf_registration_id: "kps2c"
+code_tree_sha256: "ccdbd6d28c96a2903b24573c1e71ac29e152f609f2bb7083493a4c84fe26c581"
+p11_weights: "1, 1, 0.5"
+des_subset_mode: "no"
+case_included: "yes"
+case_speed_per_floor: "13.81"
+case_load_time: "15.15"
+case_unload_time: "14.705"
+case_service_time: "10.5"
+case_speed_per_floor_range: "6.76, 20.86"
+case_load_time_range: "8.3, 22"
+case_unload_time_range: "7.8, 21.61"
+case_service_time_range: "1, 20"
 ---
 
 # Stage L2 addendum to the Phase 6 protocol
@@ -36,13 +36,50 @@ case_service_time_range: ""
 
 ```
 G0 checks 1 to 7 (protocol §12): pass / fail, with log reference:
-Tuning output file and SHA-256:
-Selected (alpha, beta, gamma):
-Runtime projection from the training pool (hours); set des_subset_mode above to yes if it exceeds 48 hours, otherwise no:
+  1 simulator: pass (revision_2026-09-26_ijpr/week4/g0_2026-09-27/simulator.log; all hand-computed targets)
+  2 DES evaluator: pass, no skipped test (revision_2026-09-26_ijpr/week4/g0_2026-09-27/des_evaluator.log)
+  3 timing defaults: pass, 2,100 randomized calls (revision_2026-09-26_ijpr/week4/g0_2026-09-27/simulator.log, _test_timing_default_randomized)
+  4 phase6_policies: pass, no skipped test (revision_2026-09-26_ijpr/week4/g0_2026-09-27/phase6_policies.log)
+  5 concatenation equivalence: pass (revision_2026-09-26_ijpr/week4/g0_2026-09-27/phase6_policies.log, _test_concat_and_gsv)
+  6 guard: pass. Real mode of main, merge, warmstart, runtime, case and analysis_phase6 stops at the L2 guard (run with every pool, evaluation and write function replaced by a stub that raises); require_l2 behaves as registered on 9 temporary cases (revision_2026-09-26_ijpr/week4/g0_2026-09-27/g0_item6_guard_check.json); every driver completes with --selftest, including the subset mode (revision_2026-09-26_ijpr/week4/g0_2026-09-27/selftest_*.log); registration_guard self-test passes (revision_2026-09-26_ijpr/week4/g0_2026-09-27/selftest_guard.log)
+  7 code tree: ccdbd6d28c96a2903b24573c1e71ac29e152f609f2bb7083493a4c84fe26c581 (registration_guard.code_tree_sha256, recorded by the tuning run below and unchanged since the G0 checks)
+Tuning output file and SHA-256: prototype/results/v0_6_phase6_L2_tuning.json, 6fa28f9493133c5fcc9ba4420b926c3e40aec3dfb54fd12f3b42cfbb62ebfe66 (run 2026-09-26 15:49:40Z to 16:01:26Z, that is 2026-09-27 00:49 to 01:01 local time; log and results listings before and after in revision_2026-09-26_ijpr/week4/stage_L2_tune_2026-09-27/; the only new result file is the tuning output; its meta records the L2 addendum's hash as the unfilled template, 7cdf72b2f824409de693d1d14b2ea743d4d8e0f91fa359f35fa7a7e6e02da607, with code_matches_L2 empty, because the tuning necessarily runs before this addendum is filled; the code tree it records is the one named above)
+Selected (alpha, beta, gamma): (1, 1, 0.5); mean score 0.4634 over 108 training instances, exactly tied with (1.0, 1.0, 1.0), (2.0, 2.0, 0.5), (2.0, 2.0, 1.0); the registered tie rule (lexicographically smallest triple, §5.4) selects it. Next distinct score 0.4657; worst 0.7228; all 27 scores are in the tuning file
+Runtime projection from the training pool (hours): 2.6 (configuration 17, training base 20260951; one full decision took 6.1 s at n = 8, 15.0 s at n = 16, 43.1 s at n = 30, including P9, so P9 runs at Study 2 scale and stays in (decision D-L)); des_subset_mode = no (limit 48 hours)
 Case parameter table (value, documented range, source) or "case dropped (D-K)":
-  travel time per floor:
-  loading time:
-  unloading time:
-  AMR service time:
-Confirmation that no test-pool seed has been used before this date:
+  travel time per floor: 13.81 s, range 6.76 to 20.86 s; derived: Peters jerk-limited flight time over one- and two-floor flights, linearized as [t_f(h) + t_f(2h)]/3; rated speed 0.5 to 1.0 m/s from KONE TranSys and HD MonoSpace and Schindler 2600 data with Barney Table 5.3; acceleration and jerk from Peters and KONE passenger-lift data; floor-to-floor height 5.48 to 9.75 m from multistory warehouse documents (Goodman Interlink; Prologis Georgetown Crossroads)
+  loading time: 15.15 s, range 8.3 to 22 s; sum of documented components, door block + one loaded AMR driving in + start delay: 5.4 to 13.0 + 2.4 to 8.0 + 0.5 to 1.0 s (Peters/CIBSE decomposition; KONE-authored door data; 11 s door opening and closing of an AGV elevator system, Bhosekar et al. 2020, plus a 2.0 s closing delay; robot transfer from Smith 2018 and Kim et al. 2024)
+  unloading time: 14.705 s, range 7.8 to 21.61 s; sum of documented components, leveling delay + door block + one loaded AMR driving out: 0 to 0.61 + 5.4 to 13.0 + 2.4 to 8.0 s (same sources as loading; the 8.0 s drive-out bound assumes symmetry with drive-in)
+  AMR service time: 10.5 s, range 1 to 20 s; not documentable from the source types named in §11.3: AMR manufacturer data (Geek+ P series, Hai Robotics HaiPick, MiR Shelf Carrier 250) and RMFS models (Lamballais et al. 2017; Merschformann et al. 2019; Xie et al. 2021; Shan et al. 2024; Kokhahi and Kurz 2025), per-event values 1 to 20 s; the high end rests on one product (MiR cart docking)
+  data: UCI Online Retail II (CC BY 4.0), xlsx SHA-256 bcbe73b35f5b7babf197fb0cb983a11f5d9ff929078d4aa53d171b1f2df2e980; §11.2 checks passed (revision_2026-09-26_ijpr/week4/case_data_check_2026-09-27.json)
+Confirmation that no test-pool seed has been used before this date: confirmed as of 2026-09-27 and still true at signature (no Study 2 command other than tune and --selftest runs has been executed). No Study 2 test-pool or case-pool seed has been used: prototype/results/ holds no v0_6 file except the tuning output; the tuning used the training bases 20260951 and 20260952 only; every self-test used seeds built from TOY_SEED_BASE 424,242; the real-mode stop checks ran with every pool, evaluation and write function replaced by a stub; the case data check drew no pool (stream 89 untouched).
 ```
+
+## Case parameter sources (Stage L2, 2026-09-27)
+
+All times in seconds; midpoint = (low + high) / 2 exactly. Web sources accessed 2026-09-27. The full evidence (97 items, each re-opened by an independent verifier: 74 verified as quoted, 23 verified with a corrected location or wording), the two syntheses and the judge's ruling are kept in `revision_2026-09-26_ijpr/week4/case_parameters_2026-09-27/`.
+
+| Parameter | Value | Range (low, high) | How the range is built | Status of the inputs |
+|---|---|---|---|---|
+| travel time per floor, gamma | 13.81 | 6.76, 20.86 | ideal jerk-limited flight t_f(d) = d/v + a/j + v/a (Peters 2000, Eqs. 13 to 16), charged linearly as gamma = [t_f(h) + t_f(2h)]/3 because loaded trips are 1<->2 and 1<->3 in equal shares (§11.2); fast corner h 5.48 m, v 1.0 m/s, a 0.8 m/s2, j 1.2 m/s3; slow corner h 9.75 m, v 0.5 m/s, a 0.4 m/s2, j 0.51 m/s3 | rated speeds documented (KONE TranSys DX planning guide 2024 "0.5 or 1.0 m/s"; KONE HD MonoSpace freight 0.51/0.76 m/s; Schindler 2600 1.0 m/s); the 0.5 to 1.0 m/s band is a case specification (traction drive, rise under 20 m, Barney Table 5.3); acceleration and jerk from passenger lifts (Barney Table 5.3; Peters 2012 measurement; KONE planning values, Ruokokoski and Siikonen 2017); floor height 5.48 m (Goodman Interlink, Hong Kong: ceiling height 18 to 21 ft building-wide, floors 17 to 22 being cargo-lift access; a ceiling height is used as a lower bound of floor-to-floor height) to 9.75 m (Prologis Georgetown Crossroads Level 1, 32 ft, applied to both gaps as an upper bound) |
+| loading time, tau^L | 15.15 | 8.3, 22.0 | door block at the origin (opening + closing delay + closing) + one loaded AMR driving in + start delay; low 5.4 + 2.4 + 0.5; high 13.0 + 8.0 + 1.0 | door low: KONE 1100 mm center-opening row, t_o 1.4 + t_c 3.1 + photocell 0.9 (Ruokokoski and Siikonen 2017, Table 1); door high: "Elevator opening/closing delays ... 11 seconds" from an AGV system handbook (Bhosekar et al. 2020, arXiv:2006.10031, Table 3; p. 10 describes it as "the time it takes to open and close the door"), plus the documented 2.0 s closing delay (Sorsa 2019); drive-in 2.4 s (Smith 2018, robot loading time) to 8.0 s (Kim, Bak and Kim 2024, NAVER "fast" boarding); start delay 0.5 s (CIBSE default via Peters 2012) to 1.0 s (Peters 2012 measured) |
+| unloading time, tau^U | 14.705 | 7.8, 21.61 | leveling delay + door block at the destination + one loaded AMR driving out; low 0 + 5.4 + 2.4; high 0.61 + 13.0 + 8.0 | leveling 0 s (CIBSE convention) to 0.61 s (Peters 2012 measured); door block as for loading; drive-out 2.4 s (Smith 2018) to 8.0 s (assumed equal to the documented drive-in bound; no robot exit time above 2.4 s is documented) |
+| AMR service time, tau^P = tau^D | 10.5 | 1.0, 20.0 | documented per-event pickup or drop-off times, excluding driving; asymmetric sources enter as their per-event mean | 1 s (Lamballais, Roy and De Koster 2017, EJOR, Table 1); 2.2 s (Xie et al. 2021); 2.7 s (Hai Robotics HaiPick A42T-E2); 3 s (Merschformann et al. 2019; Lamballais Tessensohn 2019); at least 4 s (Geek+ P series lift); 5 s (Shan et al. 2024); 5.5 s (Kokhahi and Kurz 2025, (8 + 3)/2); 20 s (MiR Shelf Carrier 250 cart docking, (28 + 12)/2) |
+
+**Deviation from the source types named in protocol §11.3 (declared before any case pool exists).** §11.3 names KONE and Schindler product data and the Peters round-trip-time decomposition. Only the rated speeds, the decomposition structure, the flight-time formula and the door and delay times come from those source types. Floor heights come from warehouse developer and engineering documents; acceleration, jerk and door times are passenger-lift values used as proxies (no manufacturer states freight-door or freight-lift kinematic times); the upper door bound comes from an AGV-elevator simulation study; the AMR transfer times come from robot-in-lift studies; and the whole service-time range comes from AMR manufacturer data and robotic mobile fulfillment models, because none of the named sources addresses AMR service. Reason: the named sources do not document these quantities. Effect: the four ranges rest on public documents of several types, disclosed per parameter above; the case remains descriptive (G7), and the paper's wording stays "parameters set within publicly documented ranges", never "calibrated to a facility". Logged in `revision_2026-09-26_ijpr/EXECUTION-LOG.md` (entry 62).
+
+**Case specifications registered with these values.** Traction freight elevators at rated speeds of 0.5 to 1.0 m/s; power-operated horizontal center-opening doors; the elevator is integrated with the fleet (doors close on the boarded signal, so default dwell times of 5 s and door-hold timeouts of 15 to 20 s are not added); one AMR transfer per stop is charged (in M2 a co-rider boards within the same loading window at no extra cost, and the co-boarding window equals tau^L); repositioning flights carry no start or leveling delay; the case AMR class is left open (rack lifting, tote handling, conveyor top module or cart docking), so the service range spans all four. If cart docking were excluded, the range would be 1.0 to 5.5 s (midpoint 3.25 s); that alternative is recorded here and not used.
+
+**Known limits.** No measured freight-door time or freight-lift AMR transfer time was found, so the low ends of tau^L and tau^U are probably optimistic for doors 1.4 to 2.1 m wide; gamma's linearization under-charges a one-floor flight and over-charges a two-floor flight by about 0.65 s each; Barney's tables and BS 5655-6 were read from a course-page scan and should be checked against the book before they are cited in the paper.
+
+## Decisions recorded before signature (2026-09-27)
+
+Three points were put to the author on 2026-09-27 with the assistant's recommendation; the author adopted the recommendation on each ("我授权你的小改。同时按照你最推荐的内容帮我决定签字前需要决定的三点敲定"). They are fixed here before any case pool exists and are not revisited after results.
+
+1. **AMR service range: 1.0 to 20.0 s kept, midpoint 10.5 s.** The upper end rests on one product (MiR Shelf Carrier 250 cart docking, (28 + 12)/2 s). The alternative, excluding cart docking, would give 1.0 to 5.5 s (midpoint 3.25 s). Kept because no AMR class is registered for the case, the case is descriptive (G7), and the one-at-a-time sensitivity runs cover both ends.
+2. **Rated-speed band 0.5 to 1.0 m/s accepted as a case specification** (traction drive, standard speeds, rise under 20 m): Barney Table 5.3 gives rated speeds below 1.0 m/s for a travel under 20 m, and KONE TranSys DX lists 0.5 or 1.0 m/s as its standard speeds. Documented speeds outside the band (Schindler 2600 rope 1.6 m/s up to 2000 kg, KONE TranSys EU up to 1.6 m/s, TK Elevator traction down to 0.3 m/s, hydraulic 0.15 to 0.63 m/s) are excluded by this specification, not by the evidence.
+3. **The source-type deviation from protocol §11.3 is accepted with the declaration above** (not the §14 alternative of dropping the case).
+
+Also confirmed: the 11 s "Elevator opening/closing delays" of Bhosekar et al. (2020) is read as opening plus closing, as page 10 of the source describes it, so the documented 2.0 s closing delay is added and the loading and unloading upper ends are 22.0 and 21.61 s (the judge's reading would have given 20.0 and 19.61 s).
+
+**Scale label.** The case values are 2.1 to 7.6 times the synthetic defaults (5, 2, 2, 5 s), so the case is far more elevator-bound than the Phase 5 grid. Case results (`v0_6_case_*`, config_id 100 and 101) always carry the calibrated-case label and are never shown unlabelled beside synthetic, Study 2 or publication-scale numbers.

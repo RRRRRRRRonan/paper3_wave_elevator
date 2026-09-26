@@ -6,7 +6,7 @@ Registration: revision_2026-09-26_ijpr/amendments/AMEND-2026-09-26-S1B_new_simul
   S1-8  "Where the best waves are" [depends on S1-2]
   S1-11 "Complementary fractions, closed-form descriptive layer"
          [NS; only if D-D1 is signed -- see the note in cmd_s1_11 below]
-Guard key: "S1B" (author_signoff PENDING as of 2026-09-26).
+Guard key: "S1B" (signed 2026-09-26; the guard also requires the S1D note).
 
 None of these three items carries a gate; all are descriptive and reported
 beside the locked verdicts (S1-2/S1-8 "Reporting rule", S1-11 "Reporting
@@ -15,14 +15,14 @@ M1 (abstraction) and M2 (batched) with the CURRENT production simulator, and
 additionally reads the stored Phase 5 raw CSVs for (a) the regeneration
 check and (b) the "stored favourable corner" / "stored policy medians" used
 in the side-by-side displays -- this is legitimate for the registered
-procedure (S1-2's own Inputs name these CSVs), but real mode never executes
-tonight: `require_signed("S1B")` stops the script first, since the
-registration is unsigned. Self-test mode never reads any file under
+procedure (S1-2's own Inputs name these CSVs). Real mode runs only after
+`require_signed("S1B")` passes; the registered run took place on
+2026-09-26 (revision_2026-09-26_ijpr/study1_run_2026-09-26/). Self-test mode never reads any file under
 prototype/results; it patches `phase5_config.SEED_BASE` to
 `registration_guard.TOY_SEED_BASE` and enumerates tiny toy pools.
 
 Run:
-  python -m src.experiments_S1_enumeration s1-2             # stops at guard
+  python -m src.experiments_S1_enumeration s1-2             # real run: writes into prototype/results/; only at the author's request
   python -m src.experiments_S1_enumeration s1-2 --selftest  # toy run
   python -m src.experiments_S1_enumeration s1-8 --selftest
   python -m src.experiments_S1_enumeration s1-11 --selftest
