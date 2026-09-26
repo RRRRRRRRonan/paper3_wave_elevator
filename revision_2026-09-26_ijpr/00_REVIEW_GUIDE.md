@@ -12,7 +12,7 @@ status: "Pre-signing snapshot of weeks 1 to 3, kept as written; the dated block 
 - 签字清单已换过两次，旧清单都原样保留在 `archive_package/`：原始钉住 `3ef64f08…`（113 个文件）→ S1D 后 `cd0694e4…`（115 个文件）→ 运行结束后 `275d1f1a…`（149 个文件：原 115 个加三个补跑模块和研究一的 31 个输出文件，后者单列为 study1_outputs_2026-09-26 组）。守卫仍对 S1A 到 S1D 放行、对 L2 拦下。
 - OSF：L1 登记包已注册为 https://osf.io/kps2c（项目 ezcru，Open-Ended Registration，禁运，CC0 1.0）；S1D 更新集在 `archive_package/osf_update_2026-09-26_S1D/`，待作者提交。
 - 研究一：11 条登记命令和 3 个补跑模块已于 2026-09-26 正式运行（EXECUTION-LOG 第 55 至 58 条）；逐项结果、登记措辞和待作者决定的事项见 `study1_run_2026-09-26/STUDY1_RESULTS_SUMMARY.md`。锁定判定都没有变。
-- 还没做（2026-09-27 更新）：你审阅并签 L2 附录 → `make_manifest.py SIGNED_L2` → OSF 更新 kps2c → 才生成研究二测试池；OSF 的 S1D 更新；在 Word 里接受修订。研究一脚本的过时注释已于 2026-09-27 清理（只改文档字符串）。
+- 还没做（2026-09-27 晚更新）：L2 附录已按你的指示签字、`MANIFEST_SIGNED_L2` 已生成（提交 b1eaff7，185 个文件），守卫已对研究二放行；剩下你在 OSF 上先提交 S1D 更新、再提交 L2 更新（`archive_package/osf_update_2026-09-27_L2/OSF_UPDATE_TEXT.md` 有可粘贴的文字），之后才生成研究二测试池；另在 Word 里接受修订。研究一脚本的过时注释已于 2026-09-27 清理（只改文档字符串）。
 - 下文第 7 节的步骤 1、2 已按 S1D 的绕行执行完；步骤 3 未开始。
 - 第 3 到 4 周（EXECUTION-LOG 第 61 条）：Word 版 §4 已以修订模式补完（§4.3.2 后半、按新编号的 §4.4、修订后的 §4.5、新增 §4.6；式 (47) 至 (57)）；接受全部修订后的阅读版在 `week3/Methodology_accepted_preview_2026-09-26.pdf`。附录 A 已删去注 A.2 与引理 A.4(ii)。仍待你本人：逐行通读附录 A 并签核验记录第 4 至 12 行（之后命题 3 才改称定理 1），以及在 Word 里接受修订。
 - 2026-09-27（EXECUTION-LOG 第 62 条）：核验记录第 4 至 12 行已按你的指示录入，命题 3 已改称定理 1（Word 以修订模式）；附录 A 的 Word 版为 `week3/Appendix_A_2026-09-27.docx`（阅读版 `week3/Appendix_A_preview_2026-09-27.pdf`）。第 4 周：G0 第 1 至 7 项通过；训练池调参选 (α, β, γ) = (1, 1, 0.5)，主研究预计 2.6 小时，不启用子集模式，P9 保留；案例数据已下载并通过 §11.2 检查；案例时间参数已查证（行程每层 13.81 s，装载 15.15 s，卸载 14.705 s，AMR 服务 10.5 s，各有文献范围）；L2 附录已填好、未签（签前请看 `week4/case_parameters_2026-09-27/README.md` 的待定点）。第 4 周全部记录在 `week4/`。

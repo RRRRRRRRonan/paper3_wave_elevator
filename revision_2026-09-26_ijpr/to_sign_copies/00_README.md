@@ -1,6 +1,6 @@
 # 登记文件副本（2026-09-26；now/ 已是签字后的版本，与 MANIFEST_SIGNED.json 一致）
 
-**先读这一段。** `now/` 里现在是六份**已签字**登记文件的只读副本（2026-09-26 签字后刷新，哈希与 `archive_package/MANIFEST_SIGNED.json` 一致），可直接作为 OSF 上传集使用；`later/` 是另外两份文件（2026-09-27：L2 附录已按调参结果填好、待你签字；数学核验记录已录入）。原件才是守卫读取的文件，副本仅供阅读、打印和上传。登记守卫 `prototype/src/registration_guard.py` 和 `make_manifest.py` 只读取下表"原件路径"中的文件：签在副本上不起作用，登记脚本仍会被拦下，哈希清单也不会记录它。副本已设为只读，以防误签。
+**先读这一段。** `now/` 里现在是六份**已签字**登记文件的只读副本（2026-09-26 签字后刷新，哈希与 `archive_package/MANIFEST_SIGNED.json` 一致），可直接作为 OSF 上传集使用；`later/` 是另外两份文件（2026-09-27：L2 附录已签字；数学核验记录已录入）。原件才是守卫读取的文件，副本仅供阅读、打印和上传。登记守卫 `prototype/src/registration_guard.py` 和 `make_manifest.py` 只读取下表"原件路径"中的文件：签在副本上不起作用，登记脚本仍会被拦下，哈希清单也不会记录它。副本已设为只读，以防误签。
 
 ## 现在要签（now/）
 
@@ -17,7 +17,7 @@
 
 | 副本 | 原件路径 | 什么时候 | 复制时原件 SHA-256（前 16 位） |
 |---|---|---|---|
-| `later/phase6_protocol_L2_addendum.md` | `paper_draft/phase6_protocol_L2_addendum.md` | 2026-09-27 已按调参结果填好（副本已刷新），待你审阅后在原件上单独签字，再运行 `make_manifest.py SIGNED_L2` | `8f51bdcd9564cb5a` |
+| `later/phase6_protocol_L2_addendum.md` | `paper_draft/phase6_protocol_L2_addendum.md` | 2026-09-27 已签字（按你的指示录入），并由 `MANIFEST_SIGNED_L2.json` 钉住；副本已换成签字后的版本 | `891e727e9759de96` |
 | `later/MATH_VERIFICATION_LOG.md` | `revision_2026-09-26_ijpr/MATH_VERIFICATION_LOG.md` | 2026-09-27 第 4 至 12 行已按你的指示录入，命题 3 已改名定理 1（副本已刷新）。不属于登记签字 | `45fdc54a00165ea4` |
 
 ## 签法（在原件上，每个文件一次编辑完成）

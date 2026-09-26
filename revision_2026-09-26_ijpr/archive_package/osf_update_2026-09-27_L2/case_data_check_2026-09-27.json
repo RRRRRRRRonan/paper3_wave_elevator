@@ -1,0 +1,130 @@
+{
+  "generated": "2026-09-27 00:43:17",
+  "purpose": "Protocol §11.2 checks before Stage L2 (case_included requires D-K signed and these checks passed). No case pool drawn; stream 89 untouched; nothing written to prototype/results/.",
+  "source": {
+    "dataset": "Online Retail II, UCI Machine Learning Repository (Chen, D., 2012), doi:10.24432/C5CG6D",
+    "licence": "CC BY 4.0 (stated on https://archive.ics.uci.edu/dataset/502/online+retail+ii, checked 2026-09-27)",
+    "download_url": "https://archive.ics.uci.edu/static/public/502/online+retail+ii.zip",
+    "downloaded": "2026-09-27",
+    "zip_sha256": "572e36277c2390fbfde10664750731e0a86f55e33470d91919085f0408e67bfb",
+    "xlsx_sha256": "bcbe73b35f5b7babf197fb0cb983a11f5d9ff929078d4aa53d171b1f2df2e980",
+    "xlsx_bytes": 45622278
+  },
+  "sheets": {
+    "Year 2009-2010": {
+      "rows": 525461,
+      "columns": [
+        "Invoice",
+        "StockCode",
+        "Description",
+        "Quantity",
+        "InvoiceDate",
+        "Price",
+        "Customer ID",
+        "Country"
+      ],
+      "first_invoice_date": "2009-12-01 07:45:00",
+      "last_invoice_date": "2010-12-09 20:01:00"
+    },
+    "Year 2010-2011": {
+      "rows": 541910,
+      "columns": [
+        "Invoice",
+        "StockCode",
+        "Description",
+        "Quantity",
+        "InvoiceDate",
+        "Price",
+        "Customer ID",
+        "Country"
+      ],
+      "first_invoice_date": "2010-12-01 08:26:00",
+      "last_invoice_date": "2011-12-09 12:50:00"
+    }
+  },
+  "sheet_overlap_window": {
+    "from": "2010-12-01 08:26:00",
+    "to": "2010-12-09 20:01:00",
+    "rows_sheet1_in_window": 22523,
+    "rows_sheet2_in_window": 22523,
+    "identical_rows_all_columns": true,
+    "note": "the exact-duplicate rule of §11.2 keeps the sheet-1 copy (file order), so the overlap days are not counted twice"
+  },
+  "load_seconds": 109.6,
+  "cleaning_report": {
+    "input": 1067371,
+    "after_cancellations": 1047877,
+    "after_nonpositive": 1041670,
+    "after_product_codes": 1036877,
+    "after_duplicates": 1003212
+  },
+  "removed_share": 0.0601,
+  "removed_non_product_codes_examples": [
+    "ADJUST",
+    "ADJUST2",
+    "AMAZONFEE",
+    "B",
+    "BANK CHARGES",
+    "C2",
+    "C3",
+    "CRUK",
+    "D",
+    "DCGS0003",
+    "DCGS0004",
+    "DCGS0006",
+    "DCGS0016",
+    "DCGS0027",
+    "DCGS0036",
+    "DCGS0037",
+    "DCGS0039",
+    "DCGS0041",
+    "DCGS0044",
+    "DCGS0053",
+    "DCGS0055",
+    "DCGS0056",
+    "DCGS0057",
+    "DCGS0058",
+    "DCGS0059",
+    "DCGS0060",
+    "DCGS0062",
+    "DCGS0066N",
+    "DCGS0066P",
+    "DCGS0067",
+    "DCGS0068",
+    "DCGS0069",
+    "DCGS0070",
+    "DCGS0071",
+    "DCGS0072",
+    "DCGS0073",
+    "DCGS0074",
+    "DCGS0075",
+    "DCGS0076",
+    "DCGSLBOY"
+  ],
+  "n_removed_non_product_codes": 62,
+  "n_distinct_kept_stock_codes": 4877,
+  "n_calendar_days_with_lines": 604,
+  "n_eligible_days": 588,
+  "eligible_days_first_last": [
+    "2009-12-01",
+    "2011-12-09"
+  ],
+  "lines_per_eligible_day": {
+    "min": 603,
+    "median": 1508.0,
+    "max": 5242
+  },
+  "stockcode_python_types_first_200k": {
+    "int": 161969,
+    "str": 38031
+  },
+  "checks": {
+    "all_kept_codes_start_with_five_digits": true,
+    "no_cancellation_invoice_kept": true,
+    "all_qty_and_price_positive": true,
+    "no_exact_duplicates_left": true,
+    "eligible_days_all_have_at_least_600_lines": true,
+    "invoice_dates_parsed": true
+  },
+  "all_checks_pass": true
+}
