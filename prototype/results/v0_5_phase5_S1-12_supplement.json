@@ -1,0 +1,88 @@
+{
+  "item": "S1-12 supplement",
+  "registration_sha256": "5141174f587c106fd8075dd248586dc4f38b1619b63eff0bec65ba81272b87af",
+  "code_sha256": "4635528a39f7e0d8b14515e048b134e07d81db86de4a5cc8b5492e3bfafbca19",
+  "code_tree_sha256": "275d1f1abdc2bfb1ebb90c39b4609d39e6692af6c541cf007b972674f97e5619",
+  "code_tree_sha256_pinned": "cd0694e4fedeee112d451828d8d03adcbd36a576ecf33dbcf5988b54265dd14c",
+  "code_tree_matches_pinned": false,
+  "input_sha256": {
+    "S1-12": "9ad5c64a6508126cc441d8efa46b4baefa4e0b629358dbff5082e7ea43245506",
+    "stored_B5": "000ada0e798e1be47a6ae12469d4bdecf1a170c8b7c494f55d954d26e0460535"
+  },
+  "mode": "real",
+  "code_tree_sha256_of_S1-12_run": "cd0694e4fedeee112d451828d8d03adcbd36a576ecf33dbcf5988b54265dd14c",
+  "gates_for_reference_only": {
+    "rho_ge_09_every_config": false,
+    "des_dominance_ge_090": true
+  },
+  "faithful_ordinal_proxy_supported": false,
+  "verdict_of_record": "B-5 unchanged: Spearman gate not met; DES ordering 0.98 to 1.00; 'faithful ordinal proxy' not supported",
+  "des_ordering_rate_range": {
+    "stored_B5": [
+      0.98,
+      1.0
+    ],
+    "board_first": [
+      0.975,
+      1.0
+    ]
+  },
+  "tie_break_only_column_equals_stored_B5": true,
+  "statement_check": "The registration expected the rerun to change two things at once (tie-break fix and boarding rule). The tie-break-only column equals the stored B-5 values exactly, so the stored B-5 closed-form mirror already used the current semantics and the difference between the stored and board-first columns is the boarding rule.",
+  "per_config": [
+    {
+      "config_id": "1",
+      "tie_break_only_equals_stored_B5": {
+        "rho_M1": true,
+        "rho_M2": true,
+        "cf_mean_M2": true,
+        "des_mean_M2_b5_rule": true
+      },
+      "rho_M2": {
+        "stored_B5": 0.44886811781725977,
+        "tie_break_only": 0.44886811781725977,
+        "board_first": 0.5025183382297798
+      },
+      "des_ordering_rate": {
+        "stored_B5": 0.98,
+        "board_first": 0.975
+      }
+    },
+    {
+      "config_id": "7",
+      "tie_break_only_equals_stored_B5": {
+        "rho_M1": true,
+        "rho_M2": true,
+        "cf_mean_M2": true,
+        "des_mean_M2_b5_rule": true
+      },
+      "rho_M2": {
+        "stored_B5": 0.6708864329312233,
+        "tie_break_only": 0.6708864329312233,
+        "board_first": 0.6496558514935981
+      },
+      "des_ordering_rate": {
+        "stored_B5": 0.99,
+        "board_first": 0.99
+      }
+    },
+    {
+      "config_id": "11",
+      "tie_break_only_equals_stored_B5": {
+        "rho_M1": true,
+        "rho_M2": true,
+        "cf_mean_M2": true,
+        "des_mean_M2_b5_rule": true
+      },
+      "rho_M2": {
+        "stored_B5": 0.500187011070789,
+        "tie_break_only": 0.500187011070789,
+        "board_first": 0.5199570405313281
+      },
+      "des_ordering_rate": {
+        "stored_B5": 1.0,
+        "board_first": 1.0
+      }
+    }
+  ]
+}

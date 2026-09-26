@@ -1,0 +1,145 @@
+# Manifest (SIGNED)
+
+- generated (UTC): 2026-09-26T06:48:53Z
+- git HEAD: `2c587b47c13fc199efe18bf360d8d7bcc9b21fe3`
+- code tree SHA-256 (prototype/src/*.py): `3ef64f08b16beb4ca4f5aa1130202a8d9193c8b04d4f49038de9122c79277135`
+- files: 113; missing: 0
+
+## registrations_2026-09-26
+
+| file | SHA-256 (LF-normalized) | sign-off | git | mtime (UTC) |
+|---|---|---|---|---|
+| `paper_draft/phase6_method_study_protocol.md` | `a92d93c1a1cbe900c29c50734b2de0802fc7dd01afa99f378761f7a8ecc0d0d7` | SIGNED (Shiyue Hu, 2026-09-26). Authorization given by explicit author instruction in the 2026-09-26 working session, after the author's review of the pre-signing audit and its diffs; the assistant entered the signature at that instruction. | untracked | 2026-09-26T06:48:39Z |
+| `revision_2026-09-26_ijpr/amendments/AMEND-2026-09-26-S1A_reanalyses.md` | `00f03ff20c640f3f104ef93728f60a25401d1ef34e4e9f30586b4b255fb341c3` | SIGNED (Shiyue Hu, 2026-09-26). Authorization given by explicit author instruction in the 2026-09-26 working session, after the author's review of the pre-signing audit and its diffs; the assistant entered the signature at that instruction. | untracked | 2026-09-26T06:48:39Z |
+| `revision_2026-09-26_ijpr/amendments/AMEND-2026-09-26-S1B_new_simulations.md` | `5141174f587c106fd8075dd248586dc4f38b1619b63eff0bec65ba81272b87af` | SIGNED (Shiyue Hu, 2026-09-26). Authorization given by explicit author instruction in the 2026-09-26 working session, after the author's review of the pre-signing audit and its diffs; the assistant entered the signature at that instruction. | untracked | 2026-09-26T06:48:39Z |
+| `revision_2026-09-26_ijpr/amendments/AMEND-2026-09-26-S1C_execution_note_B4_B6.md` | `59e12d3ab5dcb833e2c9021c366ec192478220a9ff0a1c94a7218492122f9238` | ACKNOWLEDGED (Shiyue Hu, 2026-09-26). Authorization given by explicit author instruction in the 2026-09-26 working session, after the author's review of the pre-signing audit and its diffs; the assistant entered the signature at that instruction. | untracked | 2026-09-26T06:48:39Z |
+| `revision_2026-09-26_ijpr/amendments/README.md` | `1ba5f189182f4c016c2021f92878e8c208b5a6ed5ec6f91ef60da050765b7ee6` | - | untracked | 2026-09-26T06:24:09Z |
+| `paper_draft/phase6_protocol_L2_addendum.md` | `7cdf72b2f824409de693d1d14b2ea743d4d8e0f91fa359f35fa7a7e6e02da607` | PENDING | untracked | 2026-09-26T01:04:44Z |
+| `revision_2026-09-26_ijpr/01_DECISIONS_TO_SIGN.md` | `787656291d715d889b5a2b7c0a0e2e7515fc1168197c12f4d8bdc718cd58f712` | SIGNED (Shiyue Hu, 2026-09-26). Authorization given by explicit author instruction in the 2026-09-26 working session, after the author's review of the pre-signing audit and its diffs; the assistant entered the signature at that instruction. | untracked | 2026-09-26T06:48:39Z |
+| `prototype/requirements.txt` | `e2fec110d7037761488e776adead208d45194f767afa2a0341b0b5f0556b50c4` | - | modified | 2026-09-25T18:33:21Z |
+| `revision_2026-09-26_ijpr/STORY_CONTRACT.md` | `18a76d1e96a25008e95bdfb6445a7784e947fa340a311490c1c233e6c9acd8ca` | SIGNED (Shiyue Hu, 2026-09-26). Authorization given by explicit author instruction in the 2026-09-26 working session, after the author's review of the pre-signing audit and its diffs; the assistant entered the signature at that instruction. | untracked | 2026-09-26T06:48:39Z |
+
+## frozen_phase5
+
+| file | SHA-256 (LF-normalized) | sign-off | git | mtime (UTC) |
+|---|---|---|---|---|
+| `paper_draft/phase5_scaleup_preregistration.md` | `b37fe19916353b67414c43ff69c6dbdccbf9d28a2e2e9eae6a09c57c65b2aeb3` | - | clean | 2026-05-19T14:19:29Z |
+| `paper_draft/theorems_m4.md` | `732214be0f483a0ac28104986b775ae0db42bdc6484321cefd959ed4a2895693` | - | clean | 2026-05-06T01:46:49Z |
+| `paper_draft/theorems_m5.md` | `478d590407e8e4246c81680f1f404d2779ba5c8db3ef0e7d80dc11268ee97b80` | - | clean | 2026-05-06T01:46:48Z |
+| `paper_draft/methodology_v0_2.md` | `60a2d3a5a8eca1c50608124f5b3b6a5bb56f503fc572e59de8adb321b0fe3ada` | - | clean | 2026-05-19T01:52:55Z |
+| `prototype/results/configs_v0_5.json` | `537b2099a7359ef903d79d285aa5b7d67367323f2f652edfdc5ecfed9cfe26a5` | - | clean | 2026-05-19T11:28:41Z |
+
+## signed_amendments_2026-07-08
+
+| file | SHA-256 (LF-normalized) | sign-off | git | mtime (UTC) |
+|---|---|---|---|---|
+| `revision_2026-07-08/amendments/AMEND-2026-07-08-A_reanalysis.md` | `1c9abd7d67929492ee2629541315e33813697de37ebc9e129935840e9ad6509c` | SIGNED (Shiyue Hu, 2026-07-08). Authorization given by explicit author instruction in the 2026-07-08 working session (recorded in EXECUTION-LOG.md); countersigned by the assistant on the author's behalf. The author retains the final pre-submission read of every locked rule. | untracked | 2026-07-18T09:19:43Z |
+| `revision_2026-07-08/amendments/AMEND-2026-07-08-B11_conjecture1_search.md` | `a98c339a70efe1d541f25eb5396b5985324271870b2d02c553a5878a0b572d95` | SIGNED (Shiyue Hu, 2026-07-08). Authorization given by explicit author instruction in the 2026-07-08 working session (recorded in EXECUTION-LOG.md); countersigned by the assistant on the author's behalf. The author retains the final pre-submission read of every locked rule. | untracked | 2026-07-18T09:19:47Z |
+| `revision_2026-07-08/amendments/AMEND-2026-07-08-B13_theoremR.md` | `a92b43663ec15e1e45880d6df7accdd5bfbae85f3b2d8c8169171b4cb43d5d67` | SIGNED (Shiyue Hu, 2026-07-08). Authorization given by explicit author instruction in the 2026-07-08 working session (recorded in EXECUTION-LOG.md); countersigned by the assistant on the author's behalf. The author retains the final pre-submission read of every locked rule. | untracked | 2026-07-18T09:19:49Z |
+| `revision_2026-07-08/amendments/AMEND-2026-07-08-B_deferred_experiments.md` | `1b0ffd55087f7914f0fac1c79de87d88fdde6ab4169e951cfa0c7c7827d58952` | SIGNED (Shiyue Hu, 2026-07-08). Authorization given by explicit author instruction in the 2026-07-08 working session (recorded in EXECUTION-LOG.md); countersigned by the assistant on the author's behalf. The author retains the final pre-submission read of every locked rule. | untracked | 2026-07-18T09:25:01Z |
+| `revision_2026-07-08/amendments/AMEND-2026-07-08-C_bridge_closure.md` | `0fc75f2858ff1e97b8d12842f9d2b65812d93efe98aa4bc4b4308f167b1f63be` | SIGNED (Shiyue Hu, 2026-07-08). Authorization given by explicit author instruction in the 2026-07-08 working session (recorded in EXECUTION-LOG.md); countersigned by the assistant on the author's behalf. The author retains the final pre-submission read of every locked rule. | untracked | 2026-07-18T09:19:53Z |
+| `revision_2026-07-08/amendments/AMEND-2026-07-08-F_test_retest.md` | `71eb6038bb8057cc5087710789842574f05407f040c80a8607e3e500dda6cbcd` | SIGNED (Shiyue Hu, 2026-07-08). Authorization given by explicit author instruction in the 2026-07-08 working session (recorded in EXECUTION-LOG.md); countersigned by the assistant on the author's behalf. The author retains the final pre-submission read of every locked rule. | untracked | 2026-07-18T09:19:51Z |
+
+## stored_phase5_artefacts
+
+| file | SHA-256 (LF-normalized) | sign-off | git | mtime (UTC) |
+|---|---|---|---|---|
+| `prototype/results/raw/mvs_v0_5_phase5_ablation_P7.csv` | `848859bc2b5976c5c95d6141846a709c5038a1717920f7db8a447345d745962a` | - | clean | 2026-05-19T12:01:31Z |
+| `prototype/results/raw/mvs_v0_5_phase5_ablation_scheme.csv` | `91bd379c004e639be150b74f939ce77aa96a7a7e880d87b99ace878907d654e5` | - | clean | 2026-05-19T12:01:32Z |
+| `prototype/results/raw/mvs_v0_5_phase5_blockA.csv` | `af3ff90c97ad8f9670cefdfa3bb1f7350ba1acaad810401a9cbf859a4e4f471b` | - | clean | 2026-05-19T11:28:56Z |
+| `prototype/results/raw/mvs_v0_5_phase5_blockA_candidate_ids.csv` | `a66965b7f14f5a27af3e0ff44d152000346cb145f687639abc66656cc5ddafe6` | - | untracked | 2026-09-11T02:58:55Z |
+| `prototype/results/raw/mvs_v0_5_phase5_blockB.csv` | `4cde3e3f6b7e6a44eb4612bd66b9e22e1fad2bce9f22818e7190cb0fc19750bf` | - | clean | 2026-05-19T11:28:56Z |
+| `prototype/results/raw/mvs_v0_5_phase5_blockB_candidate_ids.csv` | `2d5bd1e7030e67b9e057114c3fc3f7116d34a0c543d2395b1c58598acd770314` | - | untracked | 2026-09-11T02:58:57Z |
+| `prototype/results/raw/mvs_v0_5_phase5_blockC.csv` | `64b234ee606040c4d8cff663219156b856bb87cbf9d94aa80dd61ddc615cc6fd` | - | clean | 2026-05-19T11:28:56Z |
+| `prototype/results/raw/mvs_v0_5_phase5_blockC_candidate_ids.csv` | `520fac70b9121dc119783e697d7041b7f8674a27e46c2a0c1b434f5ef2fc4d19` | - | untracked | 2026-09-11T02:58:57Z |
+| `prototype/results/raw/mvs_v0_5_phase5_blockC_tiebreakfix.csv` | `5ac4a37091734da26df68aae41386c7b515a401a75402982988ad85db5441eff` | - | untracked | 2026-09-11T02:58:49Z |
+| `prototype/results/raw/mvs_v0_5_phase5_smoke_blockA.csv` | `0b9b7775a0eda4a5a65f43a2289cc5e4a3677809bde4f3f8ba35ddae2b2ad28f` | - | clean | 2026-05-19T11:11:37Z |
+| `prototype/results/raw/mvs_v0_5_phase5_smoke_blockB.csv` | `80e7d662404cdd7c22483659cd88ccdfe8d5fb3770b685f9f2d4a11af3448876` | - | clean | 2026-05-19T11:11:37Z |
+| `prototype/results/raw/mvs_v0_5_supp1_h1scale.csv` | `83da8b78e4ff68a387489e155a84206eea0f2384393798af93f646da71bc0eec` | - | clean | 2026-05-19T14:16:14Z |
+| `prototype/results/raw/mvs_v0_5_supp2_capacity.csv` | `eb124f5ba5bad083cd610362b0cf572ec255d788efb87dc07247a62784b1729f` | - | clean | 2026-05-19T14:16:14Z |
+| `prototype/results/v0_5_phase5_ablation.json` | `167562cd5cf47906654f3d174defd443400707af0d3f83a6b314f9703a033c71` | - | clean | 2026-05-19T12:05:00Z |
+| `prototype/results/v0_5_phase5_blockA.json` | `2183a54d3bc1713f4662a80ca4be46041b9c2c6abe44b4ec82d544240fdf7ebf` | - | clean | 2026-05-19T13:41:20Z |
+| `prototype/results/v0_5_phase5_blockB.json` | `71fdc14c39eb4b9c26cdc9baaa280431a043ff883c2973c78922557716bc4b64` | - | clean | 2026-05-19T13:41:21Z |
+| `prototype/results/v0_5_phase5_blockC.json` | `ebbf1dcdbc5ed830142f1035c3158313490076c4422decf5d225040e4c393832` | - | modified | 2026-09-11T02:56:07Z |
+| `prototype/results/v0_5_phase5_blockC_tiebreakfix.json` | `ece0b2521fb57527b4952e3f977025328def98dd1d9fd65111c1ccda6edcd48d` | - | untracked | 2026-09-11T02:58:49Z |
+| `prototype/results/v0_5_phase5_smoke_verdict.json` | `751d6c3cbe67f360e99f69a5c95c472a81d49ce20b3eee57ce464c8d2294b79d` | - | clean | 2026-05-19T11:11:38Z |
+| `prototype/results/v0_5_phase5_supp.json` | `aa0856a34b9994b8e0e7339084c5313d4ad3e7c60c6d222c68939db5b72248c6` | - | clean | 2026-05-19T14:17:09Z |
+
+## code_prototype_src
+
+| file | SHA-256 (LF-normalized) | sign-off | git | mtime (UTC) |
+|---|---|---|---|---|
+| `prototype/src/__init__.py` | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` | - | clean | 2026-04-21T09:49:24Z |
+| `prototype/src/analysis.py` | `b0f98346eec9899e7759699101b2ca77a0a1b7b668e1a2f785aeda0beee36dd5` | - | clean | 2026-04-21T10:40:36Z |
+| `prototype/src/analysis_A3_meta_regression.py` | `6b8e862843b2952af91f69cdc73649518fc82055bb61743061496b523f9c95be` | - | clean | 2026-04-23T05:14:42Z |
+| `prototype/src/analysis_D1_spo_equivalence.py` | `61e5e3789618974c6a5c131a1508c2d1a69984b63951cfcebf54a80c58fde260` | - | clean | 2026-05-19T02:28:58Z |
+| `prototype/src/analysis_D2_wasserstein_dro.py` | `56b362a89c5046cb6618b6dfae1028c04d8ba3b89eca839510d4c2e347512f1e` | - | clean | 2026-05-19T02:34:10Z |
+| `prototype/src/analysis_D3_chain_invariance.py` | `42354093de9dc40481e59206d7642d3fdebfa0a8e00e7877c825d17028324305` | - | clean | 2026-05-19T05:45:34Z |
+| `prototype/src/analysis_S1_cluster_bootstrap.py` | `ee3a9bb4ac6d390959e15331423f9881f31c6bc39f1ef4838e3cc23d2076f686` | - | untracked | 2026-09-25T18:32:28Z |
+| `prototype/src/analysis_S1_displays.py` | `ae47563f427e71fc906bac4ed6413f716031ee357f273b9819ddcb1dc964ce32` | - | untracked | 2026-09-26T06:19:04Z |
+| `prototype/src/analysis_S1_m4_predictive.py` | `e3260ed10165e02bcd69ba290843d22bfaf08b921152423c159e43eafdd6a727` | - | clean | 2026-04-23T05:11:43Z |
+| `prototype/src/analysis_S4_beta_stratified.py` | `64965590180ad7595745aa176d5057aa8623f98d011af9f38d64948001bf3989` | - | clean | 2026-04-23T05:12:49Z |
+| `prototype/src/analysis_phase1.py` | `6efdab4fd52253b1e1a2cd86112908a654c4acd513fb45df0a1a0e2c25dff061` | - | clean | 2026-04-21T10:53:39Z |
+| `prototype/src/analysis_phase1_5.py` | `1c9ac38e66c0dd9899e024af351c97e6141d006334e265f53aa524a96c9b9ccc` | - | clean | 2026-04-21T14:53:48Z |
+| `prototype/src/analysis_phase4_H1.py` | `3a7ce1f6d3aeaa78d397b2162add5caa93c1ccd550b87f74cbd0894fd010c174` | - | clean | 2026-04-22T13:34:20Z |
+| `prototype/src/analysis_phase4_H1_stagger.py` | `4ee87c1ea174cea93136295f47479e8ca756d7adc79819c8a0057302dcdb226b` | - | clean | 2026-04-23T04:00:27Z |
+| `prototype/src/analysis_phase4_v2.py` | `22fc82e5085380d184beeaf39f7350ece4dd1f571cc0f6632a80c871af01dd96` | - | clean | 2026-04-22T00:26:35Z |
+| `prototype/src/analysis_phase4_v2_bg_robust.py` | `4c1a480fa13caa9e5e308dd892b1322834ddd2a4eba33fd50b02b0688731a12e` | - | clean | 2026-04-22T01:18:25Z |
+| `prototype/src/analysis_phase4_v2_bootstrap.py` | `ae669ad92759debf7602dbcca98832cdfd5ad87a704bd613dd58e505d4cbfa8b` | - | clean | 2026-04-22T02:16:47Z |
+| `prototype/src/analysis_phase4_v2_m3.py` | `e4a94508fef38467fb99d2b9062639ea1a9b586d623966711fdc8539fa37117f` | - | clean | 2026-04-22T02:22:56Z |
+| `prototype/src/analysis_phase4_v2_m4_beta_bound.py` | `7c85ca7b7ab8c89045b4fd00ab6e05b4667fd5577d696103debf95b678047728` | - | clean | 2026-04-22T10:40:50Z |
+| `prototype/src/analysis_phase4_v2_m4_decomposition.py` | `8dc9c17421f136cabc7cd10c33668fc68bc52765c1350268a3020279baa966b9` | - | clean | 2026-04-22T10:28:29Z |
+| `prototype/src/analysis_phase4_v2_m5_delta.py` | `452c0ea3f5c74cd69aaa6c4dd441aea085e89cc0bd6eb3ca235d6e96a3b9c4f7` | - | clean | 2026-04-22T10:35:12Z |
+| `prototype/src/analysis_phase4_v2_partition.py` | `49f646e8e34e0849108eff74212a8d4f026b3db5ba723c23e7c6a2aecae2aee0` | - | clean | 2026-04-22T02:19:38Z |
+| `prototype/src/analysis_phase5_ablation.py` | `81b2131232cd9f5b8f273c1d8cdfe2b2c8142dfecd609eac7385e057d5a42c6f` | - | clean | 2026-05-19T12:04:51Z |
+| `prototype/src/analysis_phase5_blockA.py` | `dd3f486f0c12eef1cc2aedffe3b87751975513602d86d1cd601a161f4744c741` | - | clean | 2026-05-19T13:40:07Z |
+| `prototype/src/analysis_phase5_blockB.py` | `32d6c113e9eef191049259e725f31b08f1445681f3aecd1a2c0805679bf3cd7e` | - | clean | 2026-05-19T13:41:03Z |
+| `prototype/src/analysis_phase5_blockC.py` | `1db14ee49d5b1d7124276b00cb2944e1e3f6659e6e87b5e978e2f4ef97947d55` | - | modified | 2026-09-11T02:56:04Z |
+| `prototype/src/analysis_phase5_smoke.py` | `c86cbccd61fff88d9999f6720975b7cc19e97e6adaf8f5effa37fcd9a5a57791` | - | clean | 2026-05-19T10:50:52Z |
+| `prototype/src/analysis_phase5_supp.py` | `d420cfd21ad573b05b22ee97f35dc91abbec301d106e4215148eb56423c06ab4` | - | clean | 2026-05-19T14:16:59Z |
+| `prototype/src/analysis_phase6.py` | `330ff430e7ed950360219fb15123d8342815fbc13196574ec05e57d974b4dd36` | - | untracked | 2026-09-26T05:41:33Z |
+| `prototype/src/case_online_retail.py` | `3328ddeb86d27716c35741ec7503772a607888a0d397c41c4a0260cb0ca983af` | - | untracked | 2026-09-26T01:04:15Z |
+| `prototype/src/demand_patterns.py` | `6b4fbc48333d8b76d77a4c78047c9dbff47da4c667e482133b964f4a9e7b57e3` | - | clean | 2026-05-19T11:10:37Z |
+| `prototype/src/des_evaluator.py` | `f25496d95df050c2842b8c2e4aaf96e6d25c9d9be4d75400ed172e677b5ddcdd` | - | untracked | 2026-09-25T17:42:55Z |
+| `prototype/src/experiments.py` | `71e601e88790e8032f5ca7c559233bbba7ded3d4e693d1ca689b10b5f43355c8` | - | clean | 2026-04-21T09:51:10Z |
+| `prototype/src/experiments_A1_floors_sweep.py` | `c397702bb1631d9a7c7a30758293915d7bd7371338a0e4cbb8b50e0799c21997` | - | clean | 2026-04-23T05:18:11Z |
+| `prototype/src/experiments_A2_fcfs_baseline.py` | `6d2d6b07b9d37ab990746ba5b899cfd9bd115b4a92e98ee647431e61d27e6d52` | - | clean | 2026-04-23T05:19:05Z |
+| `prototype/src/experiments_B1_heterogeneous_pool.py` | `9112ac745b15978c6764f1247ec6e22d2530763398c7ff4b0971ea11d093ed94` | - | clean | 2026-04-23T05:21:01Z |
+| `prototype/src/experiments_S1_B4_B6.py` | `0342e5c1d93986cd4ed4f864b0b7430b7136048406d210e0c8c7e8fd9114f573` | - | untracked | 2026-09-25T18:32:28Z |
+| `prototype/src/experiments_S1_b5_rerun.py` | `226a70f897f4e83cf7583f79d0a6a6da11f5f451568c24f4794477b447f8f736` | - | untracked | 2026-09-26T06:23:54Z |
+| `prototype/src/experiments_S1_blockC_ext.py` | `a9bc089dfa8b9fa2b6cc068e6e47abec1a8e37f92cc393517aedf77f86e3adaa` | - | untracked | 2026-09-25T18:32:28Z |
+| `prototype/src/experiments_S1_enumeration.py` | `10d326a1af2b68affbdb517d40c001a07b5ecfe5c58f28c420d4fb299fbd31d2` | - | untracked | 2026-09-26T05:43:00Z |
+| `prototype/src/experiments_S1_tiebreak_regen.py` | `1b989e5990937a28b81088ed8a2531aea3786132399ed38098a29992b12dfe2c` | - | untracked | 2026-09-25T18:32:28Z |
+| `prototype/src/experiments_S2_stagger_sweep.py` | `f6cc97907d25434e05d5b52279b2543dec1bc126911d4c7793bb688f5461f061` | - | clean | 2026-04-23T05:15:44Z |
+| `prototype/src/experiments_S3_capacity_sweep.py` | `4849843ceb175da9759ffe1738ce76fcd9f0f5fe69b8d7ed84f1e226627060aa` | - | clean | 2026-04-23T05:16:44Z |
+| `prototype/src/experiments_gap1_service_sensitivity.py` | `132b504dfa530d79422cb07fe91f754c30ce1e1f50b2f8fddc1694454f9ddb54` | - | clean | 2026-04-23T03:57:06Z |
+| `prototype/src/experiments_gap2_stagger_sensitivity.py` | `6bca80e28d993a9d9c385eb4c9fd64d8e219e35f3fd075fa54d1d76de4bf1cc7` | - | clean | 2026-04-23T03:57:54Z |
+| `prototype/src/experiments_gap3_directional.py` | `a174702d78170a58d66ec12f8f3336efed00ca5b664b863168fdfbf966f57598` | - | clean | 2026-04-23T03:58:46Z |
+| `prototype/src/experiments_geometry.py` | `1d59d656709a9c0553fe66ac54359ead943e27fc961e9f056fc027d30eac3f14` | - | clean | 2026-04-21T14:45:51Z |
+| `prototype/src/experiments_phase1_5.py` | `ccfca17f50fdda15f50eb79c7d5f2c8db320e218953d7329d9653616b4c9cb70` | - | clean | 2026-04-21T14:52:22Z |
+| `prototype/src/experiments_phase1_5_tactivated.py` | `a0bf2b764b680d5a713ffa4f64d5ca68817b67eb960f25b08bd67fff98d2ccb7` | - | clean | 2026-04-23T03:39:05Z |
+| `prototype/src/experiments_phase4_H1.py` | `138c69aadb8427c70524f68458735c23d1f8a6a4220dfe5ad99f486d4f920b4c` | - | clean | 2026-04-22T13:33:13Z |
+| `prototype/src/experiments_phase4_H1_smoke.py` | `f4e6da00c4e02edaf94869c0bc2006e78663bb6e5c081169628216d9260bf223` | - | clean | 2026-04-22T13:32:07Z |
+| `prototype/src/experiments_phase4_H1_stagger.py` | `4e6091770ccdd6b0a14c5e8cddb9df233fe51bc5fb0c6496d75b5ea5cc571e16` | - | clean | 2026-04-23T03:59:48Z |
+| `prototype/src/experiments_phase4_v2.py` | `eb7ccdafc8f5d21e1ce98d42ace2a2c96849eda737d050d04fc50baf5c7bfcb2` | - | clean | 2026-04-22T00:25:28Z |
+| `prototype/src/experiments_phase4_v2_m3.py` | `9e504cde61cf3bd676267dbb75d2a19da8ba057c3d34d3df3deea37d26a45f69` | - | clean | 2026-04-22T02:22:08Z |
+| `prototype/src/experiments_phase4_v2_partition.py` | `a1488b05d04098217d73ae7cbf7ee51ced2296b7ef1b6c38a705ec8651f78062` | - | clean | 2026-04-22T02:18:30Z |
+| `prototype/src/experiments_phase5.py` | `3189041eaba77fc5cede6ca3badd0b4ca0f9424ca1269506486019173c215528` | - | modified | 2026-09-11T02:56:04Z |
+| `prototype/src/experiments_phase5_ablation.py` | `13f8fafc6979d1d3f48adbeb46efed6827d42da416eff4b9fede014dc9d145ed` | - | clean | 2026-05-19T12:01:15Z |
+| `prototype/src/experiments_phase5_supp.py` | `283819fb622a9a32c3c99b2f7765d82fa5daf45b42fa1484a26a585904e8adeb` | - | modified | 2026-09-11T02:56:04Z |
+| `prototype/src/experiments_phase6.py` | `fcf7b00c29f5dde3102ffd60c241b1622269fa6229a6c875856fa5d9a986a985` | - | untracked | 2026-09-26T05:41:00Z |
+| `prototype/src/experiments_v0_2.py` | `59b3eb82351c072edbf800eaf7cf166bc241737091a8ca452815b6f2064dd6d9` | - | clean | 2026-04-21T10:52:19Z |
+| `prototype/src/features.py` | `f7c54ad369d82212560c12eaa1454c986321b4f209f44e4979519a21ba628d68` | - | clean | 2026-04-23T03:38:14Z |
+| `prototype/src/figure_methodology_schematics.py` | `2bfe943436ae7f7ae098e34deeba86eda74636fdc61af2decd7d6f7f52d85a90` | - | clean | 2026-05-20T12:38:19Z |
+| `prototype/src/figure_phase4_H1.py` | `03cc7143f23d0450af71cb6360476264c9c64e63041afc413f720870c06fc0c8` | - | clean | 2026-04-22T13:35:09Z |
+| `prototype/src/figure_phase5.py` | `d4db0682216007adc5b90d8ef5b1618a844f1935da93a057daaacaca87fada7f` | - | clean | 2026-05-19T13:42:48Z |
+| `prototype/src/figure_phase5_discriminating_power.py` | `5762f27a713b0f2ba59d744fab6bcf834bc2822bea9da634fa66f12d0257b255` | - | untracked | 2026-06-19T13:21:06Z |
+| `prototype/src/figure_section3_schematic.py` | `e18ba359d11570d01178c17c5117a9e5286416ff52aa51867b724a60557e430e` | - | untracked | 2026-09-25T13:39:33Z |
+| `prototype/src/phase5_config.py` | `4c7488183f633ae8888f9074497a0442c1ec034977a55c3c582cb11f34235a56` | - | clean | 2026-05-19T11:10:17Z |
+| `prototype/src/phase6_config.py` | `b00a3c85dc3d53ab6635ad6423f33b86e360cece5976a68ea30a4f9f1e4db96b` | - | untracked | 2026-09-26T01:04:45Z |
+| `prototype/src/phase6_policies.py` | `8c8d35be21fda698bbbfc5bbe945eeac2532484245ec7f58b221b38dca0af804` | - | untracked | 2026-09-25T17:43:30Z |
+| `prototype/src/registration_guard.py` | `75f9559efd85c32f46caa0bafe82b3c3667fd11b384770539b920b4c47106e90` | - | untracked | 2026-09-25T18:29:04Z |
+| `prototype/src/simulator.py` | `c6bb9bc4962595d94f62a632db9b05ecf89d8ef024fdd3de96c832c653473ce5` | - | modified | 2026-09-25T17:53:07Z |
+| `prototype/src/tier1_reanalysis.py` | `fd816f253e7f4c6ae27a43333d90d08108a504be32c4a43521780d5c99adc562` | - | clean | 2026-04-21T14:42:41Z |
+| `prototype/src/wave_policies.py` | `277596e403925d89b93b2c0661d01fabcb70b1e80e189075f515790332f00b6d` | - | modified | 2026-09-11T02:56:04Z |
+

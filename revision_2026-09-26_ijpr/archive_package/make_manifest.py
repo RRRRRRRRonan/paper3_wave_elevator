@@ -41,6 +41,8 @@ GROUPS = {
         "revision_2026-09-26_ijpr/amendments/AMEND-2026-09-26-S1A_reanalyses.md",
         "revision_2026-09-26_ijpr/amendments/AMEND-2026-09-26-S1B_new_simulations.md",
         "revision_2026-09-26_ijpr/amendments/AMEND-2026-09-26-S1C_execution_note_B4_B6.md",
+        "revision_2026-09-26_ijpr/amendments/AMEND-2026-09-26-S1D_execution_deviation.md",
+        "revision_2026-09-26_ijpr/helper_reports/S1D_equivalence_2026-09-26.md",
         "revision_2026-09-26_ijpr/amendments/README.md",
         "paper_draft/phase6_protocol_L2_addendum.md",
         "revision_2026-09-26_ijpr/01_DECISIONS_TO_SIGN.md",
@@ -57,15 +59,30 @@ GROUPS = {
     "signed_amendments_2026-07-08": sorted(
         str(p.relative_to(ROOT)).replace("\\", "/")
         for p in (ROOT / "revision_2026-07-08" / "amendments").glob("*.md")),
-    "stored_phase5_artefacts": sorted(
-        str(p.relative_to(ROOT)).replace("\\", "/")
-        for pat in ("prototype/results/v0_5_phase5_*.json",
-                    "prototype/results/raw/mvs_v0_5_*.csv")
-        for p in ROOT.glob(pat)),
+    "stored_phase5_artefacts": [],      # filled below: the files pinned at signing
+    "study1_outputs_2026-09-26": [],    # filled below: written by the registered run
     "code_prototype_src": sorted(
         str(p.relative_to(ROOT)).replace("\\", "/")
         for p in (ROOT / "prototype" / "src").glob("*.py")),
 }
+
+# Result files: the stored Phase 5 artefacts are the ones the first signed
+# manifest (2026-09-26T06:48:53Z, pin 3ef64f08) listed under
+# "stored_phase5_artefacts"; every later file matching the same patterns is an
+# output of the registered Study 1 run of 2026-09-26 (or of its completion
+# modules) and is listed under its own group so that the two are not confused.
+_FIRST_SIGNED = HERE / "MANIFEST_SIGNED_superseded_20260926T074123Z.json"
+_first_stored = (set(k for k, v in json.loads(_FIRST_SIGNED.read_text("utf-8"))["files"].items()
+                     if v["group"] == "stored_phase5_artefacts")
+                 if _FIRST_SIGNED.exists() else None)
+for _rel in sorted(str(p.relative_to(ROOT)).replace("\\", "/")
+                   for pat in ("prototype/results/v0_5_phase5_*.json",
+                               "prototype/results/raw/mvs_v0_5_*.csv")
+                   for p in ROOT.glob(pat)):
+    if _first_stored is None or _rel in _first_stored:
+        GROUPS["stored_phase5_artefacts"].append(_rel)
+    else:
+        GROUPS["study1_outputs_2026-09-26"].append(_rel)
 
 
 def git(*args: str) -> str:

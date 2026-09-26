@@ -1,0 +1,39 @@
+================================================================================
+Phase 5 W6 — Block A decomposition (H-D1)
+================================================================================
+  sub-cells: 72
+  D1-a GAP=H_up+M_Phi exact:        72/72
+  D1-b H_up>=0, M_Phi>=0:           70/72
+  D1-c M_Phi==SPO_regret exact:     72/72
+  D1-d GAP 95% CI excludes 0:       57/72  (gate >= 58)
+  H-D1 verdict:                     PARTIAL
+  mean GAP=0.0600  mean H_up=0.0431  mean M_Phi=0.0169
+  surprise hook corr(F, GAP) = -0.182
+
+  per-demand mean GAP / D1-d pass rate:
+    uniform    mean GAP=0.0519  D1-d 20/24
+    clustered  mean GAP=0.0819  D1-d 20/24
+    diurnal    mean GAP=0.0463  D1-d 17/24
+
+Saved C:\Users\64432\AppData\Local\Temp\tmpul13pz5d\v0_5_phase5_blockA.json
+================================================================================
+Phase 5 W6 — Block B 7-policy contest (H-Policy)
+================================================================================
+  12 (config,size) cells
+  P5 beats P0: 0.83   P5 beats P1: 0.83   P5 beats P6: 0.67   P5 beats P7: 0.00
+  P5 sits 46.4% above the P7 local-search optimum
+  H-Policy band: Policy-Partial
+
+  win-fraction matrix (row beats column, fraction of cells):
+            P0     P1     P2     P3     P4     P5     P6     P7
+     P0    -     0.25   0.00   0.50   0.42   0.08   0.17   0.00
+     P1   0.67    -     0.08   0.75   0.67   0.17   0.42   0.00
+     P2   1.00   0.83    -     1.00   1.00   0.42   0.83   0.00
+     P3   0.42   0.17   0.00    -     0.50   0.17   0.25   0.00
+     P4   0.50   0.25   0.00   0.42    -     0.17   0.25   0.00
+     P5   0.83   0.83   0.58   0.83   0.83    -     0.67   0.00
+     P6   0.75   0.58   0.17   0.75   0.75   0.25    -     0.00
+     P7   1.00   1.00   1.00   1.00   1.00   1.00   1.00    -  
+
+Saved C:\Users\64432\AppData\Local\Temp\tmpul13pz5d\v0_5_phase5_blockB.json
+S1-9 wrote F:\Paper 3\prototype\results\raw\mvs_v0_5_phase5_blockA_tiebreakfix.csv, F:\Paper 3\prototype\results\raw\mvs_v0_5_phase5_blockB_tiebreakfix.csv, F:\Paper 3\prototype\results\raw\mvs_v0_5_phase5_ablation_P7_tiebreakfix.csv, F:\Paper 3\prototype\results\v0_5_phase5_blockA_tiebreakfix.json, F:\Paper 3\prototype\results\v0_5_phase5_blockB_tiebreakfix.json, F:\Paper 3\prototype\results\v0_5_phase5_S1-9_comparison.json

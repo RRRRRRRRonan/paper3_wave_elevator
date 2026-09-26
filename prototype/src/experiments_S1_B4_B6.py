@@ -54,6 +54,7 @@ from src.analysis_phase5_blockA import CORNERS, decompose
 from src.demand_patterns import generate_pool
 from src.experiments_phase5 import _config_fields, _seed, run_corner_block
 from src.experiments_S1_blockC_ext import blockC_style_unit
+from src.registration_guard import code_provenance  # S1D: code-tree hash in every output
 from src.registration_guard import TOY_SEED_BASE, require_signed, scratch_dir
 from src.simulator import simulate_wave
 from src.wave_policies import build_candidates, corner_positions, materialise
@@ -300,7 +301,7 @@ def main() -> None:
     out_dir = scratch_dir() if args.selftest else RESULTS_DIR
     meta = {"registration_sha256": _sha256_file(REG_PATH),
            "b4_b6_design_sha256": _sha256_file(B4_DESIGN_PATH),
-           "code_sha256": _sha256_file(Path(__file__)),
+           "code_sha256": _sha256_file(Path(__file__)), **code_provenance(),
            "selftest": args.selftest}
 
     s1_4_path = out_dir / "v0_5_phase5_S1-4_B4.json"

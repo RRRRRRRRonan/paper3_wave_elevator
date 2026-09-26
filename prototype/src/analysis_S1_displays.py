@@ -38,6 +38,7 @@ from src.analysis_S1_cluster_bootstrap import _check_join
 from src.experiments_S1_blockC_ext import (_class_stat_dict,
                                            clustered_stability,
                                            hedge_and_minimax)
+from src.registration_guard import code_provenance  # S1D: code-tree hash in every output
 from src.registration_guard import require_signed, scratch_dir
 
 RESULTS_DIR = Path(__file__).resolve().parents[1] / "results"
@@ -489,7 +490,7 @@ def main() -> None:
     if args.cmd == "s1-7":
         input_paths.append(RESULTS_DIR / "v0_5_phase5_supp.json")
     meta = {"registration_sha256": _sha256_file(REG_PATH),
-           "code_sha256": _sha256_file(Path(__file__)),
+           "code_sha256": _sha256_file(Path(__file__)), **code_provenance(),
            "input_sha256": ({} if args.selftest else
                             {q.name: _sha256_file(q) for q in input_paths
                              if q.exists()}),

@@ -1,12 +1,21 @@
 ---
 title: "审阅指南：2026-09-26 自动工作（第 1 周 + 第 2 周 + 独立审查 + 第 3 周不依赖签字的部分）"
 date: 2026-09-26
-status: "Weeks 1 and 2 FINAL; week 3 added the same day (section W3 below); nothing here is signed"
+status: "Pre-signing snapshot of weeks 1 to 3, kept as written; the dated block at the top gives the state after signing and the Study 1 run"
 ---
 
 # 审阅指南
 
-## 签字状态（2026-09-26，最新）
+## 当前状态（2026-09-26 晚，签字与运行之后；本节之下的各节是签字前的快照，原样保留）
+
+- 六份登记文件已签（S1A、S1B、协议 L1、决定单、故事契约为 SIGNED，S1C 为 ACKNOWLEDGED）；签字后补写的执行偏离说明 S1D 已确认（ACKNOWLEDGED）。
+- 签字清单已换过两次，旧清单都原样保留在 `archive_package/`：原始钉住 `3ef64f08…`（113 个文件）→ S1D 后 `cd0694e4…`（115 个文件）→ 运行结束后 `275d1f1a…`（149 个文件：原 115 个加三个补跑模块和研究一的 31 个输出文件，后者单列为 study1_outputs_2026-09-26 组）。守卫仍对 S1A 到 S1D 放行、对 L2 拦下。
+- OSF：L1 登记包已注册为 https://osf.io/kps2c（项目 ezcru，Open-Ended Registration，禁运，CC0 1.0）；S1D 更新集在 `archive_package/osf_update_2026-09-26_S1D/`，待作者提交。
+- 研究一：11 条登记命令和 3 个补跑模块已于 2026-09-26 正式运行（EXECUTION-LOG 第 55 至 58 条）；逐项结果、登记措辞和待作者决定的事项见 `study1_run_2026-09-26/STUDY1_RESULTS_SUMMARY.md`。锁定判定都没有变。
+- 还没做：研究二第 4 周（`tune` → 填签 L2 附录 → 测试池）；OSF 的 S1D 更新；六个研究一脚本里签字前的过时注释（定稿后一起清理）。
+- 下文第 7 节的步骤 1、2 已按 S1D 的绕行执行完；步骤 3 未开始。
+
+## 签字状态（2026-09-26 下午，签字时的快照；已由上方“当前状态”更新）
 
 六份登记文件已按你的明确授权签字（签字字段注明"作者在 2026-09-26 会话中明确授权，助手据此录入"），`make_manifest.py SIGNED` 已生成签字清单（113 个文件，代码树 3ef64f08b16b）。守卫对研究一的三份登记和研究二的 L1 三份全部放行，L2 附录仍未签、研究二测试池仍被拦下。**从现在起研究一的登记脚本会真正运行、写入 `prototype/results/`，只在你决定开跑时调用。** 签字件此后一个字节都不能改。
 
@@ -96,14 +105,14 @@ status: "Weeks 1 and 2 FINAL; week 3 added the same day (section W3 below); noth
 - 文档：`00_REVIEW_GUIDE.md`（本文件）、`01_DECISIONS_TO_SIGN.md`、`STORY_CONTRACT.md`、`EXECUTION-LOG.md`、`MATH_VERIFICATION_LOG.md`、`amendments/`（S1A、S1B、S1C、README）、`archive_package/`（README_OSF、make_manifest.py、MANIFEST_DRAFT）、`helper_reports/`（两份报告、协议第 1 稿、辅助代理原始脚本）、`paper_draft/phase6_method_study_protocol.md`、`paper_draft/phase6_protocol_L2_addendum.md`。
 - 代码（`prototype/src/`）：`registration_guard.py`、`des_evaluator.py`、`phase6_config.py`、`phase6_policies.py`、`experiments_phase6.py`、`analysis_phase6.py`、`experiments_S1_b5_rerun.py`、`analysis_S1_cluster_bootstrap.py`、`experiments_S1_enumeration.py`、`experiments_S1_blockC_ext.py`、`analysis_S1_displays.py`、`experiments_S1_tiebreak_regen.py`、`experiments_S1_B4_B6.py`。
 
-## 6. 没有做的事
+## 6. 没有做的事（第 1 至 3 周批次结束时的状态；之后的执行见 EXECUTION-LOG 第 52 条起）
 
 - 没有签字、没有上传 OSF 或 Zenodo、没有 git 提交或推送。
 - 没有运行任何登记的分析，没有生成研究二的训练池或测试池，没有在存档结果上计算任何新统计量；`prototype/results/` 和 `revision_2026-07-08/tier2_analysis/outputs/` 下没有新文件（已多次核对）。
 - 第 1、2 周没有改 Word 稿；第 3 周按你的授权只以修订模式改了 `Methodology.docx`（见 W3 节）。`Problem formulation.docx` 那句"Section 5 also evaluates pools augmented with constructed and re-sequenced candidates (Study 2)."仍未改，待你授权。
 - 案例数据加载器、附录 A 草稿已在第 3 周完成（见 W3 节）；附录 A 写进 Word、§4.3.2 后半段与 §4.4 写进 Word、以及依赖签字的正文改写仍未做。
 
-## 7. 签字以后的执行顺序
+## 7. 签字以后的执行顺序（步骤 1、2 已于 2026-09-26 执行，见 EXECUTION-LOG 第 52 至 58 条）
 
 在仓库根目录：
 1. `python "revision_2026-09-26_ijpr/archive_package/make_manifest.py" SIGNED`，然后上传 OSF（`README_OSF.md` §4）。

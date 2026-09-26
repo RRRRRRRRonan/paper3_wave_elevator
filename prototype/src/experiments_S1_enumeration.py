@@ -43,6 +43,7 @@ from src import phase5_config as cfg
 from src.analysis_phase5_blockA import CORNERS, decompose
 from src.demand_patterns import generate_pool
 from src.experiments_phase5 import MODEL_IDX, MODEL_TAG, _seed, sim_makespan
+from src.registration_guard import code_provenance  # S1D: code-tree hash in every output
 from src.registration_guard import require_checkbox
 from src.registration_guard import TOY_SEED_BASE, require_signed, scratch_dir
 from src.simulator import Wave
@@ -675,7 +676,7 @@ def main() -> None:
                    + [tier2 / "b2_b3_benchmarks.json",
                       tier2 / "amendC1_p9_spoplus.json"])
     meta = {"registration_sha256": _sha256_file(REG_PATH),
-           "code_sha256": _sha256_file(Path(__file__)),
+           "code_sha256": _sha256_file(Path(__file__)), **code_provenance(),
            "input_sha256": ({} if args.selftest else
                             {q.name: _sha256_file(q) for q in input_paths
                              if q.exists()}),

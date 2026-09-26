@@ -1,0 +1,4341 @@
+{
+  "item": "S1-2 side-by-side display",
+  "registration_sha256": "5141174f587c106fd8075dd248586dc4f38b1619b63eff0bec65ba81272b87af",
+  "code_sha256": "4635528a39f7e0d8b14515e048b134e07d81db86de4a5cc8b5492e3bfafbca19",
+  "code_tree_sha256": "275d1f1abdc2bfb1ebb90c39b4609d39e6692af6c541cf007b972674f97e5619",
+  "code_tree_sha256_pinned": "cd0694e4fedeee112d451828d8d03adcbd36a576ecf33dbcf5988b54265dd14c",
+  "code_tree_matches_pinned": false,
+  "input_sha256": {
+    "blockA_json": "2183a54d3bc1713f4662a80ca4be46041b9c2c6abe44b4ec82d544240fdf7ebf",
+    "blockA_csv": "af3ff90c97ad8f9670cefdfa3bb1f7350ba1acaad810401a9cbf859a4e4f471b",
+    "blockC_json": "ebbf1dcdbc5ed830142f1035c3158313490076c4422decf5d225040e4c393832",
+    "S1-2": "caac897f4f433bd84bcd4efa26ee7736062efbd7f08aa2dd8c9918799d6653bd",
+    "A-R1": "65969ebf2212fa8badfec8c5be7ff65158278c5db2aa5675b6ca25f325d077b4"
+  },
+  "mode": "real",
+  "labels": {
+    "sampled": "sampled, preregistered",
+    "exact": "exact enumeration, [NS]"
+  },
+  "reporting_rule": "No locked count is recomputed from exact values.",
+  "blockA": {
+    "summary": {
+      "n_subcells": 72,
+      "sampled_preregistered": {
+        "mean_H_up": 0.04303741810384155,
+        "mean_M_Phi": 0.016992518691939,
+        "mean_GAP": 0.060029936795780545,
+        "H_up_share_of_mean_GAP": 0.7169325906547783,
+        "n_M_Phi_zero": 35
+      },
+      "exact_stored_corner_NS": {
+        "mean_H_up": 0.041268697451197,
+        "mean_M_Phi": 0.016099964304943308,
+        "mean_GAP": 0.05736866175614031,
+        "H_up_share_of_mean_GAP": 0.7193595978693004,
+        "n_M_Phi_zero": 38
+      },
+      "exact_full_pool_fit_corner_NS": {
+        "mean_H_up": 0.041268697451197,
+        "mean_M_Phi": 0.0034877033657395506,
+        "mean_GAP": 0.044756400816936555,
+        "H_up_share_of_mean_GAP": 0.9220736408183263,
+        "n_M_Phi_zero": 47
+      },
+      "n_favorable_stored_equals_full_pool_fit": 41,
+      "n_q_max_sampled_equals_exact_stored_corner": 51,
+      "n_q_min_sampled_equals_exact_stored_corner": 63,
+      "exact_covering_share_median_NS": {
+        "2": 0.4907013176748574,
+        "3": 0.47738546833965567,
+        "4": 0.4647992631640313
+      }
+    },
+    "per_subcell": [
+      {
+        "config_id": 0,
+        "model": "abstraction",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 124.0,
+          "q_max": "HC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.03225806451612903,
+          "M_Phi": 0.016129032258064516,
+          "GAP": 0.04838709677419355,
+          "gap_ci": [
+            0.003937007874015748,
+            0.11741486068111455
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 123.0,
+          "class_medians": {
+            "HC_HI": 130.5,
+            "HC_LI": 131.0,
+            "LC_HI": 113.0,
+            "LC_LI": 113.5
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.06504065040650407,
+            "M_Phi": 0.0040650406504065045,
+            "GAP": 0.06910569105691057
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.06504065040650407,
+            "M_Phi": 0.0040650406504065045,
+            "GAP": 0.06910569105691057
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.45454545454545453,
+            "3": 0.2631578947368421,
+            "4": 0.33333333333333337
+          },
+          "optimum_M1": 56.0,
+          "optimum_M2": 70.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 0,
+        "model": "abstraction",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 401.5,
+          "q_max": "HC_HI",
+          "q_min": "LC_LI",
+          "H_up": 0.058530510585305104,
+          "M_Phi": 0.0,
+          "GAP": 0.058530510585305104,
+          "gap_ci": [
+            0.044332252090872784,
+            0.09068017898211744
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 400.0,
+          "class_medians": {
+            "HC_HI": 425.0,
+            "HC_LI": 421.0,
+            "LC_HI": 384.5,
+            "LC_LI": 377.5
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.0625,
+            "M_Phi": 0.0,
+            "GAP": 0.0625
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.0625,
+            "M_Phi": 0.0,
+            "GAP": 0.0625
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.5172413793103448,
+            "3": 0.5056179775280899,
+            "4": 0.4464285714285714
+          },
+          "optimum_M1": 254.0,
+          "optimum_M2": 353.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 0,
+        "model": "batched",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 169.0,
+          "q_max": "HC_HI",
+          "q_min": "LC_HI",
+          "H_up": 0.05621301775147929,
+          "M_Phi": 0.0029585798816568047,
+          "GAP": 0.0591715976331361,
+          "gap_ci": [
+            0.028735632183908046,
+            0.13639204545454542
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 165.0,
+          "class_medians": {
+            "HC_HI": 174.0,
+            "HC_LI": 176.5,
+            "LC_HI": 146.0,
+            "LC_LI": 150.5
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.0696969696969697,
+            "M_Phi": 0.02727272727272727,
+            "GAP": 0.09696969696969697
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.0696969696969697,
+            "M_Phi": 0.02727272727272727,
+            "GAP": 0.09696969696969697
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.4736842105263158,
+            "3": 0.4642857142857143,
+            "4": 0.3513513513513513
+          },
+          "optimum_M1": 56.0,
+          "optimum_M2": 70.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 0,
+        "model": "batched",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 577.5,
+          "q_max": "HC_HI",
+          "q_min": "LC_LI",
+          "H_up": 0.07272727272727272,
+          "M_Phi": 0.0,
+          "GAP": 0.07272727272727272,
+          "gap_ci": [
+            0.04443971631205674,
+            0.09779997535504144
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 584.0,
+          "class_medians": {
+            "HC_HI": 611.0,
+            "HC_LI": 604.0,
+            "LC_HI": 550.0,
+            "LC_LI": 544.0
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.046232876712328765,
+            "M_Phi": 0.0,
+            "GAP": 0.046232876712328765
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.046232876712328765,
+            "M_Phi": 0.0,
+            "GAP": 0.046232876712328765
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.4888888888888888,
+            "3": 0.47651006711409394,
+            "4": 0.47674418604651164
+          },
+          "optimum_M1": 248.0,
+          "optimum_M2": 328.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 1,
+        "model": "abstraction",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 76.0,
+          "q_max": "HC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.06578947368421052,
+          "M_Phi": 0.013157894736842105,
+          "GAP": 0.07894736842105263,
+          "gap_ci": [
+            0.0125,
+            0.1645826213260423
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 76.0,
+          "class_medians": {
+            "HC_HI": 81.0,
+            "HC_LI": 81.0,
+            "LC_HI": 72.0,
+            "LC_LI": 72.0
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_HI",
+            "H_up": 0.06578947368421052,
+            "M_Phi": 0.0,
+            "GAP": 0.06578947368421052
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_HI",
+            "H_up": 0.06578947368421052,
+            "M_Phi": 0.0,
+            "GAP": 0.06578947368421052
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.8333333333333334,
+            "3": 0.5,
+            "4": 0.4761904761904762
+          },
+          "optimum_M1": 38.0,
+          "optimum_M2": 43.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 1,
+        "model": "abstraction",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 239.0,
+          "q_max": "HC_LI",
+          "q_min": "LC_LI",
+          "H_up": 0.058577405857740586,
+          "M_Phi": 0.0,
+          "GAP": 0.058577405857740586,
+          "gap_ci": [
+            0.0326530612244898,
+            0.08742004264392324
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 239.0,
+          "class_medians": {
+            "HC_HI": 252.0,
+            "HC_LI": 252.5,
+            "LC_HI": 226.5,
+            "LC_LI": 223.0
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_LI",
+            "q_min": "LC_LI",
+            "H_up": 0.056485355648535567,
+            "M_Phi": 0.0,
+            "GAP": 0.056485355648535567
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_LI",
+            "q_min": "LC_LI",
+            "H_up": 0.056485355648535567,
+            "M_Phi": 0.0,
+            "GAP": 0.056485355648535567
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.4666666666666667,
+            "3": 0.4782608695652174,
+            "4": 0.45762711864406785
+          },
+          "optimum_M1": 171.0,
+          "optimum_M2": 209.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 1,
+        "model": "batched",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 104.0,
+          "q_max": "HC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.08653846153846154,
+          "M_Phi": 0.0,
+          "GAP": 0.08653846153846154,
+          "gap_ci": [
+            0.027670187793427236,
+            0.1225641118516372
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 104.0,
+          "class_medians": {
+            "HC_HI": 105.0,
+            "HC_LI": 109.0,
+            "LC_HI": 93.0,
+            "LC_LI": 95.5
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.04807692307692308,
+            "M_Phi": 0.0,
+            "GAP": 0.04807692307692308
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.04807692307692308,
+            "M_Phi": 0.0,
+            "GAP": 0.04807692307692308
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.5,
+            "3": 0.3448275862068966,
+            "4": 0.26315789473684215
+          },
+          "optimum_M1": 38.0,
+          "optimum_M2": 38.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 1,
+        "model": "batched",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 345.0,
+          "q_max": "HC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.03188405797101449,
+          "M_Phi": 0.0014492753623188406,
+          "GAP": 0.03333333333333333,
+          "gap_ci": [
+            0.01854192546583851,
+            0.07804164635420294
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 340.0,
+          "class_medians": {
+            "HC_HI": 358.5,
+            "HC_LI": 354.5,
+            "LC_HI": 317.0,
+            "LC_LI": 317.0
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_HI",
+            "H_up": 0.054411764705882354,
+            "M_Phi": 0.0,
+            "GAP": 0.054411764705882354
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_HI",
+            "H_up": 0.054411764705882354,
+            "M_Phi": 0.0,
+            "GAP": 0.054411764705882354
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.5,
+            "3": 0.49333333333333335,
+            "4": 0.5052631578947369
+          },
+          "optimum_M1": 161.0,
+          "optimum_M2": 202.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 2,
+        "model": "abstraction",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 108.0,
+          "q_max": "HC_HI",
+          "q_min": "LC_LI",
+          "H_up": 0.08333333333333333,
+          "M_Phi": 0.08333333333333333,
+          "GAP": 0.16666666666666666,
+          "gap_ci": [
+            0.11109882005899704,
+            0.22429906542056074
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 108.0,
+          "class_medians": {
+            "HC_HI": 113.0,
+            "HC_LI": 112.5,
+            "LC_HI": 107.0,
+            "LC_LI": 98.0
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.046296296296296294,
+            "M_Phi": 0.08333333333333333,
+            "GAP": 0.12962962962962962
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.046296296296296294,
+            "M_Phi": 0.0,
+            "GAP": 0.046296296296296294
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.3333333333333333,
+            "3": 0.5238095238095238,
+            "4": 0.44
+          },
+          "optimum_M1": 65.0,
+          "optimum_M2": 66.0
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 2,
+        "model": "abstraction",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 369.0,
+          "q_max": "HC_LI",
+          "q_min": "LC_LI",
+          "H_up": 0.06775067750677506,
+          "M_Phi": 0.028455284552845527,
+          "GAP": 0.09620596205962059,
+          "gap_ci": [
+            0.06923295965739375,
+            0.11990743160016422
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 374.5,
+          "class_medians": {
+            "HC_HI": 397.0,
+            "HC_LI": 393.0,
+            "LC_HI": 364.5,
+            "LC_LI": 359.0
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.06008010680907877,
+            "M_Phi": 0.014686248331108143,
+            "GAP": 0.07476635514018691
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.06008010680907877,
+            "M_Phi": 0.0,
+            "GAP": 0.06008010680907877
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.4655172413793104,
+            "3": 0.5189873417721519,
+            "4": 0.5157894736842105
+          },
+          "optimum_M1": 266.0,
+          "optimum_M2": 324.0
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 2,
+        "model": "batched",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 141.0,
+          "q_max": "HC_LI",
+          "q_min": "LC_LI",
+          "H_up": 0.06382978723404255,
+          "M_Phi": 0.0,
+          "GAP": 0.06382978723404255,
+          "gap_ci": [
+            0.013986013986013986,
+            0.21990715667311406
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 139.0,
+          "class_medians": {
+            "HC_HI": 158.0,
+            "HC_LI": 150.0,
+            "LC_HI": 136.5,
+            "LC_LI": 120.0
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.1366906474820144,
+            "M_Phi": 0.0,
+            "GAP": 0.1366906474820144
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.1366906474820144,
+            "M_Phi": 0.0,
+            "GAP": 0.1366906474820144
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.3448275862068965,
+            "3": 0.5,
+            "4": 0.4042553191489362
+          },
+          "optimum_M1": 61.0,
+          "optimum_M2": 61.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 2,
+        "model": "batched",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 501.5,
+          "q_max": "HC_LI",
+          "q_min": "LC_LI",
+          "H_up": 0.09571286141575275,
+          "M_Phi": 0.0,
+          "GAP": 0.09571286141575275,
+          "gap_ci": [
+            0.067973624291177,
+            0.12551020408163266
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 502.0,
+          "class_medians": {
+            "HC_HI": 548.5,
+            "HC_LI": 538.0,
+            "LC_HI": 476.0,
+            "LC_LI": 459.0
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.09262948207171315,
+            "M_Phi": 0.0,
+            "GAP": 0.09262948207171315
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.09262948207171315,
+            "M_Phi": 0.0,
+            "GAP": 0.09262948207171315
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.4032258064516129,
+            "3": 0.49411764705882355,
+            "4": 0.4626865671641791
+          },
+          "optimum_M1": 261.0,
+          "optimum_M2": 309.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 3,
+        "model": "abstraction",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "HC_HI",
+          "m0": 76.0,
+          "q_max": "HC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.06578947368421052,
+          "M_Phi": 0.18421052631578946,
+          "GAP": 0.25,
+          "gap_ci": [
+            0.13735197368421054,
+            0.3026315789473684
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 76.0,
+          "class_medians": {
+            "HC_HI": 71.0,
+            "HC_LI": 81.0,
+            "LC_HI": 57.0,
+            "LC_LI": 80.0
+          },
+          "stored_corner": {
+            "favorable": "HC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.06578947368421052,
+            "M_Phi": 0.18421052631578946,
+            "GAP": 0.25
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.06578947368421052,
+            "M_Phi": 0.0,
+            "GAP": 0.06578947368421052
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.5,
+            "3": 0.2631578947368421,
+            "4": 0.3448275862068966
+          },
+          "optimum_M1": 33.0,
+          "optimum_M2": 33.0
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 3,
+        "model": "abstraction",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 265.0,
+          "q_max": "HC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.01509433962264151,
+          "M_Phi": 0.0,
+          "GAP": 0.01509433962264151,
+          "gap_ci": [
+            -0.0018588225928156561,
+            0.03787878787878788
+          ],
+          "d1d": false
+        },
+        "exact_enumeration_NS": {
+          "m0": 263.0,
+          "class_medians": {
+            "HC_HI": 258.5,
+            "HC_LI": 271.0,
+            "LC_HI": 245.0,
+            "LC_LI": 259.0
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.030418250950570342,
+            "M_Phi": 0.0,
+            "GAP": 0.030418250950570342
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.030418250950570342,
+            "M_Phi": 0.0,
+            "GAP": 0.030418250950570342
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.5,
+            "3": 0.36363636363636365,
+            "4": 0.3793103448275862
+          },
+          "optimum_M1": 188.0,
+          "optimum_M2": 215.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 3,
+        "model": "batched",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 100.0,
+          "q_max": "HC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.09,
+          "M_Phi": 0.0,
+          "GAP": 0.09,
+          "gap_ci": [
+            0.04807692307692308,
+            0.14736842105263157
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 100.0,
+          "class_medians": {
+            "HC_HI": 90.0,
+            "HC_LI": 105.0,
+            "LC_HI": 76.0,
+            "LC_LI": 97.0
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.05,
+            "M_Phi": 0.0,
+            "GAP": 0.05
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.05,
+            "M_Phi": 0.0,
+            "GAP": 0.05
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.38461538461538464,
+            "3": 0.3214285714285714,
+            "4": 0.27272727272727276
+          },
+          "optimum_M1": 33.0,
+          "optimum_M2": 33.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 3,
+        "model": "batched",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 353.5,
+          "q_max": "HC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.03818953323903819,
+          "M_Phi": 0.0,
+          "GAP": 0.03818953323903819,
+          "gap_ci": [
+            0.015350140056022412,
+            0.06515580736543909
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 353.0,
+          "class_medians": {
+            "HC_HI": 349.0,
+            "HC_LI": 373.0,
+            "LC_HI": 329.0,
+            "LC_LI": 352.0
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.056657223796033995,
+            "M_Phi": 0.0,
+            "GAP": 0.056657223796033995
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.056657223796033995,
+            "M_Phi": 0.0,
+            "GAP": 0.056657223796033995
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.5,
+            "3": 0.4411764705882353,
+            "4": 0.43181818181818177
+          },
+          "optimum_M1": 182.0,
+          "optimum_M2": 197.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 4,
+        "model": "abstraction",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 162.23679698389304,
+          "q_max": "LC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.02157849428744012,
+          "M_Phi": 0.0844828758644798,
+          "GAP": 0.10606137015191992,
+          "gap_ci": [
+            0.05507992919360751,
+            0.15093728896695374
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 160.3539822770115,
+          "class_medians": {
+            "HC_HI": 156.27759560953052,
+            "HC_LI": 163.28081080193823,
+            "LC_HI": 153.03139160058151,
+            "LC_LI": 164.59062295488846
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "LC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.02642055169268046,
+            "M_Phi": 0.07208571430635488,
+            "GAP": 0.09850626599903534
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "LC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.02642055169268046,
+            "M_Phi": 0.0,
+            "GAP": 0.02642055169268046
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.48788526989736286,
+            "3": 0.5326676202685428,
+            "4": 0.4698372503494657
+          },
+          "optimum_M1": 95.64885869910083,
+          "optimum_M2": 115.08598150906948
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 4,
+        "model": "abstraction",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "HC_HI",
+          "m0": 500.4556285256996,
+          "q_max": "LC_HI",
+          "q_min": "HC_HI",
+          "H_up": 0.017948390444746574,
+          "M_Phi": 0.0,
+          "GAP": 0.017948390444746574,
+          "gap_ci": [
+            -0.0008332298049318825,
+            0.04420514573179833
+          ],
+          "d1d": false
+        },
+        "exact_enumeration_NS": {
+          "m0": 500.7917227392361,
+          "class_medians": {
+            "HC_HI": 493.2733677231463,
+            "HC_LI": 496.8393079987128,
+            "LC_HI": 499.506731619939,
+            "LC_LI": 503.01291672528623
+          },
+          "stored_corner": {
+            "favorable": "HC_HI",
+            "q_max": "LC_LI",
+            "q_min": "HC_HI",
+            "H_up": 0.004435364813740585,
+            "M_Phi": 0.0,
+            "GAP": 0.004435364813740585
+          },
+          "full_pool_fit_corner": {
+            "favorable": "HC_HI",
+            "q_max": "LC_LI",
+            "q_min": "HC_HI",
+            "H_up": 0.004435364813740585,
+            "M_Phi": 0.0,
+            "GAP": 0.004435364813740585
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.667886736220337,
+            "3": 0.43927759652336384,
+            "4": 0.41487006640729485
+          },
+          "optimum_M1": 378.24311210881706,
+          "optimum_M2": 494.2713852394744
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 4,
+        "model": "batched",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 203.5921576964147,
+          "q_max": "HC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.0229705471312794,
+          "M_Phi": 0.04091407313940952,
+          "GAP": 0.06388462027068892,
+          "gap_ci": [
+            0.02748931989265652,
+            0.13816794222468673
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 204.65829973015846,
+          "class_medians": {
+            "HC_HI": 199.1562303369172,
+            "HC_LI": 209.70926832012907,
+            "LC_HI": 196.43278370991248,
+            "LC_LI": 208.9017637603485
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.024680008563690306,
+            "M_Phi": 0.06092584599244859,
+            "GAP": 0.0856058545561389
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.024680008563690306,
+            "M_Phi": 0.0,
+            "GAP": 0.024680008563690306
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.5222345722798243,
+            "3": 0.569570249475331,
+            "4": 0.5133377541342918
+          },
+          "optimum_M1": 96.97309164813979,
+          "optimum_M2": 106.50733253044314
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 4,
+        "model": "batched",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "HC_HI",
+          "m0": 673.2132003375916,
+          "q_max": "LC_LI",
+          "q_min": "HC_HI",
+          "H_up": 0.02301770519189866,
+          "M_Phi": 0.0,
+          "GAP": 0.02301770519189866,
+          "gap_ci": [
+            0.0046890675286224495,
+            0.05724847438003669
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 673.6542577213453,
+          "class_medians": {
+            "HC_HI": 657.9893931405163,
+            "HC_LI": 672.5379599921275,
+            "LC_HI": 677.7930570844367,
+            "LC_LI": 688.5115648041347
+          },
+          "stored_corner": {
+            "favorable": "HC_HI",
+            "q_max": "LC_LI",
+            "q_min": "HC_HI",
+            "H_up": 0.02205479578358879,
+            "M_Phi": 0.0,
+            "GAP": 0.02205479578358879
+          },
+          "full_pool_fit_corner": {
+            "favorable": "HC_HI",
+            "q_max": "LC_LI",
+            "q_min": "HC_HI",
+            "H_up": 0.02205479578358879,
+            "M_Phi": 0.0,
+            "GAP": 0.02205479578358879
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.4535719608248087,
+            "3": 0.41887677894666575,
+            "4": 0.4669119591638835
+          },
+          "optimum_M1": 371.54427111285435,
+          "optimum_M2": 495.54427111285435
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 5,
+        "model": "abstraction",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "HC_HI",
+          "m0": 95.89938421554966,
+          "q_max": "HC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.05964035533371432,
+          "M_Phi": 0.015875692877740884,
+          "GAP": 0.0755160482114552,
+          "gap_ci": [
+            0.03624862748282035,
+            0.17793157650052976
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 97.45131328362594,
+          "class_medians": {
+            "HC_HI": 95.83556660840732,
+            "HC_LI": 101.33976665281185,
+            "LC_HI": 90.95691233712178,
+            "LC_LI": 98.34259499640032
+          },
+          "stored_corner": {
+            "favorable": "HC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.03990149786764608,
+            "M_Phi": 0.050062478451024295,
+            "GAP": 0.08996397631867037
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.03990149786764608,
+            "M_Phi": 0.0,
+            "GAP": 0.03990149786764608
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.47035068562433013,
+            "3": 0.4326506419183477,
+            "4": 0.4091205145047004
+          },
+          "optimum_M1": 56.9188121616061,
+          "optimum_M2": 63.97525475037911
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 5,
+        "model": "abstraction",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "HC_HI",
+          "m0": 273.71149668827115,
+          "q_max": "LC_LI",
+          "q_min": "HC_HI",
+          "H_up": 0.023582954468328914,
+          "M_Phi": 0.0,
+          "GAP": 0.023582954468328914,
+          "gap_ci": [
+            -0.0009975422275950124,
+            0.04100808880356501
+          ],
+          "d1d": false
+        },
+        "exact_enumeration_NS": {
+          "m0": 274.8789460849456,
+          "class_medians": {
+            "HC_HI": 269.78289819077895,
+            "HC_LI": 274.7200495389807,
+            "LC_HI": 271.7951108884963,
+            "LC_LI": 278.62231077398644
+          },
+          "stored_corner": {
+            "favorable": "HC_HI",
+            "q_max": "LC_LI",
+            "q_min": "HC_HI",
+            "H_up": 0.013618229923960916,
+            "M_Phi": 0.0,
+            "GAP": 0.013618229923960916
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "LC_LI",
+            "q_min": "HC_HI",
+            "H_up": 0.013618229923960916,
+            "M_Phi": 0.0073203594759692035,
+            "GAP": 0.020938589399930117
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.5861188687333568,
+            "3": 0.3508945758150243,
+            "4": 0.5730209410677207
+          },
+          "optimum_M1": 196.45336216229146,
+          "optimum_M2": 244.1151141361017
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 5,
+        "model": "batched",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "HC_HI",
+          "m0": 124.00816435242888,
+          "q_max": "HC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.05663968260912968,
+          "M_Phi": 0.015420074965094312,
+          "GAP": 0.07205975757422399,
+          "gap_ci": [
+            0.002405270519462149,
+            0.13821016661502472
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 123.70801214447212,
+          "class_medians": {
+            "HC_HI": 120.03294943129711,
+            "HC_LI": 127.55784952986892,
+            "LC_HI": 120.20662009349714,
+            "LC_LI": 124.26754255628828
+          },
+          "stored_corner": {
+            "favorable": "HC_HI",
+            "q_max": "HC_LI",
+            "q_min": "HC_HI",
+            "H_up": 0.03112035605988699,
+            "M_Phi": 0.0,
+            "GAP": 0.03112035605988699
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "HC_HI",
+            "H_up": 0.03112035605988699,
+            "M_Phi": 0.001403875619609854,
+            "GAP": 0.03252423167949684
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.4972127495311995,
+            "3": 0.4342995991821609,
+            "4": 0.33090758268592174
+          },
+          "optimum_M1": 56.527381248429535,
+          "optimum_M2": 55.724656768656374
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 5,
+        "model": "batched",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 365.2777337384973,
+          "q_max": "HC_LI",
+          "q_min": "HC_HI",
+          "H_up": 0.015371709355367942,
+          "M_Phi": 0.002830738343009974,
+          "GAP": 0.018202447698377915,
+          "gap_ci": [
+            0.0019104723699450465,
+            0.08492911022550512
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 366.71804005044544,
+          "class_medians": {
+            "HC_HI": 361.4264229825292,
+            "HC_LI": 373.9488366232627,
+            "LC_HI": 362.88431688821197,
+            "LC_LI": 362.35434837203263
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "HC_HI",
+            "H_up": 0.019717591672944713,
+            "M_Phi": 0.003975517281566645,
+            "GAP": 0.023693108954511356
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "HC_HI",
+            "H_up": 0.019717591672944713,
+            "M_Phi": 0.003975517281566645,
+            "GAP": 0.023693108954511356
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.6458508334968301,
+            "3": 0.5392053572633695,
+            "4": 0.4833277078163194
+          },
+          "optimum_M1": 210.7722218032132,
+          "optimum_M2": 243.81126845153167
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 6,
+        "model": "abstraction",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 232.0,
+          "q_max": "HC_HI",
+          "q_min": "LC_LI",
+          "H_up": 0.07758620689655173,
+          "M_Phi": 0.0,
+          "GAP": 0.07758620689655173,
+          "gap_ci": [
+            0.04219409282700422,
+            0.10895108581066834
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 232.0,
+          "class_medians": {
+            "HC_HI": 251.0,
+            "HC_LI": 222.0,
+            "LC_HI": 236.0,
+            "LC_LI": 222.0
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "HC_LI",
+            "H_up": 0.08189655172413793,
+            "M_Phi": 0.0,
+            "GAP": 0.08189655172413793
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "HC_LI",
+            "H_up": 0.08189655172413793,
+            "M_Phi": 0.0,
+            "GAP": 0.08189655172413793
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.6,
+            "3": 0.5833333333333333,
+            "4": 0.40816326530612246
+          },
+          "optimum_M1": 133.0,
+          "optimum_M2": 170.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 6,
+        "model": "abstraction",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 687.0,
+          "q_max": "HC_HI",
+          "q_min": "LC_LI",
+          "H_up": 0.0611353711790393,
+          "M_Phi": 0.0,
+          "GAP": 0.0611353711790393,
+          "gap_ci": [
+            0.039015933488476845,
+            0.09481481481481481
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 691.0,
+          "class_medians": {
+            "HC_HI": 728.0,
+            "HC_LI": 706.0,
+            "LC_HI": 690.0,
+            "LC_LI": 661.0
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.053545586107091175,
+            "M_Phi": 0.0,
+            "GAP": 0.053545586107091175
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.053545586107091175,
+            "M_Phi": 0.0,
+            "GAP": 0.053545586107091175
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.5227272727272727,
+            "3": 0.46874999999999994,
+            "4": 0.48051948051948057
+          },
+          "optimum_M1": 522.0,
+          "optimum_M2": 803.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 6,
+        "model": "batched",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 325.0,
+          "q_max": "HC_HI",
+          "q_min": "LC_LI",
+          "H_up": 0.015384615384615385,
+          "M_Phi": 0.0,
+          "GAP": 0.015384615384615385,
+          "gap_ci": [
+            0.0,
+            0.046875
+          ],
+          "d1d": false
+        },
+        "exact_enumeration_NS": {
+          "m0": 325.0,
+          "class_medians": {
+            "HC_HI": 330.0,
+            "HC_LI": 316.0,
+            "LC_HI": 330.0,
+            "LC_LI": 311.0
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.015384615384615385,
+            "M_Phi": 0.0,
+            "GAP": 0.015384615384615385
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.015384615384615385,
+            "M_Phi": 0.0,
+            "GAP": 0.015384615384615385
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.09999999999999999,
+            "3": 0.26315789473684215,
+            "4": 0.36842105263157887
+          },
+          "optimum_M1": 124.0,
+          "optimum_M2": 194.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 6,
+        "model": "batched",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 1014.0,
+          "q_max": "HC_HI",
+          "q_min": "LC_LI",
+          "H_up": 0.05571992110453649,
+          "M_Phi": 0.0,
+          "GAP": 0.05571992110453649,
+          "gap_ci": [
+            0.039959548072436596,
+            0.07118057759008763
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 1030.0,
+          "class_medians": {
+            "HC_HI": 1070.0,
+            "HC_LI": 1047.5,
+            "LC_HI": 1019.5,
+            "LC_LI": 996.0
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.038834951456310676,
+            "M_Phi": 0.0,
+            "GAP": 0.038834951456310676
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.038834951456310676,
+            "M_Phi": 0.0,
+            "GAP": 0.038834951456310676
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.5339805825242718,
+            "3": 0.5135135135135135,
+            "4": 0.5
+          },
+          "optimum_M1": 526.0,
+          "optimum_M2": 760.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 7,
+        "model": "abstraction",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 103.0,
+          "q_max": "HC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.1262135922330097,
+          "M_Phi": 0.0,
+          "GAP": 0.1262135922330097,
+          "gap_ci": [
+            0.09523809523809523,
+            0.23788762498188668
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 102.0,
+          "class_medians": {
+            "HC_HI": 115.0,
+            "HC_LI": 115.0,
+            "LC_HI": 91.0,
+            "LC_LI": 95.0
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_HI",
+            "H_up": 0.12745098039215685,
+            "M_Phi": 0.0392156862745098,
+            "GAP": 0.16666666666666666
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_HI",
+            "H_up": 0.12745098039215685,
+            "M_Phi": 0.0392156862745098,
+            "GAP": 0.16666666666666666
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.4736842105263158,
+            "3": 0.5416666666666666,
+            "4": 0.5384615384615385
+          },
+          "optimum_M1": 43.0,
+          "optimum_M2": 48.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 7,
+        "model": "abstraction",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 333.5,
+          "q_max": "HC_HI",
+          "q_min": "LC_HI",
+          "H_up": 0.09145427286356822,
+          "M_Phi": 0.0,
+          "GAP": 0.09145427286356822,
+          "gap_ci": [
+            0.05317185973812388,
+            0.11329733627068755
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 331.0,
+          "class_medians": {
+            "HC_HI": 355.0,
+            "HC_LI": 355.5,
+            "LC_HI": 308.0,
+            "LC_LI": 316.0
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.07401812688821752,
+            "M_Phi": 0.0,
+            "GAP": 0.07401812688821752
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.07401812688821752,
+            "M_Phi": 0.02416918429003021,
+            "GAP": 0.09818731117824772
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.5483870967741936,
+            "3": 0.5454545454545455,
+            "4": 0.5
+          },
+          "optimum_M1": 202.0,
+          "optimum_M2": 298.0
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 7,
+        "model": "batched",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 143.5,
+          "q_max": "HC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.156794425087108,
+          "M_Phi": 0.020905923344947737,
+          "GAP": 0.17770034843205573,
+          "gap_ci": [
+            0.09867612165660052,
+            0.28479841127098315
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 144.0,
+          "class_medians": {
+            "HC_HI": 164.0,
+            "HC_LI": 167.0,
+            "LC_HI": 119.0,
+            "LC_LI": 125.0
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.1597222222222222,
+            "M_Phi": 0.041666666666666664,
+            "GAP": 0.20138888888888887
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.1597222222222222,
+            "M_Phi": 0.0,
+            "GAP": 0.1597222222222222
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.48275862068965514,
+            "3": 0.45454545454545453,
+            "4": 0.48275862068965514
+          },
+          "optimum_M1": 43.0,
+          "optimum_M2": 53.0
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 7,
+        "model": "batched",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 510.0,
+          "q_max": "HC_LI",
+          "q_min": "LC_LI",
+          "H_up": 0.0892156862745098,
+          "M_Phi": 0.01764705882352941,
+          "GAP": 0.10686274509803922,
+          "gap_ci": [
+            0.07249671022223673,
+            0.1507107819933256
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 514.0,
+          "class_medians": {
+            "HC_HI": 554.0,
+            "HC_LI": 556.0,
+            "LC_HI": 471.0,
+            "LC_LI": 461.0
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_LI",
+            "H_up": 0.08171206225680934,
+            "M_Phi": 0.019455252918287938,
+            "GAP": 0.10116731517509728
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_LI",
+            "q_min": "LC_LI",
+            "H_up": 0.08171206225680934,
+            "M_Phi": 0.0,
+            "GAP": 0.08171206225680934
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.4838709677419355,
+            "3": 0.4431818181818181,
+            "4": 0.4423963133640553
+          },
+          "optimum_M1": 218.0,
+          "optimum_M2": 315.0
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 8,
+        "model": "abstraction",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 220.95530243660062,
+          "q_max": "HC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.04817840086887814,
+          "M_Phi": 0.0,
+          "GAP": 0.04817840086887814,
+          "gap_ci": [
+            0.009648022356693733,
+            0.08995605543911102
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 225.30031620307807,
+          "class_medians": {
+            "HC_HI": 223.88666426546263,
+            "HC_LI": 231.8897227657527,
+            "LC_HI": 217.2583948244454,
+            "LC_LI": 228.85185130117804
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.029247214001844418,
+            "M_Phi": 0.0,
+            "GAP": 0.029247214001844418
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.029247214001844418,
+            "M_Phi": 0.0,
+            "GAP": 0.029247214001844418
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.4004742276741308,
+            "3": 0.4976092665963365,
+            "4": 0.5821722630261673
+          },
+          "optimum_M1": 123.20792270630693,
+          "optimum_M2": 156.83117557365154
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 8,
+        "model": "abstraction",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 706.8121487449685,
+          "q_max": "HC_HI",
+          "q_min": "LC_HI",
+          "H_up": 0.028317420599121245,
+          "M_Phi": 0.006638165034141793,
+          "GAP": 0.03495558563326304,
+          "gap_ci": [
+            0.012408937930470397,
+            0.062326692929000074
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 713.0064691842446,
+          "class_medians": {
+            "HC_HI": 722.8636377460552,
+            "HC_LI": 723.3264522755223,
+            "LC_HI": 705.6605495440704,
+            "LC_LI": 703.7433205751122
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_LI",
+            "q_min": "LC_LI",
+            "H_up": 0.014473898256610404,
+            "M_Phi": 0.0,
+            "GAP": 0.014473898256610404
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_LI",
+            "H_up": 0.014473898256610404,
+            "M_Phi": 0.002688936288546841,
+            "GAP": 0.017162834545157244
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.49382168337724774,
+            "3": 0.39876858848871055,
+            "4": 0.4091267775567299
+          },
+          "optimum_M1": 489.13586805806096,
+          "optimum_M2": 758.6833590704863
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 8,
+        "model": "batched",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 313.1264694961276,
+          "q_max": "HC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.002113591142747996,
+          "M_Phi": 0.0,
+          "GAP": 0.002113591142747996,
+          "gap_ci": [
+            -0.01532255011129335,
+            0.05004966691443198
+          ],
+          "d1d": false
+        },
+        "exact_enumeration_NS": {
+          "m0": 307.5944123531556,
+          "class_medians": {
+            "HC_HI": 315.446050845615,
+            "HC_LI": 313.23537918611447,
+            "LC_HI": 296.3329816707877,
+            "LC_LI": 301.3918298651897
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_HI",
+            "q_min": "LC_HI",
+            "H_up": 0.02552594643183825,
+            "M_Phi": 0.0,
+            "GAP": 0.02552594643183825
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_HI",
+            "q_min": "LC_HI",
+            "H_up": 0.02552594643183825,
+            "M_Phi": 0.0,
+            "GAP": 0.02552594643183825
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.5027887700399043,
+            "3": 0.2791800884329586,
+            "4": 0.3812003834624542
+          },
+          "optimum_M1": 93.60493667087275,
+          "optimum_M2": 130.95877198849593
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 8,
+        "model": "batched",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 1025.9577697026152,
+          "q_max": "HC_LI",
+          "q_min": "LC_LI",
+          "H_up": 0.04405377602823421,
+          "M_Phi": 0.023665988180975338,
+          "GAP": 0.06771976420920955,
+          "gap_ci": [
+            0.04659612929242909,
+            0.09371772491832267
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 1047.4716322081545,
+          "class_medians": {
+            "HC_HI": 1051.8909261604535,
+            "HC_LI": 1069.3416072334496,
+            "LC_HI": 1039.0278271557283,
+            "LC_LI": 1021.889777638836
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_LI",
+            "H_up": 0.02087882320897941,
+            "M_Phi": 0.01636134954868798,
+            "GAP": 0.03724017275766739
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_LI",
+            "H_up": 0.02087882320897941,
+            "M_Phi": 0.01636134954868798,
+            "GAP": 0.03724017275766739
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.5900369802375658,
+            "3": 0.49582493478680606,
+            "4": 0.39451332591595156
+          },
+          "optimum_M1": 496.2572981939561,
+          "optimum_M2": 752.3075438778067
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 9,
+        "model": "abstraction",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "HC_LI",
+          "m0": 145.50696657376028,
+          "q_max": "LC_LI",
+          "q_min": "HC_HI",
+          "H_up": 0.046227381604667675,
+          "M_Phi": 0.046331812050817996,
+          "GAP": 0.09255919365548568,
+          "gap_ci": [
+            0.03317933608853441,
+            0.13992949597885485
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 146.85784033436875,
+          "class_medians": {
+            "HC_HI": 142.32862326487196,
+            "HC_LI": 149.57736365388146,
+            "LC_HI": 143.3619639498604,
+            "LC_LI": 152.17456866169607
+          },
+          "stored_corner": {
+            "favorable": "HC_LI",
+            "q_max": "LC_LI",
+            "q_min": "HC_HI",
+            "H_up": 0.03620323106496798,
+            "M_Phi": 0.04935889273943718,
+            "GAP": 0.08556212380440516
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "LC_LI",
+            "q_min": "HC_HI",
+            "H_up": 0.03620323106496798,
+            "M_Phi": 0.007036333113953709,
+            "GAP": 0.043239564178921684
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.5295058629181524,
+            "3": 0.4131179509788453,
+            "4": 0.5555838212999032
+          },
+          "optimum_M1": 80.98548361049606,
+          "optimum_M2": 92.2224002106446
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 9,
+        "model": "abstraction",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 426.2343054356374,
+          "q_max": "HC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.01694281500299412,
+          "M_Phi": 0.0,
+          "GAP": 0.01694281500299412,
+          "gap_ci": [
+            -0.003561802288924733,
+            0.03936573888861954
+          ],
+          "d1d": false
+        },
+        "exact_enumeration_NS": {
+          "m0": 428.6020757002631,
+          "class_medians": {
+            "HC_HI": 426.76506341219516,
+            "HC_LI": 433.1834690934507,
+            "LC_HI": 420.7157789057104,
+            "LC_LI": 430.43200932541663
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.010689153536418146,
+            "M_Phi": 0.0,
+            "GAP": 0.010689153536418146
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.010689153536418146,
+            "M_Phi": 0.0,
+            "GAP": 0.010689153536418146
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.492513746460826,
+            "3": 0.4332239070936315,
+            "4": 0.32298471085987646
+          },
+          "optimum_M1": 298.2754467807474,
+          "optimum_M2": 428.0081758854529
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 9,
+        "model": "batched",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 213.7524325949351,
+          "q_max": "HC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.02999452910160327,
+          "M_Phi": 0.0,
+          "GAP": 0.02999452910160327,
+          "gap_ci": [
+            -0.00835838550485972,
+            0.08659673129797302
+          ],
+          "d1d": false
+        },
+        "exact_enumeration_NS": {
+          "m0": 209.04217094009138,
+          "class_medians": {
+            "HC_HI": 210.38745963564483,
+            "HC_LI": 215.98171418200096,
+            "LC_HI": 193.49506987729092,
+            "LC_LI": 208.69102117383093
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.033196857890929354,
+            "M_Phi": 0.0,
+            "GAP": 0.033196857890929354
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.033196857890929354,
+            "M_Phi": 0.0,
+            "GAP": 0.033196857890929354
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.3429493394792386,
+            "3": 0.2320065212093775,
+            "4": 0.35662556668468265
+          },
+          "optimum_M1": 76.65006034723321,
+          "optimum_M2": 90.10393019075659
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 9,
+        "model": "batched",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 667.1340898085355,
+          "q_max": "HC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.015173159761427303,
+          "M_Phi": 0.0,
+          "GAP": 0.015173159761427303,
+          "gap_ci": [
+            -0.004998281769319258,
+            0.04992700425037241
+          ],
+          "d1d": false
+        },
+        "exact_enumeration_NS": {
+          "m0": 663.6839806811049,
+          "class_medians": {
+            "HC_HI": 671.0582421659982,
+            "HC_LI": 679.9721602814088,
+            "LC_HI": 644.5259678382322,
+            "LC_LI": 649.4053556306178
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.024542071338814288,
+            "M_Phi": 0.0,
+            "GAP": 0.024542071338814288
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.024542071338814288,
+            "M_Phi": 0.00735197463614859,
+            "GAP": 0.03189404597496288
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.44370012411704457,
+            "3": 0.5155173902601009,
+            "4": 0.3492277627973856
+          },
+          "optimum_M1": 299.3900171984971,
+          "optimum_M2": 417.5143676119037
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 10,
+        "model": "abstraction",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 221.5,
+          "q_max": "LC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.002257336343115124,
+          "M_Phi": 0.07223476297968397,
+          "GAP": 0.07449209932279909,
+          "gap_ci": [
+            0.03377437849876602,
+            0.1395442180499253
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 216.0,
+          "class_medians": {
+            "HC_HI": 217.0,
+            "HC_LI": 218.0,
+            "LC_HI": 207.0,
+            "LC_LI": 217.5
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.009259259259259259,
+            "M_Phi": 0.04861111111111111,
+            "GAP": 0.05787037037037037
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.009259259259259259,
+            "M_Phi": 0.0,
+            "GAP": 0.009259259259259259
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.38461538461538464,
+            "3": 0.39999999999999997,
+            "4": 0.423076923076923
+          },
+          "optimum_M1": 114.0,
+          "optimum_M2": 145.0
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 10,
+        "model": "abstraction",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 782.0,
+          "q_max": "HC_HI",
+          "q_min": "LC_HI",
+          "H_up": 0.0025575447570332483,
+          "M_Phi": 0.0019181585677749361,
+          "GAP": 0.004475703324808185,
+          "gap_ci": [
+            -0.013921333635173762,
+            0.03462691326530611
+          ],
+          "d1d": false
+        },
+        "exact_enumeration_NS": {
+          "m0": 781.0,
+          "class_medians": {
+            "HC_HI": 779.0,
+            "HC_LI": 783.0,
+            "LC_HI": 772.5,
+            "LC_LI": 780.0
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.002560819462227913,
+            "M_Phi": 0.009603072983354673,
+            "GAP": 0.012163892445582586
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.002560819462227913,
+            "M_Phi": 0.009603072983354673,
+            "GAP": 0.012163892445582586
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.5,
+            "3": 0.4,
+            "4": 0.5555555555555555
+          },
+          "optimum_M1": 581.0,
+          "optimum_M2": 845.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 10,
+        "model": "batched",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 297.0,
+          "q_max": "LC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.04713804713804714,
+          "M_Phi": 0.0,
+          "GAP": 0.04713804713804714,
+          "gap_ci": [
+            0.005067141004641005,
+            0.07876712328767123
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 295.0,
+          "class_medians": {
+            "HC_HI": 301.0,
+            "HC_LI": 299.0,
+            "LC_HI": 277.0,
+            "LC_LI": 291.0
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_HI",
+            "q_min": "LC_HI",
+            "H_up": 0.020338983050847456,
+            "M_Phi": 0.0,
+            "GAP": 0.020338983050847456
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_HI",
+            "q_min": "LC_HI",
+            "H_up": 0.020338983050847456,
+            "M_Phi": 0.0,
+            "GAP": 0.020338983050847456
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.43749999999999994,
+            "3": 0.25,
+            "4": 0.375
+          },
+          "optimum_M1": 99.0,
+          "optimum_M2": 134.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 10,
+        "model": "batched",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 1100.5,
+          "q_max": "HC_HI",
+          "q_min": "LC_HI",
+          "H_up": 0.008632439800090867,
+          "M_Phi": 0.0,
+          "GAP": 0.008632439800090867,
+          "gap_ci": [
+            -0.0027254638414505577,
+            0.038922247569387856
+          ],
+          "d1d": false
+        },
+        "exact_enumeration_NS": {
+          "m0": 1105.5,
+          "class_medians": {
+            "HC_HI": 1109.5,
+            "HC_LI": 1103.5,
+            "LC_HI": 1093.5,
+            "LC_LI": 1104.5
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_HI",
+            "q_min": "LC_HI",
+            "H_up": 0.003618272274988693,
+            "M_Phi": 0.0,
+            "GAP": 0.003618272274988693
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_HI",
+            "q_min": "LC_HI",
+            "H_up": 0.003618272274988693,
+            "M_Phi": 0.0,
+            "GAP": 0.003618272274988693
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.576923076923077,
+            "3": 0.375,
+            "4": 0.6142857142857143
+          },
+          "optimum_M1": 560.0,
+          "optimum_M2": 831.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 11,
+        "model": "abstraction",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 135.0,
+          "q_max": "HC_HI",
+          "q_min": "HC_LI",
+          "H_up": 0.03333333333333333,
+          "M_Phi": 0.0,
+          "GAP": 0.03333333333333333,
+          "gap_ci": [
+            0.003689697742565661,
+            0.09925572519083968
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 135.0,
+          "class_medians": {
+            "HC_HI": 140.0,
+            "HC_LI": 135.0,
+            "LC_HI": 135.5,
+            "LC_LI": 131.0
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.037037037037037035,
+            "M_Phi": 0.03333333333333333,
+            "GAP": 0.07037037037037036
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.037037037037037035,
+            "M_Phi": 0.0,
+            "GAP": 0.037037037037037035
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.5,
+            "3": 0.4444444444444445,
+            "4": 0.4545454545454545
+          },
+          "optimum_M1": 71.0,
+          "optimum_M2": 81.0
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 11,
+        "model": "abstraction",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 458.0,
+          "q_max": "HC_HI",
+          "q_min": "LC_LI",
+          "H_up": 0.024017467248908297,
+          "M_Phi": 0.0,
+          "GAP": 0.024017467248908297,
+          "gap_ci": [
+            0.011866235167206042,
+            0.048620129076419105
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 455.0,
+          "class_medians": {
+            "HC_HI": 464.0,
+            "HC_LI": 452.0,
+            "LC_HI": 469.0,
+            "LC_LI": 450.0
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "LC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.03076923076923077,
+            "M_Phi": 0.0,
+            "GAP": 0.03076923076923077
+          },
+          "full_pool_fit_corner": {
+            "favorable": "HC_LI",
+            "q_max": "LC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.03076923076923077,
+            "M_Phi": 0.004395604395604396,
+            "GAP": 0.035164835164835165
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.6363636363636364,
+            "3": 0.619047619047619,
+            "4": 0.5384615384615384
+          },
+          "optimum_M1": 321.0,
+          "optimum_M2": 460.0
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 11,
+        "model": "batched",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 198.0,
+          "q_max": "HC_HI",
+          "q_min": "LC_LI",
+          "H_up": 0.047979797979797977,
+          "M_Phi": 0.030303030303030304,
+          "GAP": 0.07828282828282829,
+          "gap_ci": [
+            0.022727272727272728,
+            0.14510769209568955
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 196.0,
+          "class_medians": {
+            "HC_HI": 207.0,
+            "HC_LI": 202.0,
+            "LC_HI": 193.0,
+            "LC_LI": 188.0
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.05612244897959184,
+            "M_Phi": 0.025510204081632654,
+            "GAP": 0.0816326530612245
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.05612244897959184,
+            "M_Phi": 0.0,
+            "GAP": 0.05612244897959184
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.4666666666666666,
+            "3": 0.3928571428571429,
+            "4": 0.3793103448275862
+          },
+          "optimum_M1": 67.0,
+          "optimum_M2": 85.0
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 11,
+        "model": "batched",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "HC_HI",
+          "m0": 687.5,
+          "q_max": "HC_HI",
+          "q_min": "LC_LI",
+          "H_up": 0.03127272727272727,
+          "M_Phi": 0.04509090909090909,
+          "GAP": 0.07636363636363636,
+          "gap_ci": [
+            0.020843878699049367,
+            0.11387852080876336
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 691.0,
+          "class_medians": {
+            "HC_HI": 710.0,
+            "HC_LI": 686.0,
+            "LC_HI": 700.0,
+            "LC_LI": 687.0
+          },
+          "stored_corner": {
+            "favorable": "HC_HI",
+            "q_max": "HC_HI",
+            "q_min": "HC_LI",
+            "H_up": 0.027496382054992764,
+            "M_Phi": 0.03473227206946455,
+            "GAP": 0.062228654124457314
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "HC_LI",
+            "H_up": 0.027496382054992764,
+            "M_Phi": 0.001447178002894356,
+            "GAP": 0.02894356005788712
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.65,
+            "3": 0.6545454545454545,
+            "4": 0.5974025974025974
+          },
+          "optimum_M1": 311.0,
+          "optimum_M2": 444.0
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 12,
+        "model": "abstraction",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 324.6050521429263,
+          "q_max": "HC_LI",
+          "q_min": "LC_LI",
+          "H_up": 0.03947994355049158,
+          "M_Phi": 0.02761602868169154,
+          "GAP": 0.06709597223218312,
+          "gap_ci": [
+            0.02465903649580646,
+            0.1229764582084469
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 327.75822562108766,
+          "class_medians": {
+            "HC_HI": 335.30730665680267,
+            "HC_LI": 334.01102423103293,
+            "LC_HI": 322.4878609163247,
+            "LC_LI": 318.5208719872016
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.023032468586897625,
+            "M_Phi": 0.012103400064501257,
+            "GAP": 0.03513586865139888
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.023032468586897625,
+            "M_Phi": 0.012103400064501257,
+            "GAP": 0.03513586865139888
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.43042829401576654,
+            "3": 0.4991451165909328,
+            "4": 0.488648878833586
+          },
+          "optimum_M1": 170.56253449991115,
+          "optimum_M2": 268.6812261925734
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 12,
+        "model": "abstraction",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 1061.7295233303184,
+          "q_max": "HC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.0008169640141103083,
+          "M_Phi": 0.023991560403413853,
+          "GAP": 0.02480852441752416,
+          "gap_ci": [
+            -0.010935946155073354,
+            0.056944383479028825
+          ],
+          "d1d": false
+        },
+        "exact_enumeration_NS": {
+          "m0": 1052.3702420619993,
+          "class_medians": {
+            "HC_HI": 1076.3763463538444,
+            "HC_LI": 1052.2167783681048,
+            "LC_HI": 1032.5262090327171,
+            "LC_LI": 1048.213434555783
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_HI",
+            "H_up": 0.022811462479980293,
+            "M_Phi": 0.014906565100442632,
+            "GAP": 0.037718027580422926
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_HI",
+            "H_up": 0.022811462479980293,
+            "M_Phi": 0.014906565100442632,
+            "GAP": 0.037718027580422926
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.5932484482036549,
+            "3": 0.49335200114786903,
+            "4": 0.4492000698868315
+          },
+          "optimum_M1": 703.0988661915407,
+          "optimum_M2": 1108.134998821212
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 12,
+        "model": "batched",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "HC_LI",
+          "m0": 444.2671470331493,
+          "q_max": "HC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.02835549041955995,
+          "M_Phi": 0.05871818415678039,
+          "GAP": 0.08707367457634034,
+          "gap_ci": [
+            0.04273849730412296,
+            0.15370399539103982
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 449.7893373316719,
+          "class_medians": {
+            "HC_HI": 459.06595653531963,
+            "HC_LI": 455.20833861587727,
+            "LC_HI": 434.5338548850985,
+            "LC_LI": 439.8143864242282
+          },
+          "stored_corner": {
+            "favorable": "HC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_HI",
+            "H_up": 0.020624364416196028,
+            "M_Phi": 0.04596481511417763,
+            "GAP": 0.06658917953037366
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_HI",
+            "q_min": "LC_HI",
+            "H_up": 0.020624364416196028,
+            "M_Phi": 0.0,
+            "GAP": 0.020624364416196028
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.455167738901478,
+            "3": 0.39600193129632877,
+            "4": 0.40425893392008966
+          },
+          "optimum_M1": 179.55416524584612,
+          "optimum_M2": 271.01808822284613
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 12,
+        "model": "batched",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 1521.6109910312732,
+          "q_max": "HC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.008649226343759918,
+          "M_Phi": 0.011866122531070365,
+          "GAP": 0.02051534887483028,
+          "gap_ci": [
+            0.005203652513056662,
+            0.053369581803545514
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 1528.9265134904044,
+          "class_medians": {
+            "HC_HI": 1539.7497353958292,
+            "HC_LI": 1551.1168511269047,
+            "LC_HI": 1493.732075088216,
+            "LC_LI": 1512.431035877859
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.014513671808752751,
+            "M_Phi": 0.012230123962566859,
+            "GAP": 0.02674379577131961
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.014513671808752751,
+            "M_Phi": 0.0,
+            "GAP": 0.014513671808752751
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.4675131495430208,
+            "3": 0.4495627470766416,
+            "4": 0.5005356439381087
+          },
+          "optimum_M1": 743.3574182056725,
+          "optimum_M2": 1114.0792263958394
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 13,
+        "model": "abstraction",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 226.40086893979634,
+          "q_max": "HC_HI",
+          "q_min": "LC_LI",
+          "H_up": 0.0468318896448364,
+          "M_Phi": 0.020349191187843535,
+          "GAP": 0.06718108083267993,
+          "gap_ci": [
+            0.010910504366343951,
+            0.13297883191008758
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 227.13583582789187,
+          "class_medians": {
+            "HC_HI": 233.09035674543463,
+            "HC_LI": 227.76402040692597,
+            "LC_HI": 225.1487078511036,
+            "LC_LI": 218.5749943312759
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.026215682328766025,
+            "M_Phi": 0.02894177176343426,
+            "GAP": 0.055157454092200284
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.026215682328766025,
+            "M_Phi": 0.0,
+            "GAP": 0.026215682328766025
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.46235449978906595,
+            "3": 0.43695565854097823,
+            "4": 0.45167805751281503
+          },
+          "optimum_M1": 121.55286802999063,
+          "optimum_M2": 167.7399430139357
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 13,
+        "model": "abstraction",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 642.5265712376731,
+          "q_max": "HC_HI",
+          "q_min": "LC_HI",
+          "H_up": 0.04268616731575753,
+          "M_Phi": 0.0,
+          "GAP": 0.04268616731575753,
+          "gap_ci": [
+            0.024359998236644545,
+            0.06850921038646814
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 644.4358419006257,
+          "class_medians": {
+            "HC_HI": 662.1767219020543,
+            "HC_LI": 653.3640199246089,
+            "LC_HI": 633.4916338754044,
+            "LC_LI": 634.6606887277791
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_HI",
+            "q_min": "LC_HI",
+            "H_up": 0.02752931920903965,
+            "M_Phi": 0.0,
+            "GAP": 0.02752931920903965
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_HI",
+            "H_up": 0.02752931920903965,
+            "M_Phi": 0.001814074848671926,
+            "GAP": 0.029343394057711577
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.4993126639840975,
+            "3": 0.5234495647924459,
+            "4": 0.5927661007877222
+          },
+          "optimum_M1": 450.04473484599595,
+          "optimum_M2": 742.6107425394611
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 13,
+        "model": "batched",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 337.3824164977348,
+          "q_max": "HC_HI",
+          "q_min": "LC_LI",
+          "H_up": 0.021033570036226214,
+          "M_Phi": 0.00680549445524586,
+          "GAP": 0.027839064491472075,
+          "gap_ci": [
+            0.003157214336775141,
+            0.09765475509012693
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 334.81017960106226,
+          "class_medians": {
+            "HC_HI": 350.04137707793586,
+            "HC_LI": 341.81222966825237,
+            "LC_HI": 324.57125894048824,
+            "LC_LI": 327.51395014116326
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_HI",
+            "q_min": "LC_HI",
+            "H_up": 0.04549203819018315,
+            "M_Phi": 0.0,
+            "GAP": 0.04549203819018315
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_HI",
+            "H_up": 0.04549203819018315,
+            "M_Phi": 0.008789133007190359,
+            "GAP": 0.05428117119737351
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.6219421791804087,
+            "3": 0.5449302981123042,
+            "4": 0.5419594389220508
+          },
+          "optimum_M1": 120.28913302625193,
+          "optimum_M2": 170.07764242590912
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 13,
+        "model": "batched",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "HC_LI",
+          "m0": 1045.2034523313616,
+          "q_max": "HC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.02463966078944133,
+          "M_Phi": 0.03682055284353306,
+          "GAP": 0.061460213632974395,
+          "gap_ci": [
+            0.03047650445494592,
+            0.10675236154040997
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 1043.5016166405508,
+          "class_medians": {
+            "HC_HI": 1068.0082577012383,
+            "HC_LI": 1061.868581768365,
+            "LC_HI": 1025.7743910048043,
+            "LC_LI": 1028.1001515498233
+          },
+          "stored_corner": {
+            "favorable": "HC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_HI",
+            "H_up": 0.02348500536068574,
+            "M_Phi": 0.0345894919451704,
+            "GAP": 0.05807449730585614
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_HI",
+            "q_min": "LC_HI",
+            "H_up": 0.02348500536068574,
+            "M_Phi": 0.0022288039691845613,
+            "GAP": 0.025713809329870302
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.5606503457489703,
+            "3": 0.46229179070337656,
+            "4": 0.43604071486652507
+          },
+          "optimum_M1": 463.13257035829224,
+          "optimum_M2": 749.8986187386298
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 14,
+        "model": "abstraction",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 342.0,
+          "q_max": "HC_LI",
+          "q_min": "HC_HI",
+          "H_up": 0.011695906432748537,
+          "M_Phi": 0.06140350877192982,
+          "GAP": 0.07309941520467836,
+          "gap_ci": [
+            -0.0014410263030767436,
+            0.1360546909346698
+          ],
+          "d1d": false
+        },
+        "exact_enumeration_NS": {
+          "m0": 341.0,
+          "class_medians": {
+            "HC_HI": 331.5,
+            "HC_LI": 347.0,
+            "LC_HI": 332.0,
+            "LC_LI": 347.0
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_LI",
+            "q_min": "HC_HI",
+            "H_up": 0.017595307917888565,
+            "M_Phi": 0.045454545454545456,
+            "GAP": 0.06304985337243402
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "HC_HI",
+            "H_up": 0.017595307917888565,
+            "M_Phi": 0.001466275659824047,
+            "GAP": 0.01906158357771261
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 1.0,
+            "3": 0.5238095238095238,
+            "4": 0.6
+          },
+          "optimum_M1": 135.0,
+          "optimum_M2": 210.0
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 14,
+        "model": "abstraction",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 1127.0,
+          "q_max": "LC_LI",
+          "q_min": "HC_HI",
+          "H_up": 0.024401064773735583,
+          "M_Phi": 0.03149955634427684,
+          "GAP": 0.055900621118012424,
+          "gap_ci": [
+            0.025684746343585585,
+            0.09173572069120131
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 1135.0,
+          "class_medians": {
+            "HC_HI": 1122.0,
+            "HC_LI": 1169.0,
+            "LC_HI": 1115.0,
+            "LC_LI": 1155.0
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.029955947136563875,
+            "M_Phi": 0.03524229074889868,
+            "GAP": 0.06519823788546256
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.029955947136563875,
+            "M_Phi": 0.0,
+            "GAP": 0.029955947136563875
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.6086956521739131,
+            "3": 0.5405405405405406,
+            "4": 0.6428571428571429
+          },
+          "optimum_M1": 803.0,
+          "optimum_M2": 1269.0
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 14,
+        "model": "batched",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 471.0,
+          "q_max": "LC_LI",
+          "q_min": "LC_HI",
+          "H_up": -0.0021231422505307855,
+          "M_Phi": 0.058386411889596604,
+          "GAP": 0.05626326963906582,
+          "gap_ci": [
+            0.007404121235021052,
+            0.11160548665163306
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 464.0,
+          "class_medians": {
+            "HC_HI": 461.0,
+            "HC_LI": 464.0,
+            "LC_HI": 452.0,
+            "LC_LI": 470.0
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "LC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.01293103448275862,
+            "M_Phi": 0.03879310344827586,
+            "GAP": 0.05172413793103448
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "LC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.01293103448275862,
+            "M_Phi": 0.0,
+            "GAP": 0.01293103448275862
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.3157894736842105,
+            "3": 0.4716981132075472,
+            "4": 0.5172413793103449
+          },
+          "optimum_M1": 162.0,
+          "optimum_M2": 240.0
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 14,
+        "model": "batched",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 1625.0,
+          "q_max": "LC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.01723076923076923,
+          "M_Phi": 0.0,
+          "GAP": 0.01723076923076923,
+          "gap_ci": [
+            0.0015050052768467864,
+            0.0343562722902235
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 1635.0,
+          "class_medians": {
+            "HC_HI": 1628.0,
+            "HC_LI": 1639.5,
+            "LC_HI": 1636.0,
+            "LC_LI": 1648.0
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "LC_LI",
+            "q_min": "HC_HI",
+            "H_up": 0.007951070336391437,
+            "M_Phi": 0.004892966360856269,
+            "GAP": 0.012844036697247705
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "LC_LI",
+            "q_min": "HC_HI",
+            "H_up": 0.007951070336391437,
+            "M_Phi": 0.004892966360856269,
+            "GAP": 0.012844036697247705
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.625,
+            "3": 0.5555555555555556,
+            "4": 0.4109589041095891
+          },
+          "optimum_M1": 830.0,
+          "optimum_M2": 1147.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 15,
+        "model": "abstraction",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 195.0,
+          "q_max": "HC_LI",
+          "q_min": "HC_HI",
+          "H_up": 0.02564102564102564,
+          "M_Phi": 0.007692307692307693,
+          "GAP": 0.03333333333333333,
+          "gap_ci": [
+            -0.014780154123786762,
+            0.09474309123732813
+          ],
+          "d1d": false
+        },
+        "exact_enumeration_NS": {
+          "m0": 199.0,
+          "class_medians": {
+            "HC_HI": 199.0,
+            "HC_LI": 200.0,
+            "LC_HI": 190.0,
+            "LC_LI": 199.0
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.005025125628140704,
+            "M_Phi": 0.0,
+            "GAP": 0.005025125628140704
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.005025125628140704,
+            "M_Phi": 0.0,
+            "GAP": 0.005025125628140704
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.19999999999999998,
+            "3": 0.5384615384615384,
+            "4": 0.5405405405405406
+          },
+          "optimum_M1": 96.0,
+          "optimum_M2": 121.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 15,
+        "model": "abstraction",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 634.0,
+          "q_max": "HC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.02365930599369085,
+          "M_Phi": 0.0,
+          "GAP": 0.02365930599369085,
+          "gap_ci": [
+            0.00234192037470726,
+            0.04285714285714286
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 633.0,
+          "class_medians": {
+            "HC_HI": 624.5,
+            "HC_LI": 653.0,
+            "LC_HI": 617.0,
+            "LC_LI": 634.0
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.0315955766192733,
+            "M_Phi": 0.0,
+            "GAP": 0.0315955766192733
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.0315955766192733,
+            "M_Phi": 0.0,
+            "GAP": 0.0315955766192733
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.5,
+            "3": 0.4827586206896552,
+            "4": 0.5294117647058824
+          },
+          "optimum_M1": 450.0,
+          "optimum_M2": 739.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 15,
+        "model": "batched",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 307.0,
+          "q_max": "HC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.0781758957654723,
+          "M_Phi": 0.0,
+          "GAP": 0.0781758957654723,
+          "gap_ci": [
+            0.03151953759918173,
+            0.11785206433264686
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 307.0,
+          "class_medians": {
+            "HC_HI": 303.0,
+            "HC_LI": 327.0,
+            "LC_HI": 284.5,
+            "LC_LI": 296.5
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.06514657980456026,
+            "M_Phi": 0.0,
+            "GAP": 0.06514657980456026
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.06514657980456026,
+            "M_Phi": 0.0,
+            "GAP": 0.06514657980456026
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.48275862068965514,
+            "3": 0.5,
+            "4": 0.5
+          },
+          "optimum_M1": 96.0,
+          "optimum_M2": 140.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 15,
+        "model": "batched",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 1046.5,
+          "q_max": "HC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.0482560917343526,
+          "M_Phi": 0.017200191113234592,
+          "GAP": 0.0654562828475872,
+          "gap_ci": [
+            0.03428571428571429,
+            0.10684933893370242
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 1047.0,
+          "class_medians": {
+            "HC_HI": 1070.0,
+            "HC_LI": 1084.0,
+            "LC_HI": 1013.0,
+            "LC_LI": 1031.0
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.03533906399235912,
+            "M_Phi": 0.017191977077363897,
+            "GAP": 0.05253104106972302
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.03533906399235912,
+            "M_Phi": 0.0,
+            "GAP": 0.03533906399235912
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.537313432835821,
+            "3": 0.4915254237288136,
+            "4": 0.49253731343283585
+          },
+          "optimum_M1": 433.0,
+          "optimum_M2": 713.0
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 16,
+        "model": "abstraction",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 377.0,
+          "q_max": "LC_HI",
+          "q_min": "HC_LI",
+          "H_up": 0.10477453580901856,
+          "M_Phi": 0.038461538461538464,
+          "GAP": 0.143236074270557,
+          "gap_ci": [
+            0.09040954235703057,
+            0.1989100817438692
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 380.5,
+          "class_medians": {
+            "HC_HI": 406.0,
+            "HC_LI": 364.5,
+            "LC_HI": 421.0,
+            "LC_LI": 366.0
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "LC_HI",
+            "q_min": "HC_LI",
+            "H_up": 0.10643889618922471,
+            "M_Phi": 0.003942181340341655,
+            "GAP": 0.11038107752956637
+          },
+          "full_pool_fit_corner": {
+            "favorable": "HC_LI",
+            "q_max": "LC_HI",
+            "q_min": "HC_LI",
+            "H_up": 0.10643889618922471,
+            "M_Phi": 0.0,
+            "GAP": 0.10643889618922471
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.3620689655172414,
+            "3": 0.61,
+            "4": 0.50625
+          },
+          "optimum_M1": 183.0,
+          "optimum_M2": 254.0
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 16,
+        "model": "abstraction",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "HC_LI",
+          "m0": 1379.5,
+          "q_max": "LC_HI",
+          "q_min": "HC_LI",
+          "H_up": 0.06632837984777093,
+          "M_Phi": 0.0,
+          "GAP": 0.06632837984777093,
+          "gap_ci": [
+            0.05435196710654018,
+            0.09292121086494551
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 1378.0,
+          "class_medians": {
+            "HC_HI": 1426.0,
+            "HC_LI": 1345.0,
+            "LC_HI": 1475.0,
+            "LC_LI": 1355.0
+          },
+          "stored_corner": {
+            "favorable": "HC_LI",
+            "q_max": "LC_HI",
+            "q_min": "HC_LI",
+            "H_up": 0.07039187227866474,
+            "M_Phi": 0.0,
+            "GAP": 0.07039187227866474
+          },
+          "full_pool_fit_corner": {
+            "favorable": "HC_LI",
+            "q_max": "LC_HI",
+            "q_min": "HC_LI",
+            "H_up": 0.07039187227866474,
+            "M_Phi": 0.0,
+            "GAP": 0.07039187227866474
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.48717948717948717,
+            "3": 0.688,
+            "4": 0.5914634146341464
+          },
+          "optimum_M1": 985.0,
+          "optimum_M2": 1399.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 16,
+        "model": "batched",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_LI",
+          "m0": 469.0,
+          "q_max": "LC_HI",
+          "q_min": "LC_LI",
+          "H_up": 0.053304904051172705,
+          "M_Phi": 0.0,
+          "GAP": 0.053304904051172705,
+          "gap_ci": [
+            0.02109593604263824,
+            0.10893246187363835
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 470.0,
+          "class_medians": {
+            "HC_HI": 482.5,
+            "HC_LI": 460.0,
+            "LC_HI": 494.0,
+            "LC_LI": 459.0
+          },
+          "stored_corner": {
+            "favorable": "LC_LI",
+            "q_max": "LC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.05106382978723404,
+            "M_Phi": 0.0,
+            "GAP": 0.05106382978723404
+          },
+          "full_pool_fit_corner": {
+            "favorable": "HC_LI",
+            "q_max": "LC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.05106382978723404,
+            "M_Phi": 0.002127659574468085,
+            "GAP": 0.05319148936170213
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.3125,
+            "3": 0.35294117647058826,
+            "4": 0.3404255319148936
+          },
+          "optimum_M1": 169.0,
+          "optimum_M2": 230.0
+        },
+        "favorable_stored_equals_full_pool_fit": false
+      },
+      {
+        "config_id": 16,
+        "model": "batched",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "HC_LI",
+          "m0": 1772.5,
+          "q_max": "LC_HI",
+          "q_min": "LC_LI",
+          "H_up": 0.0380818053596615,
+          "M_Phi": 0.005641748942172073,
+          "GAP": 0.04372355430183357,
+          "gap_ci": [
+            0.028812334590667198,
+            0.06594583349043139
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 1767.0,
+          "class_medians": {
+            "HC_HI": 1797.0,
+            "HC_LI": 1750.5,
+            "LC_HI": 1820.0,
+            "LC_LI": 1728.0
+          },
+          "stored_corner": {
+            "favorable": "HC_LI",
+            "q_max": "LC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.029994340690435765,
+            "M_Phi": 0.012733446519524618,
+            "GAP": 0.042727787209960386
+          },
+          "full_pool_fit_corner": {
+            "favorable": "HC_LI",
+            "q_max": "LC_HI",
+            "q_min": "LC_LI",
+            "H_up": 0.029994340690435765,
+            "M_Phi": 0.012733446519524618,
+            "GAP": 0.042727787209960386
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.4210526315789474,
+            "3": 0.6125,
+            "4": 0.49532710280373826
+          },
+          "optimum_M1": 1015.0,
+          "optimum_M2": 1371.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 17,
+        "model": "abstraction",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 229.0,
+          "q_max": "HC_HI",
+          "q_min": "LC_HI",
+          "H_up": -0.004366812227074236,
+          "M_Phi": 0.0,
+          "GAP": -0.004366812227074236,
+          "gap_ci": [
+            -0.03225980255839822,
+            0.04
+          ],
+          "d1d": false
+        },
+        "exact_enumeration_NS": {
+          "m0": 228.0,
+          "class_medians": {
+            "HC_HI": 233.5,
+            "HC_LI": 225.0,
+            "LC_HI": 213.0,
+            "LC_LI": 225.0
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_HI",
+            "q_min": "LC_HI",
+            "H_up": 0.02412280701754386,
+            "M_Phi": 0.0,
+            "GAP": 0.02412280701754386
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "HC_HI",
+            "q_min": "LC_HI",
+            "H_up": 0.02412280701754386,
+            "M_Phi": 0.0,
+            "GAP": 0.02412280701754386
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.3333333333333333,
+            "3": 0.25,
+            "4": 0.3793103448275862
+          },
+          "optimum_M1": 116.0,
+          "optimum_M2": 193.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 17,
+        "model": "abstraction",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "HC_HI",
+          "m0": 794.5,
+          "q_max": "LC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.027061044682190057,
+          "M_Phi": 0.022655758338577723,
+          "GAP": 0.04971680302076778,
+          "gap_ci": [
+            0.022555332985371494,
+            0.08056653057011456
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 790.0,
+          "class_medians": {
+            "HC_HI": 786.0,
+            "HC_LI": 785.0,
+            "LC_HI": 778.0,
+            "LC_LI": 820.0
+          },
+          "stored_corner": {
+            "favorable": "HC_HI",
+            "q_max": "LC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.0379746835443038,
+            "M_Phi": 0.010126582278481013,
+            "GAP": 0.04810126582278481
+          },
+          "full_pool_fit_corner": {
+            "favorable": "HC_HI",
+            "q_max": "LC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.0379746835443038,
+            "M_Phi": 0.010126582278481013,
+            "GAP": 0.04810126582278481
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.7441860465116279,
+            "3": 0.6933333333333334,
+            "4": 0.6363636363636364
+          },
+          "optimum_M1": 612.0,
+          "optimum_M2": 910.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 17,
+        "model": "batched",
+        "size": 8,
+        "sampled_preregistered": {
+          "favorable": "LC_HI",
+          "m0": 341.5,
+          "q_max": "HC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.027818448023426062,
+          "M_Phi": 0.0,
+          "GAP": 0.027818448023426062,
+          "gap_ci": [
+            -0.008571428571428572,
+            0.063820911153779
+          ],
+          "d1d": false
+        },
+        "exact_enumeration_NS": {
+          "m0": 342.0,
+          "class_medians": {
+            "HC_HI": 347.5,
+            "HC_LI": 347.0,
+            "LC_HI": 321.0,
+            "LC_LI": 352.0
+          },
+          "stored_corner": {
+            "favorable": "LC_HI",
+            "q_max": "LC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.029239766081871343,
+            "M_Phi": 0.0,
+            "GAP": 0.029239766081871343
+          },
+          "full_pool_fit_corner": {
+            "favorable": "LC_HI",
+            "q_max": "LC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.029239766081871343,
+            "M_Phi": 0.0,
+            "GAP": 0.029239766081871343
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.4444444444444444,
+            "3": 0.5625,
+            "4": 0.475
+          },
+          "optimum_M1": 105.0,
+          "optimum_M2": 167.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      },
+      {
+        "config_id": 17,
+        "model": "batched",
+        "size": 30,
+        "sampled_preregistered": {
+          "favorable": "HC_HI",
+          "m0": 1250.0,
+          "q_max": "LC_LI",
+          "q_min": "LC_HI",
+          "H_up": 0.0216,
+          "M_Phi": 0.0404,
+          "GAP": 0.062,
+          "gap_ci": [
+            0.03252042319749216,
+            0.09618814296658397
+          ],
+          "d1d": true
+        },
+        "exact_enumeration_NS": {
+          "m0": 1249.0,
+          "class_medians": {
+            "HC_HI": 1244.5,
+            "HC_LI": 1244.5,
+            "LC_HI": 1215.0,
+            "LC_LI": 1261.0
+          },
+          "stored_corner": {
+            "favorable": "HC_HI",
+            "q_max": "LC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.009607686148919135,
+            "M_Phi": 0.023618895116092876,
+            "GAP": 0.03322658126501201
+          },
+          "full_pool_fit_corner": {
+            "favorable": "HC_HI",
+            "q_max": "LC_LI",
+            "q_min": "LC_HI",
+            "H_up": 0.009607686148919135,
+            "M_Phi": 0.023618895116092876,
+            "GAP": 0.03322658126501201
+          },
+          "covering_share_H_up_over_UB": {
+            "2": 0.47916666666666674,
+            "3": 0.4666666666666667,
+            "4": 0.41379310344827586
+          },
+          "optimum_M1": 616.0,
+          "optimum_M2": 958.0
+        },
+        "favorable_stored_equals_full_pool_fit": true
+      }
+    ]
+  },
+  "blockC": {
+    "summary": {
+      "n_configs": 6,
+      "n_hedge_mean_basis_agree": 4,
+      "n_hedge_median_basis_agree": 6,
+      "sampled_ordering_rate_average": 0.9920833333333333,
+      "exact_ordering_rate_average_NS": 0.9940089731874543,
+      "exact_ordering_rate_worst_NS": 0.976303317535545,
+      "A-R1_note": "A-R1 used the stored A4 ablation scheme data (sampled arms, size 16, M2); the exact values are the full Block C pools of S1-2 (size 16, M2)"
+    },
+    "per_config": [
+      {
+        "config_id": 1,
+        "per_corner": [
+          {
+            "corner": "HC_HI",
+            "sampled_ordering_rate": 0.985,
+            "exact_ordering_rate_full_class_NS": 0.995049504950495,
+            "sampled_U_c_005": 5.449999999999989,
+            "exact_U_c_005_full_class_NS": 4.550000000000011
+          },
+          {
+            "corner": "HC_LI",
+            "sampled_ordering_rate": 0.995,
+            "exact_ordering_rate_full_class_NS": 0.9832635983263598,
+            "sampled_U_c_005": 3.9499999999999886,
+            "exact_U_c_005_full_class_NS": 3.9000000000000057
+          },
+          {
+            "corner": "LC_HI",
+            "sampled_ordering_rate": 0.985,
+            "exact_ordering_rate_full_class_NS": 0.9847908745247148,
+            "sampled_U_c_005": 2.0,
+            "exact_U_c_005_full_class_NS": 1.0
+          },
+          {
+            "corner": "LC_LI",
+            "sampled_ordering_rate": 0.96,
+            "exact_ordering_rate_full_class_NS": 0.976303317535545,
+            "sampled_U_c_005": 1.0,
+            "exact_U_c_005_full_class_NS": 4.0
+          }
+        ],
+        "hedge_corner_mean_basis": {
+          "sampled_preregistered_D2d": "LC_HI",
+          "exact_full_class_NS": "LC_HI"
+        },
+        "hedge_corner_median_basis": {
+          "sampled_RA_2026-09-11": "LC_HI",
+          "exact_full_class_NS": "LC_HI"
+        },
+        "covering_share_H_up_over_UB": {
+          "2x2": {
+            "sampled_A-R1": 0.375,
+            "exact_NS": 0.5
+          },
+          "3x3": {
+            "sampled_A-R1": 0.5172413793103449,
+            "exact_NS": 0.4
+          },
+          "4x4": {
+            "sampled_A-R1": null,
+            "exact_NS": 0.45454545454545453
+          }
+        }
+      },
+      {
+        "config_id": 3,
+        "per_corner": [
+          {
+            "corner": "HC_HI",
+            "sampled_ordering_rate": 0.98,
+            "exact_ordering_rate_full_class_NS": 0.9902439024390244,
+            "sampled_U_c_005": 1.0,
+            "exact_U_c_005_full_class_NS": 4.0
+          },
+          {
+            "corner": "HC_LI",
+            "sampled_ordering_rate": 1.0,
+            "exact_ordering_rate_full_class_NS": 0.9961389961389961,
+            "sampled_U_c_005": 5.0,
+            "exact_U_c_005_full_class_NS": 5.0
+          },
+          {
+            "corner": "LC_HI",
+            "sampled_ordering_rate": 0.99,
+            "exact_ordering_rate_full_class_NS": 0.981859410430839,
+            "sampled_U_c_005": 5.0,
+            "exact_U_c_005_full_class_NS": 5.0
+          },
+          {
+            "corner": "LC_LI",
+            "sampled_ordering_rate": 0.97,
+            "exact_ordering_rate_full_class_NS": 0.9797297297297297,
+            "sampled_U_c_005": 5.0,
+            "exact_U_c_005_full_class_NS": 5.0
+          }
+        ],
+        "hedge_corner_mean_basis": {
+          "sampled_preregistered_D2d": "LC_HI",
+          "exact_full_class_NS": "LC_HI"
+        },
+        "hedge_corner_median_basis": {
+          "sampled_RA_2026-09-11": "LC_HI",
+          "exact_full_class_NS": "LC_HI"
+        },
+        "covering_share_H_up_over_UB": {
+          "2x2": {
+            "sampled_A-R1": 0.26315789473684215,
+            "exact_NS": 0.375
+          },
+          "3x3": {
+            "sampled_A-R1": 0.5,
+            "exact_NS": 0.4117647058823529
+          },
+          "4x4": {
+            "sampled_A-R1": null,
+            "exact_NS": 0.32558139534883723
+          }
+        }
+      },
+      {
+        "config_id": 5,
+        "per_corner": [
+          {
+            "corner": "HC_HI",
+            "sampled_ordering_rate": 1.0,
+            "exact_ordering_rate_full_class_NS": 1.0,
+            "sampled_U_c_005": 4.615000004777642,
+            "exact_U_c_005_full_class_NS": 5.270593775392086
+          },
+          {
+            "corner": "HC_LI",
+            "sampled_ordering_rate": 0.99,
+            "exact_ordering_rate_full_class_NS": 0.99581589958159,
+            "sampled_U_c_005": 2.689428983407936,
+            "exact_U_c_005_full_class_NS": 6.619769006962144
+          },
+          {
+            "corner": "LC_HI",
+            "sampled_ordering_rate": 0.995,
+            "exact_ordering_rate_full_class_NS": 0.9930313588850174,
+            "sampled_U_c_005": 4.849441550278556,
+            "exact_U_c_005_full_class_NS": 3.603723590195358
+          },
+          {
+            "corner": "LC_LI",
+            "sampled_ordering_rate": 0.99,
+            "exact_ordering_rate_full_class_NS": 0.9949238578680203,
+            "sampled_U_c_005": 2.6605245462968696,
+            "exact_U_c_005_full_class_NS": 3.3419592351829124
+          }
+        ],
+        "hedge_corner_mean_basis": {
+          "sampled_preregistered_D2d": "HC_LI",
+          "exact_full_class_NS": "LC_HI"
+        },
+        "hedge_corner_median_basis": {
+          "sampled_RA_2026-09-11": "HC_HI",
+          "exact_full_class_NS": "HC_HI"
+        },
+        "covering_share_H_up_over_UB": {
+          "2x2": {
+            "sampled_A-R1": 0.5899662036460959,
+            "exact_NS": 0.31664445510437245
+          },
+          "3x3": {
+            "sampled_A-R1": 0.8043769667444969,
+            "exact_NS": 0.37691459001209543
+          },
+          "4x4": {
+            "sampled_A-R1": null,
+            "exact_NS": 0.4519571853606892
+          }
+        }
+      },
+      {
+        "config_id": 7,
+        "per_corner": [
+          {
+            "corner": "HC_HI",
+            "sampled_ordering_rate": 1.0,
+            "exact_ordering_rate_full_class_NS": 1.0,
+            "sampled_U_c_005": 3.0,
+            "exact_U_c_005_full_class_NS": 4.5
+          },
+          {
+            "corner": "HC_LI",
+            "sampled_ordering_rate": 1.0,
+            "exact_ordering_rate_full_class_NS": 0.9957805907172996,
+            "sampled_U_c_005": 7.449999999999989,
+            "exact_U_c_005_full_class_NS": 8.0
+          },
+          {
+            "corner": "LC_HI",
+            "sampled_ordering_rate": 0.99,
+            "exact_ordering_rate_full_class_NS": 0.9954954954954955,
+            "sampled_U_c_005": 9.5,
+            "exact_U_c_005_full_class_NS": 6.550000000000011
+          },
+          {
+            "corner": "LC_LI",
+            "sampled_ordering_rate": 0.98,
+            "exact_ordering_rate_full_class_NS": 0.9937888198757764,
+            "sampled_U_c_005": 10.0,
+            "exact_U_c_005_full_class_NS": 6.0
+          }
+        ],
+        "hedge_corner_mean_basis": {
+          "sampled_preregistered_D2d": "LC_HI",
+          "exact_full_class_NS": "LC_HI"
+        },
+        "hedge_corner_median_basis": {
+          "sampled_RA_2026-09-11": "LC_HI",
+          "exact_full_class_NS": "LC_HI"
+        },
+        "covering_share_H_up_over_UB": {
+          "2x2": {
+            "sampled_A-R1": 0.5208333333333334,
+            "exact_NS": 0.4651162790697675
+          },
+          "3x3": {
+            "sampled_A-R1": 0.5785714285714286,
+            "exact_NS": 0.4461538461538461
+          },
+          "4x4": {
+            "sampled_A-R1": null,
+            "exact_NS": 0.49397590361445787
+          }
+        }
+      },
+      {
+        "config_id": 9,
+        "per_corner": [
+          {
+            "corner": "HC_HI",
+            "sampled_ordering_rate": 1.0,
+            "exact_ordering_rate_full_class_NS": 1.0,
+            "sampled_U_c_005": 3.2712280795179254,
+            "exact_U_c_005_full_class_NS": 7.115787037066241
+          },
+          {
+            "corner": "HC_LI",
+            "sampled_ordering_rate": 1.0,
+            "exact_ordering_rate_full_class_NS": 1.0,
+            "sampled_U_c_005": 2.981061426146539,
+            "exact_U_c_005_full_class_NS": 3.6618566625709263
+          },
+          {
+            "corner": "LC_HI",
+            "sampled_ordering_rate": 1.0,
+            "exact_ordering_rate_full_class_NS": 1.0,
+            "sampled_U_c_005": 8.840250208595137,
+            "exact_U_c_005_full_class_NS": 8.093781110295538
+          },
+          {
+            "corner": "LC_LI",
+            "sampled_ordering_rate": 1.0,
+            "exact_ordering_rate_full_class_NS": 1.0,
+            "sampled_U_c_005": 4.182717413575176,
+            "exact_U_c_005_full_class_NS": 3.686817158604754
+          }
+        ],
+        "hedge_corner_mean_basis": {
+          "sampled_preregistered_D2d": "HC_HI",
+          "exact_full_class_NS": "LC_HI"
+        },
+        "hedge_corner_median_basis": {
+          "sampled_RA_2026-09-11": "HC_HI",
+          "exact_full_class_NS": "HC_HI"
+        },
+        "covering_share_H_up_over_UB": {
+          "2x2": {
+            "sampled_A-R1": 0.4135199978593538,
+            "exact_NS": 0.435142265277659
+          },
+          "3x3": {
+            "sampled_A-R1": 0.4655279676114654,
+            "exact_NS": 0.5582882245009066
+          },
+          "4x4": {
+            "sampled_A-R1": null,
+            "exact_NS": 0.6509016454084904
+          }
+        }
+      },
+      {
+        "config_id": 11,
+        "per_corner": [
+          {
+            "corner": "HC_HI",
+            "sampled_ordering_rate": 1.0,
+            "exact_ordering_rate_full_class_NS": 1.0,
+            "sampled_U_c_005": 4.800000000000011,
+            "exact_U_c_005_full_class_NS": 6.300000000000011
+          },
+          {
+            "corner": "HC_LI",
+            "sampled_ordering_rate": 1.0,
+            "exact_ordering_rate_full_class_NS": 1.0,
+            "sampled_U_c_005": 4.5,
+            "exact_U_c_005_full_class_NS": 4.0
+          },
+          {
+            "corner": "LC_HI",
+            "sampled_ordering_rate": 1.0,
+            "exact_ordering_rate_full_class_NS": 1.0,
+            "sampled_U_c_005": 9.0,
+            "exact_U_c_005_full_class_NS": 6.0
+          },
+          {
+            "corner": "LC_LI",
+            "sampled_ordering_rate": 1.0,
+            "exact_ordering_rate_full_class_NS": 1.0,
+            "sampled_U_c_005": 6.0,
+            "exact_U_c_005_full_class_NS": 5.0
+          }
+        ],
+        "hedge_corner_mean_basis": {
+          "sampled_preregistered_D2d": "LC_LI",
+          "exact_full_class_NS": "LC_LI"
+        },
+        "hedge_corner_median_basis": {
+          "sampled_RA_2026-09-11": "LC_LI",
+          "exact_full_class_NS": "LC_LI"
+        },
+        "covering_share_H_up_over_UB": {
+          "2x2": {
+            "sampled_A-R1": 0.38636363636363635,
+            "exact_NS": 0.5714285714285714
+          },
+          "3x3": {
+            "sampled_A-R1": 0.821917808219178,
+            "exact_NS": 0.48
+          },
+          "4x4": {
+            "sampled_A-R1": null,
+            "exact_NS": 0.5517241379310345
+          }
+        }
+      }
+    ]
+  },
+  "blockB_gap_to_optimum": {
+    "rows": [
+      {
+        "config_id": 1,
+        "size": 8,
+        "pool_optimum_M2": 38.0,
+        "P5_median": 94.0,
+        "P5_gap_to_optimum": 1.4736842105263157,
+        "P6_median": 99.0,
+        "P6_gap_to_optimum": 1.605263157894737,
+        "P7_median": 56.0,
+        "P7_gap_to_optimum": 0.47368421052631576,
+        "P8_median": 80.0,
+        "P8_gap_to_optimum": 1.105263157894737,
+        "P9_median": 85.0,
+        "P9_gap_to_optimum": 1.236842105263158,
+        "simulator_note": "policy medians are the stored values (generated before the 2026-09-11 tie-break fix; S1-9 regenerates P5 to P7); the pool optimum is enumerated with the current simulator"
+      },
+      {
+        "config_id": 1,
+        "size": 30,
+        "pool_optimum_M2": 202.0,
+        "P5_median": 317.0,
+        "P5_gap_to_optimum": 0.5693069306930693,
+        "P6_median": 328.0,
+        "P6_gap_to_optimum": 0.6237623762376238,
+        "P7_median": 256.5,
+        "P7_gap_to_optimum": 0.2698019801980198,
+        "P8_median": 298.5,
+        "P8_gap_to_optimum": 0.4777227722772277,
+        "P9_median": 306.0,
+        "P9_gap_to_optimum": 0.5148514851485149,
+        "simulator_note": "policy medians are the stored values (generated before the 2026-09-11 tie-break fix; S1-9 regenerates P5 to P7); the pool optimum is enumerated with the current simulator"
+      },
+      {
+        "config_id": 3,
+        "size": 8,
+        "pool_optimum_M2": 33.0,
+        "P5_median": 76.0,
+        "P5_gap_to_optimum": 1.303030303030303,
+        "P6_median": 84.5,
+        "P6_gap_to_optimum": 1.5606060606060606,
+        "P7_median": 52.0,
+        "P7_gap_to_optimum": 0.5757575757575758,
+        "P8_median": 92.5,
+        "P8_gap_to_optimum": 1.803030303030303,
+        "P9_median": 66.0,
+        "P9_gap_to_optimum": 1.0,
+        "simulator_note": "policy medians are the stored values (generated before the 2026-09-11 tie-break fix; S1-9 regenerates P5 to P7); the pool optimum is enumerated with the current simulator"
+      },
+      {
+        "config_id": 3,
+        "size": 30,
+        "pool_optimum_M2": 197.0,
+        "P5_median": 330.5,
+        "P5_gap_to_optimum": 0.6776649746192893,
+        "P6_median": 353.5,
+        "P6_gap_to_optimum": 0.7944162436548223,
+        "P7_median": 277.0,
+        "P7_gap_to_optimum": 0.40609137055837563,
+        "P8_median": 336.0,
+        "P8_gap_to_optimum": 0.7055837563451777,
+        "P9_median": 323.0,
+        "P9_gap_to_optimum": 0.6395939086294417,
+        "simulator_note": "policy medians are the stored values (generated before the 2026-09-11 tie-break fix; S1-9 regenerates P5 to P7); the pool optimum is enumerated with the current simulator"
+      },
+      {
+        "config_id": 5,
+        "size": 8,
+        "pool_optimum_M2": 55.724656768656374,
+        "P5_median": 115.22959224085575,
+        "P5_gap_to_optimum": 1.067838528270116,
+        "P6_median": 119.0534462195665,
+        "P6_gap_to_optimum": 1.1364590313013982,
+        "P7_median": 74.01469826575624,
+        "P7_gap_to_optimum": 0.3282216985746877,
+        "P8_median": 112.1292674896892,
+        "P8_gap_to_optimum": 1.012202030336397,
+        "P9_median": 120.28823908526081,
+        "P9_gap_to_optimum": 1.1586178553713358,
+        "simulator_note": "policy medians are the stored values (generated before the 2026-09-11 tie-break fix; S1-9 regenerates P5 to P7); the pool optimum is enumerated with the current simulator"
+      },
+      {
+        "config_id": 5,
+        "size": 30,
+        "pool_optimum_M2": 243.81126845153167,
+        "P5_median": 358.8071946473806,
+        "P5_gap_to_optimum": 0.47165960345556984,
+        "P6_median": 367.20611585609106,
+        "P6_gap_to_optimum": 0.5061080572208646,
+        "P7_median": 284.06377512562517,
+        "P7_gap_to_optimum": 0.1650969905113121,
+        "P8_median": 336.7425091369678,
+        "P8_gap_to_optimum": 0.3811605643810115,
+        "P9_median": 361.8190022178781,
+        "P9_gap_to_optimum": 0.48401263204865247,
+        "simulator_note": "policy medians are the stored values (generated before the 2026-09-11 tie-break fix; S1-9 regenerates P5 to P7); the pool optimum is enumerated with the current simulator"
+      },
+      {
+        "config_id": 7,
+        "size": 8,
+        "pool_optimum_M2": 53.0,
+        "P5_median": 125.0,
+        "P5_gap_to_optimum": 1.3584905660377358,
+        "P6_median": 124.0,
+        "P6_gap_to_optimum": 1.3396226415094339,
+        "P7_median": 72.0,
+        "P7_gap_to_optimum": 0.3584905660377358,
+        "P8_median": 118.0,
+        "P8_gap_to_optimum": 1.2264150943396226,
+        "P9_median": 105.0,
+        "P9_gap_to_optimum": 0.9811320754716981,
+        "simulator_note": "policy medians are the stored values (generated before the 2026-09-11 tie-break fix; S1-9 regenerates P5 to P7); the pool optimum is enumerated with the current simulator"
+      },
+      {
+        "config_id": 7,
+        "size": 30,
+        "pool_optimum_M2": 315.0,
+        "P5_median": 467.5,
+        "P5_gap_to_optimum": 0.48412698412698413,
+        "P6_median": 482.5,
+        "P6_gap_to_optimum": 0.5317460317460317,
+        "P7_median": 372.0,
+        "P7_gap_to_optimum": 0.18095238095238095,
+        "P8_median": 459.0,
+        "P8_gap_to_optimum": 0.45714285714285713,
+        "P9_median": 435.0,
+        "P9_gap_to_optimum": 0.38095238095238093,
+        "simulator_note": "policy medians are the stored values (generated before the 2026-09-11 tie-break fix; S1-9 regenerates P5 to P7); the pool optimum is enumerated with the current simulator"
+      },
+      {
+        "config_id": 9,
+        "size": 8,
+        "pool_optimum_M2": 90.10393019075659,
+        "P5_median": 191.69479934779068,
+        "P5_gap_to_optimum": 1.1274854375603685,
+        "P6_median": 209.84799923700015,
+        "P6_gap_to_optimum": 1.32895500554456,
+        "P7_median": 117.45303133266594,
+        "P7_gap_to_optimum": 0.30352839309017177,
+        "P8_median": 183.1782157263996,
+        "P8_gap_to_optimum": 1.0329658799410633,
+        "P9_median": 191.1778360718355,
+        "P9_gap_to_optimum": 1.1217480266076971,
+        "simulator_note": "policy medians are the stored values (generated before the 2026-09-11 tie-break fix; S1-9 regenerates P5 to P7); the pool optimum is enumerated with the current simulator"
+      },
+      {
+        "config_id": 9,
+        "size": 30,
+        "pool_optimum_M2": 417.5143676119037,
+        "P5_median": 657.3336202173432,
+        "P5_gap_to_optimum": 0.5743976045115675,
+        "P6_median": 650.7491130107463,
+        "P6_gap_to_optimum": 0.5586268724903944,
+        "P7_median": 507.20497288729246,
+        "P7_gap_to_optimum": 0.21482040435734118,
+        "P8_median": 618.3753747265339,
+        "P8_gap_to_optimum": 0.4810876527759124,
+        "P9_median": 656.5026636625184,
+        "P9_gap_to_optimum": 0.5724073579014265,
+        "simulator_note": "policy medians are the stored values (generated before the 2026-09-11 tie-break fix; S1-9 regenerates P5 to P7); the pool optimum is enumerated with the current simulator"
+      },
+      {
+        "config_id": 11,
+        "size": 8,
+        "pool_optimum_M2": 85.0,
+        "P5_median": 198.0,
+        "P5_gap_to_optimum": 1.3294117647058823,
+        "P6_median": 198.0,
+        "P6_gap_to_optimum": 1.3294117647058823,
+        "P7_median": 104.5,
+        "P7_gap_to_optimum": 0.22941176470588234,
+        "P8_median": 167.5,
+        "P8_gap_to_optimum": 0.9705882352941176,
+        "P9_median": 188.0,
+        "P9_gap_to_optimum": 1.2117647058823529,
+        "simulator_note": "policy medians are the stored values (generated before the 2026-09-11 tie-break fix; S1-9 regenerates P5 to P7); the pool optimum is enumerated with the current simulator"
+      },
+      {
+        "config_id": 11,
+        "size": 30,
+        "pool_optimum_M2": 444.0,
+        "P5_median": 712.5,
+        "P5_gap_to_optimum": 0.6047297297297297,
+        "P6_median": 704.0,
+        "P6_gap_to_optimum": 0.5855855855855856,
+        "P7_median": 522.0,
+        "P7_gap_to_optimum": 0.17567567567567569,
+        "P8_median": 658.5,
+        "P8_gap_to_optimum": 0.4831081081081081,
+        "P9_median": 714.5,
+        "P9_gap_to_optimum": 0.6092342342342343,
+        "simulator_note": "policy medians are the stored values (generated before the 2026-09-11 tie-break fix; S1-9 regenerates P5 to P7); the pool optimum is enumerated with the current simulator"
+      }
+    ],
+    "note": "sampled policy medians (stored, pre tie-break fix) against the exact pool optimum (current simulator)"
+  }
+}

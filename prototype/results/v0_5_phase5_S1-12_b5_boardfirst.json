@@ -1,0 +1,58 @@
+{
+ "item": "S1-12",
+ "boarding_rule": "board-first (b5_compat=False)",
+ "selftest": false,
+ "code_tree_sha256": "cd0694e4fedeee112d451828d8d03adcbd36a576ecf33dbcf5988b54265dd14c",
+ "registration_S1B_sha256": "5141174f587c106fd8075dd248586dc4f38b1619b63eff0bec65ba81272b87af",
+ "stored_B5_sha256": "000ada0e798e1be47a6ae12469d4bdecf1a170c8b7c494f55d954d26e0460535",
+ "per_config": {
+  "1": {
+   "rho_M1": 0.542849417530235,
+   "rho_M2": 0.5025183382297798,
+   "des_dominance": 0.975,
+   "cf_mean_M2": 190.94,
+   "des_mean_M2": 145.275,
+   "rho_M1_tiebreak_only": 0.542849417530235,
+   "rho_M2_tiebreak_only": 0.44886811781725977,
+   "des_mean_M2_b5_rule": 147.39
+  },
+  "7": {
+   "rho_M1": 0.6384797242974826,
+   "rho_M2": 0.6496558514935981,
+   "des_dominance": 0.99,
+   "cf_mean_M2": 281.8,
+   "des_mean_M2": 207.7,
+   "config7_des": {
+    "des_H_up": 0.14769975786924938,
+    "des_S_or": 0.14285714285714285,
+    "des_m0": 206.5,
+    "des_corner_medians": {
+     "HC_HI": 233.0,
+     "HC_LI": 237.0,
+     "LC_HI": 177.0,
+     "LC_LI": 190.0
+    }
+   },
+   "rho_M1_tiebreak_only": 0.6384797242974826,
+   "rho_M2_tiebreak_only": 0.6708864329312233,
+   "des_mean_M2_b5_rule": 211.115
+  },
+  "11": {
+   "rho_M1": 0.6830381226878247,
+   "rho_M2": 0.5199570405313281,
+   "des_dominance": 1.0,
+   "cf_mean_M2": 378.005,
+   "des_mean_M2": 224.235,
+   "rho_M1_tiebreak_only": 0.6830381226878247,
+   "rho_M2_tiebreak_only": 0.500187011070789,
+   "des_mean_M2_b5_rule": 237.01
+  }
+ },
+ "min_spearman_rho": 0.5025183382297798,
+ "des_pooled_dominance": 0.9883333333333333,
+ "gates_for_reference_only": {
+  "rho_ge_09_every_config": false,
+  "des_dominance_ge_090": true
+ },
+ "note": "B-5 verdict of record unchanged (reporting rule of S1-12)"
+}

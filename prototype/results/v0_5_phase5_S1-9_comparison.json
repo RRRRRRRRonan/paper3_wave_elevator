@@ -1,0 +1,49 @@
+{
+  "registration_sha256": "5141174f587c106fd8075dd248586dc4f38b1619b63eff0bec65ba81272b87af",
+  "code_sha256": "dd0d64ef76a3b3e304fa5982bfe8388dbb1dc6d0af39a07f1d53ca548d761170",
+  "code_tree_sha256": "cd0694e4fedeee112d451828d8d03adcbd36a576ecf33dbcf5988b54265dd14c",
+  "code_tree_sha256_pinned": "cd0694e4fedeee112d451828d8d03adcbd36a576ecf33dbcf5988b54265dd14c",
+  "code_tree_matches_pinned": true,
+  "selftest": false,
+  "csv_paths": {
+    "blockA": "F:\\Paper 3\\prototype\\results\\raw\\mvs_v0_5_phase5_blockA_tiebreakfix.csv",
+    "blockB": "F:\\Paper 3\\prototype\\results\\raw\\mvs_v0_5_phase5_blockB_tiebreakfix.csv",
+    "blockP7": "F:\\Paper 3\\prototype\\results\\raw\\mvs_v0_5_phase5_ablation_P7_tiebreakfix.csv"
+  },
+  "blockA": {
+    "stored": {
+      "gates": {
+        "D1a": 72,
+        "D1b": 70,
+        "D1c": 72,
+        "D1d": 57,
+        "D1d_threshold": 58
+      },
+      "verdict": "PARTIAL"
+    },
+    "regenerated": {
+      "gates": {
+        "D1a": 72,
+        "D1b": 70,
+        "D1c": 72,
+        "D1d": 57,
+        "D1d_threshold": 58
+      },
+      "verdict": "PARTIAL"
+    },
+    "D1d_delta": 0,
+    "verdict_changed": false
+  },
+  "blockB": {
+    "stored": {
+      "band": "Policy-Partial",
+      "P5_vs_P0": 0.8333333333333334
+    },
+    "regenerated": {
+      "band": "Policy-Partial",
+      "P5_vs_P0": 0.8333333333333334
+    },
+    "band_changed": false
+  },
+  "b14_exposure": "15.6% of elevator requests faced an availability tie, 5.1% a tie between units on different floors"
+}

@@ -38,6 +38,7 @@ import numpy as np
 import pandas as pd
 
 from src.analysis_phase5_blockA import CORNERS, decompose
+from src.registration_guard import code_provenance  # S1D: code-tree hash in every output
 from src.registration_guard import require_signed, scratch_dir
 
 RESULTS_DIR = Path(__file__).resolve().parents[1] / "results"
@@ -426,7 +427,7 @@ def run_real() -> dict:
 
     out = {
         "registration_sha256": _sha256_file(REG_PATH),
-        "code_sha256": _sha256_file(Path(__file__)),
+        "code_sha256": _sha256_file(Path(__file__)), **code_provenance(),
         "input_sha256": hashes,
         "selftest": False,
         "blockA": run_blockA(a),
@@ -569,7 +570,7 @@ def run_selftest(B: int) -> dict:
 
     return {
         "registration_sha256": _sha256_file(REG_PATH),
-        "code_sha256": _sha256_file(Path(__file__)),
+        "code_sha256": _sha256_file(Path(__file__)), **code_provenance(),
         "input_sha256": "n/a (selftest: fabricated in-memory, not read from disk)",
         "selftest": True,
         "reference_row_level_reproducibility_check": {"ref1": ref1, "ref2": ref2,

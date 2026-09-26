@@ -1,0 +1,337 @@
+{
+  "item": "TH-2 complete display",
+  "registration_sha256": "00f03ff20c640f3f104ef93728f60a25401d1ef34e4e9f30586b4b255fb341c3",
+  "code_sha256": "4635528a39f7e0d8b14515e048b134e07d81db86de4a5cc8b5492e3bfafbca19",
+  "code_tree_sha256": "275d1f1abdc2bfb1ebb90c39b4609d39e6692af6c541cf007b972674f97e5619",
+  "code_tree_sha256_pinned": "cd0694e4fedeee112d451828d8d03adcbd36a576ecf33dbcf5988b54265dd14c",
+  "code_tree_matches_pinned": false,
+  "input_sha256": {
+    "blockC_tiebreakfix": "5ac4a37091734da26df68aae41386c7b515a401a75402982988ad85db5441eff",
+    "S1-3": "b9a0a2678565ac840ddff318c228b4e2e47f13101a2673982b269562ecfb4f77",
+    "supp2": "eb124f5ba5bad083cd610362b0cf572ec255d788efb87dc07247a62784b1729f",
+    "B-1": "6e52ea5dbea1c3c3abe3b605132aa657595b54c6adc28c06e1017154ffa1abce",
+    "TH-2_run_output": "6bc1ad58ff5f4bbcb4799d40aa3ae1885454207670d179eb9b5935d8e02b6ea9"
+  },
+  "mode": "real",
+  "wording_rule": "the headline x (unchanged) is the median over the primary Block C rows as drawn; facet medians are reported in the figure, not merged into x",
+  "headline_unchanged": {
+    "median_B": 0.4134429159655769,
+    "iqr_B": [
+      0.2914406469433259,
+      0.54421768707483
+    ],
+    "n": 6000
+  },
+  "facet_E_merged": {
+    "1": {
+      "as_drawn": {
+        "n": 27000,
+        "median_B": 0.37716194774006345,
+        "iqr_B": [
+          0.28272251308900526,
+          0.46859903381642515
+        ],
+        "reversal_share": 0.004222222222222222
+      },
+      "deduplicated": {
+        "n": 19706,
+        "median_B": 0.37626272091759283,
+        "iqr_B": [
+          0.28116710875331563,
+          0.4686253999507753
+        ],
+        "reversal_share": 0.004110423221353902
+      },
+      "n_from_block_C": 0,
+      "n_from_S1-3_NS": 27000
+    },
+    "2": {
+      "as_drawn": {
+        "n": 27000,
+        "median_B": 0.47023809523809523,
+        "iqr_B": [
+          0.32870311748664116,
+          0.59875769107784
+        ],
+        "reversal_share": 0.00862962962962963
+      },
+      "deduplicated": {
+        "n": 19647,
+        "median_B": 0.4696969696969697,
+        "iqr_B": [
+          0.3277639842382556,
+          0.5983084790616171
+        ],
+        "reversal_share": 0.00844912709319489
+      },
+      "n_from_block_C": 6000,
+      "n_from_S1-3_NS": 21000
+    }
+  },
+  "facet_F_merged": {
+    "3": {
+      "as_drawn": {
+        "n": 18000,
+        "median_B": 0.3377250844790075,
+        "iqr_B": [
+          0.24,
+          0.43901116980152255
+        ],
+        "reversal_share": 0.015555555555555555
+      },
+      "deduplicated": {
+        "n": 13135,
+        "median_B": 0.337182490372275,
+        "iqr_B": [
+          0.24004829470087174,
+          0.43943917343851063
+        ],
+        "reversal_share": 0.014845831747240197
+      },
+      "n_from_block_C": 3000,
+      "n_from_S1-3_NS": 15000
+    },
+    "5": {
+      "as_drawn": {
+        "n": 18000,
+        "median_B": 0.44639355194530117,
+        "iqr_B": [
+          0.3522436283543803,
+          0.5439726023293776
+        ],
+        "reversal_share": 0.0031666666666666666
+      },
+      "deduplicated": {
+        "n": 13096,
+        "median_B": 0.4466179049538179,
+        "iqr_B": [
+          0.3502192347215346,
+          0.5447411301027464
+        ],
+        "reversal_share": 0.003359804520464264
+      },
+      "n_from_block_C": 3000,
+      "n_from_S1-3_NS": 15000
+    },
+    "8": {
+      "as_drawn": {
+        "n": 18000,
+        "median_B": 0.46651110225452397,
+        "iqr_B": [
+          0.33183523567956036,
+          0.59375
+        ],
+        "reversal_share": 0.0005555555555555556
+      },
+      "deduplicated": {
+        "n": 13122,
+        "median_B": 0.4655198274911456,
+        "iqr_B": [
+          0.3315027128076286,
+          0.5946067641580028
+        ],
+        "reversal_share": 0.0006096631611034903
+      },
+      "n_from_block_C": 0,
+      "n_from_S1-3_NS": 18000
+    }
+  },
+  "facet_n_merged": {
+    "8": {
+      "as_drawn": {
+        "n": 18000,
+        "median_B": 0.3625019996844796,
+        "iqr_B": [
+          0.2366869269452767,
+          0.49856916830132625
+        ],
+        "reversal_share": 0.016277777777777776
+      },
+      "deduplicated": {
+        "n": 13672,
+        "median_B": 0.3635100708974615,
+        "iqr_B": [
+          0.23809523809523808,
+          0.49883392611811805
+        ],
+        "reversal_share": 0.015579286132241077
+      },
+      "n_from_block_C": 0,
+      "n_from_S1-3_NS": 18000
+    },
+    "16": {
+      "as_drawn": {
+        "n": 18000,
+        "median_B": 0.416,
+        "iqr_B": [
+          0.3070204289820423,
+          0.534179506679507
+        ],
+        "reversal_share": 0.0028888888888888888
+      },
+      "deduplicated": {
+        "n": 13028,
+        "median_B": 0.4155844155844156,
+        "iqr_B": [
+          0.30656934306569344,
+          0.5347399203476368
+        ],
+        "reversal_share": 0.0025330058335891925
+      },
+      "n_from_block_C": 6000,
+      "n_from_S1-3_NS": 12000
+    },
+    "30": {
+      "as_drawn": {
+        "n": 18000,
+        "median_B": 0.4504999504999505,
+        "iqr_B": [
+          0.3540714534276766,
+          0.5556016272034972
+        ],
+        "reversal_share": 0.00011111111111111112
+      },
+      "deduplicated": {
+        "n": 12653,
+        "median_B": 0.45219638242894056,
+        "iqr_B": [
+          0.35499398315282793,
+          0.5581209697763041
+        ],
+        "reversal_share": 7.903264048051846e-05
+      },
+      "n_from_block_C": 0,
+      "n_from_S1-3_NS": 18000
+    }
+  },
+  "facet_F_block_C_only": {
+    "3": {
+      "as_drawn": {
+        "n": 3000,
+        "median_B": 0.3333333333333333,
+        "iqr_B": [
+          0.22945356377082368,
+          0.4442500456058214
+        ],
+        "reversal_share": 0.011666666666666667
+      },
+      "deduplicated": {
+        "n": 2201,
+        "median_B": 0.3333333333333333,
+        "iqr_B": [
+          0.23529411764705882,
+          0.4453125
+        ],
+        "reversal_share": 0.009541117673784643
+      },
+      "n_from_block_C": 3000,
+      "n_from_S1-3_NS": 0
+    },
+    "5": {
+      "as_drawn": {
+        "n": 3000,
+        "median_B": 0.4874395189319011,
+        "iqr_B": [
+          0.3870967741935484,
+          0.6048123265663794
+        ],
+        "reversal_share": 0.0013333333333333333
+      },
+      "deduplicated": {
+        "n": 2145,
+        "median_B": 0.48763478826143164,
+        "iqr_B": [
+          0.38405797101449274,
+          0.6016597510373444
+        ],
+        "reversal_share": 0.0009324009324009324
+      },
+      "n_from_block_C": 3000,
+      "n_from_S1-3_NS": 0
+    }
+  },
+  "facet_c_supp2": {
+    "2": {
+      "as_drawn": {
+        "n": 6000,
+        "median_B": 0.4161037312417827,
+        "iqr_B": [
+          0.29454545454545455,
+          0.5403075489282386
+        ],
+        "reversal_share": 0.0025
+      },
+      "n_from_block_C": null,
+      "n_from_S1-3_NS": null
+    },
+    "3": {
+      "as_drawn": {
+        "n": 6000,
+        "median_B": 0.7818181818181819,
+        "iqr_B": [
+          0.5736027612014314,
+          0.9875663453769097
+        ],
+        "reversal_share": 0.0003333333333333333
+      },
+      "n_from_block_C": null,
+      "n_from_S1-3_NS": null
+    },
+    "4": {
+      "as_drawn": {
+        "n": 6000,
+        "median_B": 1.0,
+        "iqr_B": [
+          0.6938660754175711,
+          1.3295497525938025
+        ],
+        "reversal_share": 0.001
+      },
+      "n_from_block_C": null,
+      "n_from_S1-3_NS": null
+    },
+    "5": {
+      "as_drawn": {
+        "n": 6000,
+        "median_B": 1.1756240973798224,
+        "iqr_B": [
+          0.7636363636363637,
+          1.6403301743490972
+        ],
+        "reversal_share": 0.0006666666666666666
+      },
+      "n_from_block_C": null,
+      "n_from_S1-3_NS": null
+    }
+  },
+  "labels": {
+    "merged_facets": "Block C rows (tie-break-fixed, size 16) plus S1-3 extension rows, marked [NS]",
+    "deduplicated": "one row per distinct candidate within (configuration, size, arm)",
+    "facet_c_supp2": "Supp-2 rows, generated 2026-05-19 with the simulator before the 2026-09-11 tie-break fix; no candidate identifiers, so rows as drawn only",
+    "F_confounding": "F is confounded with |A| and demand in the Phase 5 fraction; the F facet is not an F main effect"
+  },
+  "B-1_cross_reference": {
+    "TH-2_reversal_waves_block_C": 39,
+    "B-1_violations": 20,
+    "in_both": 19,
+    "in_both_by_B-1_channel": {
+      "batch_overtaking": 17,
+      "adverse_repositioning": 2
+    },
+    "B-1_channels_all_violations": {
+      "batch_overtaking": 18,
+      "adverse_repositioning": 2
+    },
+    "B-1_base_rate_all_waves": {
+      "batch_overtaking_events": 760,
+      "adverse_repositioning_events": 5966,
+      "overtake_frac": 0.12666666666666668,
+      "repos_frac": 0.9943333333333333
+    },
+    "note": "B-1 (2026-07-08) replays the Block C waves with a fidelity-gated mirror under enforced matched assignment; TH-2 reversals are rows with M2 < M1 in the tie-break-fixed Block C CSV. The two instruments differ, so the overlap is a cross-reference, not an identity."
+  },
+  "figure": [
+    "TH-2_abstraction_bias_complete.png",
+    "TH-2_abstraction_bias_complete.pdf"
+  ]
+}

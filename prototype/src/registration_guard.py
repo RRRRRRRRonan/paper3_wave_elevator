@@ -6,7 +6,8 @@ Every Study 1 and Study 2 script calls `require_signed(<key>)` (or
 `require_bundle`) before it touches a registered seed, pool, or stored
 artefact. The guard stops unless, for each registration,
   1. its YAML front matter reads `author_signoff: "SIGNED ..."` (the S1C
-     execution note may read "ACKNOWLEDGED ..."),
+     and S1D execution notes may read "ACKNOWLEDGED ..."; every Study 1 key
+     also requires S1D, see ALSO_REQUIRES),
   2. the signed manifest (revision_2026-09-26_ijpr/archive_package/
      MANIFEST_SIGNED.json, written by make_manifest.py after signing) lists
      it with the file's current hash, and
@@ -47,11 +48,16 @@ REGISTRATIONS: Dict[str, Path] = {
            / "AMEND-2026-09-26-S1B_new_simulations.md",
     "S1C": REPO / "revision_2026-09-26_ijpr" / "amendments"
            / "AMEND-2026-09-26-S1C_execution_note_B4_B6.md",
+    "S1D": REPO / "revision_2026-09-26_ijpr" / "amendments"
+           / "AMEND-2026-09-26-S1D_execution_deviation.md",
     "decisions": REPO / "revision_2026-09-26_ijpr" / "01_DECISIONS_TO_SIGN.md",
     "story": REPO / "revision_2026-09-26_ijpr" / "STORY_CONTRACT.md",
 }
 STUDY2_L1 = ("phase6", "decisions", "story")
-ACKNOWLEDGEABLE = {"S1C"}
+ACKNOWLEDGEABLE = {"S1C", "S1D"}
+# Execution notes that every real Study 1 run also needs (S1D: the code
+# changed after signing, so no Study 1 result runs before S1D is pinned).
+ALSO_REQUIRES: Dict[str, tuple] = {"S1A": ("S1D",), "S1B": ("S1D",), "S1C": ("S1D",)}
 
 # Toy seeds for self-tests: far below every registered seed range
 # (registered bases are >= 20,260,519).
@@ -79,6 +85,18 @@ def code_tree_sha256(src_dir: Path = REPO / "prototype" / "src") -> str:
     files = sorted(Path(src_dir).glob("*.py"), key=lambda p: p.name)
     return hashlib.sha256("".join(f"{rel_to_repo(p)}\n{sha256_file(p)}\n"
                                   for p in files).encode()).hexdigest()
+
+
+def code_provenance(manifest_dir: Path = MANIFEST_DIR) -> dict:
+    """Code-tree hash of the code that runs, next to the hash pinned in
+    MANIFEST_SIGNED.json (S1B general rule 1; deviation note S1D)."""
+    current = code_tree_sha256()
+    pinned = None
+    mf = Path(manifest_dir) / "MANIFEST_SIGNED.json"
+    if mf.exists():
+        pinned = json.loads(mf.read_text(encoding="utf-8")).get("code_tree_sha256")
+    return {"code_tree_sha256": current, "code_tree_sha256_pinned": pinned,
+            "code_tree_matches_pinned": (current == pinned) if pinned else None}
 
 
 def _path(key_or_path) -> Path:
@@ -146,6 +164,8 @@ def require_signed(key_or_path, selftest: bool = False, label: str = "SIGNED",
     if selftest:
         return
     path = _path(key_or_path)
+    if not path.exists():
+        raise RegistrationNotSigned(f"REGISTRATION GUARD: {path.name} does not exist.")
     if not is_signed(key_or_path):
         raise RegistrationNotSigned(
             f"REGISTRATION GUARD: {path.name} is not signed "
@@ -169,6 +189,8 @@ def require_signed(key_or_path, selftest: bool = False, label: str = "SIGNED",
             "signed (a superseded manifest shows a different signed version). "
             "Edits after signing go into a dated amendment, not into the "
             "signed file.")
+    for dep in ALSO_REQUIRES.get(key_or_path, ()) if isinstance(key_or_path, str) else ():
+        require_signed(dep, selftest, label, manifest_dir)
 
 
 def require_bundle(keys: Iterable[str], selftest: bool = False,
@@ -312,9 +334,31 @@ def _test_parser_and_pinning(tmp: Path) -> None:
     assert not checkbox_ticked(box, "S1-11 included", "no")
     assert not checkbox_ticked(box, "Other item")
     assert stops(require_checkbox, box, "Other item")
+    # a Study 1 key also needs its execution note (S1D) to be signed and pinned
+    main_reg, note = tmp / "s1x.md", tmp / "s1d.md"
+    main_reg.write_text('---\nauthor_signoff: "SIGNED (A, 2026-10-03)"\n---\n', encoding="utf-8")
+    note.write_text('---\nauthor_signoff: "PENDING"\n---\n', encoding="utf-8")
+    saved = dict(REGISTRATIONS), dict(ALSO_REQUIRES)
+    ACKNOWLEDGEABLE.add("S1X_NOTE")
+    try:
+        REGISTRATIONS.update({"S1X": main_reg, "S1X_NOTE": note})
+        ALSO_REQUIRES["S1X"] = ("S1X_NOTE",)
+        _write_manifest(tmp, "SIGNED", {main_reg: sha256_file(main_reg), note: sha256_file(note)})
+        assert stops(require_signed, "S1X", manifest_dir=tmp), "pending note must stop"
+        REGISTRATIONS["S1X_NOTE"] = tmp / "missing.md"
+        assert stops(require_signed, "S1X", manifest_dir=tmp), "missing note must stop"
+        REGISTRATIONS["S1X_NOTE"] = note
+        note.write_text('---\nauthor_signoff: "ACKNOWLEDGED (A, 2026-10-03)"\n---\n', encoding="utf-8")
+        _write_manifest(tmp, "SIGNED", {main_reg: sha256_file(main_reg), note: sha256_file(note)})
+        require_signed("S1X", manifest_dir=tmp)              # both pinned: runs
+        require_signed(main_reg, manifest_dir=tmp)            # by path: no dependency lookup
+    finally:
+        REGISTRATIONS.clear(); REGISTRATIONS.update(saved[0])
+        ALSO_REQUIRES.clear(); ALSO_REQUIRES.update(saved[1])
+        ACKNOWLEDGEABLE.discard("S1X_NOTE")
     print("  [OK] guard: front matter (quotes, comments, CRLF), pinned hash "
           "(unpinned, unchanged, edited, re-pinned, staggered signing), "
-          "self-test bypass, body checkbox")
+          "self-test bypass, body checkbox, execution-note dependency")
 
 
 def _report_current() -> None:

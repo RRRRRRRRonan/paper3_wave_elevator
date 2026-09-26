@@ -41,6 +41,7 @@ from scipy.stats import wasserstein_distance
 from src import phase5_config as cfg
 from src.analysis_phase5_blockA import CORNERS
 from src.experiments_phase5 import run_chain_block
+from src.registration_guard import code_provenance  # S1D: code-tree hash in every output
 from src.registration_guard import TOY_SEED_BASE, require_signed, scratch_dir
 
 RESULTS_DIR = Path(__file__).resolve().parents[1] / "results"
@@ -282,7 +283,7 @@ def main() -> None:
     df.to_csv(csv_path, index=False)
 
     out = {"registration_sha256": _sha256_file(REG_PATH),
-          "code_sha256": _sha256_file(Path(__file__)),
+          "code_sha256": _sha256_file(Path(__file__)), **code_provenance(),
           "selftest": args.selftest, "n_per_arm": n_per_arm, "cand_n": cand_n,
           "stability_B": stab_B, "raw_csv": str(csv_path), **summary}
     json_path = out_dir / "v0_5_phase5_S1-3_blockC_ext.json"

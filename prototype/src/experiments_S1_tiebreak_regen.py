@@ -46,6 +46,7 @@ import pandas as pd
 from src import phase5_config as cfg
 from src.experiments_phase5 import run_corner_block, run_policy_block
 from src.experiments_phase5_ablation import P7_ITER, run_p7
+from src.registration_guard import code_provenance  # S1D: code-tree hash in every output
 from src.registration_guard import TOY_SEED_BASE, require_signed, scratch_dir
 
 RESULTS_DIR = Path(__file__).resolve().parents[1] / "results"
@@ -201,7 +202,7 @@ def main() -> None:
         json.dump(regen_b, f, indent=2, default=str)
 
     meta = {"registration_sha256": _sha256_file(REG_PATH),
-           "code_sha256": _sha256_file(Path(__file__)),
+           "code_sha256": _sha256_file(Path(__file__)), **code_provenance(),
            "selftest": args.selftest,
            "csv_paths": {k: str(v) for k, v in csv_paths.items()}}
     if args.selftest:

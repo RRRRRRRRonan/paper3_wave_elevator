@@ -1,0 +1,56 @@
+display completion [s1-2] wrote F:\Paper 3\prototype\results\v0_5_phase5_S1-2_side_by_side.json
+display completion [s1-2] wrote F:\Paper 3\prototype\results\raw\mvs_v0_5_phase5_S1-2_side_by_side_blockA.csv
+display completion [s1-6] wrote F:\Paper 3\prototype\results\v0_5_phase5_S1-6_display_with_extension.json
+==============================================================================
+Phase 5 ablations + P7 reference (pre-reg §9 amendment)
+==============================================================================
+
+A1 feature   Φ=(C,I) vs C-only vs I-only
+   mean makespan reduction: CI=+0.0372  C-only=+0.0274  I-only=+0.0114
+   (C,I) ≥ both single features: 39/72  -> single feature dominates
+
+A2 T dimension   2x2 (C,I) vs 2x2x2 (C,I,T)
+   T adds leverage: 1/6 configs (1/2 diurnal)  -> T adds leverage chiefly under diurnal demand
+
+A3 estimator   cell-median vs cell-mean GAP
+   bootstrap SD of GAP: median=0.0209  mean=0.0150
+   median more stable: 1/72  -> cell-mean is at least as stable here — the cell-median is retained for Theorem-1 (SPO-regret) consistency, not for lower variance
+
+A4 granularity   2x2 vs 3x3 (C,I)
+   mean UB: 2x2=0.0858  3x3=0.1279
+   3x3 raises UB: 6/6  -> 3x3 raises UB as Corollary M4.4 predicts
+
+P7 reference   local-search optimizer (n_iter=40)
+   P5 sits 46.4 % above the P7 optimum
+   P5 captures 19.0 % of the P0→P7 gap
+
+Saved C:\Users\64432\AppData\Local\Temp\tmp7bmujb1o\v0_5_phase5_ablation.json
+==============================================================================
+Phase 5 ablations + P7 reference (pre-reg §9 amendment)
+==============================================================================
+
+A1 feature   Φ=(C,I) vs C-only vs I-only
+   mean makespan reduction: CI=+0.0372  C-only=+0.0274  I-only=+0.0113
+   (C,I) ≥ both single features: 40/72  -> single feature dominates
+
+A2 T dimension   2x2 (C,I) vs 2x2x2 (C,I,T)
+   T adds leverage: 1/6 configs (1/2 diurnal)  -> T adds leverage chiefly under diurnal demand
+
+A3 estimator   cell-median vs cell-mean GAP
+   bootstrap SD of GAP: median=0.0209  mean=0.0151
+   median more stable: 1/72  -> cell-mean is at least as stable here — the cell-median is retained for Theorem-1 (SPO-regret) consistency, not for lower variance
+
+A4 granularity   2x2 vs 3x3 (C,I)
+   mean UB: 2x2=0.0858  3x3=0.1279
+   3x3 raises UB: 6/6  -> 3x3 raises UB as Corollary M4.4 predicts
+
+P7 reference   local-search optimizer (n_iter=40)
+   P5 sits 46.4 % above the P7 optimum
+   P5 captures 18.9 % of the P0→P7 gap
+
+Saved C:\Users\64432\AppData\Local\Temp\tmpcef2yitt\v0_5_phase5_ablation.json
+display completion [s1-9] wrote F:\Paper 3\prototype\results\v0_5_phase5_S1-9_completion.json
+display completion [s1-9] wrote F:\Paper 3\prototype\results\v0_5_phase5_ablation_tiebreakfix.json
+display completion [s1-12] wrote F:\Paper 3\prototype\results\v0_5_phase5_S1-12_supplement.json
+display completion [th-2] wrote F:\Paper 3\prototype\results\v0_5_phase5_TH-2_abstraction_bias_complete.json
+display completion [th-2] wrote F:\Paper 3\prototype\results\figures\TH-2_abstraction_bias_complete.png

@@ -1,0 +1,197 @@
+{
+  "registration_sha256": "00f03ff20c640f3f104ef93728f60a25401d1ef34e4e9f30586b4b255fb341c3",
+  "code_sha256": "147b7acd2037d50c381402a72e55bebf6adb6b4240b0df5ccbf775c0893c27b0",
+  "code_tree_sha256": "cd0694e4fedeee112d451828d8d03adcbd36a576ecf33dbcf5988b54265dd14c",
+  "code_tree_sha256_pinned": "cd0694e4fedeee112d451828d8d03adcbd36a576ecf33dbcf5988b54265dd14c",
+  "code_tree_matches_pinned": true,
+  "input_sha256": {
+    "mvs_v0_5_phase5_blockC_tiebreakfix.csv": "5ac4a37091734da26df68aae41386c7b515a401a75402982988ad85db5441eff",
+    "mvs_v0_5_phase5_blockC.csv": "64b234ee606040c4d8cff663219156b856bb87cbf9d94aa80dd61ddc615cc6fd",
+    "mvs_v0_5_phase5_blockC_candidate_ids.csv": "520fac70b9121dc119783e697d7041b7f8674a27e46c2a0c1b434f5ef2fc4d19",
+    "mvs_v0_5_supp2_capacity.csv": "eb124f5ba5bad083cd610362b0cf572ec255d788efb87dc07247a62784b1729f",
+    "mvs_v0_5_phase5_S1-3_blockC_ext.csv": "b9a0a2678565ac840ddff318c228b4e2e47f13101a2673982b269562ecfb4f77"
+  },
+  "selftest": false,
+  "headline": {
+    "source": "primary_tiebreakfix_size16_block_c_configs",
+    "median_B": 0.4134429159655769,
+    "iqr_B": [
+      0.2914406469433259,
+      0.54421768707483
+    ],
+    "wording": "In this benchmark the throughput abstraction is optimistic by a median of 41.3% (interquartile range 29.1% to 54.4%)",
+    "reversal_share": 0.0065
+  },
+  "primary_as_drawn": {
+    "n": 6000,
+    "median_B": 0.4134429159655769,
+    "reversal_share": 0.0065
+  },
+  "primary_dedup": {
+    "n": 4346,
+    "median_B": 0.4123747165906703
+  },
+  "secondary_as_drawn": {
+    "n": 6000,
+    "median_B": 0.41379310344827586
+  },
+  "facet_E": {
+    "2": {
+      "n": 6000,
+      "median_B": 0.4134429159655769,
+      "iqr_B": [
+        0.2914406469433259,
+        0.54421768707483
+      ],
+      "reversal_share": 0.0065
+    }
+  },
+  "facet_F": {
+    "3": {
+      "n": 3000,
+      "median_B": 0.3333333333333333,
+      "iqr_B": [
+        0.22945356377082368,
+        0.4442500456058214
+      ],
+      "reversal_share": 0.011666666666666667
+    },
+    "5": {
+      "n": 3000,
+      "median_B": 0.4874395189319011,
+      "iqr_B": [
+        0.3870967741935484,
+        0.6048123265663794
+      ],
+      "reversal_share": 0.0013333333333333333
+    }
+  },
+  "facet_n_size16_only": {
+    "16": {
+      "n": 6000,
+      "median_B": 0.4134429159655769,
+      "iqr_B": [
+        0.2914406469433259,
+        0.54421768707483
+      ],
+      "reversal_share": 0.0065
+    }
+  },
+  "facet_c_supp2": {
+    "2": {
+      "n": 6000,
+      "median_B": 0.4161037312417827,
+      "iqr_B": [
+        0.29454545454545455,
+        0.5403075489282386
+      ],
+      "reversal_share": 0.0025
+    },
+    "3": {
+      "n": 6000,
+      "median_B": 0.7818181818181819,
+      "iqr_B": [
+        0.5736027612014314,
+        0.9875663453769097
+      ],
+      "reversal_share": 0.0003333333333333333
+    },
+    "4": {
+      "n": 6000,
+      "median_B": 1.0,
+      "iqr_B": [
+        0.6938660754175711,
+        1.3295497525938025
+      ],
+      "reversal_share": 0.001
+    },
+    "5": {
+      "n": 6000,
+      "median_B": 1.1756240973798224,
+      "iqr_B": [
+        0.7636363636363637,
+        1.6403301743490972
+      ],
+      "reversal_share": 0.0006666666666666666
+    }
+  },
+  "s1_3_extension_available": true,
+  "facet_n_with_S1-3_extension": {
+    "8": {
+      "n": 18000,
+      "median_B": 0.3625019996844796,
+      "iqr_B": [
+        0.23668692694527668,
+        0.49856916830132625
+      ],
+      "reversal_share": 0.016277777777777776
+    },
+    "16": {
+      "n": 18000,
+      "median_B": 0.416,
+      "iqr_B": [
+        0.3070204289820423,
+        0.534179506679507
+      ],
+      "reversal_share": 0.0028888888888888888
+    },
+    "30": {
+      "n": 18000,
+      "median_B": 0.45049995049995045,
+      "iqr_B": [
+        0.3540714534276766,
+        0.5556016272034968
+      ],
+      "reversal_share": 0.00011111111111111112
+    }
+  },
+  "facet_E_with_S1-3_extension": {
+    "1": {
+      "n": 27000,
+      "median_B": 0.37716194774006345,
+      "iqr_B": [
+        0.2827225130890052,
+        0.4685990338164251
+      ],
+      "reversal_share": 0.004222222222222222
+    },
+    "2": {
+      "n": 27000,
+      "median_B": 0.47023809523809523,
+      "iqr_B": [
+        0.32870311748664127,
+        0.59875769107784
+      ],
+      "reversal_share": 0.00862962962962963
+    }
+  },
+  "facet_F_with_S1-3_extension": {
+    "3": {
+      "n": 18000,
+      "median_B": 0.3377250844790075,
+      "iqr_B": [
+        0.24,
+        0.4390111698015225
+      ],
+      "reversal_share": 0.015555555555555555
+    },
+    "5": {
+      "n": 18000,
+      "median_B": 0.446393551945301,
+      "iqr_B": [
+        0.35224362835438033,
+        0.5439726023293776
+      ],
+      "reversal_share": 0.0031666666666666666
+    },
+    "8": {
+      "n": 18000,
+      "median_B": 0.4665111022545239,
+      "iqr_B": [
+        0.3318352356795603,
+        0.59375
+      ],
+      "reversal_share": 0.0005555555555555556
+    }
+  }
+}

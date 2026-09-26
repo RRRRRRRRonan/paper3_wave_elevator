@@ -1,6 +1,6 @@
-# Registration package for OSF Registries (draft, not uploaded)
+# Registration package for OSF Registries (registered 2026-09-26 as https://osf.io/kps2c, under embargo)
 
-Prepared 2026-09-26 by the assistant at the author's request. **Nothing has been uploaded.** Uploading needs the author's OSF account and decision D-J.
+Prepared 2026-09-26 by the assistant at the author's request. The author registered the L1 set the same day: OSF registration kps2c (project ezcru), Open-Ended Registration, embargoed, license CC0 1.0 Universal (EXECUTION-LOG entry 52). The S1D update set in `osf_update_2026-09-26_S1D/` is prepared and still to be submitted by the author as an update to kps2c (step 5b below).
 
 ## 1. What goes into the registration
 
@@ -10,7 +10,7 @@ Prepared 2026-09-26 by the assistant at the author's request. **Nothing has been
 | Study 1 registrations | `revision_2026-09-26_ijpr/amendments/AMEND-2026-09-26-S1A_reanalyses.md`, `...-S1B_new_simulations.md`, `...-S1C_execution_note_B4_B6.md`, `README.md` |
 | Decision record and story | `revision_2026-09-26_ijpr/01_DECISIONS_TO_SIGN.md` and `revision_2026-09-26_ijpr/STORY_CONTRACT.md` (signed versions; the story contract pre-commits the wording rules of §8) |
 | Frozen context (read only) | `paper_draft/phase5_scaleup_preregistration.md`; `paper_draft/theorems_m4.md`, `theorems_m5.md`, `methodology_v0_2.md` (linked from the preregistration); `prototype/results/configs_v0_5.json`; the six amendments in `revision_2026-07-08/amendments/` |
-| Hash manifest | `MANIFEST_SIGNED.md` and `.json` from `make_manifest.py SIGNED`, run after signing |
+| Hash manifest | `MANIFEST_SIGNED.md` and `.json` from `make_manifest.py SIGNED`, run after signing; each `--supersede` keeps the previous manifest under a timestamped name |
 | Stage L2 (week 4, as an OSF update) | `paper_draft/phase6_protocol_L2_addendum.md` (signed) and `MANIFEST_SIGNED_L2.*` |
 
 Code and data are not part of the registration. Under decision D-J, option J4 (chosen by the author on 2026-09-26), they go to the editor and reviewers as confidential supplementary material at submission and, after publication, are provided by the author upon reasonable request; they are not deposited in a public repository. Before submission, check which Taylor & Francis data-sharing policy IJPR applies: J4 fits "Basic" and "Share upon reasonable request"; if the journal requires publicly available data, fall back to option J3 (Zenodo release after acceptance; a Zenodo record shows its title, authors, and abstract even under embargo, so nothing goes there before acceptance).
@@ -21,7 +21,7 @@ Code and data are not part of the registration. Under decision D-J, option J4 (c
 - **Title:** Registered analyses for a study of wave composition under shared freight elevators in multi-story AMR warehouses (Study 1 re-analyses and Study 2 method study)
 - **Description (one paragraph):** This registration fixes, before execution, (i) re-analyses and new simulations that complete a preregistered simulation study of wave composition under shared freight elevators (Study 1), and (ii) a method study of a generate, screen, and verify release procedure evaluated with closed-form and event-driven evaluators (Study 2). All designs, seeds, metrics, gates, and wording rules are in the attached files; their SHA-256 hashes are listed in the manifest.
 - **Contributors:** the author(s) as on the manuscript.
-- **License:** CC BY 4.0 for the documents.
+- **License:** CC0 1.0 Universal, the author's choice at registration (CC BY 4.0 had been suggested here).
 - **Embargo (required by D-J):** register under embargo, not as a public registration. Pick an end date at most 4 years ahead and end the embargo early when the paper is accepted. Nothing is public before then, while the registration date stays verifiable. A registration that has been made public cannot be embargoed again. During the embargo, share it with the editor through a view-only link (OSF also offers anonymized view-only links). The signed files carry the author's name, which an anonymized link does not hide, so under double-anonymous review the review version of the manuscript cites the registration without the link.
 
 ## 3. Honest statement on earlier registrations (for the paper's registration appendix)
@@ -36,11 +36,12 @@ Suggested appendix sentence: "The Phase 5 design was locked internally on 19 May
 
 ## 4. Steps for the author
 
-1. Sign `01_DECISIONS_TO_SIGN.md`, `STORY_CONTRACT.md`, the Study 2 protocol (L1), and the Study 1 registrations: in one edit per file, set `author_signoff` to `SIGNED (<name>, <date>)` (S1C may read `ACKNOWLEDGED (<name>, <date>)`) and replace the `status` line (tick the S1-11 box in S1B if D-D1 is signed).
-2. Run `python "revision_2026-09-26_ijpr/archive_package/make_manifest.py" SIGNED`. This pins the signed bytes; from now on `src/registration_guard.py` stops every registered script if a signed file changes. The script refuses to overwrite an existing signed manifest unless `--supersede` is given, and then keeps the old one.
-3. Create the OSF registration; attach the files of §1 and `MANIFEST_SIGNED.md`; choose an embargo (not "make public"); submit.
-4. Record the OSF identifier in the manuscript's registration appendix and, in week 4, in the L2 addendum. Never write it into a signed file (that would change its hash).
-5. Only then run any registered script.
+1. (done 2026-09-26) Sign `01_DECISIONS_TO_SIGN.md`, `STORY_CONTRACT.md`, the Study 2 protocol (L1), and the Study 1 registrations: in one edit per file, set `author_signoff` to `SIGNED (<name>, <date>)` (S1C may read `ACKNOWLEDGED (<name>, <date>)`) and replace the `status` line (tick the S1-11 box in S1B if D-D1 is signed).
+2. (done 2026-09-26; superseded twice the same day, EXECUTION-LOG 54 and 60) Run `python "revision_2026-09-26_ijpr/archive_package/make_manifest.py" SIGNED`. This pins the signed bytes; from now on `src/registration_guard.py` stops every registered script if a signed file changes. The script refuses to overwrite an existing signed manifest unless `--supersede` is given, and then keeps the old one.
+3. (done 2026-09-26: kps2c) Create the OSF registration; attach the files of §1 and `MANIFEST_SIGNED.md`; choose an embargo (not "make public"); submit.
+4. (id recorded in EXECUTION-LOG 52; appendix and L2 addendum still to be filled) Record the OSF identifier in the manuscript's registration appendix and, in week 4, in the L2 addendum. Never write it into a signed file (that would change its hash).
+5. (done: the Study 1 run of 2026-09-26, EXECUTION-LOG 55 to 58) Only then run any registered script.
+5b. (pending) Submit the S1D update: upload the files of `osf_update_2026-09-26_S1D/` to the project's OSF Storage and add their SHA-256 list to the registration's Summary as an update (the update form takes text only); record the OSF update time in EXECUTION-LOG.
 6. Week 4: fill and sign the L2 addendum, run `make_manifest.py SIGNED_L2`, and register it as an OSF update before any test pool is generated.
 7. At submission: give the code and data release package (plan item P-6) to the editor and reviewers as confidential supplementary material, and keep that exact package with its hashes so that later requests receive the version used in the paper. Data availability statement: "The simulation code and the generated data that support the findings of this study are available from the corresponding author upon reasonable request. The study's registrations are available on OSF at [link]."
 8. After acceptance: end the OSF embargo so that readers can check the registrations; code and data stay available upon reasonable request (D-J, J4).

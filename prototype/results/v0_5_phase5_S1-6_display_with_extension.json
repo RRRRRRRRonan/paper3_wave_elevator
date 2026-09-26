@@ -1,0 +1,2440 @@
+{
+  "item": "S1-6 display with S1-3 extension rows",
+  "registration_sha256": "00f03ff20c640f3f104ef93728f60a25401d1ef34e4e9f30586b4b255fb341c3",
+  "code_sha256": "4635528a39f7e0d8b14515e048b134e07d81db86de4a5cc8b5492e3bfafbca19",
+  "code_tree_sha256": "275d1f1abdc2bfb1ebb90c39b4609d39e6692af6c541cf007b972674f97e5619",
+  "code_tree_sha256_pinned": "cd0694e4fedeee112d451828d8d03adcbd36a576ecf33dbcf5988b54265dd14c",
+  "code_tree_matches_pinned": false,
+  "input_sha256": {
+    "S1-6": "10a6b88050f321249bd8573bc314dcf7acd2a227796d4e31b8de05a5b1a315ba",
+    "S1-3": "1d5ec09d7750d82829804af54142ab09b89191be5ab062c5c2071c8c6d5f61e8"
+  },
+  "mode": "real",
+  "wording_rule": "labels decided on the class-median basis; class-mean values in the same row; disagreements stated in the same sentence; prior-exposed configurations labelled",
+  "locked_D2d_collapse": "6/6",
+  "tally": {
+    "block_C_primary": {
+      "n": 6,
+      "n_not_stable_median_basis": 5,
+      "n_near_tie_median_basis": 3,
+      "n_mean_median_hedge_agree": 5,
+      "n_hedge_equals_minimax_regret_median": 5
+    },
+    "block_C_secondary": {
+      "n": 6,
+      "n_not_stable_median_basis": 5,
+      "n_near_tie_median_basis": 3,
+      "n_mean_median_hedge_agree": 5,
+      "n_hedge_equals_minimax_regret_median": 5
+    },
+    "extension_NS": {
+      "n": 48,
+      "n_not_stable_median_basis": 21,
+      "n_near_tie_median_basis": 16,
+      "n_mean_median_hedge_agree": 38,
+      "n_hedge_equals_minimax_regret_median": 40
+    }
+  },
+  "rows": [
+    {
+      "block": "C",
+      "source": "primary_stored",
+      "config_id": 1,
+      "size": 16,
+      "tag": "[RA]",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.01326704627568857,
+        "median": 0.022857142857142857
+      },
+      "hedge_stability": {
+        "mean": 0.71,
+        "median": 0.793
+      },
+      "minimax_regret_stability": {
+        "mean": 0.8415,
+        "median": 0.937
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C",
+      "source": "primary_stored",
+      "config_id": 3,
+      "size": 16,
+      "tag": "[RA]",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.028092079594225557,
+        "median": 0.055900621118012424
+      },
+      "hedge_stability": {
+        "mean": 0.89,
+        "median": 0.935
+      },
+      "minimax_regret_stability": {
+        "mean": 0.9285,
+        "median": 0.99
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C",
+      "source": "primary_stored",
+      "config_id": 5,
+      "size": 16,
+      "tag": "[RA]",
+      "hedge_corner": {
+        "mean": "HC_LI",
+        "median": "HC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "HC_HI",
+        "median": "HC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": false,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": false,
+      "second_place_margin": {
+        "mean": 0.004340109264538273,
+        "median": 0.009646261736417434
+      },
+      "hedge_stability": {
+        "mean": 0.4155,
+        "median": 0.5525
+      },
+      "minimax_regret_stability": {
+        "mean": 0.473,
+        "median": 0.7955
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": true
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C",
+      "source": "primary_stored",
+      "config_id": 7,
+      "size": 16,
+      "tag": "[RA]",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.022122706729677914,
+        "median": 0.010438413361169102
+      },
+      "hedge_stability": {
+        "mean": 0.825,
+        "median": 0.498
+      },
+      "minimax_regret_stability": {
+        "mean": 0.925,
+        "median": 0.6155
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C",
+      "source": "primary_stored",
+      "config_id": 9,
+      "size": 16,
+      "tag": "[RA]",
+      "hedge_corner": {
+        "mean": "HC_HI",
+        "median": "HC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "HC_HI",
+        "median": "HC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.0009190499282353395,
+        "median": 0.008414596828071459
+      },
+      "hedge_stability": {
+        "mean": 0.472,
+        "median": 0.5785
+      },
+      "minimax_regret_stability": {
+        "mean": 0.8255,
+        "median": 0.8675
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": true
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C",
+      "source": "primary_stored",
+      "config_id": 11,
+      "size": 16,
+      "tag": "[RA]",
+      "hedge_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "minimax_regret_corner": {
+        "mean": "HC_LI",
+        "median": "HC_LI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": false,
+        "median": false
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.0021323699186440435,
+        "median": 0.001366120218579235
+      },
+      "hedge_stability": {
+        "mean": 0.479,
+        "median": 0.4335
+      },
+      "minimax_regret_stability": {
+        "mean": 0.555,
+        "median": 0.736
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": true
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C",
+      "source": "secondary_tiebreakfix",
+      "config_id": 1,
+      "size": 16,
+      "tag": "[RA]",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.011451375032532256,
+        "median": 0.022857142857142857
+      },
+      "hedge_stability": {
+        "mean": 0.6815,
+        "median": 0.7825
+      },
+      "minimax_regret_stability": {
+        "mean": 0.8285,
+        "median": 0.934
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C",
+      "source": "secondary_tiebreakfix",
+      "config_id": 3,
+      "size": 16,
+      "tag": "[RA]",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.028092079594225557,
+        "median": 0.055900621118012424
+      },
+      "hedge_stability": {
+        "mean": 0.89,
+        "median": 0.935
+      },
+      "minimax_regret_stability": {
+        "mean": 0.9285,
+        "median": 0.99
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C",
+      "source": "secondary_tiebreakfix",
+      "config_id": 5,
+      "size": 16,
+      "tag": "[RA]",
+      "hedge_corner": {
+        "mean": "HC_LI",
+        "median": "HC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "HC_HI",
+        "median": "HC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": false,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": false,
+      "second_place_margin": {
+        "mean": 0.0034699745816454386,
+        "median": 0.009646261736417434
+      },
+      "hedge_stability": {
+        "mean": 0.3955,
+        "median": 0.5525
+      },
+      "minimax_regret_stability": {
+        "mean": 0.481,
+        "median": 0.7955
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": true
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C",
+      "source": "secondary_tiebreakfix",
+      "config_id": 7,
+      "size": 16,
+      "tag": "[RA]",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.023707341228902636,
+        "median": 0.010438413361169102
+      },
+      "hedge_stability": {
+        "mean": 0.842,
+        "median": 0.498
+      },
+      "minimax_regret_stability": {
+        "mean": 0.933,
+        "median": 0.6155
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C",
+      "source": "secondary_tiebreakfix",
+      "config_id": 9,
+      "size": 16,
+      "tag": "[RA]",
+      "hedge_corner": {
+        "mean": "HC_HI",
+        "median": "HC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "HC_HI",
+        "median": "HC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.0009190499282353395,
+        "median": 0.008414596828071459
+      },
+      "hedge_stability": {
+        "mean": 0.472,
+        "median": 0.5785
+      },
+      "minimax_regret_stability": {
+        "mean": 0.8255,
+        "median": 0.8675
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": true
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C",
+      "source": "secondary_tiebreakfix",
+      "config_id": 11,
+      "size": 16,
+      "tag": "[RA]",
+      "hedge_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "minimax_regret_corner": {
+        "mean": "HC_LI",
+        "median": "HC_LI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": false,
+        "median": false
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.0021323699186440435,
+        "median": 0.001366120218579235
+      },
+      "hedge_stability": {
+        "mean": 0.479,
+        "median": 0.4335
+      },
+      "minimax_regret_stability": {
+        "mean": 0.555,
+        "median": 0.736
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": true
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 0,
+      "size": 8,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.05147106161076402,
+        "median": 0.03870967741935484
+      },
+      "hedge_stability": {
+        "mean": 0.9835,
+        "median": 0.883
+      },
+      "minimax_regret_stability": {
+        "mean": 0.9935,
+        "median": 0.9875
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 0,
+      "size": 16,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.01096476453547125,
+        "median": 0.009966777408637873
+      },
+      "hedge_stability": {
+        "mean": 0.716,
+        "median": 0.532
+      },
+      "minimax_regret_stability": {
+        "mean": 0.7735,
+        "median": 0.89
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": true
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": true
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 0,
+      "size": 30,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.03289381986452194,
+        "median": 0.04681647940074907
+      },
+      "hedge_stability": {
+        "mean": 0.988,
+        "median": 0.977
+      },
+      "minimax_regret_stability": {
+        "mean": 0.996,
+        "median": 0.9915
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 1,
+      "size": 8,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.07005176781583873,
+        "median": 0.04395604395604396
+      },
+      "hedge_stability": {
+        "mean": 0.9845,
+        "median": 0.8425
+      },
+      "minimax_regret_stability": {
+        "mean": 0.965,
+        "median": 0.6835
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 1,
+      "size": 30,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_LI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": false,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": false,
+      "second_place_margin": {
+        "mean": 0.002010447997467123,
+        "median": 0.006309148264984227
+      },
+      "hedge_stability": {
+        "mean": 0.545,
+        "median": 0.439
+      },
+      "minimax_regret_stability": {
+        "mean": 0.5305,
+        "median": 0.593
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": true
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 2,
+      "size": 8,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.032333362150946614,
+        "median": 0.09482758620689655
+      },
+      "hedge_stability": {
+        "mean": 0.9005,
+        "median": 0.733
+      },
+      "minimax_regret_stability": {
+        "mean": 0.764,
+        "median": 0.7225
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 2,
+      "size": 16,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.03188991649823402,
+        "median": 0.048582995951417005
+      },
+      "hedge_stability": {
+        "mean": 0.96,
+        "median": 0.88
+      },
+      "minimax_regret_stability": {
+        "mean": 0.8825,
+        "median": 0.854
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 2,
+      "size": 30,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.051985803248704436,
+        "median": 0.08370044052863436
+      },
+      "hedge_stability": {
+        "mean": 1.0,
+        "median": 0.9995
+      },
+      "minimax_regret_stability": {
+        "mean": 1.0,
+        "median": 0.999
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 3,
+      "size": 8,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.11634485303160735,
+        "median": 0.13157894736842105
+      },
+      "hedge_stability": {
+        "mean": 0.9935,
+        "median": 0.9885
+      },
+      "minimax_regret_stability": {
+        "mean": 0.9905,
+        "median": 1.0
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 3,
+      "size": 30,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.05992904547817833,
+        "median": 0.07430340557275542
+      },
+      "hedge_stability": {
+        "mean": 1.0,
+        "median": 0.9985
+      },
+      "minimax_regret_stability": {
+        "mean": 1.0,
+        "median": 0.995
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 4,
+      "size": 8,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_LI"
+      },
+      "minimax_regret_corner": {
+        "mean": "HC_HI",
+        "median": "HC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": false,
+        "median": false
+      },
+      "agree_mean_vs_median_hedge": false,
+      "second_place_margin": {
+        "mean": 0.0021025395969318772,
+        "median": 0.0009049099617068358
+      },
+      "hedge_stability": {
+        "mean": 0.4265,
+        "median": 0.2915
+      },
+      "minimax_regret_stability": {
+        "mean": 0.507,
+        "median": 0.529
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": true
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 4,
+      "size": 16,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "HC_LI",
+        "median": "HC_LI"
+      },
+      "minimax_regret_corner": {
+        "mean": "HC_LI",
+        "median": "HC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": false
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.008764059303997974,
+        "median": 0.0040846286163149365
+      },
+      "hedge_stability": {
+        "mean": 0.626,
+        "median": 0.4585
+      },
+      "minimax_regret_stability": {
+        "mean": 0.497,
+        "median": 0.539
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": true
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 4,
+      "size": 30,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "HC_HI",
+        "median": "HC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "HC_HI",
+        "median": "HC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.0019280048693598778,
+        "median": 0.009772807919808545
+      },
+      "hedge_stability": {
+        "mean": 0.538,
+        "median": 0.6425
+      },
+      "minimax_regret_stability": {
+        "mean": 0.533,
+        "median": 0.546
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": true
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 5,
+      "size": 8,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "HC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "HC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": false,
+      "second_place_margin": {
+        "mean": 0.05537720060839418,
+        "median": 0.005542858193703029
+      },
+      "hedge_stability": {
+        "mean": 0.9695,
+        "median": 0.459
+      },
+      "minimax_regret_stability": {
+        "mean": 0.882,
+        "median": 0.5425
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": true
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": true
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 5,
+      "size": 30,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "HC_HI",
+        "median": "HC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "HC_HI",
+        "median": "HC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.01555215194305985,
+        "median": 0.03383785341400722
+      },
+      "hedge_stability": {
+        "mean": 0.7885,
+        "median": 0.9675
+      },
+      "minimax_regret_stability": {
+        "mean": 0.802,
+        "median": 0.9185
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 6,
+      "size": 8,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "minimax_regret_corner": {
+        "mean": "HC_LI",
+        "median": "HC_LI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": false,
+        "median": false
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.0027803077513062794,
+        "median": 0.009615384615384616
+      },
+      "hedge_stability": {
+        "mean": 0.5825,
+        "median": 0.532
+      },
+      "minimax_regret_stability": {
+        "mean": 0.4985,
+        "median": 0.707
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": true
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 6,
+      "size": 16,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.02030348933003807,
+        "median": 0.02292768959435626
+      },
+      "hedge_stability": {
+        "mean": 0.964,
+        "median": 0.943
+      },
+      "minimax_regret_stability": {
+        "mean": 0.999,
+        "median": 0.9655
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 6,
+      "size": 30,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.027695510290279887,
+        "median": 0.025615268709191362
+      },
+      "hedge_stability": {
+        "mean": 0.9965,
+        "median": 0.9805
+      },
+      "minimax_regret_stability": {
+        "mean": 1.0,
+        "median": 0.9995
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 7,
+      "size": 8,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.07693939908334758,
+        "median": 0.10344827586206896
+      },
+      "hedge_stability": {
+        "mean": 0.9955,
+        "median": 0.976
+      },
+      "minimax_regret_stability": {
+        "mean": 0.9725,
+        "median": 0.9675
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 7,
+      "size": 30,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.000813819744352091,
+        "median": 0.024070021881838075
+      },
+      "hedge_stability": {
+        "mean": 0.5115,
+        "median": 0.8045
+      },
+      "minimax_regret_stability": {
+        "mean": 0.5385,
+        "median": 0.8055
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": true
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 8,
+      "size": 8,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.049912949070129345,
+        "median": 0.040634436156090144
+      },
+      "hedge_stability": {
+        "mean": 0.9835,
+        "median": 0.857
+      },
+      "minimax_regret_stability": {
+        "mean": 0.9825,
+        "median": 0.952
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 8,
+      "size": 16,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.0333619372403755,
+        "median": 0.050088524856842655
+      },
+      "hedge_stability": {
+        "mean": 0.971,
+        "median": 0.924
+      },
+      "minimax_regret_stability": {
+        "mean": 0.9375,
+        "median": 0.973
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 8,
+      "size": 30,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.006603819838321235,
+        "median": 0.001410612863716439
+      },
+      "hedge_stability": {
+        "mean": 0.6875,
+        "median": 0.488
+      },
+      "minimax_regret_stability": {
+        "mean": 0.5355,
+        "median": 0.65
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": true
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 9,
+      "size": 8,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.04273858574774263,
+        "median": 0.049832835162060864
+      },
+      "hedge_stability": {
+        "mean": 0.951,
+        "median": 0.941
+      },
+      "minimax_regret_stability": {
+        "mean": 0.9885,
+        "median": 0.989
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 9,
+      "size": 30,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_LI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_LI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": false,
+      "second_place_margin": {
+        "mean": 0.0027876145119688027,
+        "median": 0.010248684218555458
+      },
+      "hedge_stability": {
+        "mean": 0.574,
+        "median": 0.5045
+      },
+      "minimax_regret_stability": {
+        "mean": 0.595,
+        "median": 0.586
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": true
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 10,
+      "size": 8,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.04099597139155593,
+        "median": 0.03125
+      },
+      "hedge_stability": {
+        "mean": 0.9695,
+        "median": 0.906
+      },
+      "minimax_regret_stability": {
+        "mean": 0.9755,
+        "median": 0.9595
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 10,
+      "size": 16,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.006162435934002394,
+        "median": 0.0069084628670120895
+      },
+      "hedge_stability": {
+        "mean": 0.6205,
+        "median": 0.569
+      },
+      "minimax_regret_stability": {
+        "mean": 0.4415,
+        "median": 0.5475
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": true
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 10,
+      "size": 30,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_LI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "HC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": false
+      },
+      "agree_mean_vs_median_hedge": false,
+      "second_place_margin": {
+        "mean": 0.0020218915714693138,
+        "median": 0.0027522935779816515
+      },
+      "hedge_stability": {
+        "mean": 0.5465,
+        "median": 0.448
+      },
+      "minimax_regret_stability": {
+        "mean": 0.5235,
+        "median": 0.3135
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": true
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 11,
+      "size": 8,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.059415637412264084,
+        "median": 0.07065217391304347
+      },
+      "hedge_stability": {
+        "mean": 0.9825,
+        "median": 0.9225
+      },
+      "minimax_regret_stability": {
+        "mean": 0.9615,
+        "median": 0.776
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 11,
+      "size": 30,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_LI",
+        "median": "HC_LI"
+      },
+      "minimax_regret_corner": {
+        "mean": "HC_LI",
+        "median": "HC_LI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": false,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": false,
+      "second_place_margin": {
+        "mean": 0.00024165379066934777,
+        "median": 0.005873715124816446
+      },
+      "hedge_stability": {
+        "mean": 0.4555,
+        "median": 0.679
+      },
+      "minimax_regret_stability": {
+        "mean": 0.54,
+        "median": 0.749
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": true
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 12,
+      "size": 8,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": false,
+        "median": false
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.0023065915311512087,
+        "median": 0.01380694747371617
+      },
+      "hedge_stability": {
+        "mean": 0.5435,
+        "median": 0.6365
+      },
+      "minimax_regret_stability": {
+        "mean": 0.5105,
+        "median": 0.6445
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": true
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 12,
+      "size": 16,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.026443961959259497,
+        "median": 0.01946479698196039
+      },
+      "hedge_stability": {
+        "mean": 0.95,
+        "median": 0.833
+      },
+      "minimax_regret_stability": {
+        "mean": 0.8025,
+        "median": 0.8485
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 12,
+      "size": 30,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.030252934405311186,
+        "median": 0.028364913818118752
+      },
+      "hedge_stability": {
+        "mean": 0.993,
+        "median": 0.9075
+      },
+      "minimax_regret_stability": {
+        "mean": 0.9935,
+        "median": 0.9325
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 13,
+      "size": 8,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.030320308994508702,
+        "median": 0.01636723459857564
+      },
+      "hedge_stability": {
+        "mean": 0.9285,
+        "median": 0.862
+      },
+      "minimax_regret_stability": {
+        "mean": 0.889,
+        "median": 0.8785
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 13,
+      "size": 16,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.042608046259208686,
+        "median": 0.04166206618895236
+      },
+      "hedge_stability": {
+        "mean": 0.996,
+        "median": 0.9585
+      },
+      "minimax_regret_stability": {
+        "mean": 0.991,
+        "median": 0.9595
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 13,
+      "size": 30,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.007975189683168269,
+        "median": 0.004528781891280416
+      },
+      "hedge_stability": {
+        "mean": 0.7015,
+        "median": 0.603
+      },
+      "minimax_regret_stability": {
+        "mean": 0.6635,
+        "median": 0.541
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": true
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 14,
+      "size": 8,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "HC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": false
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.017955339849054917,
+        "median": 0.009944751381215469
+      },
+      "hedge_stability": {
+        "mean": 0.8155,
+        "median": 0.643
+      },
+      "minimax_regret_stability": {
+        "mean": 0.7825,
+        "median": 0.3595
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": true
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": true
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 14,
+      "size": 16,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.005697645669075091,
+        "median": 0.011595803423522915
+      },
+      "hedge_stability": {
+        "mean": 0.601,
+        "median": 0.682
+      },
+      "minimax_regret_stability": {
+        "mean": 0.684,
+        "median": 0.8965
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": true
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 14,
+      "size": 30,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_LI",
+        "median": "HC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": false,
+        "median": false
+      },
+      "agree_mean_vs_median_hedge": false,
+      "second_place_margin": {
+        "mean": 7.080713982241675e-05,
+        "median": 0.010746085354620816
+      },
+      "hedge_stability": {
+        "mean": 0.3915,
+        "median": 0.653
+      },
+      "minimax_regret_stability": {
+        "mean": 0.5635,
+        "median": 0.6375
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": true
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 15,
+      "size": 8,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.07579780311312417,
+        "median": 0.070446735395189
+      },
+      "hedge_stability": {
+        "mean": 0.997,
+        "median": 0.9915
+      },
+      "minimax_regret_stability": {
+        "mean": 0.998,
+        "median": 0.9815
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 15,
+      "size": 16,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.013295101382939939,
+        "median": 0.03063063063063063
+      },
+      "hedge_stability": {
+        "mean": 0.724,
+        "median": 0.924
+      },
+      "minimax_regret_stability": {
+        "mean": 0.884,
+        "median": 0.93
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 15,
+      "size": 30,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_LI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_LI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": false,
+      "second_place_margin": {
+        "mean": 0.0043899929317748505,
+        "median": 0.011684518013631937
+      },
+      "hedge_stability": {
+        "mean": 0.531,
+        "median": 0.5615
+      },
+      "minimax_regret_stability": {
+        "mean": 0.566,
+        "median": 0.512
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": true
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 16,
+      "size": 8,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.042217393252385924,
+        "median": 0.036748329621380846
+      },
+      "hedge_stability": {
+        "mean": 0.999,
+        "median": 0.9745
+      },
+      "minimax_regret_stability": {
+        "mean": 0.9975,
+        "median": 0.985
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 16,
+      "size": 16,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.007625500793202691,
+        "median": 0.01020408163265306
+      },
+      "hedge_stability": {
+        "mean": 0.79,
+        "median": 0.9105
+      },
+      "minimax_regret_stability": {
+        "mean": 0.5855,
+        "median": 0.923
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": true
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 16,
+      "size": 30,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_LI",
+        "median": "HC_LI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_LI",
+        "median": "LC_LI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": false
+      },
+      "agree_mean_vs_median_hedge": false,
+      "second_place_margin": {
+        "mean": 0.007922497432126615,
+        "median": 0.0005704506560182544
+      },
+      "hedge_stability": {
+        "mean": 0.8295,
+        "median": 0.4095
+      },
+      "minimax_regret_stability": {
+        "mean": 0.751,
+        "median": 0.7205
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": true
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 17,
+      "size": 8,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.038850308060798644,
+        "median": 0.06542056074766354
+      },
+      "hedge_stability": {
+        "mean": 0.9165,
+        "median": 0.992
+      },
+      "minimax_regret_stability": {
+        "mean": 0.8585,
+        "median": 0.982
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 17,
+      "size": 16,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "HC_LI"
+      },
+      "minimax_regret_corner": {
+        "mean": "HC_LI",
+        "median": "HC_LI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": false,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": false,
+      "second_place_margin": {
+        "mean": 0.0007729773134910603,
+        "median": 0.005263157894736842
+      },
+      "hedge_stability": {
+        "mean": 0.513,
+        "median": 0.6145
+      },
+      "minimax_regret_stability": {
+        "mean": 0.558,
+        "median": 0.7345
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": true,
+        "near_tie": true
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": false
+      }
+    },
+    {
+      "block": "C extension (S1-3)",
+      "source": "current simulator",
+      "config_id": 17,
+      "size": 30,
+      "tag": "[NS] extension row",
+      "hedge_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "minimax_regret_corner": {
+        "mean": "LC_HI",
+        "median": "LC_HI"
+      },
+      "agree_hedge_vs_minimax_regret": {
+        "mean": true,
+        "median": true
+      },
+      "agree_mean_vs_median_hedge": true,
+      "second_place_margin": {
+        "mean": 0.019815135522034445,
+        "median": 0.006916192026037429
+      },
+      "hedge_stability": {
+        "mean": 0.9425,
+        "median": 0.812
+      },
+      "minimax_regret_stability": {
+        "mean": 0.979,
+        "median": 0.988
+      },
+      "labels_median_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": true
+      },
+      "label_differs_on_mean_basis": {
+        "not_stable_under_resampling": false,
+        "near_tie": true
+      }
+    }
+  ]
+}

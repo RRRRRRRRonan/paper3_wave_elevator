@@ -1,0 +1,685 @@
+{
+  "registration_sha256": "59e12d3ab5dcb833e2c9021c366ec192478220a9ff0a1c94a7218492122f9238",
+  "b4_b6_design_sha256": "1b0ffd55087f7914f0fac1c79de87d88fdde6ab4169e951cfa0c7c7827d58952",
+  "code_sha256": "12d136d6109171ac6a54ca4cdeed6f7e6110c45a3691cf3e1516490d4db08dd8",
+  "code_tree_sha256": "cd0694e4fedeee112d451828d8d03adcbd36a576ecf33dbcf5988b54265dd14c",
+  "code_tree_sha256_pinned": "cd0694e4fedeee112d451828d8d03adcbd36a576ecf33dbcf5988b54265dd14c",
+  "code_tree_matches_pinned": true,
+  "selftest": false,
+  "variants": {
+    "directional": {
+      "per_cell": [
+        {
+          "config_id": 1,
+          "corner": "HC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 1,
+          "corner": "HC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 1,
+          "corner": "LC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 1,
+          "corner": "LC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 3,
+          "corner": "HC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 3,
+          "corner": "HC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 3,
+          "corner": "LC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 3,
+          "corner": "LC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 5,
+          "corner": "HC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 5,
+          "corner": "HC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 5,
+          "corner": "LC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 5,
+          "corner": "LC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 7,
+          "corner": "HC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 7,
+          "corner": "HC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 7,
+          "corner": "LC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 7,
+          "corner": "LC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 9,
+          "corner": "HC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 9,
+          "corner": "HC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 9,
+          "corner": "LC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 9,
+          "corner": "LC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 11,
+          "corner": "HC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 11,
+          "corner": "HC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 11,
+          "corner": "LC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 11,
+          "corner": "LC_LI",
+          "perwave_dom": 1.0
+        }
+      ],
+      "avg_dominance": 1.0,
+      "worst_cell": 1.0,
+      "gate_pass": true,
+      "hedge_dro_per_config": [
+        {
+          "config_id": 1,
+          "c_star_Hedge_mean": "LC_HI",
+          "c_star_DRO": "LC_HI",
+          "collapse": true
+        },
+        {
+          "config_id": 3,
+          "c_star_Hedge_mean": "LC_HI",
+          "c_star_DRO": "LC_HI",
+          "collapse": true
+        },
+        {
+          "config_id": 5,
+          "c_star_Hedge_mean": "HC_HI",
+          "c_star_DRO": "HC_HI",
+          "collapse": true
+        },
+        {
+          "config_id": 7,
+          "c_star_Hedge_mean": "LC_HI",
+          "c_star_DRO": "LC_HI",
+          "collapse": true
+        },
+        {
+          "config_id": 9,
+          "c_star_Hedge_mean": "LC_HI",
+          "c_star_DRO": "LC_HI",
+          "collapse": true
+        },
+        {
+          "config_id": 11,
+          "c_star_Hedge_mean": "LC_LI",
+          "c_star_DRO": "LC_LI",
+          "collapse": true
+        }
+      ],
+      "n_collapse": 6,
+      "n_configs": 6,
+      "csv_path": "F:\\Paper 3\\prototype\\results\\raw\\mvs_v0_5_phase5_S1-4_B4_directional.csv"
+    },
+    "heterogeneous": {
+      "per_cell": [
+        {
+          "config_id": 1,
+          "corner": "HC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 1,
+          "corner": "HC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 1,
+          "corner": "LC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 1,
+          "corner": "LC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 3,
+          "corner": "HC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 3,
+          "corner": "HC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 3,
+          "corner": "LC_HI",
+          "perwave_dom": 0.995
+        },
+        {
+          "config_id": 3,
+          "corner": "LC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 5,
+          "corner": "HC_HI",
+          "perwave_dom": 0.995
+        },
+        {
+          "config_id": 5,
+          "corner": "HC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 5,
+          "corner": "LC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 5,
+          "corner": "LC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 7,
+          "corner": "HC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 7,
+          "corner": "HC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 7,
+          "corner": "LC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 7,
+          "corner": "LC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 9,
+          "corner": "HC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 9,
+          "corner": "HC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 9,
+          "corner": "LC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 9,
+          "corner": "LC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 11,
+          "corner": "HC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 11,
+          "corner": "HC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 11,
+          "corner": "LC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 11,
+          "corner": "LC_LI",
+          "perwave_dom": 1.0
+        }
+      ],
+      "avg_dominance": 0.9995833333333334,
+      "worst_cell": 0.995,
+      "gate_pass": true,
+      "hedge_dro_per_config": [
+        {
+          "config_id": 1,
+          "c_star_Hedge_mean": "LC_HI",
+          "c_star_DRO": "LC_HI",
+          "collapse": true
+        },
+        {
+          "config_id": 3,
+          "c_star_Hedge_mean": "LC_HI",
+          "c_star_DRO": "LC_HI",
+          "collapse": true
+        },
+        {
+          "config_id": 5,
+          "c_star_Hedge_mean": "HC_LI",
+          "c_star_DRO": "HC_LI",
+          "collapse": true
+        },
+        {
+          "config_id": 7,
+          "c_star_Hedge_mean": "LC_HI",
+          "c_star_DRO": "LC_HI",
+          "collapse": true
+        },
+        {
+          "config_id": 9,
+          "c_star_Hedge_mean": "HC_HI",
+          "c_star_DRO": "HC_HI",
+          "collapse": true
+        },
+        {
+          "config_id": 11,
+          "c_star_Hedge_mean": "HC_LI",
+          "c_star_DRO": "HC_LI",
+          "collapse": true
+        }
+      ],
+      "n_collapse": 6,
+      "n_configs": 6,
+      "csv_path": "F:\\Paper 3\\prototype\\results\\raw\\mvs_v0_5_phase5_S1-4_B4_heterogeneous.csv"
+    },
+    "service_sigma_0.2": {
+      "per_cell": [
+        {
+          "config_id": 1,
+          "corner": "HC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 1,
+          "corner": "HC_LI",
+          "perwave_dom": 0.99
+        },
+        {
+          "config_id": 1,
+          "corner": "LC_HI",
+          "perwave_dom": 0.96
+        },
+        {
+          "config_id": 1,
+          "corner": "LC_LI",
+          "perwave_dom": 0.98
+        },
+        {
+          "config_id": 3,
+          "corner": "HC_HI",
+          "perwave_dom": 0.98
+        },
+        {
+          "config_id": 3,
+          "corner": "HC_LI",
+          "perwave_dom": 0.995
+        },
+        {
+          "config_id": 3,
+          "corner": "LC_HI",
+          "perwave_dom": 0.98
+        },
+        {
+          "config_id": 3,
+          "corner": "LC_LI",
+          "perwave_dom": 0.98
+        },
+        {
+          "config_id": 5,
+          "corner": "HC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 5,
+          "corner": "HC_LI",
+          "perwave_dom": 0.995
+        },
+        {
+          "config_id": 5,
+          "corner": "LC_HI",
+          "perwave_dom": 0.995
+        },
+        {
+          "config_id": 5,
+          "corner": "LC_LI",
+          "perwave_dom": 0.99
+        },
+        {
+          "config_id": 7,
+          "corner": "HC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 7,
+          "corner": "HC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 7,
+          "corner": "LC_HI",
+          "perwave_dom": 0.99
+        },
+        {
+          "config_id": 7,
+          "corner": "LC_LI",
+          "perwave_dom": 0.99
+        },
+        {
+          "config_id": 9,
+          "corner": "HC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 9,
+          "corner": "HC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 9,
+          "corner": "LC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 9,
+          "corner": "LC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 11,
+          "corner": "HC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 11,
+          "corner": "HC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 11,
+          "corner": "LC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 11,
+          "corner": "LC_LI",
+          "perwave_dom": 1.0
+        }
+      ],
+      "avg_dominance": 0.9927083333333333,
+      "worst_cell": 0.96,
+      "gate_pass": true,
+      "hedge_dro_per_config": [
+        {
+          "config_id": 1,
+          "c_star_Hedge_mean": "LC_HI",
+          "c_star_DRO": "LC_HI",
+          "collapse": true
+        },
+        {
+          "config_id": 3,
+          "c_star_Hedge_mean": "LC_HI",
+          "c_star_DRO": "LC_HI",
+          "collapse": true
+        },
+        {
+          "config_id": 5,
+          "c_star_Hedge_mean": "HC_HI",
+          "c_star_DRO": "HC_HI",
+          "collapse": true
+        },
+        {
+          "config_id": 7,
+          "c_star_Hedge_mean": "LC_HI",
+          "c_star_DRO": "LC_HI",
+          "collapse": true
+        },
+        {
+          "config_id": 9,
+          "c_star_Hedge_mean": "HC_HI",
+          "c_star_DRO": "HC_HI",
+          "collapse": true
+        },
+        {
+          "config_id": 11,
+          "c_star_Hedge_mean": "LC_LI",
+          "c_star_DRO": "LC_LI",
+          "collapse": true
+        }
+      ],
+      "n_collapse": 6,
+      "n_configs": 6,
+      "csv_path": "F:\\Paper 3\\prototype\\results\\raw\\mvs_v0_5_phase5_S1-4_B4_service_sigma_0.2.csv"
+    },
+    "service_sigma_0.5": {
+      "per_cell": [
+        {
+          "config_id": 1,
+          "corner": "HC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 1,
+          "corner": "HC_LI",
+          "perwave_dom": 0.99
+        },
+        {
+          "config_id": 1,
+          "corner": "LC_HI",
+          "perwave_dom": 0.98
+        },
+        {
+          "config_id": 1,
+          "corner": "LC_LI",
+          "perwave_dom": 0.975
+        },
+        {
+          "config_id": 3,
+          "corner": "HC_HI",
+          "perwave_dom": 0.98
+        },
+        {
+          "config_id": 3,
+          "corner": "HC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 3,
+          "corner": "LC_HI",
+          "perwave_dom": 0.995
+        },
+        {
+          "config_id": 3,
+          "corner": "LC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 5,
+          "corner": "HC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 5,
+          "corner": "HC_LI",
+          "perwave_dom": 0.995
+        },
+        {
+          "config_id": 5,
+          "corner": "LC_HI",
+          "perwave_dom": 0.995
+        },
+        {
+          "config_id": 5,
+          "corner": "LC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 7,
+          "corner": "HC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 7,
+          "corner": "HC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 7,
+          "corner": "LC_HI",
+          "perwave_dom": 0.99
+        },
+        {
+          "config_id": 7,
+          "corner": "LC_LI",
+          "perwave_dom": 0.985
+        },
+        {
+          "config_id": 9,
+          "corner": "HC_HI",
+          "perwave_dom": 0.995
+        },
+        {
+          "config_id": 9,
+          "corner": "HC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 9,
+          "corner": "LC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 9,
+          "corner": "LC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 11,
+          "corner": "HC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 11,
+          "corner": "HC_LI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 11,
+          "corner": "LC_HI",
+          "perwave_dom": 1.0
+        },
+        {
+          "config_id": 11,
+          "corner": "LC_LI",
+          "perwave_dom": 0.995
+        }
+      ],
+      "avg_dominance": 0.9947916666666666,
+      "worst_cell": 0.975,
+      "gate_pass": true,
+      "hedge_dro_per_config": [
+        {
+          "config_id": 1,
+          "c_star_Hedge_mean": "LC_HI",
+          "c_star_DRO": "LC_HI",
+          "collapse": true
+        },
+        {
+          "config_id": 3,
+          "c_star_Hedge_mean": "LC_HI",
+          "c_star_DRO": "LC_HI",
+          "collapse": true
+        },
+        {
+          "config_id": 5,
+          "c_star_Hedge_mean": "HC_HI",
+          "c_star_DRO": "HC_HI",
+          "collapse": true
+        },
+        {
+          "config_id": 7,
+          "c_star_Hedge_mean": "LC_HI",
+          "c_star_DRO": "LC_HI",
+          "collapse": true
+        },
+        {
+          "config_id": 9,
+          "c_star_Hedge_mean": "HC_HI",
+          "c_star_DRO": "HC_HI",
+          "collapse": true
+        },
+        {
+          "config_id": 11,
+          "c_star_Hedge_mean": "LC_LI",
+          "c_star_DRO": "LC_LI",
+          "collapse": true
+        }
+      ],
+      "n_collapse": 6,
+      "n_configs": 6,
+      "csv_path": "F:\\Paper 3\\prototype\\results\\raw\\mvs_v0_5_phase5_S1-4_B4_service_sigma_0.5.csv"
+    }
+  },
+  "all_variants_pass_gate": true,
+  "n_block_c_configs": 6
+}
