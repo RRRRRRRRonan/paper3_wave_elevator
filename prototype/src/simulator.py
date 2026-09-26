@@ -28,6 +28,12 @@ v0.2 Tier 1 gap-fix extensions (2026-04-22):
     direction-switch overhead `dir_switch_penalty` whenever a new trip
     reverses direction relative to the previous trip — the simplest
     direction-aware extension that preserves M5's model-class framework.
+
+v0.5 QA fix (2026-09-11): index-stable tie-break among availability-tied
+  elevator units, replacing the heap-address key `(available_at, id(e))`
+  (revision_2026-07-08/BUGREPORT-2026-07-08_tiebreak_nondeterminism.md;
+  regeneration-equivalence check registered as B-14). Behaviour changes
+  only at heap-reordered ties; all hand-computed test targets unchanged.
 """
 from __future__ import annotations
 
@@ -96,6 +102,17 @@ class Elevator:
 ElevatorResource = Elevator
 
 
+def _earliest_unit(units):
+    """Earliest-available unit; ties broken by list index (stable).
+
+    Replaces the former key ``(e.available_at, id(e))``: ``id(e)`` is the
+    CPython heap address, which follows list order only on a clean heap, so
+    ties among units standing on different floors were heap-state dependent
+    (BUGREPORT-2026-07-08_tiebreak_nondeterminism; fix applied 2026-09-11).
+    """
+    return min(enumerate(units), key=lambda t: (t[1].available_at, t[0]))[1]
+
+
 class ElevatorPool:
     """Pool of E elevators, each with `capacity` parallel serving slots.
 
@@ -131,8 +148,8 @@ class ElevatorPool:
         target_floor: int,
         request_time: float,
     ) -> float:
-        # Pick slot with earliest availability; ties broken by slot order (stable).
-        slot = min(self.slots, key=lambda e: (e.available_at, id(e)))
+        # Pick slot with earliest availability; ties broken by slot index (stable).
+        slot = _earliest_unit(self.slots)
         return slot.request(amr_current_floor, target_floor, request_time)
 
 
@@ -334,7 +351,7 @@ class ElevatorPoolStochasticBatched:
         for elev in self.elevators:
             if elev.can_board(amr_current_floor, target_floor, request_time):
                 return elev.board()
-        elev = min(self.elevators, key=lambda e: (e.available_at, id(e)))
+        elev = _earliest_unit(self.elevators)
         return elev.dispatch(amr_current_floor, target_floor, request_time)
 
 
@@ -372,7 +389,7 @@ class ElevatorPoolBatched:
         for elev in self.elevators:
             if elev.can_board(amr_current_floor, target_floor, request_time):
                 return elev.board()
-        elev = min(self.elevators, key=lambda e: (e.available_at, id(e)))
+        elev = _earliest_unit(self.elevators)
         return elev.dispatch(amr_current_floor, target_floor, request_time)
 
 
@@ -423,7 +440,7 @@ class ElevatorPoolBatchedHeterogeneous:
         for elev in self.elevators:
             if elev.can_board(amr_current_floor, target_floor, request_time):
                 return elev.board()
-        elev = min(self.elevators, key=lambda e: (e.available_at, id(e)))
+        elev = _earliest_unit(self.elevators)
         return elev.dispatch(amr_current_floor, target_floor, request_time)
 
 
@@ -523,7 +540,7 @@ class ElevatorPoolDirectional:
         for elev in self.elevators:
             if elev.can_board(amr_current_floor, target_floor, request_time):
                 return elev.board()
-        elev = min(self.elevators, key=lambda e: (e.available_at, id(e)))
+        elev = _earliest_unit(self.elevators)
         return elev.dispatch(amr_current_floor, target_floor, request_time)
 
 
@@ -550,6 +567,9 @@ def simulate_wave(
     directional: bool = False,
     dir_switch_penalty: float = 3.0,
     heterogeneous_capacities: Optional[List[int]] = None,
+    speed_per_floor: Optional[float] = None,
+    load_time: Optional[float] = None,
+    unload_time: Optional[float] = None,
 ) -> float:
     """Simulate one wave and return makespan (wave completion - release_time).
 
@@ -587,7 +607,17 @@ def simulate_wave(
         ElevatorPoolBatchedHeterogeneous with per-elevator capacities;
         `n_elevators` and `capacity` are ignored. Must be used with the
         default (non-directional, non-stochastic) path.
+
+    Elevator phase times (2026-09-26, Phase 6 calibrated case): the optional
+    `speed_per_floor`, `load_time`, `unload_time` are passed to whichever
+    elevator pool is built. Left at None they are not passed at all, so the
+    pools keep their defaults (5.0, 2.0, 2.0) and every earlier result is
+    reproduced exactly.
     """
+    timing = {k: v for k, v in (("speed_per_floor", speed_per_floor),
+                                ("load_time", load_time),
+                                ("unload_time", unload_time))
+              if v is not None}
     if heterogeneous_capacities is not None:
         if stochastic_sigma > 0 or directional:
             raise ValueError(
@@ -597,6 +627,7 @@ def simulate_wave(
         pool = ElevatorPoolBatchedHeterogeneous(
             capacities=heterogeneous_capacities,
             initial_floor=initial_amr_floor,
+            **timing,
         )
     elif stochastic_sigma > 0 and directional:
         raise ValueError(
@@ -609,6 +640,7 @@ def simulate_wave(
             initial_floor=initial_amr_floor,
             noise_sigma=stochastic_sigma,
             rng=rng if rng is not None else random.Random(0),
+            **timing,
         )
     elif directional:
         pool = ElevatorPoolDirectional(
@@ -616,18 +648,21 @@ def simulate_wave(
             capacity=capacity,
             initial_floor=initial_amr_floor,
             dir_switch_penalty=dir_switch_penalty,
+            **timing,
         )
     elif batched:
         pool = ElevatorPoolBatched(
             n_elevators=n_elevators,
             capacity=capacity,
             initial_floor=initial_amr_floor,
+            **timing,
         )
     else:
         pool = ElevatorPool(
             n_elevators=n_elevators,
             capacity=capacity,
             initial_floor=initial_amr_floor,
+            **timing,
         )
     amrs = [
         AMR(id=i, current_floor=initial_amr_floor, current_time=wave.release_time)
@@ -934,6 +969,59 @@ def _test_backward_compat() -> None:
     print(f"  [OK] backward-compat: all new params at defaults reproduce baseline {base}")
 
 
+def _test_timing_passthrough() -> None:
+    """Phase 6 timing arguments: None = pool defaults; explicit values reach
+    every pool (hand-computed single order 1 -> 3, AMR already at the source)."""
+    wave = _build_wave([(1, 3)])
+    # defaults: pickup 5 + load 2 + travel 2*5 + unload 2 + dropoff 5 = 24
+    assert simulate_wave(wave, n_amrs=1) == 24.0
+    assert simulate_wave(wave, n_amrs=1, speed_per_floor=5.0, load_time=2.0,
+                         unload_time=2.0) == 24.0
+    # speed 3, load 1, unload 1: 5 + 1 + 6 + 1 + 5 = 18 on every pool type
+    kw = {"speed_per_floor": 3.0, "load_time": 1.0, "unload_time": 1.0}
+    for extra in ({}, {"batched": True, "capacity": 2},
+                  {"directional": True, "capacity": 2},
+                  {"heterogeneous_capacities": [1, 3]},
+                  {"stochastic_sigma": 1e-12, "rng": random.Random(1)}):
+        got = simulate_wave(wave, n_amrs=1, **extra, **kw)
+        assert abs(got - 18.0) < 1e-6, f"timing pass-through {extra}: {got}"
+    print("  [OK] timing pass-through: None = defaults; explicit values reach "
+          "all five pool types")
+
+
+def _test_timing_default_randomized() -> None:
+    """G0 item 3 (Phase 6 protocol §12): on randomized toy waves (toy seed
+    424,250), explicit default phase times give exactly the values of the
+    call without them, for every pool type and dispatch rule."""
+    rng = random.Random(424_250)
+    n = 0
+    for _ in range(300):
+        F = rng.choice([3, 5, 8])
+        orders = [Order(id=i, source_floor=rng.randint(1, F),
+                        dest_floor=rng.randint(1, F),
+                        release_time=float(rng.choice([0, 0, 2, 7.5])))
+                  for i in range(rng.randint(1, 16))]
+        wave = Wave(orders=orders, release_time=rng.choice([0.0, 3.0]))
+        A, E, c = rng.choice([1, 3, 7]), rng.choice([1, 2]), rng.choice([1, 2, 3])
+        for extra in ({}, {"batched": True}, {"directional": True},
+                      {"batched": True, "policy": "cluster"},
+                      {"stochastic_sigma": 0.2}, {"service_sigma": 0.3}):
+            a = simulate_wave(wave, n_amrs=A, n_elevators=E, capacity=c,
+                              rng=random.Random(9), **extra)
+            b = simulate_wave(wave, n_amrs=A, n_elevators=E, capacity=c,
+                              rng=random.Random(9), speed_per_floor=5.0,
+                              load_time=2.0, unload_time=2.0, **extra)
+            assert a == b, (extra, a, b)
+            n += 1
+        het = [rng.choice([1, 2, 3]) for _ in range(E)]
+        assert (simulate_wave(wave, n_amrs=A, heterogeneous_capacities=het)
+                == simulate_wave(wave, n_amrs=A, heterogeneous_capacities=het,
+                                 speed_per_floor=5.0, load_time=2.0,
+                                 unload_time=2.0))
+        n += 1
+    print(f"  [OK] timing defaults: explicit (5, 2, 2) = omitted, {n} randomized calls")
+
+
 if __name__ == "__main__":
     _test_single_order()
     _sanity_check()
@@ -945,3 +1033,5 @@ if __name__ == "__main__":
     _test_order_release_time()
     _test_directional()
     _test_backward_compat()
+    _test_timing_passthrough()
+    _test_timing_default_randomized()

@@ -1,0 +1,76 @@
+{
+  "date": "2026-09-11",
+  "label": "[QA] candidate_id reconstruction by seed replay",
+  "check_rows_per_group": [
+    0,
+    1,
+    199
+  ],
+  "note": "mismatches under M2 are expected at the ~0.27% tie-sensitivity rate of the stored artefacts (BUGREPORT-2026-07-08); M1 should reproduce exactly",
+  "blockA": {
+    "rows": 72000,
+    "verify": {
+      "M1": {
+        "checked": 540,
+        "mismatch": 0
+      },
+      "M2": {
+        "checked": 540,
+        "mismatch": 1
+      }
+    },
+    "unique_per_200_min": 78,
+    "unique_per_200_max": 200
+  },
+  "blockB": {
+    "rows": 16800,
+    "verify": {
+      "P0_random": {
+        "checked": 36,
+        "mismatch": 0
+      },
+      "P1_dest_cluster": {
+        "checked": 36,
+        "mismatch": 2
+      },
+      "P2_cardinality": {
+        "checked": 36,
+        "mismatch": 0
+      },
+      "P3_dir_balanced": {
+        "checked": 36,
+        "mismatch": 0
+      },
+      "P4_temporal": {
+        "checked": 36,
+        "mismatch": 0
+      },
+      "P5_phi": {
+        "checked": 36,
+        "mismatch": 0
+      },
+      "P6_spo_tree": {
+        "checked": 36,
+        "mismatch": 0
+      }
+    },
+    "unique_per_200_min": 124,
+    "unique_per_200_max": 198,
+    "refit_favourable_corner_matches_stored": "84/84 policy-cells"
+  },
+  "blockC": {
+    "rows": 6000,
+    "verify": {
+      "M1": {
+        "checked": 90,
+        "mismatch": 0
+      },
+      "M2": {
+        "checked": 90,
+        "mismatch": 1
+      }
+    },
+    "unique_per_200_min": 116,
+    "unique_per_200_max": 198
+  }
+}

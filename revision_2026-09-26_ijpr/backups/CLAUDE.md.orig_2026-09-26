@@ -1,0 +1,88 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## What this repository is
+
+This is a **PhD research workspace**, not a software product. It contains the simulation code, experimental results, and manuscript for **Paper 3: "Wave Release Coordination under Vertical Resource Constraints in Multi-Story AMR Warehouses,"** targeting *Computers & Industrial Engineering* (Q1). The deliverable is a paper; the code exists to produce the figures and tables that the paper's claims rest on.
+
+Two consequences shape almost every task here:
+- **Scientific integrity is a first-class constraint.** The publication-scale experiment is **pre-registered** (`paper_draft/phase5_scaleup_preregistration.md`, locked and author-signed 2026-05-19). Do not change locked parameters, gates, or verdicts after sign-off; do not add a competitive baseline after seeing results; do not retune to clear a gate. These are "p-hacking" moves the project explicitly forbids. New analyses enter as clearly-labelled pre-registered *amendments*, before results are seen.
+- **The work spans two scales.** A small **prototype scale** (the older 6-cell `E∈{1,2,3}×c2` regime grid, "M4/M5" naming, Phase 4 v2) and the current **publication scale** (the Phase 5 18-config grid, "Bound-and-Gap / Hedge Rule" naming, 106,800 sims). Never present a prototype-scale number next to a publication-scale one without labelling which is which — this is a recurring correctness hazard.
+
+## Layout
+
+- `revision_2026-09-02/MASTER_REVISION_BY_SECTION.md` — **the single active manuscript revision-control entry** (updated 2026-09-03). Start here for all manuscript work; it contains the current contribution rulings, source precedence, and chapter-by-chapter execution plan.
+- `prototype/src/` — all Python: the simulator, features, policies, and the `experiments_*.py` / `analysis_*.py` scripts.
+- `prototype/results/` — JSON result artefacts (`v0_5_phase5_*.json` are the publication-scale ones) and `results/figures/` PNGs.
+- `paper_draft/` — section text, references, and frozen protocol materials (reorganized 2026-07-19):
+  - `paper_draft/manuscript/` — section-level text sources, both `.bib` files, and the compiled PDF. `00_INDEX.md` is a superseded progress snapshot; do not use its W1-W10 splice order as current instructions.
+  - `paper_draft/archive/` — superseded prototype-era drafts (old outline, phase4 pre-registration, executed plans); see its `MANIFEST.md`. Never quote numbers from these.
+  - `paper_draft/` root keeps: `TERMINOLOGY.md`, the frozen `phase5_scaleup_preregistration.md`, `storyline_motivation_to_contribution_v1.md`, `heft_additions_v0_1.md`, and `theorems_m4.md` / `theorems_m5.md` / `methodology_v0_2.md` — the last three are prototype-era but MUST stay in place because the frozen pre-registration links to them by relative path.
+- `revision_2026-07-08/` — the signed 2026-07-08 revision deliverable (W1-W10 manuscript layer, six signed amendments, tables T1-T6, figures fig1-fig10, EXECUTION-LOG). Audit trail; keep intact, do not move files out of it.
+- `papers/` — cited PDFs and their reading logs.
+- `research_notes/` — research-direction and contribution-positioning documents. `contribution_review_continuation_2026-09-02.md`, as incorporated into the active master, is the latest contribution ruling; earlier novelty notes remain historical evidence.
+- Root `archive/` — superseded root-level files and historical revision snapshots. The former `revision_0719/` now lives at `archive/revisions/revision_0719_snapshot/`; see `archive/MANIFEST.md` and `archive/revisions/MANIFEST.md`.
+
+## Commands
+
+Python deps: `pip install -r prototype/requirements.txt` (numpy, pandas, scikit-learn, matplotlib, seaborn).
+
+**All scripts run as modules from the `prototype/` directory** (imports are absolute, e.g. `from src.simulator import simulate_wave`). Running a file by path will fail the imports.
+
+```bash
+cd prototype
+
+# Run the simulator's built-in test/sanity suite (hand-computed makespan targets,
+# regime monotonicity, batching semantics, pop_cluster, gap-fix backward-compat):
+python -m src.simulator
+
+# Most modules have a self-test / smoke under __main__ — run one directly:
+python -m src.features
+python -m src.wave_policies
+
+# Phase 5 experiment driver takes a mode argument (default "smoke"):
+python -m src.experiments_phase5 smoke   # ~1/60-scale gate run
+python -m src.experiments_phase5 full    # full publication-scale grid (long)
+
+# Experiment -> analysis is a two-step pipeline: experiments_*.py writes a
+# results/*.json, then the matching analysis_*.py reads it and emits a verdict JSON.
+python -m src.experiments_phase5_supp
+python -m src.analysis_phase5_supp
+
+# Regenerate the methodology schematic figures:
+python -m src.figure_methodology_schematics
+```
+
+There is **no pytest suite, linter, or build step.** "Tests" are the `_test_*` / `_sanity_check` functions invoked under each module's `if __name__ == "__main__"`. To check a single behavior, call its function in a one-off `python -c` or temporarily narrow the `__main__` block — but the canonical correctness gate is `python -m src.simulator` passing all hand-computed targets.
+
+## Core architecture
+
+**Two-layer decision problem (the paper's central object).** A warehouse management system makes a *tactical* decision — **wave composition**, i.e. which orders to release together — and a *fleet scheduler* makes the *operational* decision of dispatching AMRs that must contend for shared freight elevators (the bottleneck). Paper 3 studies the **tactical** layer and deliberately **holds the operational layer fixed**. (Any future RL/AI-agent work belongs in the operational layer as a *separate* paper — see `memory` and `paper_draft/heft_additions_v0_1.md`; it must not be bolted into this manuscript.)
+
+**The simulator (`src/simulator.py`) is a closed-form, sequential time-accumulator, NOT an event-driven concurrent model.** `simulate_wave(...)` walks the wave's orders one at a time, assigning each to the earliest-free AMR and accumulating a 5-phase elevator-trip cost (wait → reposition → load 2s → travel → unload 2s). It returns a scalar makespan. There is **no `step`/`reset`/`observation`/`reward` API** — an RL environment would be a from-scratch rewrite, not an adaptation. Determinism: same inputs → same makespan, so unit tests assert exact hand-computed values.
+
+**The three elevator models are the heart of the paper's robustness story:**
+- `ElevatorPool` — **M1, throughput abstraction**: capacity `c` modelled as `c` parallel slots; the bottleneck-relief effect without real batching (`batched=False`).
+- `ElevatorPoolBatched` — **M2, true co-occupancy batching**: a request matching an in-progress trip's `(src, dst)` boards it within the loading window (`batched=True`).
+- `ElevatorPoolStochasticBatched` — **M3**: M2 with lognormal per-phase noise (`stochastic_sigma>0`, requires an `rng`).
+- Plus extension models for appendix robustness studies: `ElevatorPoolDirectional` (direction-switch penalty), `ElevatorPoolBatchedHeterogeneous` (mixed per-elevator capacities). These reproduce the baseline exactly at their zero/identity parameter settings (verified by `_test_backward_compat`).
+
+`simulate_wave`'s flags (`batched`, `stochastic_sigma`, `directional`, `heterogeneous_capacities`, `service_sigma`, `policy`) select among these; several combinations are mutually exclusive and raise `ValueError`. Defaults reproduce the v0.2 baseline.
+
+**The feature representation Φ = (C, I, T)** (`src/features.py`): vertical concentration `C` (Shannon entropy over the floor distribution — *high C = floors spread out*, note the direction), directional imbalance `I`, temporal clustering `T` (CV of per-order release times; **0 unless a wave is generated with staggered `release_time`s**). Φ is positioned as a *conceptual decomposition*, **not** a predictive surrogate — that predictive claim was tested and retired. Do not reintroduce "Φ predicts makespan" language.
+
+**The two analytical tools (the contribution):**
+- **Bound-and-Gap framework** — `GAP = H_up + M_Φ`, decomposing the value of wave structure into a partition-intrinsic capacity-side component `H_up` and a policy-recoverable component `M_Φ`. `M_Φ` equals the SPO regret of the Φ-induced partition-constant predictor (Theorem 1). At publication scale `H_up` dominates (~72% of GAP) — the headline managerial reading is "capacity-bound > policy-bound."
+- **Model-Dominance Hedge Rule** — under chain dominance (`M2 ≥ M1` per wave), the minimax-over-elevator-models corner selection collapses to the M2-optimal corner; equals the Wasserstein-DRO solution (Theorem 2), with a one-sided worst-case bound `U_c(ε)` (Corollary 2).
+
+**Wave-composition policies (`src/wave_policies.py`)** are *selection rules over a shared candidate pool* (`P0` random … `P5` Φ-corner, `P6` SPO-tree, `P7` local-search optimum). Keeping every policy on one candidate pool is what makes the contest fair (pre-reg §3.4). Operational dispatch within a wave is a separate `policy="fifo"|"cluster"` flag on `simulate_wave`.
+
+**Experiment → results → analysis pipeline.** `experiments_*.py` scripts simulate and dump a `results/*.json`; the matching `analysis_*.py` reads that JSON and computes gates/verdicts into another JSON. `phase5_config.py` holds every tunable knob and regenerates the 18-config grid via `make_config_array()` (a 1/3 fraction of the 3×3×2×3 factorial, `demand = (F+|A|) mod 3` crossed with both `E` levels — so **F is confounded with |A| and demand; no clean F main-effect is identifiable from this grid**).
+
+## Naming / scale conventions to respect
+
+- **Canonical terminology note: `paper_draft/TERMINOLOGY.md`** is the single source of truth for all naming (the two tools, M1/M2/M3, the Φ axes, GAP/H_up/M_Φ, stage-vs-tool, scale labels, the no-em-dash and Chinese-symbol-free writing rules, and a pre-finalize checklist). Consult it before writing manuscript prose; update it when a naming decision is made.
+- Old → current: `M4` → Bound-and-Gap, `M5` → Hedge Rule, `M1/M2` → throughput-abstraction / true-batching. Prototype docs use the old names; the manuscript uses the new ones.
+- `prototype/results/v0_5_phase5_*.json` = publication scale. Earlier `v0_2_*` artefacts = prototype scale.
+- The pre-registration document is frozen. Treat `paper_draft/phase5_scaleup_preregistration.md` as read-only unless explicitly adding a dated, pre-results amendment.

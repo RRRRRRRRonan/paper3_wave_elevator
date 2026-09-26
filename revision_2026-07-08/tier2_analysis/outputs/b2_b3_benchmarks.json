@@ -1,0 +1,215 @@
+{
+ "amendments": "B-2 + B-3",
+ "date_executed": "2026-07-08",
+ "B2": {
+  "cells": [
+   {
+    "config_id": 0,
+    "E": 1,
+    "pool_optimum": 70.0,
+    "pool_median": 165.0,
+    "m0_random": 169.0,
+    "P5_proxy_favarm_median": 146.5,
+    "gap_P5_pct": 109.28571428571429
+   },
+   {
+    "config_id": 1,
+    "E": 2,
+    "pool_optimum": 38.0,
+    "pool_median": 104.0,
+    "m0_random": 104.0,
+    "P5_proxy_favarm_median": 91.0,
+    "gap_P5_pct": 139.47368421052633,
+    "P5_blockB": 94.0,
+    "P6_blockB": 99.0,
+    "P7_blockB": 56.0,
+    "gap_P5_blockB_pct": 147.3684210526316,
+    "gap_P6_pct": 160.52631578947367,
+    "gap_P7_pct": 47.36842105263158
+   }
+  ],
+  "note": "pool optimum over the full 3,000-candidate pool (dated note in AMEND-B); policy values are medians of 200 released waves, the optimum is a single wave: the gap anchors scale, it is not a like-for-like ratio"
+ },
+ "B3": {
+  "per_cell": [
+   {
+    "config_id": 1,
+    "size": 8,
+    "m_P8": 80.0,
+    "P0_random": 104.0,
+    "P1_dest_cluster": 104.0,
+    "P2_cardinality": 90.0,
+    "P3_dir_balanced": 104.0,
+    "P4_temporal": 104.0,
+    "P5_phi": 94.0,
+    "P6_spo_tree": 99.0,
+    "P7_localsearch": 56.0
+   },
+   {
+    "config_id": 1,
+    "size": 30,
+    "m_P8": 298.5,
+    "P0_random": 344.5,
+    "P1_dest_cluster": 339.0,
+    "P2_cardinality": 321.0,
+    "P3_dir_balanced": 340.5,
+    "P4_temporal": 344.0,
+    "P5_phi": 317.0,
+    "P6_spo_tree": 328.0,
+    "P7_localsearch": 256.5
+   },
+   {
+    "config_id": 3,
+    "size": 8,
+    "m_P8": 92.5,
+    "P0_random": 100.0,
+    "P1_dest_cluster": 95.0,
+    "P2_cardinality": 95.0,
+    "P3_dir_balanced": 104.5,
+    "P4_temporal": 105.0,
+    "P5_phi": 76.0,
+    "P6_spo_tree": 84.5,
+    "P7_localsearch": 52.0
+   },
+   {
+    "config_id": 3,
+    "size": 30,
+    "m_P8": 336.0,
+    "P0_random": 353.5,
+    "P1_dest_cluster": 350.5,
+    "P2_cardinality": 343.5,
+    "P3_dir_balanced": 367.5,
+    "P4_temporal": 357.0,
+    "P5_phi": 330.5,
+    "P6_spo_tree": 353.5,
+    "P7_localsearch": 277.0
+   },
+   {
+    "config_id": 5,
+    "size": 8,
+    "m_P8": 112.1292674896892,
+    "P0_random": 124.00816435242888,
+    "P1_dest_cluster": 123.01863201951846,
+    "P2_cardinality": 115.3414970664445,
+    "P3_dir_balanced": 127.51928942795206,
+    "P4_temporal": 124.26511921180182,
+    "P5_phi": 115.22959224085575,
+    "P6_spo_tree": 119.0534462195665,
+    "P7_localsearch": 74.01469826575624
+   },
+   {
+    "config_id": 5,
+    "size": 30,
+    "m_P8": 336.7425091369678,
+    "P0_random": 365.2777337384973,
+    "P1_dest_cluster": 359.2553656249464,
+    "P2_cardinality": 341.8499267967285,
+    "P3_dir_balanced": 367.13682266388207,
+    "P4_temporal": 374.153970531438,
+    "P5_phi": 358.8071946473806,
+    "P6_spo_tree": 367.20611585609106,
+    "P7_localsearch": 284.06377512562517
+   },
+   {
+    "config_id": 7,
+    "size": 8,
+    "m_P8": 118.0,
+    "P0_random": 143.5,
+    "P1_dest_cluster": 134.0,
+    "P2_cardinality": 134.5,
+    "P3_dir_balanced": 155.5,
+    "P4_temporal": 139.0,
+    "P5_phi": 125.0,
+    "P6_spo_tree": 124.0,
+    "P7_localsearch": 72.0
+   },
+   {
+    "config_id": 7,
+    "size": 30,
+    "m_P8": 459.0,
+    "P0_random": 510.0,
+    "P1_dest_cluster": 514.5,
+    "P2_cardinality": 480.0,
+    "P3_dir_balanced": 508.5,
+    "P4_temporal": 514.5,
+    "P5_phi": 467.5,
+    "P6_spo_tree": 482.5,
+    "P7_localsearch": 372.0
+   },
+   {
+    "config_id": 9,
+    "size": 8,
+    "m_P8": 183.1782157263996,
+    "P0_random": 213.7524325949351,
+    "P1_dest_cluster": 199.53164376424814,
+    "P2_cardinality": 192.35381905370883,
+    "P3_dir_balanced": 207.48524934082786,
+    "P4_temporal": 206.81475789186845,
+    "P5_phi": 191.69479934779068,
+    "P6_spo_tree": 209.84799923700015,
+    "P7_localsearch": 117.45303133266594
+   },
+   {
+    "config_id": 9,
+    "size": 30,
+    "m_P8": 618.3753747265339,
+    "P0_random": 667.1340898085355,
+    "P1_dest_cluster": 648.9595520148624,
+    "P2_cardinality": 631.758243421132,
+    "P3_dir_balanced": 660.5181746575414,
+    "P4_temporal": 663.2868357201287,
+    "P5_phi": 657.3336202173432,
+    "P6_spo_tree": 650.7491130107463,
+    "P7_localsearch": 507.20497288729246
+   },
+   {
+    "config_id": 11,
+    "size": 8,
+    "m_P8": 167.5,
+    "P0_random": 198.0,
+    "P1_dest_cluster": 198.5,
+    "P2_cardinality": 183.0,
+    "P3_dir_balanced": 196.5,
+    "P4_temporal": 197.0,
+    "P5_phi": 198.0,
+    "P6_spo_tree": 198.0,
+    "P7_localsearch": 104.5
+   },
+   {
+    "config_id": 11,
+    "size": 30,
+    "m_P8": 658.5,
+    "P0_random": 687.5,
+    "P1_dest_cluster": 694.0,
+    "P2_cardinality": 661.5,
+    "P3_dir_balanced": 695.0,
+    "P4_temporal": 684.5,
+    "P5_phi": 712.5,
+    "P6_spo_tree": 704.0,
+    "P7_localsearch": 522.0
+   }
+  ],
+  "P8_wins_vs": {
+   "P0_random": "12/12",
+   "P1_dest_cluster": "12/12",
+   "P2_cardinality": "12/12",
+   "P3_dir_balanced": "12/12",
+   "P4_temporal": "12/12",
+   "P5_phi": "10/12",
+   "P6_spo_tree": "11/12",
+   "P7_localsearch": "0/12"
+  },
+  "grand_mean_median": {
+   "P0_random": 317.5977017078664,
+   "P1_dest_cluster": 313.355432785298,
+   "P2_cardinality": 299.1502905281678,
+   "P3_dir_balanced": 319.5549613408503,
+   "P4_temporal": 317.7933902796031,
+   "P5_phi": 303.6304338711142,
+   "P6_spo_tree": 310.0297228602837,
+   "P7_localsearch": 224.56137313427834,
+   "P8": 288.36878058996587
+  }
+ },
+ "runtime_seconds": 1.8
+}

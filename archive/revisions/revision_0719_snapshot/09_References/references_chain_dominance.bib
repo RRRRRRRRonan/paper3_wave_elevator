@@ -1,0 +1,186 @@
+% references_chain_dominance.bib
+% Citations grounding Proposition 2 (chain dominance, makespan(M1) <= makespan(M2)).
+% Provenance: literature-check workflow (run wf_051d0d61, 2026-06), each entry
+% marked confirmed-real / likely-real by an independent citation-verification pass.
+% ACTION BEFORE FINAL SUBMISSION: re-confirm DOIs, volume/pages, and the two
+% flagged items (Chaudhry-Templeton ISBN; Sorsa-2012 numeric claims) at the
+% publisher. Four candidate refs were DROPPED as fabricated/misattributed; see
+% the comment block at the end so they are never reintroduced.
+
+% ---- Pillar A: stochastic comparison / coupling (the method) ----
+@book{stoyan1983comparison,
+  author    = {Stoyan, Dietrich},
+  title     = {Comparison Methods for Queues and Other Stochastic Models},
+  year      = {1983},
+  publisher = {Wiley},
+  address   = {Chichester},
+  isbn      = {0471101222}
+}
+
+@book{shaked2007stochastic,
+  author    = {Shaked, Moshe and Shanthikumar, J. George},
+  title     = {Stochastic Orders},
+  series    = {Springer Series in Statistics},
+  year      = {2007},
+  publisher = {Springer},
+  address   = {New York},
+  doi       = {10.1007/978-0-387-34675-5}
+}
+
+% ---- Pillar B: server-count monotonicity (the core intuition) ----
+@article{moyal2017pathwise,
+  author  = {Moyal, Pascal},
+  title   = {A pathwise comparison result for parallel queues},
+  journal = {Discrete Event Dynamic Systems},
+  year    = {2017},
+  note    = {Preprint arXiv:1301.6364 (2013)},
+  eprint  = {1301.6364},
+  archivePrefix = {arXiv}
+}
+
+@article{smith1981resource,
+  author  = {Smith, David R. and Whitt, Ward},
+  title   = {Resource Sharing for Efficiency in Traffic Systems},
+  journal = {The Bell System Technical Journal},
+  volume  = {60},
+  number  = {1},
+  pages   = {39--55},
+  year    = {1981},
+  doi     = {10.1002/j.1538-7305.1981.tb00221.x}
+}
+
+@article{schellerwolf2003necessary,
+  author  = {Scheller-Wolf, Alan},
+  title   = {Necessary and Sufficient Conditions for Delay Moments in {FIFO} Multiserver Queues with an Application Comparing Slow and Fast Servers},
+  journal = {Operations Research},
+  volume  = {51},
+  number  = {5},
+  pages   = {748--758},
+  year    = {2003},
+  doi     = {10.1287/opre.51.5.748.16759}
+}
+
+% ---- Pillar C: batch / bulk service (the delay mechanism + template) ----
+@article{uzsoy1995scheduling,
+  author  = {Uzsoy, Reha},
+  title   = {Scheduling batch processing machines with incompatible job families},
+  journal = {International Journal of Production Research},
+  volume  = {33},
+  number  = {10},
+  pages   = {2685--2708},
+  year    = {1995},
+  doi     = {10.1080/00207549508904839}
+}
+
+@article{lee1992efficient,
+  author  = {Lee, Chung-Yee and Uzsoy, Reha and Martin-Vega, Louis A.},
+  title   = {Efficient Algorithms for Scheduling Semiconductor Burn-In Operations},
+  journal = {Operations Research},
+  volume  = {40},
+  number  = {4},
+  pages   = {764--775},
+  year    = {1992},
+  doi     = {10.1287/opre.40.4.764}
+}
+
+@article{adan1989stochastic,
+  author  = {Adan, Ivo J. B. F. and van der Wal, Jan},
+  title   = {Stochastic comparisons for bulk queues},
+  journal = {Queueing Systems},
+  volume  = {4},
+  number  = {3},
+  pages   = {213--226},
+  year    = {1989},
+  doi     = {10.1007/BF01149538}
+}
+
+@article{deb1973optimal,
+  author  = {Deb, Rajat K. and Serfozo, Richard F.},
+  title   = {Optimal Control of Batch Service Queues},
+  journal = {Advances in Applied Probability},
+  volume  = {5},
+  number  = {2},
+  pages   = {340--361},
+  year    = {1973},
+  doi     = {10.2307/1426040}
+}
+
+@book{chaudhry1983first,
+  author    = {Chaudhry, M. L. and Templeton, James G. C.},
+  title     = {A First Course in Bulk Queues},
+  year      = {1983},
+  publisher = {Wiley},
+  address   = {New York},
+  isbn      = {0471862606},
+  note      = {ISBN to confirm at submission}
+}
+
+@article{santi2014quantifying,
+  author  = {Santi, Paolo and Resta, Giovanni and Szell, Michael and Sobolevsky, Stanislav and Strogatz, Steven H. and Ratti, Carlo},
+  title   = {Quantifying the benefits of vehicle pooling with shareability networks},
+  journal = {Proceedings of the National Academy of Sciences},
+  volume  = {111},
+  number  = {37},
+  pages   = {13290--13294},
+  year    = {2014},
+  doi     = {10.1073/pnas.1403657111}
+}
+
+% ---- Domain modeling: positioning + the opposite-sign elevator-RTT result ----
+@article{kuusinen2012study,
+  author  = {Kuusinen, Juha-Matti and Sorsa, Janne and Siikonen, Marja-Liisa and Ehtamo, Harri},
+  title   = {A study on the arrival process of lift passengers in a multi-storey office building},
+  journal = {Building Services Engineering Research \& Technology},
+  volume  = {33},
+  number  = {4},
+  pages   = {437--449},
+  year    = {2012},
+  doi     = {10.1177/0143624411427459}
+}
+
+@article{so2019calculation,
+  author  = {So, Albert and Al-Sharif, Lutfi},
+  title   = {Calculation of the elevator round-trip time under destination group control using offline batch allocations and real-time allocations},
+  journal = {Journal of Building Engineering},
+  volume  = {22},
+  pages   = {549--561},
+  year    = {2019},
+  doi     = {10.1016/j.jobe.2018.12.018}
+}
+
+@article{lamballais2017estimating,
+  author  = {Lamballais, Tim and Roy, Debjit and De Koster, M. B. M.},
+  title   = {Estimating performance in a Robotic Mobile Fulfillment System},
+  journal = {European Journal of Operational Research},
+  volume  = {256},
+  number  = {3},
+  pages   = {976--990},
+  year    = {2017},
+  doi     = {10.1016/j.ejor.2016.06.063}
+}
+
+% ---- PARTIAL: real work, but specific numeric claims unverified; cite the
+%      qualitative direction only, or use kuusinen2012study instead. ----
+% Sorsa, J., Kuusinen, J.-M., & Siikonen, M.-L. (2012). "Passenger Batch Arrivals
+%   at Elevator Lobbies." ELEVCON 2012 / Elevator World 61. The ~40% fewer stops
+%   and ~25% shorter round-trip figures were NOT independently verified; do not
+%   cite those numbers without checking the source PDF.
+
+% =====================================================================
+% DROPPED (verification: fabricated / misattributed). DO NOT REINTRODUCE.
+%  - Jean-Marie & Liu (1992), "On pathwise behavior of multiserver queues",
+%    QUESTA 12, DOI 10.1007/BF01189241  -> that DOI/title is actually
+%    Guillemin & Mazumdar (1994), QUESTA 15:279-288, and proves o(t)
+%    workload growth, NOT server-count monotonicity. (Pillar B is carried by
+%    moyal2017pathwise.)
+%  - Bandi, Bertsimas & Youssef, "Systems with multiple servers under
+%    heavy-tailed workloads"  -> author/paper chimera; the URL is actually
+%    Psounis et al. (Performance Evaluation, 2005). (Heavy-tail caveat is
+%    carried by schellerwolf2003necessary.)
+%  - Alfa (2010), batch-service cycle-time decomposition, DOI 10.1007/BF01158876
+%    -> DOI is actually Gold & Tran-Gia (1993), QUESTA 14:413-426; author/year
+%    contradict the DOI.
+%  - Roy, Krishnamurthy, Heragu & Malmborg (2017/2015), generic title pointing
+%    to a different arXiv/review URL  -> not verifiable as a single reference;
+%    replace with the exact paper if a second domain cite is needed.
+% =====================================================================

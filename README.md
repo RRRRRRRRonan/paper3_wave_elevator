@@ -1,75 +1,43 @@
-# Paper 3: Wave × Elevator — Research Workspace
+# Paper 3：多层 AMR 仓库中受垂直资源约束的波次释放协调
 
-**PhD Paper 3 工作目录**
-**Started: 2026-04-20**
+博士论文第三篇论文的工作目录：仿真代码、实验结果与稿件。目标期刊为 *International Journal of Production Research*（决策辅助型论文，两个研究），备选 *Computers & Industrial Engineering*。
 
----
+## 从哪里开始
 
-## 目录结构
+| 要做的事 | 入口 |
+|---|---|
+| 了解规则、目录与命名（也是 AI 助手的工作说明） | `CLAUDE.md`、`paper_draft/TERMINOLOGY.md` |
+| 改稿件：各节现行来源、冲突裁决、禁用说法 | `revision_2026-09-02/MASTER_REVISION_BY_SECTION.md` |
+| IJPR 版当前工作、待审阅与待签字事项 | `revision_2026-09-26_ijpr/00_REVIEW_GUIDE.md` |
+| IJPR 修改方案与证据 | `revision_2026-09-24/readiness_assessment_CIE_IJPR_2026-09-26.md`（第二部分 v2） |
 
-```
-paper3_wave_elevator/
-├── 00_north_star.md        ← 研究方向锚点 (frequently revisited)
-├── 01_reading_log.md       ← 论文阅读笔记
-├── 02_open_questions.md    ← 待解决的问题
-├── 03_decisions.md         ← 已做的决定 + 原因
-├── papers/                 ← 下载的 PDF 文献
-└── README.md               ← 本文件
-```
+## 现行稿件来源
 
----
+| 部分 | 现行来源 |
+|---|---|
+| Abstract、§1、§2 | `paper_draft/manuscript/abstract_v1.1_250w.md`、`introduction_v1.1.md`、`related_works_v1.1.md`（句子底稿，按主控改写） |
+| §3 | `Problem formulation.docx`（双语镜像 `revision_2026-09-24/section3_bilingual_2026-09-24.md`） |
+| §4 | `revision_2026-09-02/SECTION_4_METHODOLOGY.md` 与 `Methodology.docx`；§4.5 与附录 A 草稿在 `revision_2026-09-26_ijpr/week3/` |
+| §5 数字 | `prototype/results/`、`revision_2026-07-08/tier2_analysis/outputs/`（注意标明尺度） |
+| 全文 Word（仅取回细节） | `Wave Release Coordination under Vertical Resource Constraints in Multi.docx` |
 
-## 使用约定
-
-### 每周必做
-- **周一**: 打开 `00_north_star.md`, 回顾本周方向
-- **周五**: 更新 `02_open_questions.md` 和 `03_decisions.md`, 做 20 分钟自我 review
-
-### 每读完一篇论文
-- 在 `01_reading_log.md` 写一页笔记 (按模板)
-- PDF 按命名规范放进 `papers/`
-
-### 每做一个决定
-- **立刻**写进 `03_decisions.md`, 不要依赖记忆
-- 必须写 Why 和 Revisit If
-
-### 遇到不确定的问题
-- **立刻**写进 `02_open_questions.md`, 不要试图当场想清楚
-- 带时间戳, 让未来的自己知道这是什么时候的困惑
-
----
-
-## 版本控制建议
-
-强烈建议用 Git (本地或 GitHub private repo):
-
-```bash
-cd F:\paper3_wave_elevator
-git init
-git add .
-git commit -m "Day 1: initial setup"
-```
-
-原因: 6 个月后你会想看"当时我怎么想的", commit 历史是最好的记忆。
-
----
-
-## 未来会添加的子目录
-
-随研究推进自然添加:
+## 目录
 
 ```
-paper3_wave_elevator/
-├── src/                    ← code (Month 1 末开始)
-├── data/                   ← 数据 EDA (数据到手后)
-├── experiments/            ← 实验结果 (Month 2-3)
-├── drafts/                 ← 论文草稿 (Month 6+)
-└── figures/                ← 可视化图表
+CLAUDE.md, AGENT.md, README.md      规则与入口
+*.docx                              现行 Word 稿（§3、§4）与旧全文稿
+paper_draft/                        术语、冻结的 Phase 5 预注册、研究二协议与 L2 附录、manuscript/ 文字底稿与 .bib
+prototype/                          src/ 代码（在 prototype/ 下以 python -m src.<模块> 运行）、results/ 结果
+revision_2026-07-08/                七月已签字的修订交付物（审计轨迹，保持原样）
+revision_2026-09-02/                主控文件、§4 源稿、§4 配图、2026-09-11 QA
+revision_2026-09-24/                IJPR 就绪评估与方案、第 3 节双语镜像与 Fig. 3.1
+revision_2026-09-26_ijpr/           IJPR 工作夹：决定单、故事契约、登记修正案、执行日志、OSF 包、备份、第 3 周稿件
+research_notes/                     贡献定位与裁定、阅读索引、真实数据评估、问题背景通俗解读
+sources/                            前沿文献审计与引用核查
+papers/                             引用文献 PDF 与阅读笔记
+archive/                            全仓库唯一的归档处（过时材料，只存不取；见 archive/MANIFEST.md）
 ```
 
----
+## 诚信规则（摘要）
 
-## 相关文档
-
-- 周计划文档: `Paper1_3Month_Weekly_Plan.docx` (在 Claude 对话中下载)
-- PhD narrative: "决策层级上升" (见 03_decisions.md)
+Phase 5 预注册已冻结，锁定的参数、门槛与判定不得改动；新分析只能以签字前登记的修正案进入。研究一重分析与研究二的驱动脚本在登记文件签字前会被 `prototype/src/registration_guard.py` 拦下。完整规则见 `CLAUDE.md`。

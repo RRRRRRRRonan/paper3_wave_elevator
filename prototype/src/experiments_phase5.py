@@ -15,6 +15,12 @@ is regenerated from make_config_array() on every run and carries a DRAFT
 marker until the pre-registration §10 author sign-off.
 
 Run:  python -m src.experiments_phase5 [smoke|full]
+
+2026-09-11: every row also records `candidate_id` (row position of the drawn
+wave in its candidate pool; equals the pool's `wave_id`) and `cand_seed` (the
+pool's generation seed), so repeated draws of one candidate can be
+de-duplicated or cluster-bootstrapped (MASTER_REVISION_BY_SECTION §12,
+Phase 1). Simulation semantics and seed streams are unchanged.
 """
 from __future__ import annotations
 
@@ -125,7 +131,9 @@ def run_corner_block(configs: List[dict], models: List[str], sizes: List[int],
                                           config, model, sim_rng)
                         rows.append({**_config_fields(config), "model": model,
                                      "size": size, "arm": arm,
-                                     "favorable_corner": fav, "makespan": mk})
+                                     "favorable_corner": fav,
+                                     "candidate_id": p, "cand_seed": seed,
+                                     "makespan": mk})
     return pd.DataFrame(rows)
 
 
@@ -154,6 +162,7 @@ def run_policy_block(configs: List[dict], model: str, sizes: List[int],
                                       config, model, sim_rng)
                     rows.append({**_config_fields(config), "model": model,
                                  "size": size, "policy": policy,
+                                 "candidate_id": int(p), "cand_seed": seed,
                                  "makespan": mk})
     return pd.DataFrame(rows)
 
@@ -182,9 +191,11 @@ def run_chain_block(configs: List[dict], models: List[str], sizes: List[int],
                 pos = corner_positions(cand, arm)
                 arm_rng = random.Random(seed + 13 * (ai + 1))
                 for wid in range(n_per_arm):
-                    wave = materialise(cand.iloc[int(arm_rng.choice(pos))], pool)
+                    p = int(arm_rng.choice(pos))
+                    wave = materialise(cand.iloc[p], pool)
                     rec = {**_config_fields(config), "size": size, "arm": arm,
-                           "wave_id": wid}
+                           "wave_id": wid, "candidate_id": p,
+                           "cand_seed": seed}
                     for model in models:
                         m_rng = random.Random(seed + 700_003
                                                + MODEL_IDX[model] * 9973 + wid)

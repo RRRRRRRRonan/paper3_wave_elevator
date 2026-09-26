@@ -1,0 +1,600 @@
+{
+ "amendment": "B-11",
+ "date_executed": "2026-07-08",
+ "seed": 20260708,
+ "n_instances": 1150800,
+ "fidelity_gate": "PASSED 4000/4000",
+ "census": [
+  {
+   "E": 1,
+   "wave": 2,
+   "c": false,
+   "c_star": false,
+   "d": true,
+   "violation": true,
+   "boarding": true,
+   "count": 35
+  },
+  {
+   "E": 1,
+   "wave": 2,
+   "c": true,
+   "c_star": true,
+   "d": false,
+   "violation": false,
+   "boarding": false,
+   "count": 5419
+  },
+  {
+   "E": 1,
+   "wave": 2,
+   "c": true,
+   "c_star": true,
+   "d": false,
+   "violation": true,
+   "boarding": false,
+   "count": 8201
+  },
+  {
+   "E": 1,
+   "wave": 2,
+   "c": true,
+   "c_star": true,
+   "d": true,
+   "violation": false,
+   "boarding": false,
+   "count": 590
+  },
+  {
+   "E": 1,
+   "wave": 2,
+   "c": true,
+   "c_star": true,
+   "d": true,
+   "violation": false,
+   "boarding": true,
+   "count": 155
+  },
+  {
+   "E": 1,
+   "wave": 3,
+   "c": false,
+   "c_star": false,
+   "d": false,
+   "violation": true,
+   "boarding": true,
+   "count": 5970
+  },
+  {
+   "E": 1,
+   "wave": 3,
+   "c": false,
+   "c_star": false,
+   "d": true,
+   "violation": false,
+   "boarding": true,
+   "count": 150
+  },
+  {
+   "E": 1,
+   "wave": 3,
+   "c": true,
+   "c_star": true,
+   "d": false,
+   "violation": false,
+   "boarding": false,
+   "count": 204012
+  },
+  {
+   "E": 1,
+   "wave": 3,
+   "c": true,
+   "c_star": true,
+   "d": false,
+   "violation": false,
+   "boarding": true,
+   "count": 4545
+  },
+  {
+   "E": 1,
+   "wave": 3,
+   "c": true,
+   "c_star": true,
+   "d": false,
+   "violation": true,
+   "boarding": false,
+   "count": 262266
+  },
+  {
+   "E": 1,
+   "wave": 3,
+   "c": true,
+   "c_star": true,
+   "d": false,
+   "violation": true,
+   "boarding": true,
+   "count": 2700
+  },
+  {
+   "E": 1,
+   "wave": 3,
+   "c": true,
+   "c_star": true,
+   "d": true,
+   "violation": false,
+   "boarding": false,
+   "count": 4152
+  },
+  {
+   "E": 1,
+   "wave": 3,
+   "c": true,
+   "c_star": true,
+   "d": true,
+   "violation": false,
+   "boarding": true,
+   "count": 2205
+  },
+  {
+   "E": 1,
+   "wave": 4,
+   "c": false,
+   "c_star": false,
+   "d": false,
+   "violation": false,
+   "boarding": true,
+   "count": 528
+  },
+  {
+   "E": 1,
+   "wave": 4,
+   "c": false,
+   "c_star": false,
+   "d": false,
+   "violation": true,
+   "boarding": true,
+   "count": 592
+  },
+  {
+   "E": 1,
+   "wave": 4,
+   "c": false,
+   "c_star": false,
+   "d": true,
+   "violation": false,
+   "boarding": true,
+   "count": 46
+  },
+  {
+   "E": 1,
+   "wave": 4,
+   "c": false,
+   "c_star": false,
+   "d": true,
+   "violation": true,
+   "boarding": true,
+   "count": 4
+  },
+  {
+   "E": 1,
+   "wave": 4,
+   "c": true,
+   "c_star": true,
+   "d": false,
+   "violation": false,
+   "boarding": false,
+   "count": 44472
+  },
+  {
+   "E": 1,
+   "wave": 4,
+   "c": true,
+   "c_star": true,
+   "d": false,
+   "violation": false,
+   "boarding": true,
+   "count": 2525
+  },
+  {
+   "E": 1,
+   "wave": 4,
+   "c": true,
+   "c_star": true,
+   "d": false,
+   "violation": true,
+   "boarding": false,
+   "count": 25910
+  },
+  {
+   "E": 1,
+   "wave": 4,
+   "c": true,
+   "c_star": true,
+   "d": false,
+   "violation": true,
+   "boarding": true,
+   "count": 108
+  },
+  {
+   "E": 1,
+   "wave": 4,
+   "c": true,
+   "c_star": true,
+   "d": true,
+   "violation": false,
+   "boarding": false,
+   "count": 397
+  },
+  {
+   "E": 1,
+   "wave": 4,
+   "c": true,
+   "c_star": true,
+   "d": true,
+   "violation": false,
+   "boarding": true,
+   "count": 273
+  },
+  {
+   "E": 2,
+   "wave": 2,
+   "c": false,
+   "c_star": false,
+   "d": false,
+   "violation": false,
+   "boarding": true,
+   "count": 88
+  },
+  {
+   "E": 2,
+   "wave": 2,
+   "c": false,
+   "c_star": false,
+   "d": false,
+   "violation": true,
+   "boarding": true,
+   "count": 112
+  },
+  {
+   "E": 2,
+   "wave": 2,
+   "c": false,
+   "c_star": false,
+   "d": true,
+   "violation": true,
+   "boarding": true,
+   "count": 85
+  },
+  {
+   "E": 2,
+   "wave": 2,
+   "c": true,
+   "c_star": false,
+   "d": true,
+   "violation": false,
+   "boarding": true,
+   "count": 180
+  },
+  {
+   "E": 2,
+   "wave": 2,
+   "c": true,
+   "c_star": true,
+   "d": false,
+   "violation": false,
+   "boarding": false,
+   "count": 5165
+  },
+  {
+   "E": 2,
+   "wave": 2,
+   "c": true,
+   "c_star": true,
+   "d": false,
+   "violation": false,
+   "boarding": true,
+   "count": 56
+  },
+  {
+   "E": 2,
+   "wave": 2,
+   "c": true,
+   "c_star": true,
+   "d": false,
+   "violation": true,
+   "boarding": false,
+   "count": 4835
+  },
+  {
+   "E": 2,
+   "wave": 2,
+   "c": true,
+   "c_star": true,
+   "d": false,
+   "violation": true,
+   "boarding": true,
+   "count": 44
+  },
+  {
+   "E": 2,
+   "wave": 2,
+   "c": true,
+   "c_star": true,
+   "d": true,
+   "violation": false,
+   "boarding": false,
+   "count": 3835
+  },
+  {
+   "E": 2,
+   "wave": 3,
+   "c": false,
+   "c_star": false,
+   "d": false,
+   "violation": false,
+   "boarding": true,
+   "count": 7479
+  },
+  {
+   "E": 2,
+   "wave": 3,
+   "c": false,
+   "c_star": false,
+   "d": false,
+   "violation": true,
+   "boarding": true,
+   "count": 4206
+  },
+  {
+   "E": 2,
+   "wave": 3,
+   "c": false,
+   "c_star": false,
+   "d": true,
+   "violation": false,
+   "boarding": true,
+   "count": 913
+  },
+  {
+   "E": 2,
+   "wave": 3,
+   "c": false,
+   "c_star": false,
+   "d": true,
+   "violation": true,
+   "boarding": true,
+   "count": 327
+  },
+  {
+   "E": 2,
+   "wave": 3,
+   "c": true,
+   "c_star": false,
+   "d": false,
+   "violation": false,
+   "boarding": true,
+   "count": 3178
+  },
+  {
+   "E": 2,
+   "wave": 3,
+   "c": true,
+   "c_star": false,
+   "d": false,
+   "violation": true,
+   "boarding": true,
+   "count": 2393
+  },
+  {
+   "E": 2,
+   "wave": 3,
+   "c": true,
+   "c_star": false,
+   "d": true,
+   "violation": false,
+   "boarding": true,
+   "count": 6769
+  },
+  {
+   "E": 2,
+   "wave": 3,
+   "c": true,
+   "c_star": true,
+   "d": false,
+   "violation": false,
+   "boarding": false,
+   "count": 266317
+  },
+  {
+   "E": 2,
+   "wave": 3,
+   "c": true,
+   "c_star": true,
+   "d": false,
+   "violation": false,
+   "boarding": true,
+   "count": 16170
+  },
+  {
+   "E": 2,
+   "wave": 3,
+   "c": true,
+   "c_star": true,
+   "d": false,
+   "violation": true,
+   "boarding": false,
+   "count": 103593
+  },
+  {
+   "E": 2,
+   "wave": 3,
+   "c": true,
+   "c_star": true,
+   "d": false,
+   "violation": true,
+   "boarding": true,
+   "count": 6929
+  },
+  {
+   "E": 2,
+   "wave": 3,
+   "c": true,
+   "c_star": true,
+   "d": true,
+   "violation": false,
+   "boarding": false,
+   "count": 61660
+  },
+  {
+   "E": 2,
+   "wave": 3,
+   "c": true,
+   "c_star": true,
+   "d": true,
+   "violation": false,
+   "boarding": true,
+   "count": 6066
+  },
+  {
+   "E": 2,
+   "wave": 4,
+   "c": false,
+   "c_star": false,
+   "d": false,
+   "violation": false,
+   "boarding": true,
+   "count": 1582
+  },
+  {
+   "E": 2,
+   "wave": 4,
+   "c": false,
+   "c_star": false,
+   "d": false,
+   "violation": true,
+   "boarding": true,
+   "count": 1601
+  },
+  {
+   "E": 2,
+   "wave": 4,
+   "c": false,
+   "c_star": false,
+   "d": true,
+   "violation": false,
+   "boarding": true,
+   "count": 141
+  },
+  {
+   "E": 2,
+   "wave": 4,
+   "c": false,
+   "c_star": false,
+   "d": true,
+   "violation": true,
+   "boarding": true,
+   "count": 19
+  },
+  {
+   "E": 2,
+   "wave": 4,
+   "c": true,
+   "c_star": false,
+   "d": false,
+   "violation": false,
+   "boarding": true,
+   "count": 1301
+  },
+  {
+   "E": 2,
+   "wave": 4,
+   "c": true,
+   "c_star": false,
+   "d": false,
+   "violation": true,
+   "boarding": true,
+   "count": 582
+  },
+  {
+   "E": 2,
+   "wave": 4,
+   "c": true,
+   "c_star": false,
+   "d": true,
+   "violation": false,
+   "boarding": true,
+   "count": 238
+  },
+  {
+   "E": 2,
+   "wave": 4,
+   "c": true,
+   "c_star": true,
+   "d": false,
+   "violation": false,
+   "boarding": false,
+   "count": 39816
+  },
+  {
+   "E": 2,
+   "wave": 4,
+   "c": true,
+   "c_star": true,
+   "d": false,
+   "violation": false,
+   "boarding": true,
+   "count": 4721
+  },
+  {
+   "E": 2,
+   "wave": 4,
+   "c": true,
+   "c_star": true,
+   "d": false,
+   "violation": true,
+   "boarding": false,
+   "count": 21295
+  },
+  {
+   "E": 2,
+   "wave": 4,
+   "c": true,
+   "c_star": true,
+   "d": false,
+   "violation": true,
+   "boarding": true,
+   "count": 527
+  },
+  {
+   "E": 2,
+   "wave": 4,
+   "c": true,
+   "c_star": true,
+   "d": true,
+   "violation": false,
+   "boarding": false,
+   "count": 2731
+  },
+  {
+   "E": 2,
+   "wave": 4,
+   "c": true,
+   "c_star": true,
+   "d": true,
+   "violation": false,
+   "boarding": true,
+   "count": 591
+  }
+ ],
+ "rule1_E1_selftest_violations": 0,
+ "rule2_E2_c_d_violations": 0,
+ "rule3_E2_cstar_d_violations": 0,
+ "total_violations": 452334,
+ "instances_with_boarding": 86134,
+ "witnesses": {
+  "E1_cd_viol": null,
+  "E2_cd_viol": null,
+  "E2_cstar_d_viol": null
+ },
+ "runtime_seconds": 24.4
+}

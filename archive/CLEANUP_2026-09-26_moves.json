@@ -1,0 +1,1252 @@
+{
+ "date": "2026-09-26",
+ "moves": [
+  {
+   "from": ".codex_review/2026-09-07/page-1.png",
+   "to": "archive/codex_review/2026-09-07/page-1.png",
+   "tracked": false,
+   "reason": "Codex review snapshot of Section 3 (2026-09-07); render check only",
+   "sha256": "d6e46a37766cd6a74a6759f64d45149e6d4900338c774cc573da6d7d2e17f5a9",
+   "bytes": 197579
+  },
+  {
+   "from": ".codex_review/2026-09-07/page-2.png",
+   "to": "archive/codex_review/2026-09-07/page-2.png",
+   "tracked": false,
+   "reason": "Codex review snapshot of Section 3 (2026-09-07); render check only",
+   "sha256": "42c78a99abfcc42f4cb0ad3396a8030c96672d1e2b1005c05d2c154b01b2bde9",
+   "bytes": 159401
+  },
+  {
+   "from": ".codex_review/2026-09-07/page-3.png",
+   "to": "archive/codex_review/2026-09-07/page-3.png",
+   "tracked": false,
+   "reason": "Codex review snapshot of Section 3 (2026-09-07); render check only",
+   "sha256": "aa5bb148a424b9f31f4c17cc2982d4cfc54be6f7cd25d36885c85c47668a5603",
+   "bytes": 155774
+  },
+  {
+   "from": ".codex_review/2026-09-07/page-4.png",
+   "to": "archive/codex_review/2026-09-07/page-4.png",
+   "tracked": false,
+   "reason": "Codex review snapshot of Section 3 (2026-09-07); render check only",
+   "sha256": "45e18335b10619496dd9726e1004b3ec78b2701224de6785da57d12c2ec2f280",
+   "bytes": 256543
+  },
+  {
+   "from": ".codex_review/2026-09-07/page-5.png",
+   "to": "archive/codex_review/2026-09-07/page-5.png",
+   "tracked": false,
+   "reason": "Codex review snapshot of Section 3 (2026-09-07); render check only",
+   "sha256": "1f15f8ec5d7b4b21a907ba5ce90c4555b823de694ea1b6a8054d523706aca38f",
+   "bytes": 205459
+  },
+  {
+   "from": ".codex_review/2026-09-07/page-6.png",
+   "to": "archive/codex_review/2026-09-07/page-6.png",
+   "tracked": false,
+   "reason": "Codex review snapshot of Section 3 (2026-09-07); render check only",
+   "sha256": "71927d60a89288303a78509c3f361665020a9ccad80822014e4cf935ce85110a",
+   "bytes": 51860
+  },
+  {
+   "from": ".codex_review/2026-09-07/problem_formulation_extract.txt",
+   "to": "archive/codex_review/2026-09-07/problem_formulation_extract.txt",
+   "tracked": false,
+   "reason": "Codex review snapshot of Section 3 (2026-09-07); render check only",
+   "sha256": "105940fcf1e2a7b25236b5868be631903af0f7f2651dcc2f15189db9db46d015",
+   "bytes": 10915
+  },
+  {
+   "from": ".codex_review/2026-09-07/render_word_readonly.ps1",
+   "to": "archive/codex_review/2026-09-07/render_word_readonly.ps1",
+   "tracked": false,
+   "reason": "Codex review snapshot of Section 3 (2026-09-07); render check only",
+   "sha256": "9377412e7ad5776a2de46713d10b4aef1f2a1a379ea4a0dd33523fc33b13aa3f",
+   "bytes": 1550
+  },
+  {
+   "from": ".codex_review/2026-09-07/SECTION_3_before_restructure.md",
+   "to": "archive/codex_review/2026-09-07/SECTION_3_before_restructure.md",
+   "tracked": false,
+   "reason": "Codex review snapshot of Section 3 (2026-09-07); render check only",
+   "sha256": "411fbf57f4119bb8743dbad00b15d6f19621cdefd7d786887ff138ea772fa876",
+   "bytes": 39701
+  },
+  {
+   "from": ".codex_review/2026-09-07/SECTION_3_math_qa.aux",
+   "to": "archive/codex_review/2026-09-07/SECTION_3_math_qa.aux",
+   "tracked": false,
+   "reason": "Codex review snapshot of Section 3 (2026-09-07); render check only",
+   "sha256": "bde1d0fc7f1717473bb9238dc27ca9984e0220c9aeda9654e16d5e91bb025eed",
+   "bytes": 32
+  },
+  {
+   "from": ".codex_review/2026-09-07/SECTION_3_math_qa.log",
+   "to": "archive/codex_review/2026-09-07/SECTION_3_math_qa.log",
+   "tracked": false,
+   "reason": "Codex review snapshot of Section 3 (2026-09-07); render check only",
+   "sha256": "37fe3321f554d73f34007825b23197b4d6f4a0ac00500e163433de3f223c9d8a",
+   "bytes": 7997
+  },
+  {
+   "from": ".codex_review/2026-09-07/SECTION_3_math_qa.pdf",
+   "to": "archive/codex_review/2026-09-07/SECTION_3_math_qa.pdf",
+   "tracked": false,
+   "reason": "Codex review snapshot of Section 3 (2026-09-07); render check only",
+   "sha256": "acadd3a4952d70193f477ede9191bc8508d1b26901a809e3e08458ddaa42546a",
+   "bytes": 165665
+  },
+  {
+   "from": ".codex_review/2026-09-07/SECTION_3_math_qa.tex",
+   "to": "archive/codex_review/2026-09-07/SECTION_3_math_qa.tex",
+   "tracked": false,
+   "reason": "Codex review snapshot of Section 3 (2026-09-07); render check only",
+   "sha256": "5402791cc218ea2c64ca899ca87a17ee4ebb438defcb6428e4717db5e3cc995d",
+   "bytes": 11212
+  },
+  {
+   "from": ".codex_review/2026-09-07/SECTION_3_restructure_qa.json",
+   "to": "archive/codex_review/2026-09-07/SECTION_3_restructure_qa.json",
+   "tracked": false,
+   "reason": "Codex review snapshot of Section 3 (2026-09-07); render check only",
+   "sha256": "f2cd20046056cf38a4d942c3aa2bb4362ae09b59d1752359a788ef6ed40a5e77",
+   "bytes": 1135
+  },
+  {
+   "from": ".codex_review/2026-09-07/source-snapshot.docx",
+   "to": "archive/codex_review/2026-09-07/source-snapshot.docx",
+   "tracked": false,
+   "reason": "Codex review snapshot of Section 3 (2026-09-07); render check only",
+   "sha256": "51d61c3f2a8d71585fc4c232723e19c6b94ea922770145350b2bd82788f59a76",
+   "bytes": 214034
+  },
+  {
+   "from": ".codex_review/2026-09-07/word-render.pdf",
+   "to": "archive/codex_review/2026-09-07/word-render.pdf",
+   "tracked": false,
+   "reason": "Codex review snapshot of Section 3 (2026-09-07); render check only",
+   "sha256": "529713d165a0dbff41e85d0b105d49b325e1dedc74299c164d219a6591c76974",
+   "bytes": 342096
+  },
+  {
+   "from": ".codex_review/2026-09-10/page-1.png",
+   "to": "archive/codex_review/2026-09-10/page-1.png",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-10)",
+   "sha256": "8d96955f1a87ce7d7204741ff27ade0ef700283f3fae2c15b2b927f29960d140",
+   "bytes": 249331
+  },
+  {
+   "from": ".codex_review/2026-09-10/page-10.png",
+   "to": "archive/codex_review/2026-09-10/page-10.png",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-10)",
+   "sha256": "93c736effee70d27c780947d94004ccd69a4d6c0fb88eeccc31458903ff41ab2",
+   "bytes": 165349
+  },
+  {
+   "from": ".codex_review/2026-09-10/page-2.png",
+   "to": "archive/codex_review/2026-09-10/page-2.png",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-10)",
+   "sha256": "ed56efedf0722eda10d757f89db7cd93e725cd8303cb53932b491aed95e42db5",
+   "bytes": 211440
+  },
+  {
+   "from": ".codex_review/2026-09-10/page-3.png",
+   "to": "archive/codex_review/2026-09-10/page-3.png",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-10)",
+   "sha256": "f5012010cd7555ef7a0781c76c8bee2c071ad8517fb49319e0b129743808a052",
+   "bytes": 174730
+  },
+  {
+   "from": ".codex_review/2026-09-10/page-4.png",
+   "to": "archive/codex_review/2026-09-10/page-4.png",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-10)",
+   "sha256": "602c8cbb24cc7dbc9e2f968dd2206e902a466481228fc161cf116ced2511dee5",
+   "bytes": 185489
+  },
+  {
+   "from": ".codex_review/2026-09-10/page-5.png",
+   "to": "archive/codex_review/2026-09-10/page-5.png",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-10)",
+   "sha256": "cc1a2190196864d77cfb920f2a3643f15756707bff36feda37a3b939bfdeebf6",
+   "bytes": 206302
+  },
+  {
+   "from": ".codex_review/2026-09-10/page-6.png",
+   "to": "archive/codex_review/2026-09-10/page-6.png",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-10)",
+   "sha256": "fa6ef673b48150b508814f8ba983e36f4281c6f4121456a2dca6ebf9f127d8db",
+   "bytes": 211423
+  },
+  {
+   "from": ".codex_review/2026-09-10/page-7.png",
+   "to": "archive/codex_review/2026-09-10/page-7.png",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-10)",
+   "sha256": "cdc3df4a8a99ac82596fd93c3d1514a9e372546b3890c86bbca4be0037f76f9d",
+   "bytes": 183774
+  },
+  {
+   "from": ".codex_review/2026-09-10/page-8.png",
+   "to": "archive/codex_review/2026-09-10/page-8.png",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-10)",
+   "sha256": "c1cea7b5c4e7a01c63d9989b54d6cded47a7b396b183b24ccd2a4ba2bb96055a",
+   "bytes": 180092
+  },
+  {
+   "from": ".codex_review/2026-09-10/page-9.png",
+   "to": "archive/codex_review/2026-09-10/page-9.png",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-10)",
+   "sha256": "188a10295c269896f8826ff9575e00b5d55cbe1999288da466c81dead8e73d7b",
+   "bytes": 293672
+  },
+  {
+   "from": ".codex_review/2026-09-10/render_word_readonly.ps1",
+   "to": "archive/codex_review/2026-09-10/render_word_readonly.ps1",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-10)",
+   "sha256": "89e939f86d4d2b66b179c1bc251f2d97907414f8357b8fa39d84711737899ef5",
+   "bytes": 1550
+  },
+  {
+   "from": ".codex_review/2026-09-10/SECTION_3_before_consolidated_layout.md",
+   "to": "archive/codex_review/2026-09-10/SECTION_3_before_consolidated_layout.md",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-10)",
+   "sha256": "0c370638cae6dff5c45dfc275a1137879dd0408d87a9e43705b4bc2280d2293c",
+   "bytes": 36044
+  },
+  {
+   "from": ".codex_review/2026-09-10/source-snapshot.docx",
+   "to": "archive/codex_review/2026-09-10/source-snapshot.docx",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-10)",
+   "sha256": "de93466853d5f7a35e28f50b2ced42533da1bb2cdc268f2c8396b55cc4e5c305",
+   "bytes": 332730
+  },
+  {
+   "from": ".codex_review/2026-09-10/word-render-extract.txt",
+   "to": "archive/codex_review/2026-09-10/word-render-extract.txt",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-10)",
+   "sha256": "a12cb5061cbe57e3a5eff85816e5654195ebe93a66f8357d799bd782052bd576",
+   "bytes": 25926
+  },
+  {
+   "from": ".codex_review/2026-09-10/word-render.pdf",
+   "to": "archive/codex_review/2026-09-10/word-render.pdf",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-10)",
+   "sha256": "d0fc230725b0da19ce9660d8f7bfe64ffe038931442721d6ea8be51f9b003906",
+   "bytes": 506049
+  },
+  {
+   "from": ".codex_review/2026-09-14/page-01.png",
+   "to": "archive/codex_review/2026-09-14/page-01.png",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-14)",
+   "sha256": "065e5dfa72f46cf6be2fdea719258f3020fb6e76989584adbc18b78640055fb5",
+   "bytes": 322541
+  },
+  {
+   "from": ".codex_review/2026-09-14/page-02.png",
+   "to": "archive/codex_review/2026-09-14/page-02.png",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-14)",
+   "sha256": "63defd2adbf5f267e7ec5115a35beca614ea2b66569e5ecd13a9b79dc0a83c03",
+   "bytes": 298293
+  },
+  {
+   "from": ".codex_review/2026-09-14/page-03.png",
+   "to": "archive/codex_review/2026-09-14/page-03.png",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-14)",
+   "sha256": "deb1e1bb21328a249797a9e333ec880eef87b59ebb0ff99570d79a9f21923e7a",
+   "bytes": 299294
+  },
+  {
+   "from": ".codex_review/2026-09-14/page-04.png",
+   "to": "archive/codex_review/2026-09-14/page-04.png",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-14)",
+   "sha256": "80af21588b4376749ebd30472c82b6abf8aa08b9d7d49b29b97dd529e23ed39a",
+   "bytes": 266234
+  },
+  {
+   "from": ".codex_review/2026-09-14/page-05.png",
+   "to": "archive/codex_review/2026-09-14/page-05.png",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-14)",
+   "sha256": "00a622b30be118984d910376f5ac2f5b304e982046e1da5631052d4869c151ad",
+   "bytes": 249257
+  },
+  {
+   "from": ".codex_review/2026-09-14/page-06.png",
+   "to": "archive/codex_review/2026-09-14/page-06.png",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-14)",
+   "sha256": "558a2645fbd851b34a9ed8847900d59ed7394d1c6ced71fe211cde3bb217c33c",
+   "bytes": 285648
+  },
+  {
+   "from": ".codex_review/2026-09-14/page-07.png",
+   "to": "archive/codex_review/2026-09-14/page-07.png",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-14)",
+   "sha256": "c0a5af8c79f3481811e3a0cd90f4f06204263a3b7cbcb8b6e6786900abab0df0",
+   "bytes": 302733
+  },
+  {
+   "from": ".codex_review/2026-09-14/page-08.png",
+   "to": "archive/codex_review/2026-09-14/page-08.png",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-14)",
+   "sha256": "84fd48b9617ac019db7dc4116ae8b6419b2cc91dfb1dab519a49bac9b06a9e4d",
+   "bytes": 237825
+  },
+  {
+   "from": ".codex_review/2026-09-14/page-09.png",
+   "to": "archive/codex_review/2026-09-14/page-09.png",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-14)",
+   "sha256": "8636a0272adef1cbb7612cd6c419964f5cfd1a24e8563f1a1837b72ef24dc5c4",
+   "bytes": 246782
+  },
+  {
+   "from": ".codex_review/2026-09-14/page-10.png",
+   "to": "archive/codex_review/2026-09-14/page-10.png",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-14)",
+   "sha256": "f612a0f8ce895fac286fc2526092fc1b12052d5c9738e01bf6d31f44befb2736",
+   "bytes": 325124
+  },
+  {
+   "from": ".codex_review/2026-09-14/page-11.png",
+   "to": "archive/codex_review/2026-09-14/page-11.png",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-14)",
+   "sha256": "49069fef8b59efd73cce11d5f022d9316263d88c7fefd219067739de4c7f171e",
+   "bytes": 83634
+  },
+  {
+   "from": ".codex_review/2026-09-14/render_word_readonly.ps1",
+   "to": "archive/codex_review/2026-09-14/render_word_readonly.ps1",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-14)",
+   "sha256": "0883d77c98e884b79e09aaa7fca8dcf07a737515b0e5ee69f319619366e56f07",
+   "bytes": 1550
+  },
+  {
+   "from": ".codex_review/2026-09-14/source-snapshot.docx",
+   "to": "archive/codex_review/2026-09-14/source-snapshot.docx",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-14)",
+   "sha256": "1bd6c93847212fe940440e203e31d71e5b44d37d1732c249fc9276a5dc86e449",
+   "bytes": 656911
+  },
+  {
+   "from": ".codex_review/2026-09-14/word-render-extract.txt",
+   "to": "archive/codex_review/2026-09-14/word-render-extract.txt",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-14)",
+   "sha256": "f17144ae66f661839337c80315acf33a98a43555777dc90bdeb43878ddd0cc09",
+   "bytes": 30997
+  },
+  {
+   "from": ".codex_review/2026-09-14/word-render.pdf",
+   "to": "archive/codex_review/2026-09-14/word-render.pdf",
+   "tracked": false,
+   "reason": "Codex review snapshot (2026-09-14)",
+   "sha256": "eefbe9afb7c016a9b4b4fb45f0dc9f035a6195f495dcc43e975a5c65790bdb1f",
+   "bytes": 585704
+  },
+  {
+   "from": ".codex_review/2026-09-14-finalcheck/page-01.png",
+   "to": "archive/codex_review/2026-09-14-finalcheck/page-01.png",
+   "tracked": false,
+   "reason": "Codex final check of Section 4 (2026-09-14)",
+   "sha256": "4ffde1bddb54ba999e8049b03421237fad31905d65b5b084e293b1a02e57de9f",
+   "bytes": 414898
+  },
+  {
+   "from": ".codex_review/2026-09-14-finalcheck/page-02.png",
+   "to": "archive/codex_review/2026-09-14-finalcheck/page-02.png",
+   "tracked": false,
+   "reason": "Codex final check of Section 4 (2026-09-14)",
+   "sha256": "1d41266e9623e1a88afbed25e2250eeb6d165a990f75c9e688151b0155890b96",
+   "bytes": 298558
+  },
+  {
+   "from": ".codex_review/2026-09-14-finalcheck/page-03.png",
+   "to": "archive/codex_review/2026-09-14-finalcheck/page-03.png",
+   "tracked": false,
+   "reason": "Codex final check of Section 4 (2026-09-14)",
+   "sha256": "8053c2c91ac814332a10b9d50d821d9a411fa3369bd6572a37833b50e8d81f8a",
+   "bytes": 299280
+  },
+  {
+   "from": ".codex_review/2026-09-14-finalcheck/page-04.png",
+   "to": "archive/codex_review/2026-09-14-finalcheck/page-04.png",
+   "tracked": false,
+   "reason": "Codex final check of Section 4 (2026-09-14)",
+   "sha256": "5bd1a7266b7cfd126635a6cbf33dc863102ac81dcae90444a27444120dc859d3",
+   "bytes": 269062
+  },
+  {
+   "from": ".codex_review/2026-09-14-finalcheck/page-05.png",
+   "to": "archive/codex_review/2026-09-14-finalcheck/page-05.png",
+   "tracked": false,
+   "reason": "Codex final check of Section 4 (2026-09-14)",
+   "sha256": "cc0c639d7436afe6158560de42e1e4560c837123121be4fea4e76b76e7b10f10",
+   "bytes": 253872
+  },
+  {
+   "from": ".codex_review/2026-09-14-finalcheck/page-06.png",
+   "to": "archive/codex_review/2026-09-14-finalcheck/page-06.png",
+   "tracked": false,
+   "reason": "Codex final check of Section 4 (2026-09-14)",
+   "sha256": "a91f7c1f0674ea41f5c73e06fe9a7474b79260cd9e7e6bceaeb71a61cf4e4d0b",
+   "bytes": 288542
+  },
+  {
+   "from": ".codex_review/2026-09-14-finalcheck/page-07.png",
+   "to": "archive/codex_review/2026-09-14-finalcheck/page-07.png",
+   "tracked": false,
+   "reason": "Codex final check of Section 4 (2026-09-14)",
+   "sha256": "8e3f42ea50160c9109a0869fbbc93e04ac047b85e8199101390f3ea3fd858866",
+   "bytes": 292489
+  },
+  {
+   "from": ".codex_review/2026-09-14-finalcheck/page-08.png",
+   "to": "archive/codex_review/2026-09-14-finalcheck/page-08.png",
+   "tracked": false,
+   "reason": "Codex final check of Section 4 (2026-09-14)",
+   "sha256": "2c87cd6db132de6ddecb8075bf1b7568533168593847b37991f3544e413651ac",
+   "bytes": 234864
+  },
+  {
+   "from": ".codex_review/2026-09-14-finalcheck/page-09.png",
+   "to": "archive/codex_review/2026-09-14-finalcheck/page-09.png",
+   "tracked": false,
+   "reason": "Codex final check of Section 4 (2026-09-14)",
+   "sha256": "c5fb21a346eeb728cfd5c6a8d0e2463d239fb550fff82c39716557bc83e9e17c",
+   "bytes": 246537
+  },
+  {
+   "from": ".codex_review/2026-09-14-finalcheck/page-10.png",
+   "to": "archive/codex_review/2026-09-14-finalcheck/page-10.png",
+   "tracked": false,
+   "reason": "Codex final check of Section 4 (2026-09-14)",
+   "sha256": "417200b80441b2f2b49916e981cb3c075b77c1854909e74d2d9e5ec00828b066",
+   "bytes": 319465
+  },
+  {
+   "from": ".codex_review/2026-09-14-finalcheck/page-11.png",
+   "to": "archive/codex_review/2026-09-14-finalcheck/page-11.png",
+   "tracked": false,
+   "reason": "Codex final check of Section 4 (2026-09-14)",
+   "sha256": "bb23ce24e655a9bc98a8c292ef5734cfcfd5c274a1229d5b75bbbff081aef630",
+   "bytes": 94372
+  },
+  {
+   "from": ".codex_review/2026-09-14-finalcheck/render_word_readonly.ps1",
+   "to": "archive/codex_review/2026-09-14-finalcheck/render_word_readonly.ps1",
+   "tracked": false,
+   "reason": "Codex final check of Section 4 (2026-09-14)",
+   "sha256": "d86cdead4cd8dd023375578ce705e334b19b1205e4b6f5f24ecd2886e1b2c0c2",
+   "bytes": 1561
+  },
+  {
+   "from": ".codex_review/2026-09-14-finalcheck/section4-before-figures.md",
+   "to": "archive/codex_review/2026-09-14-finalcheck/section4-before-figures.md",
+   "tracked": false,
+   "reason": "Codex final check of Section 4 (2026-09-14)",
+   "sha256": "11bf142e6a1b1cefd4c1a0ae1d7893c42f6ec27f39ab709915586428073fafc6",
+   "bytes": 50539
+  },
+  {
+   "from": ".codex_review/2026-09-14-finalcheck/source-snapshot.docx",
+   "to": "archive/codex_review/2026-09-14-finalcheck/source-snapshot.docx",
+   "tracked": false,
+   "reason": "Codex final check of Section 4 (2026-09-14)",
+   "sha256": "9eca507530745ba2401ff32f1c716f8d6f86609467e4e9ef03059e414973a7b8",
+   "bytes": 1315279
+  },
+  {
+   "from": ".codex_review/2026-09-14-finalcheck/word-render-extract.txt",
+   "to": "archive/codex_review/2026-09-14-finalcheck/word-render-extract.txt",
+   "tracked": false,
+   "reason": "Codex final check of Section 4 (2026-09-14)",
+   "sha256": "bdde292d78a77297483d2534db0dcc2c32b040e4a8028b9a406c9ae584526987",
+   "bytes": 31002
+  },
+  {
+   "from": ".codex_review/2026-09-14-finalcheck/word-render.pdf",
+   "to": "archive/codex_review/2026-09-14-finalcheck/word-render.pdf",
+   "tracked": false,
+   "reason": "Codex final check of Section 4 (2026-09-14)",
+   "sha256": "e4ef78427eaa2647fce21717e57dc68eb2c7357c069f1cc9ef20e222cdbfbd15",
+   "bytes": 560627
+  },
+  {
+   "from": "gpt/Abstract_Introduction_RelatedWorks_full_replacement.md",
+   "to": "archive/gpt_2026-08/Abstract_Introduction_RelatedWorks_full_replacement.md",
+   "tracked": false,
+   "reason": "MASTER §1.3: completely outdated",
+   "sha256": "59a01b66ab313e13da356ffc571f251b832b5bcc1db2f4c0076b707b708a62ad",
+   "bytes": 29546
+  },
+  {
+   "from": "gpt/Abstract_Introduction_RelatedWorks_revision_notes.md",
+   "to": "archive/gpt_2026-08/Abstract_Introduction_RelatedWorks_revision_notes.md",
+   "tracked": false,
+   "reason": "MASTER §1.3: completely outdated",
+   "sha256": "591a0de26b0be1122478e42836cc034c5c39c5b1fd3c1b120f09cdb4512fff16",
+   "bytes": 31681
+  },
+  {
+   "from": "gpt/Abstract+Introduction+Related works.pdf",
+   "to": "archive/gpt_2026-08/Abstract+Introduction+Related works.pdf",
+   "tracked": false,
+   "reason": "MASTER §1.3: completely outdated",
+   "sha256": "cbc0c90b9df9020d6934932922f92c3f80a5cb9920848403d9fee85ed7ebd7cd",
+   "bytes": 290032
+  },
+  {
+   "from": "paper_draft/archive/appendix_robustness.md",
+   "to": "archive/paper_draft/appendix_robustness.md",
+   "tracked": true,
+   "reason": "2026-07-19 paper_draft archive consolidated into the root archive",
+   "sha256": "3dfb651031dbc2d41383b16b8fe958949050bfdcaa4deb0973d6a7eeff5e51b7",
+   "bytes": 23416
+  },
+  {
+   "from": "paper_draft/archive/MANIFEST.md",
+   "to": "archive/paper_draft/MANIFEST.md",
+   "tracked": false,
+   "reason": "2026-07-19 paper_draft archive consolidated into the root archive",
+   "sha256": "f19e5afcf839331e5d2b1f0ab587a7a9aeae80b9fcf63b46d13ad36ddf1adf9f",
+   "bytes": 1875
+  },
+  {
+   "from": "paper_draft/archive/outline_v0_1.md",
+   "to": "archive/paper_draft/outline_v0_1.md",
+   "tracked": true,
+   "reason": "2026-07-19 paper_draft archive consolidated into the root archive",
+   "sha256": "538030a5f542f0b158b7eeaac3c270609e0d05464f593e3c8b777464c17520e6",
+   "bytes": 47629
+  },
+  {
+   "from": "paper_draft/archive/pdf_revisions_optionB.md",
+   "to": "archive/paper_draft/pdf_revisions_optionB.md",
+   "tracked": true,
+   "reason": "2026-07-19 paper_draft archive consolidated into the root archive",
+   "sha256": "5262045d577316ea69e7427f1ef87c02ddd3bbb5cad18d020bbf59dee5035b6e",
+   "bytes": 27899
+  },
+  {
+   "from": "paper_draft/archive/phase4_H1_preregistration.md",
+   "to": "archive/paper_draft/phase4_H1_preregistration.md",
+   "tracked": true,
+   "reason": "2026-07-19 paper_draft archive consolidated into the root archive",
+   "sha256": "8076d70f059b34b1943473cdcd17ce929fa139e4774767a16aba68758d3b22fe",
+   "bytes": 13284
+  },
+  {
+   "from": "paper_draft/archive/tier1_execution_plan.md",
+   "to": "archive/paper_draft/tier1_execution_plan.md",
+   "tracked": true,
+   "reason": "2026-07-19 paper_draft archive consolidated into the root archive",
+   "sha256": "a7ba29074148eeb576e0b3d16a2eea640ed62690992759bf374dc5b4bfff4f1c",
+   "bytes": 8192
+  },
+  {
+   "from": "paper_draft/storyline_motivation_to_contribution_v1.md",
+   "to": "archive/paper_draft/storyline_motivation_to_contribution_v1.md",
+   "tracked": false,
+   "reason": "MASTER §1.3: superseded by the master",
+   "sha256": "9c50952e55452551b76e7e9fb1b812d428f8e16fd34da2ba9ed505e82613ab64",
+   "bytes": 12484
+  },
+  {
+   "from": "paper_draft/manuscript/00_INDEX.md",
+   "to": "archive/paper_draft/manuscript/00_INDEX.md",
+   "tracked": false,
+   "reason": "MASTER §1.2: progress record only, statuses outdated",
+   "sha256": "b4a9ea56371af5f6746c9a07f6ddeb8dfe29656356e57eaceb969bfd8393beb9",
+   "bytes": 4773
+  },
+  {
+   "from": "paper_draft/manuscript/abstract_v1.0.md",
+   "to": "archive/paper_draft/manuscript/abstract_v1.0.md",
+   "tracked": false,
+   "reason": "MASTER §1.3: *_v1.0 superseded by v1.1",
+   "sha256": "32b1759073afaba0f8399390eb3683e4469facbfcabfd8ba36ae4b939eb4784c",
+   "bytes": 6426
+  },
+  {
+   "from": "paper_draft/manuscript/introduction_v1.0.md",
+   "to": "archive/paper_draft/manuscript/introduction_v1.0.md",
+   "tracked": false,
+   "reason": "MASTER §1.3: *_v1.0 superseded by v1.1",
+   "sha256": "583e019645a67854ffb5919d779af9d53c2ad44753dcb2e90c272c522ad483b8",
+   "bytes": 15425
+  },
+  {
+   "from": "paper_draft/manuscript/related_works_v1.0.md",
+   "to": "archive/paper_draft/manuscript/related_works_v1.0.md",
+   "tracked": false,
+   "reason": "MASTER §1.3: *_v1.0 superseded by v1.1",
+   "sha256": "afee1497e674120855c79adbfc3290d272b3d27d311cc2e173986681d8ac3eda",
+   "bytes": 16733
+  },
+  {
+   "from": "paper_draft/manuscript/v1.0.pdf",
+   "to": "archive/paper_draft/manuscript/v1.0.pdf",
+   "tracked": false,
+   "reason": "compiled v1.0 manuscript (2026-06-22)",
+   "sha256": "0a9b0d66899919ee613f52ca47ca3d2e530f9871fd55b9c93163c055114b1234",
+   "bytes": 571931
+  },
+  {
+   "from": "paper_draft/manuscript/proposition2_chain_dominance_v1.0.md",
+   "to": "archive/paper_draft/manuscript/proposition2_chain_dominance_v1.0.md",
+   "tracked": false,
+   "reason": "MASTER §1.3: old three-condition skeleton",
+   "sha256": "8c19adf8120c2a39ac2c15f9249b06852d6059e3730b8b95566f47cd4aa0e35a",
+   "bytes": 8290
+  },
+  {
+   "from": "paper_draft/manuscript/chain_dominance_proof_v1.0.md",
+   "to": "archive/paper_draft/manuscript/chain_dominance_proof_v1.0.md",
+   "tracked": false,
+   "reason": "MASTER §1.3: old proof skeleton (Appendix A draft supersedes)",
+   "sha256": "00b634c9f0b8bd55d56e973fbcf24c6ea419ede8c4a631a7d5c948c2c5a59a59",
+   "bytes": 8316
+  },
+  {
+   "from": "paper_draft/manuscript/chain_dominance_empirical_v1.0.md",
+   "to": "archive/paper_draft/manuscript/chain_dominance_empirical_v1.0.md",
+   "tracked": false,
+   "reason": "MASTER §1.3: old single-channel empirics",
+   "sha256": "f92ffafe49ca3d33eb171dd4d008f6025274aeec215b01888c5c274abbbe9bea",
+   "bytes": 4367
+  },
+  {
+   "from": "research_notes/00_north_star.md",
+   "to": "archive/research_notes/00_north_star.md",
+   "tracked": true,
+   "reason": "MASTER §1.3: research history only",
+   "sha256": "0b10a46a419c02d38095aec849fca7eaaa68ee3d778c1227196dc988261f74f0",
+   "bytes": 2094
+  },
+  {
+   "from": "research_notes/02_open_questions.md",
+   "to": "archive/research_notes/02_open_questions.md",
+   "tracked": true,
+   "reason": "MASTER §1.3: research history only",
+   "sha256": "b9e9954946ef358287650ddfbe6dedc18a8ba05197dc6dde539d13d5fe980e29",
+   "bytes": 1715
+  },
+  {
+   "from": "research_notes/03_decisions.md",
+   "to": "archive/research_notes/03_decisions.md",
+   "tracked": true,
+   "reason": "MASTER §1.3: research history only",
+   "sha256": "b28013e7f1c02eb99763b60143872b13264854c397baad7bf7beb3e93b0568a2",
+   "bytes": 2260
+  },
+  {
+   "from": "research_notes/novelty_analysis_and_contribution.md",
+   "to": "archive/research_notes/novelty_analysis_and_contribution.md",
+   "tracked": true,
+   "reason": "MASTER §1.3: research history only",
+   "sha256": "047f9ea8f1ea31dfe9e70f52c07d9458940c64a0ec296e35d261df5d7b469a01",
+   "bytes": 66618
+  },
+  {
+   "from": "research_notes/paper_sections_documentation.md",
+   "to": "archive/research_notes/paper_sections_documentation.md",
+   "tracked": true,
+   "reason": "MASTER §1.3: research history only",
+   "sha256": "23860e23d314cc7ad0c58f3ed4965f53a3eda052b452e9ae4dbb9ecc73d929cc",
+   "bytes": 27705
+  },
+  {
+   "from": "research_notes/formulations/problem_formulation_v0_1_DRAFT.md",
+   "to": "archive/research_notes/formulations/problem_formulation_v0_1_DRAFT.md",
+   "tracked": true,
+   "reason": "April draft; superseded by the final Section 3",
+   "sha256": "ad8ae4bd7e09ff71020d9bd7787473c6ffd4ea90eece978244dc7e5700472898",
+   "bytes": 12756
+  },
+  {
+   "from": "prototype/MVS_prototype_plan.md",
+   "to": "archive/prototype/MVS_prototype_plan.md",
+   "tracked": true,
+   "reason": "April prototype plan, executed",
+   "sha256": "38bc870abb8c99adf34ce6cd156c60cee0aeac7a399bd9eb02480c7bea7d5d11",
+   "bytes": 15745
+  },
+  {
+   "from": "prototype/scope_rational.md",
+   "to": "archive/prototype/scope_rational.md",
+   "tracked": true,
+   "reason": "April scope note",
+   "sha256": "d38d6abdc3a79d5f945ab7710fb0177bb370ef92b333e2c9a0108ca0935c6aa6",
+   "bytes": 788
+  },
+  {
+   "from": "prototype/simulator.md",
+   "to": "archive/prototype/simulator.md",
+   "tracked": true,
+   "reason": "April simulator note; CLAUDE.md describes the current simulator",
+   "sha256": "64bbb21768136f8fadb2052dd861586c77010e8ebc5951b1a84260b0ff9e776e",
+   "bytes": 3053
+  },
+  {
+   "from": "prototype/structure.md",
+   "to": "archive/prototype/structure.md",
+   "tracked": true,
+   "reason": "April code-structure note",
+   "sha256": "7dda8cb5e57ac7ef188e5e692d06622bb19f37e0b5be48b3d25869814d46c892",
+   "bytes": 2583
+  },
+  {
+   "from": "prototype/results/figures/fig_section3_setting.pdf",
+   "to": "archive/prototype/results_figures/fig_section3_setting.pdf",
+   "tracked": false,
+   "reason": "2026-09-11 Section 3 figure, superseded by revision_2026-09-24/fig1_section3_setting",
+   "sha256": "2cc75bc72eeff58c1e4ea34cb08a9f7c18be4a607a087ead6cfd5b43e88f876a",
+   "bytes": 41992
+  },
+  {
+   "from": "prototype/results/figures/fig_section3_setting.png",
+   "to": "archive/prototype/results_figures/fig_section3_setting.png",
+   "tracked": false,
+   "reason": "2026-09-11 Section 3 figure, superseded",
+   "sha256": "64c9797176de7dd563c2d1a25156fb73b23278e1706544e975516886928ff52b",
+   "bytes": 231196
+  },
+  {
+   "from": "revision_2026-09-02/SECTION_3_MODEL_FORMULATION.md",
+   "to": "archive/revision_2026-09-02/SECTION_3_MODEL_FORMULATION.md",
+   "tracked": false,
+   "reason": "MASTER §1.1: superseded by Problem formulation.docx (bilingual mirror revision_2026-09-24/section3_bilingual_2026-09-24.md)",
+   "sha256": "c9d25ea405a37baed41c3f42e3943de386893459034bc26a9ff697449fe06f57",
+   "bytes": 37293
+  },
+  {
+   "from": "revision_2026-09-02/figures/fig1_2026-09-14/fig1_current_word_reference.png",
+   "to": "archive/revision_2026-09-02/figures/fig1_2026-09-14/fig1_current_word_reference.png",
+   "tracked": false,
+   "reason": "2026-09-14 Fig. 1 design, superseded by revision_2026-09-24/fig1_section3_setting",
+   "sha256": "56fe15edfad802951977cb0536a87a7df1d7f4c43de106d807d6e12ab84da33f",
+   "bytes": 273931
+  },
+  {
+   "from": "revision_2026-09-02/figures/fig1_2026-09-14/fig1_journal_palette_v1.png",
+   "to": "archive/revision_2026-09-02/figures/fig1_2026-09-14/fig1_journal_palette_v1.png",
+   "tracked": false,
+   "reason": "2026-09-14 Fig. 1 design, superseded by revision_2026-09-24/fig1_section3_setting",
+   "sha256": "933dc6c8c5e6e4d92b6f82b30c82792b6e67fc2799ed0316ce12da8fe611a935",
+   "bytes": 923642
+  },
+  {
+   "from": "revision_2026-09-02/figures/fig1_2026-09-14/IMAGE_EDIT_PROMPT.md",
+   "to": "archive/revision_2026-09-02/figures/fig1_2026-09-14/IMAGE_EDIT_PROMPT.md",
+   "tracked": false,
+   "reason": "2026-09-14 Fig. 1 design, superseded by revision_2026-09-24/fig1_section3_setting",
+   "sha256": "6e3d9f6ecc5768ba8706229c8a7160bd99487e600aebe87028d1b078e40769c0",
+   "bytes": 9182
+  },
+  {
+   "from": "revision_2026-09-02/figures/fig1_2026-09-14/README.md",
+   "to": "archive/revision_2026-09-02/figures/fig1_2026-09-14/README.md",
+   "tracked": false,
+   "reason": "2026-09-14 Fig. 1 design, superseded by revision_2026-09-24/fig1_section3_setting",
+   "sha256": "e4832879b109dd7d87ec44bcb5b18ec62f9f8ac75e6a02644cf9800b14eda65a",
+   "bytes": 937
+  },
+  {
+   "from": "revision_2026-09-24/_work/apply_fixes.py",
+   "to": "archive/revision_2026-09-24/_work/apply_fixes.py",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "7b887cc43748e6c39a6886bc20e616debe136bbc389f1f8ae444ff86d1d16c2d",
+   "bytes": 18463
+  },
+  {
+   "from": "revision_2026-09-24/_work/crop_eq6.png",
+   "to": "archive/revision_2026-09-24/_work/crop_eq6.png",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "e45046163c415b4f094be814830eb64a306567eb14e59c3c968382c39d5ea08f",
+   "bytes": 24046
+  },
+  {
+   "from": "revision_2026-09-24/_work/crop_eq7.png",
+   "to": "archive/revision_2026-09-24/_work/crop_eq7.png",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "0bf9ada9efcbd013ef8091330a78c61abe5e40ac1d70768b764c5e4e6781b5d4",
+   "bytes": 37663
+  },
+  {
+   "from": "revision_2026-09-24/_work/crop_jn.png",
+   "to": "archive/revision_2026-09-24/_work/crop_jn.png",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "a26f58f3eebe74c1319d5541ba8ff6e9a20ab321fb59cf21431a6685db370a49",
+   "bytes": 16263
+  },
+  {
+   "from": "revision_2026-09-24/_work/crop_t_def.png",
+   "to": "archive/revision_2026-09-24/_work/crop_t_def.png",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "48c49cdaf4820a4d0038b7eafbf315e9dfa0d4d9d7e4c279ea7127d19aedfad5",
+   "bytes": 13230
+  },
+  {
+   "from": "revision_2026-09-24/_work/fig1_caption_250dpi.png",
+   "to": "archive/revision_2026-09-24/_work/fig1_caption_250dpi.png",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "4b77199cb630da1ecf76f709d84e81c61c96af92b8e48f38c47c05d6bd6734a2",
+   "bytes": 96944
+  },
+  {
+   "from": "revision_2026-09-24/_work/fig1_check_Le.png",
+   "to": "archive/revision_2026-09-24/_work/fig1_check_Le.png",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "6469d9e7849051f8e1f14f02d49705a69b78ccc85a53066a3a2c2142ac508841",
+   "bytes": 39929
+  },
+  {
+   "from": "revision_2026-09-24/_work/fig1_docx_2323.png",
+   "to": "archive/revision_2026-09-24/_work/fig1_docx_2323.png",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "933dc6c8c5e6e4d92b6f82b30c82792b6e67fc2799ed0316ce12da8fe611a935",
+   "bytes": 923642
+  },
+  {
+   "from": "revision_2026-09-24/_work/fig1_from_docx.png",
+   "to": "archive/revision_2026-09-24/_work/fig1_from_docx.png",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "933dc6c8c5e6e4d92b6f82b30c82792b6e67fc2799ed0316ce12da8fe611a935",
+   "bytes": 923642
+  },
+  {
+   "from": "revision_2026-09-24/_work/fig1_in_pdf_150dpi.png",
+   "to": "archive/revision_2026-09-24/_work/fig1_in_pdf_150dpi.png",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "5ba6a73ff5f0ae0193a99f4e4a5501baf3598de92802d8aab10e56a0c8cc284c",
+   "bytes": 226419
+  },
+  {
+   "from": "revision_2026-09-24/_work/fig1_panel_a_x2.png",
+   "to": "archive/revision_2026-09-24/_work/fig1_panel_a_x2.png",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "24f93d6c8e74a8e156d3e3db3ae83a61998d5545f287408bade44c11401f810e",
+   "bytes": 851213
+  },
+  {
+   "from": "revision_2026-09-24/_work/fig1_panel_b_x2.png",
+   "to": "archive/revision_2026-09-24/_work/fig1_panel_b_x2.png",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "87f35d4d50b9a416c0f509faa66d1e773ee0d6a6b3da6436bd7a647194dd1e9e",
+   "bytes": 1066263
+  },
+  {
+   "from": "revision_2026-09-24/_work/font_probe_crops.png",
+   "to": "archive/revision_2026-09-24/_work/font_probe_crops.png",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "0f22a4207d45dc76f45cc6a322378919548fec090ff45d7e89afa1479cefdae4",
+   "bytes": 52804
+  },
+  {
+   "from": "revision_2026-09-24/_work/methodology.pdf",
+   "to": "archive/revision_2026-09-24/_work/methodology.pdf",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "ceceab3a7ecfa1d7aa98af32b1de462d8e4fca71696a730c4b2c086bc9419eba",
+   "bytes": 504025
+  },
+  {
+   "from": "revision_2026-09-24/_work/methodology_placeholders.md",
+   "to": "archive/revision_2026-09-24/_work/methodology_placeholders.md",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "dbcdc299ef3a36908580a0b77cc2edd7db039db086116f6db91f6f1c9cc5ceb6",
+   "bytes": 17780
+  },
+  {
+   "from": "revision_2026-09-24/_work/pf.pdf",
+   "to": "archive/revision_2026-09-24/_work/pf.pdf",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "90cf817ab96708e16a58fe5a7618c199b4dc2a648bcca8d7575110459da3e3d0",
+   "bytes": 559462
+  },
+  {
+   "from": "revision_2026-09-24/_work/pf_0924_1635.pdf",
+   "to": "archive/revision_2026-09-24/_work/pf_0924_1635.pdf",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "eb73377b736be329715b620106ca06a947de137c593b5b345645d9b6a401171d",
+   "bytes": 565363
+  },
+  {
+   "from": "revision_2026-09-24/_work/pf_0924_1635_eq.json",
+   "to": "archive/revision_2026-09-24/_work/pf_0924_1635_eq.json",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "bb0b9f1e13679fd31ee88d0601fa4a24ae0d0ddc75d280a3f60674625359b2d4",
+   "bytes": 30037
+  },
+  {
+   "from": "revision_2026-09-24/_work/pf_0924_1635_placeholders.md",
+   "to": "archive/revision_2026-09-24/_work/pf_0924_1635_placeholders.md",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "c3d2cec282ec1ab3b961350ed90f3317032f9fa6beb26b5e90edb8aa379c8921",
+   "bytes": 26620
+  },
+  {
+   "from": "revision_2026-09-24/_work/pf_0924_2323.pdf",
+   "to": "archive/revision_2026-09-24/_work/pf_0924_2323.pdf",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "c1090906f930ea182d8782554ce205a9fe953c121993c8e0be5f4613dd353f45",
+   "bytes": 566421
+  },
+  {
+   "from": "revision_2026-09-24/_work/pf_0925_1549.pdf",
+   "to": "archive/revision_2026-09-24/_work/pf_0925_1549.pdf",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "ff412df5f0ee08c5bcb4b164ca184e56a5af8f17eae4e23db01efb141047362a",
+   "bytes": 605216
+  },
+  {
+   "from": "revision_2026-09-24/_work/pf_0925_1549_diff_vs_0924_1635.txt",
+   "to": "archive/revision_2026-09-24/_work/pf_0925_1549_diff_vs_0924_1635.txt",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "a558a4a8561c90718926e4dd2e4f05e737526db50754263c97a794a993618172",
+   "bytes": 47587
+  },
+  {
+   "from": "revision_2026-09-24/_work/pf_0925_1549_eq.json",
+   "to": "archive/revision_2026-09-24/_work/pf_0925_1549_eq.json",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "8aa56c76fa633da6edf841edf452b91d54ad6704fe8ad0250d3a0028d941c6f6",
+   "bytes": 31972
+  },
+  {
+   "from": "revision_2026-09-24/_work/pf_0925_1549_placeholders.md",
+   "to": "archive/revision_2026-09-24/_work/pf_0925_1549_placeholders.md",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "bbe69b562aecbe5e76eccb2afe13c3ce4b4f4ee30c40a49410fe31bda92e3b8b",
+   "bytes": 27572
+  },
+  {
+   "from": "revision_2026-09-24/_work/pf_0925_final_diff_vs_0924_1635.txt",
+   "to": "archive/revision_2026-09-24/_work/pf_0925_final_diff_vs_0924_1635.txt",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "b4c51dd608803d89c432ded1605040b37a8661f290f52c1345eabdcf612e6f1d",
+   "bytes": 45993
+  },
+  {
+   "from": "revision_2026-09-24/_work/pf_0925_final_eq.json",
+   "to": "archive/revision_2026-09-24/_work/pf_0925_final_eq.json",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "2e630a5776dced5ef2f3526f843a6566f96089ca82fb58adb84bb816933a4f1a",
+   "bytes": 32105
+  },
+  {
+   "from": "revision_2026-09-24/_work/pf_0925_final_placeholders.md",
+   "to": "archive/revision_2026-09-24/_work/pf_0925_final_placeholders.md",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "ab21a5d23be0b3c17f73d91a4782b521148f4c9a1baa3cd4df1918c0944a9c1f",
+   "bytes": 27810
+  },
+  {
+   "from": "revision_2026-09-24/_work/pf_0925_fixed_final.pdf",
+   "to": "archive/revision_2026-09-24/_work/pf_0925_fixed_final.pdf",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "afacc70158fdbc835e95d1f084500f00259606b476095bdaca0b35b8b59f25f2",
+   "bytes": 656655
+  },
+  {
+   "from": "revision_2026-09-24/_work/pf_0925_recheck.pdf",
+   "to": "archive/revision_2026-09-24/_work/pf_0925_recheck.pdf",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "1f879b9db8a22f45dd4f8e2dc6701796a044f9517d61f8595661f55995040472",
+   "bytes": 661717
+  },
+  {
+   "from": "revision_2026-09-24/_work/pf_0925_recheck_diff_vs_0924_1635.txt",
+   "to": "archive/revision_2026-09-24/_work/pf_0925_recheck_diff_vs_0924_1635.txt",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "99052a563b6e5e6bc6ad4ffa3f6273ebce424cd84a9638393f982aca438cd707",
+   "bytes": 1550
+  },
+  {
+   "from": "revision_2026-09-24/_work/pf_0925_recheck_eq.json",
+   "to": "archive/revision_2026-09-24/_work/pf_0925_recheck_eq.json",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "7dd3f50e95493d1fc3259a84d353a7eec928259b21f6830b39d699aa91491ebd",
+   "bytes": 31972
+  },
+  {
+   "from": "revision_2026-09-24/_work/pf_0925_recheck_placeholders.md",
+   "to": "archive/revision_2026-09-24/_work/pf_0925_recheck_placeholders.md",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "5ea78b77859e55c8f346616d3db25e8954c9eb9bfb56220b4aa284b5fb5402b6",
+   "bytes": 27677
+  },
+  {
+   "from": "revision_2026-09-24/_work/pf_placeholders.md",
+   "to": "archive/revision_2026-09-24/_work/pf_placeholders.md",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "aa06349b161876e8a4260becbfaa1aca3bb3a21168dfb6a7ae12be1732f6a84c",
+   "bytes": 26110
+  },
+  {
+   "from": "revision_2026-09-24/_work/Problem formulation_backup_2026-09-25_1549.docx",
+   "to": "archive/revision_2026-09-24/_work/Problem formulation_backup_2026-09-25_1549.docx",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "ece374fe0eef31811498d268171b575ce6cf5f5884f31e84d86f12db43e60e10",
+   "bytes": 844812
+  },
+  {
+   "from": "revision_2026-09-24/_work/v3_zoom_building_left.png",
+   "to": "archive/revision_2026-09-24/_work/v3_zoom_building_left.png",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "b764b0767dfff010d58d3368caeab639787cbf3daa54fe50c8c08434c1b1f717",
+   "bytes": 102148
+  },
+  {
+   "from": "revision_2026-09-24/_work/v3_zoom_timeline_right.png",
+   "to": "archive/revision_2026-09-24/_work/v3_zoom_timeline_right.png",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "632eb21b5de109ab0416f05c4acea9880c6ef4780639d5b47ccef868cb7b88bb",
+   "bytes": 141980
+  },
+  {
+   "from": "revision_2026-09-24/_work/zoom_math_bot.png",
+   "to": "archive/revision_2026-09-24/_work/zoom_math_bot.png",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "7ab47ba21c5f89b73d86ad1c99df5efd3e0919f0d12eea23d49cbfecf5d8fbcc",
+   "bytes": 94183
+  },
+  {
+   "from": "revision_2026-09-24/_work/zoom_math_top.png",
+   "to": "archive/revision_2026-09-24/_work/zoom_math_top.png",
+   "tracked": false,
+   "reason": "working files of the Section 3 finalization (renders, crops, diffs, a docx backup)",
+   "sha256": "587f8bcc570e7ac640276fccd15ad5503b4ec29085e4d2b79d0c9825e145e0cb",
+   "bytes": 110525
+  },
+  {
+   "from": "revision_2026-09-24/plan_section3_section4_v0_1.md",
+   "to": "archive/revision_2026-09-24/plan_section3_section4_v0_1.md",
+   "tracked": false,
+   "reason": "superseded by v0_2",
+   "sha256": "db189a49e4c54077289490e23cef3ea6d216f42c94c9f656d74aa483a6e93310",
+   "bytes": 47648
+  },
+  {
+   "from": "revision_2026-09-24/readiness_assessment_CIE_IJPR_2026-09-26_v1_CIE_baseline.md",
+   "to": "archive/revision_2026-09-24/readiness_assessment_CIE_IJPR_2026-09-26_v1_CIE_baseline.md",
+   "tracked": false,
+   "reason": "v1 (C&IE baseline) of the readiness plan, superseded by v2",
+   "sha256": "3ef6106ef3cfea7729f12cf9f21d7839438bedf4f24799289cae2d61e54d0bb1",
+   "bytes": 52907
+  },
+  {
+   "from": "revision_2026-09-24/section3_finalization_EJOR_edits_2026-09-24.md",
+   "to": "archive/revision_2026-09-24/section3_finalization_EJOR_edits_2026-09-24.md",
+   "tracked": false,
+   "reason": "executed edit list (R-01 to R-32 applied to the docx)",
+   "sha256": "e0f7e78ba69796a34131ddf08f14f51d0523c98086b4b74f7c6f4c6eea906cdf",
+   "bytes": 50388
+  },
+  {
+   "from": "revision_2026-09-24/fig1_section3_setting_v2.pdf",
+   "to": "archive/revision_2026-09-24/fig1_section3_setting_v2.pdf",
+   "tracked": false,
+   "reason": "superseded figure iteration",
+   "sha256": "e40c4d2ea4a1e100f7f6faaa3b521de41b6e60209523ed1a1ee8b2280afe8bd2",
+   "bytes": 53552
+  },
+  {
+   "from": "revision_2026-09-24/fig1_section3_setting_v2.png",
+   "to": "archive/revision_2026-09-24/fig1_section3_setting_v2.png",
+   "tracked": false,
+   "reason": "superseded figure iteration",
+   "sha256": "d96e0c4b5fb96195e310b8d3e5a641d15d4aadcffd4a62375fa0b0f4f75dddc2",
+   "bytes": 372108
+  },
+  {
+   "from": "revision_2026-09-24/fig1_section3_setting_v3.pdf",
+   "to": "archive/revision_2026-09-24/fig1_section3_setting_v3.pdf",
+   "tracked": false,
+   "reason": "superseded figure iteration",
+   "sha256": "6ee013b082c95b07dc562d111bdaeea89982a99b2e99f131cb5213adab8196fa",
+   "bytes": 77913
+  },
+  {
+   "from": "revision_2026-09-24/fig1_section3_setting_v3.png",
+   "to": "archive/revision_2026-09-24/fig1_section3_setting_v3.png",
+   "tracked": false,
+   "reason": "superseded figure iteration",
+   "sha256": "9db445e45c8dee3ed1f9cf82e071f1d77aeb5a08ed0c8cd36d521e468d980319",
+   "bytes": 621017
+  },
+  {
+   "from": "README.md",
+   "to": "archive/superseded/README_2026-09-03.md",
+   "tracked": true,
+   "reason": "April scaffold README; replaced by a current README",
+   "sha256": "2fdb78d27499156f409054c65e0652078ca85a54e5b243f6bab8a112901927bb",
+   "bytes": 2247
+  },
+  {
+   "from": "问题背景通俗解读.md",
+   "to": "research_notes/问题背景通俗解读.md",
+   "tracked": false,
+   "reason": "RELOCATE: current plain-language note, from the repository root",
+   "sha256": "52d36e43a6deb019fd38fb3cae577e488c13d71e9eac79860fa529ec33276e6e",
+   "bytes": 16893
+  },
+  {
+   "from": "revision_2026-09-24/So and Al-Sharif (2019).pdf",
+   "to": "papers/So2019.pdf",
+   "tracked": false,
+   "reason": "RELOCATE: cited paper, into papers/ with the AuthorYear name",
+   "sha256": "aa77d480a4b821e1c5ab558d6a019c46caae92d6834eab3e0c5fe828a8e9eb5b",
+   "bytes": 1653382
+  }
+ ],
+ "deleted": [
+  {
+   "path": "archive/word_temp/~$ction 4.docx",
+   "why": "Word lock or temp file (archive/MANIFEST.md: delete once the Word master is fine; it opens, checked)"
+  },
+  {
+   "path": "archive/word_temp/~$ve Release Coordination under Vertical Resource Constraints in Multi.docx",
+   "why": "Word lock or temp file (archive/MANIFEST.md: delete once the Word master is fine; it opens, checked)"
+  },
+  {
+   "path": "archive/word_temp/~WRL0005.tmp",
+   "why": "Word lock or temp file (archive/MANIFEST.md: delete once the Word master is fine; it opens, checked)"
+  },
+  {
+   "path": "archive/word_temp/~WRL0444.tmp",
+   "why": "Word lock or temp file (archive/MANIFEST.md: delete once the Word master is fine; it opens, checked)"
+  },
+  {
+   "path": "archive/word_temp/~WRL2764.tmp",
+   "why": "Word lock or temp file (archive/MANIFEST.md: delete once the Word master is fine; it opens, checked)"
+  },
+  {
+   "path": "archive/word_temp/~WRL3160.tmp",
+   "why": "Word lock or temp file (archive/MANIFEST.md: delete once the Word master is fine; it opens, checked)"
+  },
+  {
+   "path": "prototype/src/__pycache__/ (70 .pyc files)",
+   "why": "regenerable bytecode; ignored by .gitignore and now untracked"
+  },
+  {
+   "path": ".codex_review/2026-09-07/render/",
+   "why": "empty directory"
+  },
+  {
+   "path": ".codex_review/word_20260903_phase1/",
+   "why": "empty directory"
+  },
+  {
+   "path": ".codex_review/",
+   "why": "empty directory"
+  },
+  {
+   "path": "gpt/",
+   "why": "empty directory"
+  },
+  {
+   "path": "paper_draft/archive/",
+   "why": "empty directory"
+  },
+  {
+   "path": "research_notes/formulations/",
+   "why": "empty directory"
+  },
+  {
+   "path": "revision_2026-09-24/_work/",
+   "why": "empty directory"
+  },
+  {
+   "path": "prototype/notebooks/",
+   "why": "empty directory"
+  },
+  {
+   "path": "revision_2026-09-02/figures/fig1_2026-09-14/",
+   "why": "empty directory"
+  }
+ ],
+ "reverse": "move each 'to' back to 'from' (git mv for tracked entries)",
+ "restored_after_check": [
+  {
+   "from": "prototype/intuitions_before_MVS.md",
+   "to": "archive/prototype/intuitions_before_MVS.md",
+   "tracked": true,
+   "reason": "v0.1, superseded by intuitions_before_MVS_v0_2.md",
+   "sha256": "5bbe6c733872404a5ab162dbb51b5d41891f45dffb012d6958ad79a05e584518",
+   "bytes": 26801,
+   "restored": "moved back on 2026-09-26: reachable from the frozen preregistration through prototype/intuitions_before_MVS_v0_2.md, so its links must keep resolving"
+  },
+  {
+   "from": "prototype/MVS_v0_2_plan.md",
+   "to": "archive/prototype/MVS_v0_2_plan.md",
+   "tracked": true,
+   "reason": "April v0.2 plan, executed",
+   "sha256": "1314a9a1b81455c1b237e3547ba615843d59ac4be2cb5f03d365c2211bec0259",
+   "bytes": 14053,
+   "restored": "moved back on 2026-09-26: reachable from the frozen preregistration through prototype/intuitions_before_MVS_v0_2.md, so its links must keep resolving"
+  }
+ ]
+}

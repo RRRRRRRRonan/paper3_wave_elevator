@@ -1,0 +1,431 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[margin=30mm]{geometry}
+\usepackage{amsmath,amssymb}
+% QA only: the local mathrsfs package is unavailable; substitute the script glyph.
+\providecommand{\mathscr}[1]{\mathcal{#1}}
+\setlength{\parindent}{0pt}
+\begin{document}
+\section*{Section 3 equation syntax and width check}
+
+\noindent Display 1
+\[
+|W^k|=n,\qquad
+\delta_{ok}=
+\begin{cases}
+1, & o\in W^k,\\
+0, & o\notin W^k,
+\end{cases}
+\qquad o\in\mathcal O,\ k\in\mathcal K.
+\tag{1}
+\]
+
+\noindent Display 2
+\[
+p_f(W)=\frac{1}{2|W|}
+\sum_{o\in W}\left[\mathbb I(s_o=f)+\mathbb I(d_o=f)\right],
+\qquad f\in\mathcal F,
+\tag{2}
+\]
+
+\noindent Display 3
+\[
+C(W)=-\sum_{f\in\mathcal F}p_f(W)\log p_f(W),
+\qquad 0\log0=0.
+\tag{3}
+\]
+
+\noindent Display 4
+\[
+N^\uparrow(W)=\sum_{o\in W}\mathbb I(d_o>s_o),
+\qquad
+N^\downarrow(W)=\sum_{o\in W}\mathbb I(d_o<s_o).
+\tag{4}
+\]
+
+\noindent Display 5
+\[
+I(W)=
+\begin{cases}
+\dfrac{|N^\uparrow(W)-N^\downarrow(W)|}
+{N^\uparrow(W)+N^\downarrow(W)},
+& N^\uparrow(W)+N^\downarrow(W)>0,\\
+0, & N^\uparrow(W)+N^\downarrow(W)=0.
+\end{cases}
+\tag{5}
+\]
+
+\noindent Display 6
+\[
+T(W)=
+\begin{cases}
+\dfrac{\sqrt{|W|^{-1}\sum_{o\in W}(r_o-\bar r_W)^2}}{\bar r_W},
+& \bar r_W>0,\\
+0, & \bar r_W=0.
+\end{cases}
+\tag{6}
+\]
+
+\noindent Display 7
+\[
+\Phi(W)=\bigl(C(W),I(W),T(W)\bigr).
+\tag{7}
+\]
+
+\noindent Display 8
+\[
+\begin{aligned}
+\mathcal K_{\mathrm{HC}}&=\{k\in\mathcal K:C(W^k)\geq Q_{1-\alpha}(C)\},\\
+\mathcal K_{\mathrm{LC}}&=\{k\in\mathcal K:C(W^k)\leq Q_\alpha(C)\},\\
+\mathcal K_{\mathrm{HI}}&=\{k\in\mathcal K:I(W^k)\geq Q_{1-\alpha}(I)\},\\
+\mathcal K_{\mathrm{LI}}&=\{k\in\mathcal K:I(W^k)\leq Q_\alpha(I)\}.
+\end{aligned}
+\tag{8}
+\]
+
+\noindent Display 9
+\[
+\begin{aligned}
+\mathcal K_{\mathrm{HH}}&=\mathcal K_{\mathrm{HC}}\cap\mathcal K_{\mathrm{HI}},&
+\mathcal K_{\mathrm{HL}}&=\mathcal K_{\mathrm{HC}}\cap\mathcal K_{\mathrm{LI}},\\
+\mathcal K_{\mathrm{LH}}&=\mathcal K_{\mathrm{LC}}\cap\mathcal K_{\mathrm{HI}},&
+\mathcal K_{\mathrm{LL}}&=\mathcal K_{\mathrm{LC}}\cap\mathcal K_{\mathrm{LI}}.
+\end{aligned}
+\tag{9}
+\]
+
+\noindent Display 10
+\[
+\nu_q(k)=
+\begin{cases}
+\dfrac{1}{|\mathcal K_q|}, & k\in\mathcal K_q,\\
+0, & k\notin\mathcal K_q,
+\end{cases}
+\qquad q\in\mathcal Q,\ k\in\mathcal K.
+\tag{10}
+\]
+
+\noindent Display 11
+\[
+\pi(W^k)=\left(o_1^k,\ldots,o_n^k\right)
+=\operatorname{sort}_{o\in W^k}(r_o,\iota_o).
+\tag{11}
+\]
+
+\noindent Display 12
+\[
+a_j=\underset{a\in\mathcal A}{\operatorname{lex\,arg\,min}}
+(H_a^{j-1},a),
+\qquad
+t_j^0=\max\{H_{a_j}^{j-1},\,t_W+r_{o_j^k}\}.
+\tag{12}
+\]
+
+\noindent Display 13
+\[
+(\widehat t,\mathbf S_m^+)
+=\mathscr R_m(\mathbf S_m,g,h,t;\xi).
+\tag{13}
+\]
+
+\noindent Display 14
+\[
+t_j^S=
+\begin{cases}
+\mathcal R_m(G_{a_j}^{j-1},s_{o_j^k},t_j^0),
+& G_{a_j}^{j-1}\neq s_{o_j^k},\\
+t_j^0, & G_{a_j}^{j-1}=s_{o_j^k},
+\end{cases}
+\qquad
+t_j^P=t_j^S+\tau^P.
+\tag{14}
+\]
+
+\noindent Display 15
+\[
+t_j^D=
+\begin{cases}
+\mathcal R_m(s_{o_j^k},d_{o_j^k},t_j^P),
+& s_{o_j^k}\neq d_{o_j^k},\\
+t_j^P, & s_{o_j^k}=d_{o_j^k},
+\end{cases}
+\qquad
+t_j^C=t_j^D+\tau^D.
+\tag{15}
+\]
+
+\noindent Display 16
+\[
+H_{a_j}^{j}=t_j^C,\qquad
+G_{a_j}^{j}=d_{o_j^k}.
+\tag{16}
+\]
+
+\noindent Display 17
+\[
+v^\star=\underset{v\in\mathcal V_1}{\operatorname{lex\,arg\,min}}(B_v,v).
+\tag{17}
+\]
+
+\noindent Display 18
+\[
+\mathcal R_{M_1}(g,h,t)
+=\max\{t,B_{v^\star}\}
++\gamma|G_{v^\star}-g|
++\tau^L+\gamma|g-h|+\tau^U.
+\tag{18}
+\]
+
+\noindent Display 19
+\[
+\mathcal B(g,h,t)=
+\{e\in\mathcal E:(\bar s_e,\bar d_e)=(g,h),\ P_e<c,\ t\leq L_e\}.
+\tag{19}
+\]
+
+\noindent Display 20
+\[
+e^\star=\min\mathcal B(g,h,t),\qquad
+\mathcal R_{M_2}(g,h,t)=D_{e^\star},\qquad
+P_{e^\star}\leftarrow P_{e^\star}+1.
+\tag{20}
+\]
+
+\noindent Display 21
+\[
+e^\star=\underset{e\in\mathcal E}{\operatorname{lex\,arg\,min}}(B_e,e).
+\tag{21}
+\]
+
+\noindent Display 22
+\[
+\begin{aligned}
+L_{e^\star}&=\max\{t,B_{e^\star}\}
++\gamma|G_{e^\star}-g|+\tau^L,\\
+D_{e^\star}&=L_{e^\star}+\gamma|g-h|+\tau^U.
+\end{aligned}
+\tag{22}
+\]
+
+\noindent Display 23
+\[
+B_{e^\star}\leftarrow D_{e^\star},\qquad
+G_{e^\star}\leftarrow h,\qquad
+(\bar s_{e^\star},\bar d_{e^\star})\leftarrow(g,h),\qquad
+P_{e^\star}\leftarrow1.
+\tag{23}
+\]
+
+\noindent Display 24
+\[
+\log Z\sim\mathcal N\left(-\frac{\sigma^2}{2},\sigma^2\right),
+\qquad \mathbb E[Z]=1.
+\tag{24}
+\]
+
+\noindent Display 25
+\[
+\begin{aligned}
+L_{e^\star}&=\max\{t,B_{e^\star}\}
++\gamma|G_{e^\star}-g|Z^{\mathrm{rep}}
++\tau^L Z^{\mathrm{load}},\\
+D_{e^\star}&=L_{e^\star}
++\gamma|g-h|Z^{\mathrm{trav}}
++\tau^U Z^{\mathrm{unload}}.
+\end{aligned}
+\tag{25}
+\]
+
+\noindent Display 26
+\[
+Y_{km}(\xi)
+=C_{\max}(W^k;m,\xi)
+=\max_{j\in\mathcal J_n}t^C_{jkm}(\xi)-t_W.
+\tag{26}
+\]
+
+\noindent Display 27
+\[
+\mu_{qm}^{0.5}
+=\operatorname{Med}_{\kappa\sim\nu_q,\,\xi}
+\left[Y_{\kappa m}(\xi)\right].
+\tag{27}
+\]
+
+\noindent Display 28
+\[
+q^\star\in
+\arg\min_{q\in\mathcal Q}
+\max_{m\in\mathcal M_D}\mu_{qm}^{0.5}.
+\tag{28}
+\]
+
+\noindent Display 29
+\[
+\begin{aligned}
+\min_{y,\eta^Q}\quad & \eta^Q\\
+\text{s.t.}\quad
+& \sum_{q\in\mathcal Q}y_q=1,\\
+& \eta^Q\geq\sum_{q\in\mathcal Q}\mu_{qm}^{0.5}y_q,
+&& m\in\mathcal M_D,\\
+& y_q\in\{0,1\},
+&& q\in\mathcal Q,\\
+& \eta^Q\geq0.
+\end{aligned}
+\tag{29}
+\]
+
+\noindent Display 30
+\[
+\ell_{km}=C_{\max}(W^k;m),
+\qquad k\in\mathcal K,\ m\in\mathcal M_D.
+\tag{30}
+\]
+
+\noindent Display 31
+\[
+\min_{k\in\mathcal K}\max_{m\in\mathcal M_R}\ell_{km}.
+\tag{31}
+\]
+
+\noindent Display 32
+\[
+\begin{aligned}
+\min_{z,x,\eta^C}\quad & \eta^C\\
+\text{s.t.}\quad
+& \sum_{k\in\mathcal K}z_k=1,\\
+& x_o=\sum_{k\in\mathcal K}\delta_{ok}z_k,
+&& o\in\mathcal O,\\
+& \sum_{o\in\mathcal O}x_o=n,\\
+& \eta^C\geq\sum_{k\in\mathcal K}\ell_{km}z_k,
+&& m\in\mathcal M_R,\\
+& z_k\in\{0,1\},
+&& k\in\mathcal K,\\
+& x_o\in\{0,1\},
+&& o\in\mathcal O,\\
+& \eta^C\geq0.
+\end{aligned}
+\tag{32}
+\]
+
+\clearpage
+\section*{Unique inline expressions}
+\noindent 1. \(t_W\)\par\smallskip
+\noindent 2. \(r_o\geq0\)\par\smallskip
+\noindent 3. \(t_W+r_o\)\par\smallskip
+\noindent 4. \(f^0\)\par\smallskip
+\noindent 5. \(f\in\mathcal F=\{1,\ldots,F\}\)\par\smallskip
+\noindent 6. \(o\in\mathcal O\)\par\smallskip
+\noindent 7. \(a\in\mathcal A=\{1,\ldots,A\}\)\par\smallskip
+\noindent 8. \(e\in\mathcal E=\{1,\ldots,E\}\)\par\smallskip
+\noindent 9. \(k\in\mathcal K=\{1,\ldots,K\}\)\par\smallskip
+\noindent 10. \(q\in\mathcal Q\)\par\smallskip
+\noindent 11. \(m\in\mathcal M=\{M_1,M_2,M_3\}\)\par\smallskip
+\noindent 12. \(F\)\par\smallskip
+\noindent 13. \(A\)\par\smallskip
+\noindent 14. \(E\)\par\smallskip
+\noindent 15. \(c\)\par\smallskip
+\noindent 16. \(n\)\par\smallskip
+\noindent 17. \(K\)\par\smallskip
+\noindent 18. \(f^0\in\mathcal F\)\par\smallskip
+\noindent 19. \(\iota_o\)\par\smallskip
+\noindent 20. \(o\)\par\smallskip
+\noindent 21. \(s_o,d_o\in\mathcal F\)\par\smallskip
+\noindent 22. \(\gamma>0\)\par\smallskip
+\noindent 23. \(\tau^L,\tau^U>0\)\par\smallskip
+\noindent 24. \(\tau^P,\tau^D>0\)\par\smallskip
+\noindent 25. \(\alpha\in(0,0.5)\)\par\smallskip
+\noindent 26. \(\sigma>0\)\par\smallskip
+\noindent 27. \(M_3\)\par\smallskip
+\noindent 28. \(1\leq n\leq|\mathcal O|\)\par\smallskip
+\noindent 29. \(k\in\mathcal K\)\par\smallskip
+\noindent 30. \(W^k\subseteq\mathcal O\)\par\smallskip
+\noindent 31. \(\delta_{ok}\)\par\smallskip
+\noindent 32. \(W\)\par\smallskip
+\noindent 33. \(p_f(W)\)\par\smallskip
+\noindent 34. \(2|W|\)\par\smallskip
+\noindent 35. \(f\)\par\smallskip
+\noindent 36. \(\mathbb I(\cdot)\)\par\smallskip
+\noindent 37. \(\log\)\par\smallskip
+\noindent 38. \(C\)\par\smallskip
+\noindent 39. \(I\in[0,1]\)\par\smallskip
+\noindent 40. \(\bar r_W=|W|^{-1}\sum_{o\in W}r_o\)\par\smallskip
+\noindent 41. \(T\)\par\smallskip
+\noindent 42. \(T=0\)\par\smallskip
+\noindent 43. \(I\)\par\smallskip
+\noindent 44. \(X\in\{C,I\}\)\par\smallskip
+\noindent 45. \(Q_u(X)\)\par\smallskip
+\noindent 46. \(u\)\par\smallskip
+\noindent 47. \(\alpha\)\par\smallskip
+\noindent 48. \(\mathrm{HH},\mathrm{HL},\mathrm{LH},\mathrm{LL}\)\par\smallskip
+\noindent 49. \(\mathcal Q=\{q\in\{\mathrm{HH},\mathrm{HL},\mathrm{LH},\mathrm{LL}\}:\mathcal K_q\neq\varnothing\}\)\par\smallskip
+\noindent 50. \(\mathcal Q\neq\varnothing\)\par\smallskip
+\noindent 51. \(q\)\par\smallskip
+\noindent 52. \(\kappa\sim\nu_q\)\par\smallskip
+\noindent 53. \(W^\kappa\)\par\smallskip
+\noindent 54. \(k\)\par\smallskip
+\noindent 55. \(j\in\mathcal J_n=\{1,\ldots,n\}\)\par\smallskip
+\noindent 56. \(\pi(W^k)\)\par\smallskip
+\noindent 57. \(m\)\par\smallskip
+\noindent 58. \(\xi\)\par\smallskip
+\noindent 59. \(H_a^{j-1}\)\par\smallskip
+\noindent 60. \(G_a^{j-1}\)\par\smallskip
+\noindent 61. \(a\)\par\smallskip
+\noindent 62. \(j-1\)\par\smallskip
+\noindent 63. \(H_a^0=t_W\)\par\smallskip
+\noindent 64. \(G_a^0=f^0\)\par\smallskip
+\noindent 65. \(o_j^k\)\par\smallskip
+\noindent 66. \(g\)\par\smallskip
+\noindent 67. \(h\neq g\)\par\smallskip
+\noindent 68. \(t\)\par\smallskip
+\noindent 69. \(\mathbf S_m\)\par\smallskip
+\noindent 70. \(h\)\par\smallskip
+\noindent 71. \(\mathcal R_m(g,h,t)\)\par\smallskip
+\noindent 72. \(\widehat t\)\par\smallskip
+\noindent 73. \(\mathbf S_m^+\)\par\smallskip
+\noindent 74. \(a\neq a_j\)\par\smallskip
+\noindent 75. \(H_a^j=H_a^{j-1}\)\par\smallskip
+\noindent 76. \(G_a^j=G_a^{j-1}\)\par\smallskip
+\noindent 77. \(M_1\)\par\smallskip
+\noindent 78. \(Ec\)\par\smallskip
+\noindent 79. \(v\in\mathcal V_1=\{1,\ldots,Ec\}\)\par\smallskip
+\noindent 80. \(B_v\)\par\smallskip
+\noindent 81. \(G_v\)\par\smallskip
+\noindent 82. \(B_v=t_W\)\par\smallskip
+\noindent 83. \(G_v=f^0\)\par\smallskip
+\noindent 84. \(B_{v^\star}\leftarrow\mathcal R_{M_1}(g,h,t)\)\par\smallskip
+\noindent 85. \(G_{v^\star}\leftarrow h\)\par\smallskip
+\noindent 86. \(M_2\)\par\smallskip
+\noindent 87. \(e\)\par\smallskip
+\noindent 88. \(B_e\)\par\smallskip
+\noindent 89. \(G_e\)\par\smallskip
+\noindent 90. \((\bar s_e,\bar d_e)\)\par\smallskip
+\noindent 91. \(L_e\)\par\smallskip
+\noindent 92. \(D_e\)\par\smallskip
+\noindent 93. \(P_e\)\par\smallskip
+\noindent 94. \(B_e=D_e=t_W\)\par\smallskip
+\noindent 95. \(G_e=f^0\)\par\smallskip
+\noindent 96. \(L_e=-\infty\)\par\smallskip
+\noindent 97. \(P_e=0\)\par\smallskip
+\noindent 98. \(\mathcal B(g,h,t)\neq\varnothing\)\par\smallskip
+\noindent 99. \(\mathcal B(g,h,t)=\varnothing\)\par\smallskip
+\noindent 100. \(\mathcal R_{M_2}(g,h,t)=D_{e^\star}\)\par\smallskip
+\noindent 101. \(Z^{\mathrm{rep}},Z^{\mathrm{load}},Z^{\mathrm{trav}},Z^{\mathrm{unload}}\)\par\smallskip
+\noindent 102. \(\mathcal R_{M_3}(g,h,t)=D_{e^\star}\)\par\smallskip
+\noindent 103. \(\xi\in\Xi\)\par\smallskip
+\noindent 104. \(\Xi\)\par\smallskip
+\noindent 105. \(\kappa\)\par\smallskip
+\noindent 106. \(t^C_{jkm}(\xi)\)\par\smallskip
+\noindent 107. \(y_q\)\par\smallskip
+\noindent 108. \(\{0,1\}\)\par\smallskip
+\noindent 109. \(\eta^Q\)\par\smallskip
+\noindent 110. \(\mathbb R_+\)\par\smallskip
+\noindent 111. \(z_k\)\par\smallskip
+\noindent 112. \(x_o\)\par\smallskip
+\noindent 113. \(\eta^C\)\par\smallskip
+\noindent 114. \(m\in\mathcal M\)\par\smallskip
+\noindent 115. \(\mathcal M_D=\{M_1,M_2\}\)\par\smallskip
+\noindent 116. \(\mathcal M_R\subseteq\mathcal M_D\)\par\smallskip
+\noindent 117. \(\mathcal M_R=\{m\}\)\par\smallskip
+\noindent 118. \(\mathcal M_R=\mathcal M_D\)\par\smallskip
+\noindent 119. \(\mathcal M_R\)\par\smallskip
+\end{document}

@@ -1,0 +1,190 @@
+{
+  "generated": "2026-05-19",
+  "purpose": "Phase 5 smoke-test verdict against pre-registration \u00a77.",
+  "S1_decomposition": {
+    "per_config": [
+      {
+        "config_id": 0,
+        "H_up": 0.19292604501607716,
+        "M_Phi": 0.00964630225080386,
+        "GAP": 0.202572347266881,
+        "gap_positive": true
+      },
+      {
+        "config_id": 2,
+        "H_up": 0.09655172413793103,
+        "M_Phi": 0.013793103448275862,
+        "GAP": 0.1103448275862069,
+        "gap_positive": true
+      },
+      {
+        "config_id": 4,
+        "H_up": 0.11101872038993212,
+        "M_Phi": 0.09739138526161675,
+        "GAP": 0.20841010565154888,
+        "gap_positive": true
+      }
+    ],
+    "n_gap_positive": 3,
+    "n_configs": 3,
+    "pass": true
+  },
+  "S2_dominance": {
+    "per_cell": [
+      {
+        "config_id": 0,
+        "arm": "random",
+        "median_batched": 155.5,
+        "median_abstraction": 132.5,
+        "dominates": true
+      },
+      {
+        "config_id": 0,
+        "arm": "HC_HI",
+        "median_batched": 185.5,
+        "median_abstraction": 125.0,
+        "dominates": true
+      },
+      {
+        "config_id": 0,
+        "arm": "HC_LI",
+        "median_batched": 174.0,
+        "median_abstraction": 130.5,
+        "dominates": true
+      },
+      {
+        "config_id": 0,
+        "arm": "LC_HI",
+        "median_batched": 141.0,
+        "median_abstraction": 127.5,
+        "dominates": true
+      },
+      {
+        "config_id": 0,
+        "arm": "LC_LI",
+        "median_batched": 142.5,
+        "median_abstraction": 118.0,
+        "dominates": true
+      },
+      {
+        "config_id": 2,
+        "arm": "random",
+        "median_batched": 145.0,
+        "median_abstraction": 108.0,
+        "dominates": true
+      },
+      {
+        "config_id": 2,
+        "arm": "HC_HI",
+        "median_batched": 132.0,
+        "median_abstraction": 108.5,
+        "dominates": true
+      },
+      {
+        "config_id": 2,
+        "arm": "HC_LI",
+        "median_batched": 159.0,
+        "median_abstraction": 108.0,
+        "dominates": true
+      },
+      {
+        "config_id": 2,
+        "arm": "LC_HI",
+        "median_batched": 118.0,
+        "median_abstraction": 112.0,
+        "dominates": true
+      },
+      {
+        "config_id": 2,
+        "arm": "LC_LI",
+        "median_batched": 120.0,
+        "median_abstraction": 98.0,
+        "dominates": true
+      },
+      {
+        "config_id": 4,
+        "arm": "random",
+        "median_batched": 193.03418792655242,
+        "median_abstraction": 160.32262440976663,
+        "dominates": true
+      },
+      {
+        "config_id": 4,
+        "arm": "HC_HI",
+        "median_batched": 207.5543822917068,
+        "median_abstraction": 161.51785573580884,
+        "dominates": true
+      },
+      {
+        "config_id": 4,
+        "arm": "HC_LI",
+        "median_batched": 204.74563678004006,
+        "median_abstraction": 157.8436907531886,
+        "dominates": true
+      },
+      {
+        "config_id": 4,
+        "arm": "LC_HI",
+        "median_batched": 195.66472949664976,
+        "median_abstraction": 155.96244455025072,
+        "dominates": true
+      },
+      {
+        "config_id": 4,
+        "arm": "LC_LI",
+        "median_batched": 214.46459646166795,
+        "median_abstraction": 158.21348545341783,
+        "dominates": true
+      }
+    ],
+    "n_dominates": 15,
+    "n_cells": 15,
+    "frac": 1.0,
+    "pass": true
+  },
+  "S3_policy_direction": {
+    "per_config": [
+      {
+        "config_id": 1,
+        "median_P5": 81.0,
+        "median_P0": 109.0,
+        "P5_le_P0": true
+      },
+      {
+        "config_id": 3,
+        "median_P5": 76.0,
+        "median_P0": 112.0,
+        "P5_le_P0": true
+      },
+      {
+        "config_id": 5,
+        "median_P5": 137.3366155266504,
+        "median_P0": 128.91219787485977,
+        "P5_le_P0": false
+      }
+    ],
+    "n_P5_beats_P0": 2,
+    "n_configs": 3,
+    "pass": true
+  },
+  "S4_demand_bite": {
+    "median_makespan": {
+      "uniform": 192.5,
+      "clustered": 148.5,
+      "diurnal": 222.2124620771611
+    },
+    "rel_diff_vs_uniform": {
+      "clustered": 0.22857142857142856,
+      "diurnal": 0.15435045234888878
+    },
+    "max_rel_diff": 0.22857142857142856,
+    "pass": true
+  },
+  "gates": {
+    "S1": true,
+    "S2": true,
+    "S3": true,
+    "S4": true
+  },
+  "verdict": "PROCEED"
+}

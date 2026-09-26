@@ -1,0 +1,671 @@
+% references_related_works.bib
+% Section 2 (Related Works) citations: NEW frontier additions + FIXED entries.
+% Provenance: related-works-curation workflow (run wf_8390048e, 2026-06) with an
+% independent verification pass; DROPPED fabricated-attribution candidates are
+% NOT included (see end). DOIs marked "% CONFIRM" were not independently
+% re-resolved here; check them at the publisher before final submission.
+% Some entries also appear in references_chain_dominance.bib (Kuusinen 2012,
+% So & Al-Sharif 2019, Lamballais 2017, Santi 2014); do not duplicate keys when
+% merging.
+
+% =====================================================================
+% FIXED entries (correct these in the manuscript and main references)
+% =====================================================================
+
+% Was mis-parsed as "Nicolas et al. (2018)"; correct author is Lenoble.
+@article{lenoble2018order,
+  author  = {Lenoble, Nicolas and Frein, Yannick and Hammami, Ramzi},
+  title   = {Order batching in an automated warehouse with several vertical lift modules: Optimization and experiments with real data},
+  journal = {European Journal of Operational Research},
+  volume  = {267},
+  number  = {3},
+  pages   = {958--976},
+  year    = {2018},
+  doi     = {10.1016/j.ejor.2017.12.037}
+}
+
+% Year fix: arXiv 2017/2020 -> formal Management Science 2022.
+@article{elmachtoub2022smart,
+  author  = {Elmachtoub, Adam N. and Grigas, Paul},
+  title   = {Smart ``Predict, then Optimize''},
+  journal = {Management Science},
+  volume  = {68},
+  number  = {1},
+  pages   = {9--26},
+  year    = {2022},
+  doi     = {10.1287/mnsc.2020.3922}
+}
+
+% Year fix: 2020 -> formal Operations Research 2021.
+@article{vera2021online,
+  author  = {Vera, Alberto and Banerjee, Siddhartha and Gurvich, Itai},
+  title   = {Online Allocation and Pricing: Constant Regret via Bellman Inequalities},
+  journal = {Operations Research},
+  volume  = {69},
+  number  = {3},
+  pages   = {821--840},
+  year    = {2021},
+  doi     = {10.1287/opre.2020.2031}
+  % CONFIRM DOI (an earlier draft listed opre.2020.2061)
+}
+
+% Survey: use 2019, Transportation Science 53(4); de-duplicate the "53(5)" entry.
+@article{azadeh2019robotized,
+  author  = {Azadeh, Kaveh and De Koster, Ren{\'e} and Roy, Debjit},
+  title   = {Robotized and Automated Warehouse Systems: Review and Recent Developments},
+  journal = {Transportation Science},
+  volume  = {53},
+  number  = {4},
+  pages   = {917--945},
+  year    = {2019},
+  doi     = {10.1287/trsc.2018.0873}
+}
+
+% 50-years framing anchor.
+@article{boysen2025fifty,
+  author  = {Boysen, Nils and de Koster, Ren{\'e}},
+  title   = {Fifty years of warehousing research: An operations research perspective},
+  journal = {European Journal of Operational Research},
+  volume  = {320},
+  number  = {3},
+  pages   = {449--464},
+  year    = {2025},
+  doi     = {10.1016/j.ejor.2024.03.026}
+  % CONFIRM exact title wording vs "50 years of warehousing research"
+}
+
+% =====================================================================
+% NEW additions, by thread (verified-real frontier)
+% =====================================================================
+
+% ---- P1: planar / device-level batching ----
+@article{liu2025joint,
+  author  = {Liu, Zheng and Lu, Jiansha and Ren, Cunyang and Chen, Jie and Xu, Zhiduan and Zhao, Gang},
+  title   = {Joint optimization of storage assignment and order batching in robotic mobile fulfillment system with dynamic storage depth and surplus items},
+  journal = {Computers \& Industrial Engineering},
+  volume  = {200},
+  pages   = {110767},
+  year    = {2025},
+  doi     = {10.1016/j.cie.2024.110767}
+  % TITLE updated 2026-07-31 to the full published title (verified via ScienceDirect
+  % PII S0360835224008891, C&IE vol 200, art 110767, online Dec 2024, in-issue 2025).
+  % CONFIRM author list before submission (vol/year confirmed; an earlier draft listed 196/2024)
+}
+
+% ---- P2: multi-tier / RMFS / shared-lift ----
+
+% ADDED 2026-07-31: cited in Section 2 P3 but previously missing from BOTH bib files.
+% Verified via Springer page (journal-norms sweep 2026-07-31): FSMJ 35:1038-1075.
+@article{tadumadze2023assigning,
+  author  = {Tadumadze, Giorgi and Wenzel, Jakob and Emde, Simon and Weidinger, Felix and Elbert, Ralf},
+  title   = {Assigning orders and pods to picking stations in a multi-level robotic mobile fulfillment system},
+  journal = {Flexible Services and Manufacturing Journal},
+  volume  = {35},
+  pages   = {1038--1075},
+  year    = {2023},
+  doi     = {10.1007/s10696-023-09491-0}
+}
+@article{tappia2017modeling,
+  author  = {Tappia, Elena and Roy, Debjit and De Koster, Ren{\'e} and Melacini, Marco},
+  title   = {Modeling, Analysis, and Design Insights for Shuttle-Based Compact Storage Systems},
+  journal = {Transportation Science},
+  volume  = {51},
+  number  = {1},
+  pages   = {269--295},
+  year    = {2017},
+  doi     = {10.1287/trsc.2016.0699}
+}
+
+@article{chen2023retrieval,
+  author  = {Chen, Ruoyu and Yang, Jun and Yu, Yugang and Guo, Xiaolong},
+  title   = {Retrieval request scheduling in a shuttle-based storage and retrieval system with two lifts},
+  journal = {Transportation Research Part E: Logistics and Transportation Review},
+  volume  = {174},
+  pages   = {103117},
+  year    = {2023},
+  doi     = {10.1016/j.tre.2023.103117}
+  % CONFIRM exact title / author initials
+}
+
+% NEW (revision 2026-07-08, entry added to bib 2026-07-31): found by literature
+% audit; absent from all prior logs and bibs. NOT the same paper as the DROPPED
+% fabricated "Wang et al. 2025" (sustainable RMFS pod repositioning; true authors
+% Silva et al.) listed at the end of this file. Shares last author (P. Yang) with
+% Qin, Kang & Yang (2024). Author list corrected from W7 Edit 5's three-author
+% draft to the FIVE-author Crossref record (scoop check 2026-07-18), which also
+% resolved volume 210 / article 111559 / DOI. In-text citation: "Wang et al. (2025)".
+@article{wang2025retrieval,
+  author  = {Wang and Tao and Chen and Zhu and Yang},
+  title   = {Retrieval scheduling in four-directional shuttle-based compact storage and retrieval systems with heterogeneous lifts},
+  journal = {Computers \& Industrial Engineering},
+  volume  = {210},
+  pages   = {111559},
+  year    = {2025},
+  doi     = {10.1016/j.cie.2025.111559}
+  % CONFIRM before submission: full author GIVEN NAMES from the publisher page
+  % (only surnames verified via Crossref so far; do not guess first names).
+}
+
+@article{wu2025joint,
+  author  = {Wu, Jingwen and Yang, Zhiyuan and Zhen, Lu and Li, Wenxin and Ren, Yiran},
+  title   = {Joint optimization of order picking and replenishment in robotic mobile fulfillment systems},
+  journal = {Transportation Research Part E: Logistics and Transportation Review},
+  volume  = {194},
+  pages   = {103930},
+  year    = {2025},
+  doi     = {10.1016/j.tre.2024.103930}
+  % AUTHOR LIST CORRECTED 2026-08-06: Crossref confirms Jingwen Wu, Zhiyuan Yang,
+  % Lu Zhen, Wenxin Li, Yiran Ren (previous entry had wrong given names
+  % Jiabin/Zhen/Wenfeng/Yi). Matches local file "Jingwen Wu2024.pdf".
+  % In-text disambiguation vs wu2024inbound (Zhaoyun Wu): "J. Wu et al. (2025)".
+}
+
+@article{kizil2026robotic,
+  author  = {Kizil, Kemal U. and Sriskandarajah, Chelliah and Stauffer, Jason M.},
+  title   = {Robotic Mobile Fulfillment Systems: Strategies for Pod Selection and Scheduling},
+  journal = {Production and Operations Management},
+  volume  = {35},
+  number  = {2},
+  pages   = {625--648},
+  year    = {2026},
+  doi     = {10.1177/10591478251349902}
+  % OPTIONAL breadth cite; CONFIRM final volume/pages (listed as in-press earlier)
+}
+
+% ---- P3: vertical-transport scheduling + RTT contrast + RL acknowledgment ----
+@incollection{richer2024static,
+  author    = {Richer, Cl{\'e}ment and Bierlaire, Michel and Torres, Fabian},
+  title     = {The Static Elevator Dispatching Problem with Destination Control},
+  booktitle = {Combinatorial Optimization and Applications},
+  pages     = {311--343},
+  year      = {2024},
+  publisher = {Springer},
+  doi       = {10.1007/978-3-031-57603-4_14}
+  % CONFIRM series/editors and DOI suffix
+}
+
+% RTT mirror-image CONTRAST (cite as opposite-direction result, not support).
+@article{so2022universal,
+  author  = {So, Albert and Al-Sharif, Lutfi and Chan, Rory},
+  title   = {Universal elevator round trip time calculation under incoming traffic with an extension to batch arrivals},
+  journal = {Building Services Engineering Research \& Technology},
+  volume  = {43},
+  number  = {5},
+  pages   = {539--557},
+  year    = {2022},
+  doi     = {10.1177/01436244221095195}
+  % CONFIRM exact title / volume
+}
+
+@article{alsharif2014derivation,
+  author  = {Al-Sharif, Lutfi and Abu Alqumsan, Ahmad M. and Khaleel, Rasha},
+  title   = {Derivation of a universal elevator round trip time formula under incoming traffic},
+  journal = {Building Services Engineering Research \& Technology},
+  volume  = {35},
+  number  = {2},
+  pages   = {198--213},
+  year    = {2014},
+  doi     = {10.1177/0143624413481685}
+}
+
+% RL elevator-group-control / RMFS (cite as complementary, NOT competitor).
+@article{wan2024traffic,
+  author  = {Wan, Jian and Lee, Kangji and Shin, Hyunjoo},
+  title   = {Traffic pattern-aware elevator dispatching via deep reinforcement learning},
+  journal = {Advanced Engineering Informatics},
+  volume  = {61},
+  pages   = {102497},
+  year    = {2024},
+  doi     = {10.1016/j.aei.2024.102497}
+  % CONFIRM author list / title
+}
+
+@article{cheng2024drl,
+  author  = {Cheng, Bin and Xie, Tian and Wang, Lei and Tan, Qian and Cao, Xian},
+  title   = {Deep reinforcement learning-driven cost minimization for batch order scheduling in robotic mobile fulfillment systems},
+  journal = {Expert Systems with Applications},
+  volume  = {255},
+  pages   = {124589},
+  year    = {2024},
+  doi     = {10.1016/j.eswa.2024.124589}
+  % CONFIRM author list / title
+}
+
+% ---- M1: prediction-to-decision / decision-focused learning bridge ----
+@article{mandi2024decision,
+  author  = {Mandi, Jayanta and Kotary, James and Berden, Senne and Mulamba, Maxime and Bucarey, V{\'i}ctor and Guns, Tias and Fioretto, Ferdinando},
+  title   = {Decision-Focused Learning: Foundations, State of the Art, Benchmark and Future Opportunities},
+  journal = {Journal of Artificial Intelligence Research},
+  volume  = {80},
+  pages   = {1623--1701},
+  year    = {2024},
+  doi     = {10.1613/jair.1.15320}
+}
+
+@article{elbalghiti2023generalization,
+  author  = {El Balghiti, Othman and Elmachtoub, Adam N. and Grigas, Paul and Tewari, Ambuj},
+  title   = {Generalization Bounds in the Predict-Then-Optimize Framework},
+  journal = {Mathematics of Operations Research},
+  volume  = {48},
+  number  = {4},
+  pages   = {2043--2065},
+  year    = {2023},
+  doi     = {10.1287/moor.2022.1330}
+  % CONFIRM volume/pages
+}
+
+@article{sadana2025survey,
+  author  = {Sadana, Utsav and Chenreddy, Abhilash and Delage, Erick and Forel, Alexandre and Frejinger, Emma and Vidal, Thibaut},
+  title   = {A survey of contextual optimization methods for decision-making under uncertainty},
+  journal = {European Journal of Operational Research},
+  volume  = {320},
+  number  = {2},
+  pages   = {271--289},
+  year    = {2025},
+  doi     = {10.1016/j.ejor.2024.03.020}
+  % CONFIRM volume/pages
+}
+
+% ---- Proposition 2 grounding (shareability mechanism; mainly cited in §4) ----
+@article{alonsomora2017ondemand,
+  author  = {Alonso-Mora, Javier and Samaranayake, Samitha and Wallar, Alex and Frazzoli, Emilio and Rus, Daniela},
+  title   = {On-demand high-capacity ride-sharing via dynamic trip-vehicle assignment},
+  journal = {Proceedings of the National Academy of Sciences},
+  volume  = {114},
+  number  = {3},
+  pages   = {462--467},
+  year    = {2017},
+  doi     = {10.1073/pnas.1611675114}
+}
+
+% =====================================================================
+% KEEP (unchanged) entries already carried in the main references / PDF
+% reference list; not re-transcribed here to avoid DOI drift. Keys/threads:
+%   P1: Gademann 2001; Bozer & Kile 2008; Bartholdi & Hackman 2019;
+%       Ardjmand 2018; Rasmi 2022; Schiffer 2022; Haouassi 2022;
+%       Scholz, Schubert & Waescher 2017; Zulj 2022;
+%       Boysen, Fedtke & Weidinger 2018; Pardo 2024; Qin, Kang & Yang 2024.
+%   P2: Wu 2024 (four-way shuttle); Tadumadze 2023; Lamballais 2017 (also in chain-dom bib).
+%   P3: Chakravarty 2025; Tsai 2025; Crites & Barto 1998;
+%       So & Al-Sharif 2019 (FIX DOI to 10.1016/j.jobe.2019.01.013 in chain-dom bib);
+%       Kuusinen 2012 (chain-dom bib); Ma 2025; Dhanaraj 2025; Wen & Ma 2024; Wesselhoeft 2022.
+%   P4: Boysen, de Koster & Weidinger 2019.
+%   M1: Chenreddy & Delage 2023.
+%   M2: Mohajerin Esfahani & Kuhn 2018; Blanchet & Murthy 2019; Gao & Kleywegt 2023;
+%       Delage & Ye 2010; Bertsimas et al. 2011.
+%   M3: Lu & Shen 2021; Wiesemann et al. 2013.
+%
+% DROPPED as fabricated attribution (do NOT add):
+%   - "Khojasteh et al. 2023" -> true authors Casella, Volpi, Montanari, Tebaldi & Bottani.
+%   - "Wang et al. 2025" (sustainable RMFS pod repositioning) -> true authors Silva, Coelho, Darvish & Rei.
+% =====================================================================
+
+
+% =====================================================================
+% VERIFIED ADDITIONS 2026-08-06 -- all 31 entries below were confirmed
+% field-by-field against Crossref / publisher / archive pages by the
+% bib-gap-verification workflow (wf_4f2e56d7). Source URLs in the
+% workflow output. Given names only where the fetched record shows them.
+% =====================================================================
+
+% ---- Surveys / taxonomy ----
+
+@article{boysen2019warehousing,
+  author  = {Boysen, Nils and de Koster, Ren{\'e} and Weidinger, Felix},
+  title   = {Warehousing in the e-commerce era: A survey},
+  journal = {European Journal of Operational Research},
+  volume  = {277},
+  number  = {2},
+  pages   = {396--411},
+  year    = {2019},
+  doi     = {10.1016/j.ejor.2018.08.023}
+}
+
+@article{pardo2024order,
+  author  = {Pardo, Eduardo G. and Gil-Borr{\'a}s, Sergio and Alonso-Ayuso, Antonio and Duarte, Abraham},
+  title   = {Order batching problems: Taxonomy and literature review},
+  journal = {European Journal of Operational Research},
+  volume  = {313},
+  number  = {1},
+  pages   = {1--24},
+  year    = {2024},
+  doi     = {10.1016/j.ejor.2023.02.019}
+}
+
+% ---- P1: batching classics ----
+
+@article{gademann2001order,
+  author  = {Gademann, A. J. R. M. and van den Berg, Jeroen P. and van der Hoff, Hassan H.},
+  title   = {An order batching algorithm for wave picking in a parallel-aisle warehouse},
+  journal = {IIE Transactions},
+  volume  = {33},
+  number  = {5},
+  pages   = {385--398},
+  year    = {2001},
+  doi     = {10.1080/07408170108936837}
+  % Crossref record is all-caps; tussenvoegsel capitalization (van den / Van Den)
+  % should be double-checked against the article PDF.
+}
+
+@article{bozer2008order,
+  author  = {Bozer, Y. A. and Kile, J. W.},
+  title   = {Order batching in walk-and-pick order picking systems},
+  journal = {International Journal of Production Research},
+  volume  = {46},
+  number  = {7},
+  pages   = {1887--1909},
+  year    = {2008},
+  doi     = {10.1080/00207540600920850}
+  % Crossref shows initials only; do not expand given names without the PDF.
+}
+
+@misc{bartholdi2019warehouse,
+  author       = {Bartholdi, III, John J. and Hackman, Steven T.},
+  title        = {Warehouse \& Distribution Science, Release 0.98.1},
+  howpublished = {Online book, Supply Chain and Logistics Institute, Georgia Institute of Technology. \url{https://www.warehouse-science.com/book/index.html}},
+  year         = {2019}
+  % Release 0.98.1 dated 17 August 2019 (verified on warehouse-science.com); no DOI.
+}
+
+@article{ardjmand2018minimizing,
+  author  = {Ardjmand, Ehsan and Shakeri, Heman and Singh, Manjeet and Sanei Bajgiran, Omid},
+  title   = {Minimizing order picking makespan with multiple pickers in a wave picking warehouse},
+  journal = {International Journal of Production Economics},
+  volume  = {206},
+  pages   = {169--183},
+  year    = {2018},
+  doi     = {10.1016/j.ijpe.2018.10.001}
+}
+
+@article{rasmi2022wave,
+  author  = {Rasmi, Seyyed Amir Babak and Wang, Yuan and Charkhgard, Hadi},
+  title   = {Wave order picking under the mixed-shelves storage strategy: A solution method and advantages},
+  journal = {Computers \& Operations Research},
+  volume  = {137},
+  pages   = {105556},
+  year    = {2022},
+  doi     = {10.1016/j.cor.2021.105556}
+}
+
+@article{schiffer2022optimal,
+  author  = {Schiffer, Maximilian and Boysen, Nils and Klein, Patrick S. and Laporte, Gilbert and Pavone, Marco},
+  title   = {Optimal Picking Policies in E-Commerce Warehouses},
+  journal = {Management Science},
+  volume  = {68},
+  number  = {10},
+  pages   = {7497--7517},
+  year    = {2022},
+  doi     = {10.1287/mnsc.2021.4275}
+}
+
+@article{haouassi2022integrated,
+  author  = {Haouassi, Mustapha and Kergosien, Yannick and Mendoza, Jorge E. and Rousseau, Louis-Martin},
+  title   = {The integrated orderline batching, batch scheduling, and picker routing problem with multiple pickers: the benefits of splitting customer orders},
+  journal = {Flexible Services and Manufacturing Journal},
+  volume  = {34},
+  number  = {3},
+  pages   = {614--645},
+  year    = {2022},
+  doi     = {10.1007/s10696-021-09425-8}
+}
+
+@article{scholz2017order,
+  author  = {Scholz, Andr{\'e} and Schubert, Daniel and W{\"a}scher, Gerhard},
+  title   = {Order picking with multiple pickers and due dates -- Simultaneous solution of Order Batching, Batch Assignment and Sequencing, and Picker Routing Problems},
+  journal = {European Journal of Operational Research},
+  volume  = {263},
+  number  = {2},
+  pages   = {461--478},
+  year    = {2017},
+  doi     = {10.1016/j.ejor.2017.04.038}
+}
+
+@article{zulj2022order,
+  author  = {{\v{Z}}ulj, Ivan and Salewski, Hagen and Goeke, Dominik and Schneider, Michael},
+  title   = {Order batching and batch sequencing in an AMR-assisted picker-to-parts system},
+  journal = {European Journal of Operational Research},
+  volume  = {298},
+  number  = {1},
+  pages   = {182--201},
+  year    = {2022},
+  doi     = {10.1016/j.ejor.2021.05.033}
+}
+
+@article{qin2024making,
+  author  = {Qin, Zhizhen and Kang, Yuexin and Yang, Peng},
+  title   = {Making better order fulfillment in multi-tote storage and retrieval autonomous mobile robot systems},
+  journal = {Transportation Research Part E: Logistics and Transportation Review},
+  volume  = {192},
+  pages   = {103752},
+  year    = {2024},
+  doi     = {10.1016/j.tre.2024.103752}
+  % Verified against local papers/Qin2024.pdf. PROSE CAUTION: the paper says waves
+  % with optimal size around 100 orders; it does not literally say "single-layer" --
+  % describe the system as multi-tote storage-and-retrieval (MTSR) AMR.
+}
+
+@article{boysen2018optimizing,
+  author  = {Boysen, Nils and Fedtke, Stefan and Weidinger, Felix},
+  title   = {Optimizing automated sorting in warehouses: The minimum order spread sequencing problem},
+  journal = {European Journal of Operational Research},
+  volume  = {270},
+  number  = {1},
+  pages   = {386--400},
+  year    = {2018},
+  doi     = {10.1016/j.ejor.2018.03.026}
+}
+
+% ---- P2: multi-tier (Z. Wu 2024; distinct from J. Wu 2025 = wu2025joint) ----
+
+@article{wu2024inbound,
+  author  = {Wu, Zhaoyun and Zhang, Yingxu and Li, Li and Zhang, Zhongwei and Zhao, Binbin and Zhang, Yehao and He, Xuewu},
+  title   = {Research on Inbound Jobs' Scheduling in Four-Way-Shuttle-Based Storage System},
+  journal = {Processes},
+  volume  = {12},
+  number  = {1},
+  pages   = {223},
+  year    = {2024},
+  doi     = {10.3390/pr12010223}
+  % First author Zhaoyun Wu (verified against local papers/Wu2024.pdf + Crossref).
+  % In-text disambiguation vs wu2025joint (Jingwen Wu): "Z. Wu et al. (2024)".
+}
+
+% ---- P3: elevator contention / RL fleet control ----
+
+@article{chakravarty2025toward,
+  author  = {Chakravarty, Arjo and Grey, Michael X. and Muthugala, M. A. Viraj J. and Elara, Rajesh Mohan},
+  title   = {Toward Optimal Multi-Agent Robot and Lift Schedules via Boolean Satisfiability},
+  journal = {Mathematics},
+  volume  = {13},
+  number  = {18},
+  pages   = {3031},
+  year    = {2025},
+  doi     = {10.3390/math13183031}
+  % PROSE CAUTION: title says "Toward Optimal"; abstract does not mention
+  % hotel/hospital deployments. Soften any "provably optimal ... deployments" prose.
+}
+
+@article{tsai2025optimization,
+  author  = {Tsai, I-Ning and Wu, You-Xuan and Huang, Yueh-Hsuan and Chen, Yu-Chen and Ding, Jian-Jiun},
+  title   = {Optimization of Elevator Standby Scheduling Strategy in Smart Buildings},
+  journal = {Applied System Innovation},
+  volume  = {8},
+  number  = {5},
+  pages   = {132},
+  year    = {2025},
+  doi     = {10.3390/asi8050132}
+}
+
+@article{crites1998elevator,
+  author  = {Crites, Robert H. and Barto, Andrew G.},
+  title   = {Elevator Group Control Using Multiple Reinforcement Learning Agents},
+  journal = {Machine Learning},
+  volume  = {33},
+  number  = {2-3},
+  pages   = {235--262},
+  year    = {1998},
+  doi     = {10.1023/A:1007518724497}
+}
+
+@article{ma2025end,
+  author  = {Ma, Song and Ruan, Jingqing and Du, Yali and Bucknall, Richard and Liu, Yuanchang},
+  title   = {An End-to-End Deep Reinforcement Learning Based Modular Task Allocation Framework for Autonomous Mobile Systems},
+  journal = {IEEE Transactions on Automation Science and Engineering},
+  volume  = {22},
+  pages   = {1519--1533},
+  year    = {2025},
+  doi     = {10.1109/TASE.2024.3367237}
+  % Early access 2024, final T-ASE vol 22 (2025). PROSE CAUTION: the
+  % "state-of-the-art on multi-robot dispatching benchmarks" claim was not
+  % verified verbatim from the abstract; soften or re-check.
+}
+
+@article{dhanaraj2025proactive,
+  author  = {Dhanaraj, Neel and Nemlekar, Heramb and Nikolaidis, Stefanos and Gupta, Satyandra K.},
+  title   = {Proactive Contingency-Aware Task Allocation and Scheduling in Multi-Robot Multi-Human Cells via Hindsight Optimization},
+  journal = {IEEE Transactions on Automation Science and Engineering},
+  volume  = {22},
+  pages   = {13046--13060},
+  year    = {2025},
+  doi     = {10.1109/TASE.2025.3546281}
+}
+
+@article{wen2024indicator,
+  author  = {Wen, Chengxin and Ma, Hongbin},
+  title   = {An indicator-based evolutionary algorithm with adaptive archive update cycle for multi-objective multi-robot task allocation},
+  journal = {Neurocomputing},
+  volume  = {593},
+  pages   = {127836},
+  year    = {2024},
+  doi     = {10.1016/j.neucom.2024.127836}
+}
+
+@article{wesselhoft2022controlling,
+  author  = {Wesselh{\"o}ft, Mike and Hinckeldeyn, Johannes and Kreutzfeldt, Jochen},
+  title   = {Controlling Fleets of Autonomous Mobile Robots with Reinforcement Learning: A Brief Survey},
+  journal = {Robotics},
+  volume  = {11},
+  number  = {5},
+  pages   = {85},
+  year    = {2022},
+  doi     = {10.3390/robotics11050085}
+  % Venue is Robotics (MDPI), NOT Frontiers in Robotics and AI.
+}
+
+% ---- M1: predict-then-optimize / partitions ----
+
+@inproceedings{chenreddy2022data,
+  author    = {Chenreddy, Abhilash Reddy and Bandi, Nymisha and Delage, Erick},
+  title     = {Data-Driven Conditional Robust Optimization},
+  booktitle = {Advances in Neural Information Processing Systems 35 (NeurIPS 2022)},
+  year      = {2022}
+  % WRONG_ATTRIBUTION FIX: the manuscript previously cited "Chenreddy and Delage
+  % (2023)", which does not exist. Content matches this three-author NeurIPS 2022
+  % paper. In-text citation is now "Chenreddy et al., 2022" (fixed in
+  % related_works_v1.1.md on 2026-08-06). Alternative two-author paper is
+  % Chenreddy & Delage, "End-to-end Conditional Robust Optimization", UAI 2024,
+  % PMLR 244:736-748, if that one is preferred.
+}
+
+@article{blackwell1953equivalent,
+  author  = {Blackwell, David},
+  title   = {Equivalent Comparisons of Experiments},
+  journal = {The Annals of Mathematical Statistics},
+  volume  = {24},
+  number  = {2},
+  pages   = {265--272},
+  year    = {1953},
+  doi     = {10.1214/aoms/1177729032}
+}
+
+@article{song2015adaptive,
+  author  = {Song, Yongjia and Luedtke, James},
+  title   = {An Adaptive Partition-Based Approach for Solving Two-Stage Stochastic Programs with Fixed Recourse},
+  journal = {SIAM Journal on Optimization},
+  volume  = {25},
+  number  = {3},
+  pages   = {1344--1367},
+  year    = {2015},
+  doi     = {10.1137/140967337}
+}
+
+% ---- M2: Wasserstein DRO / robust optimization ----
+
+@article{mohajerin2018data,
+  author  = {Mohajerin Esfahani, Peyman and Kuhn, Daniel},
+  title   = {Data-driven distributionally robust optimization using the Wasserstein metric: performance guarantees and tractable reformulations},
+  journal = {Mathematical Programming},
+  volume  = {171},
+  number  = {1-2},
+  pages   = {115--166},
+  year    = {2018},
+  doi     = {10.1007/s10107-017-1172-1}
+}
+
+@article{blanchet2019quantifying,
+  author  = {Blanchet, Jose and Murthy, Karthyek},
+  title   = {Quantifying Distributional Model Risk via Optimal Transport},
+  journal = {Mathematics of Operations Research},
+  volume  = {44},
+  number  = {2},
+  pages   = {565--600},
+  year    = {2019},
+  doi     = {10.1287/moor.2018.0936}
+}
+
+@article{gao2023distributionally,
+  author  = {Gao, Rui and Kleywegt, Anton},
+  title   = {Distributionally Robust Stochastic Optimization with Wasserstein Distance},
+  journal = {Mathematics of Operations Research},
+  volume  = {48},
+  number  = {2},
+  pages   = {603--655},
+  year    = {2023},
+  doi     = {10.1287/moor.2022.1275}
+}
+
+@article{delage2010distributionally,
+  author  = {Delage, Erick and Ye, Yinyu},
+  title   = {Distributionally Robust Optimization Under Moment Uncertainty with Application to Data-Driven Problems},
+  journal = {Operations Research},
+  volume  = {58},
+  number  = {3},
+  pages   = {595--612},
+  year    = {2010},
+  doi     = {10.1287/opre.1090.0741}
+}
+
+@article{bertsimas2011theory,
+  author  = {Bertsimas, Dimitris and Brown, David B. and Caramanis, Constantine},
+  title   = {Theory and Applications of Robust Optimization},
+  journal = {SIAM Review},
+  volume  = {53},
+  number  = {3},
+  pages   = {464--501},
+  year    = {2011},
+  doi     = {10.1137/080734510}
+}
+
+% ---- M3: robust decision-making under model uncertainty ----
+
+@article{wiesemann2013robust,
+  author  = {Wiesemann, Wolfram and Kuhn, Daniel and Rustem, Ber{\c{c}}},
+  title   = {Robust Markov Decision Processes},
+  journal = {Mathematics of Operations Research},
+  volume  = {38},
+  number  = {1},
+  pages   = {153--183},
+  year    = {2013},
+  doi     = {10.1287/moor.1120.0566}
+}
+
+@article{lu2021review,
+  author  = {Lu, Mengshi and Shen, Zuo-Jun Max},
+  title   = {A Review of Robust Operations Management under Model Uncertainty},
+  journal = {Production and Operations Management},
+  volume  = {30},
+  number  = {6},
+  pages   = {1927--1943},
+  year    = {2021},
+  doi     = {10.1111/poms.13239}
+}

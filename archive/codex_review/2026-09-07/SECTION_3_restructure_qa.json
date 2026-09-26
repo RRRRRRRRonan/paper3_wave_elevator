@@ -1,0 +1,34 @@
+{
+  "topLevelSections": [
+    "## 3.1 Problem setting and assumptions / 问题背景与假设",
+    "## 3.2 Notation / 记号",
+    "## 3.3 Candidate waves and structural classes / 候选波次与结构类别",
+    "## 3.4 Operational evaluation / 运行评价",
+    "## 3.5 Selection formulations / 选择模型"
+  ],
+  "numberedEquations": 32,
+  "continuousEquationNumbers": true,
+  "displayMathBlocks": 32,
+  "englishParagraphsAndCaptions": 60,
+  "chineseParagraphsAndCaptions": 60,
+  "missingTranslations": [],
+  "badEquationReferences": [],
+  "legacySpacingCommands": false,
+  "inlineMathUnique": 119,
+  "mathCompilation": {
+    "status": "passed",
+    "displayEquations": 32,
+    "uniqueInlineExpressions": 119,
+    "overfullBoxWarnings": 0,
+    "note": "Local mathrsfs is unavailable; the QA-only TeX substitutes the mathscr glyph with mathcal. Manuscript notation is unchanged."
+  },
+  "review": {
+    "mathematicalSemantics": "independently reviewed",
+    "bilingualNarrative": "independently reviewed"
+  },
+  "preservedScope": {
+    "wordEdited": false,
+    "productionCodeEdited": false,
+    "experimentsRerun": false
+  }
+}

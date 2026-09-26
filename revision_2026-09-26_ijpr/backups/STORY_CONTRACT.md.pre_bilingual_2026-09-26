@@ -1,0 +1,134 @@
+---
+title: "Story contract (IJPR version)"
+date: 2026-09-26
+status: "DRAFT，待作者审阅签字（与 01_DECISIONS_TO_SIGN.md 一同签署后生效）。"
+role: "全文唯一的故事契约。摘要、§1 到 §6、亮点、cover letter 都必须与本文件一致；与本文件冲突的旧稿句子一律按本文件改写。"
+supersedes: "主控 MASTER_REVISION_BY_SECTION.md §2.2（贡献）、§2.3（研究问题）、§2.1（题目）；plan_section3_section4_v0_2.md §0 第 13 行的'两个简单可用的诊断工具'。"
+keeps_in_force: "主控 §0.2 审计事实、§0.3 证据标签、§2.4 禁用表述、§1.4 冲突裁决；冻结的 Phase 5 预注册与 2026-07-08 的六份修正案。"
+author_signoff: "PENDING"
+---
+
+# Story contract (IJPR version)
+
+## 1. The paper in one sentence
+
+**English.** In multi-story AMR warehouses whose fleet shares building freight elevators, this paper studies how to compose a release wave, what a wrong elevator model costs, and how much value a generate, screen, and verify release procedure recovers.
+
+**中文。** 在 AMR 车队共享楼宇货梯的多层仓库里，本文研究怎样组成一个释放波次、电梯模型选错会付出什么代价，以及一个"生成、筛选、验证"的释放流程能拿回多少价值。
+
+**Paper type.** Decision-aid paper with two studies: Study 1 is the preregistered diagnostic study (Phase 5; verdicts reported as locked); Study 2 is the registered method study (Phase 6 protocol).
+
+## 2. Title candidates (decision D-E: fixed after Study 2)
+
+1. Wave composition under shared elevators in multi-story AMR warehouses: elevator-model risk and a generate, screen, and verify release procedure
+2. Composing AMR waves for shared freight elevators: abstraction bias, hedged screening, and mechanism-aware sequencing
+3. Generate, screen, verify: wave composition under elevator-model uncertainty in multi-story AMR warehouses
+
+Rule (master §3.1): every action word in the title must have a decision variable in §3, a method in §4, and direct evidence in §5.
+
+## 3. Contributions (the only version used anywhere)
+
+**C1. Problem and benchmark.** We formulate single-wave composition for a floor-confined AMR fleet that shares building freight elevators as a selection problem over candidate waves, where a candidate fixes both the order set and its processing sequence under a fixed dispatch rule. We release a reproducible synthetic benchmark with three elevator evaluators and a primary median makespan metric.
+
+**C2. Elevator-model risk.** We prove a conditional sample-path ordering between the throughput abstraction and true co-occupancy batching for any number of elevators and any car capacity, identify the only two reversal mechanisms, and quantify the resulting abstraction bias. The ordering makes screening candidates under the co-occupancy evaluator a conservative, minimax choice.
+
+**C3. A generate, screen, and verify release procedure.** We propose a release procedure that generates candidate waves with a mechanism-aware constructor, screens them in closed form under the co-occupancy evaluator, and verifies a shortlist by event-driven simulation. A registered computational study evaluates the procedure against random, class-based, heuristic, and search policies along a fidelity ladder from closed-form evaluators to event-driven simulation, on independent order pools and on a literature-calibrated case, and reports the preregistered class diagnostics as its validity boundary.
+
+Pricing rules:
+- C2's theorem is the ordering result (currently Proposition 3 in SECTION_4_METHODOLOGY.md; becomes Theorem 1 only after Appendix A is assembled and read through by the author, TH-1).
+- The minimax reduction is a corollary of the ordering, not a stand-alone theorem.
+- Bound-and-Gap is introduced as a partition-relative diagnostic; the sentence introducing it states that its preregistered utility gate was not met (57/72 against 58/72) and that it is treated as a prototype-regime diagnostic (preregistration line 213).
+- DRO appears once, as a remark with a pointer to Fu, Li and Zhang (2024). The U_c certificate appears once, as a boundary statement in §5.5.
+
+## 4. Research questions
+
+- **RQ1.** How much does wave composition affect makespan under shared elevators, and how much of that effect comes from the order set as opposed to the processing sequence?
+- **RQ2.** Does the choice of elevator evaluator change the release decision, in which direction, and under what verifiable conditions is the co-occupancy evaluator the conservative choice?
+- **RQ3.** How much of the composition value does a generate, screen, and verify procedure capture, how large a shortlist does event-driven verification need, and where do the closed-form diagnostics stop being reliable?
+
+| RQ | Answered in | Evidence (tags) |
+|---|---|---|
+| RQ1 | §5.2 (Study 1 diagnostics), §5.3 (set versus sequence, sequence lever) | Block A/B [PR-C]; S1-1, S1-2, S1-8 [RA]/[NS]; Study 2 S2-1, S2-2 [NS] |
+| RQ2 | §4.3 to §4.4 (theory), §5.2 (Block C), §5.3 (fidelity ladder, ordering on constructed waves) | H-D2 [PR-C]; S1-3, S1-12, TH-2 [NS]/[QA]/[RA]; Study 2 S2-5, S2-6 [NS] |
+| RQ3 | §5.3 (GSV main experiment, screening regret, warm start, execution robustness), §5.4 (case), §5.5 (boundaries) | Study 2 S2-3, S2-4, S2-7, S2-8, S2-10 [NS]; ICC, OOS, B-5 [NS]/[RA] |
+
+Study 2 item numbers (S2-1 to S2-10) are defined in the Phase 6 protocol §1.1.
+
+## 5. Roles of the two studies
+
+| | Study 1 | Study 2 |
+|---|---|---|
+| What it is | The preregistered Phase 5 diagnostic study plus registered re-analyses | The registered Phase 6 method study |
+| Registration | Phase 5 preregistration (2026-05-19), amendments of 2026-07-08, registrations of 2026-09-26 | `paper_draft/phase6_method_study_protocol.md` |
+| Verdict status | Locked verdicts never change; re-analyses reported beside them | Own gates and wording ladders, locked at signing |
+| Role in the story | Shows what coarse class rules and closed-form diagnostics can and cannot do; motivates Study 2 | Delivers and tests the method |
+| Borrowing rule | Study 1 results may motivate Study 2 but never confirm it; Study 2 results never re-judge Study 1 | Same |
+| Conflicts | If the two point in opposite directions, both are reported with their scope; Study 1 verdicts stand; no averaging | Same |
+
+## 6. Section-by-section completion gates
+
+| Part | Done when |
+|---|---|
+| Abstract | Six-sentence logic (plan v2 W-8); ≤ 250 words; no citations; no em dash; contains one Study 1 boundary result and the Study 2 headline; uses §3 of this contract verbatim in substance |
+| Highlights | 5 bullets ≤ 85 characters each; no forbidden phrase |
+| §1 | States decision maker (WMS wave release), decision frequency, deliverable; the gap comes from the positioning matrix; RQ1 to RQ3 stated; C1 to C3 as in §3 above |
+| §2 | Six subsections of master §5.1; positioning matrix with 15 rows including Gallien and Weber (2010), RAWSim-O (2017), Fan, Hong and Zhang (2020), Ren et al. (2025), Wang et al. (2025); no "never / only in isolation" |
+| §3 | Current docx plus the sentences of plan v2 W-1 and the pool-augmentation sentence (see §9 below); every "Section 5" pointer has a destination |
+| §4 | 4.1 diagnostic; 4.2 refinement; 4.3 ordering with two channels and abstraction bias; 4.4 conservative selection and screening guarantee; 4.5 GSV with algorithm box and companion text; 4.6 what Section 5 tests |
+| §5 | 5.1 design, registration layers, counting units, coverage matrix, evidence-tag column; 5.2 Study 1; 5.3 Study 2; 5.4 case; 5.5 boundaries; every number reproducible from JSON |
+| §6 | One paragraph per RQ; the release procedure as operational steps with run times; limitations; future work without completed items |
+| Appendices A to H | As listed in plan v2 §2 |
+
+## 7. Forbidden or limited phrases
+
+Master §2.4 and §3.2 in full, plus: "calibrated to a facility"; "the procedure is optimal"; "the sequence policy replaces dispatch"; "the ordering always holds"; "Study 2 confirms Study 1". Also retired: "capacity-bound > policy-bound", "two analytical tools" as the contribution, "temporal clustering" (use "ready-time dispersion"), "vertical concentration" (use "endpoint dispersion" or "vertical spread").
+
+## 8. How the story changes with the Study 2 outcome
+
+Revised 2026-09-26 after two independent reviews, before any result. The rules below are exhaustive and are applied mechanically to the gate tiers of record of the Phase 6 protocol §7 (the DES-M2 tiers; the execution-robustness evaluators of §7.3 affect wording only, as stated below); the scenario and every wording choice follow from the tiers, so no story is chosen after the results.
+
+**Step 1, method strength (from G2, G2′, G3):**
+- *strong*: G2 upper, G3 upper, and G2′ middle or upper;
+- *moderate*: G2 and G3 both middle or upper, but not strong;
+- *weak*: G2 lower or G3 lower.
+
+**Step 2, scenario (method strength × G1 tier), every combination covered:**
+
+| Method strength | G1 upper | G1 middle | G1 lower |
+|---|---|---|---|
+| strong | A | B | B |
+| moderate | B | B | B |
+| weak | C | C | C |
+
+| Scenario | Story |
+|---|---|
+| A | Contributions as in §3; C3 is a full method contribution; IJPR |
+| B | C3 becomes "fidelity ladder plus screen and verify"; the sequence result is reported as an RQ1 finding at its G1 tier; the constructor wording follows rule C3 below; IJPR with a thinner method claim |
+| C | Study 2 reported in full as a boundary of the procedure; the paper returns to the insight framing of the v1 plan (C&IE) |
+
+**Wording rules that apply in every scenario:**
+- **G2′ lower:** the paper states that a budget-matched multi-start local search with the same verification step outperforms GSV's generator, presents the generator as one design choice within the screen-and-verify frame, and does not claim that constructed candidates beat search.
+- **C2 (G4):** G4 upper: "the ordering persists on candidates built to create co-rides". G4 middle: the ordering "weakens on constructed candidates", and GSV screens them with max{M1, M2} (§5.5 of the protocol). G4 lower: the conservative choice of M2 is stated only for candidate sets not built to exploit co-occupancy; for constructed candidates the paper states that the choice of elevator model matters. The minimax-reduction corollary stays, as a conditional statement.
+- **C2 (G8):** G8 upper: "selecting with the throughput abstraction costs more than selecting with co-occupancy". G8 middle: "often costs more". G8 lower: the paper reports the abstraction bias (TH-2) but makes no decision-loss claim in favour of M2.
+- **C3 screening key:** if G4 is below its upper tier, GSV screens constructed and re-sequenced candidates with max{M1, M2}; C3 then says "closed-form screening with the conservative key max{M1, M2}" instead of "screening under the co-occupancy evaluator".
+- **C3 constructor:** "mechanism-aware construction" is claimed to add value only if adding P11 to R lowers the DES-M2 makespan of GSV(20) by at least 1% (mean over cells) and at least 10% of GSV(20) releases come from P11 (both reported by `analysis_phase6.py` as `C3_wording_inputs`, computed with the headline screening key). Otherwise the paper states that the constructor did not add value beyond random generation with re-ordering, and C3's wording drops "mechanism-aware constructor" in favour of "generate, screen, and verify". The same 1% rule decides whether re-ordering is said to add value within GSV (adding P10 to R).
+- **Execution robustness (protocol §7.3):** when a gate's tier is lower under an execution-robustness evaluator than under DES-M2, the text states both tiers together, and the abstract uses the lower one.
+- **Study 1 versus Study 2:** when the two point in opposite directions, both are reported with their scope (candidate population, evaluator, scale); Study 1 verdicts stand; the two are not averaged.
+
+All three stories and all wording rules are pre-committed; none requires re-running or retuning anything.
+
+## 9. Propagation list (files that must reflect this contract)
+
+| File | Change | Status tonight |
+|---|---|---|
+| revision_2026-09-02/MASTER_REVISION_BY_SECTION.md | IJPR v2 overlay (§00) superseding §2.1 to §2.3; pointers | done (draft; backup kept) |
+| paper_draft/TERMINOLOGY.md | retired capacity headline; new terms | done (draft; backup kept) |
+| CLAUDE.md | venue, contributions, naming, Study 2 guard | done (draft; backup kept) |
+| revision_2026-09-24/plan_section3_section4_v0_2.md line 13 | "two simple usable diagnostic tools" | superseded by this contract; the plan file itself is left untouched as history |
+| archive/paper_draft/storyline_motivation_to_contribution_v1.md (formerly in paper_draft/) | capacity storyline | superseded (master §1.3); folded into archive/ on 2026-09-26, content untouched |
+| Problem formulation.docx | plan v2 W-1 sentences plus: "Section 5 also evaluates pools augmented with constructed and re-sequenced candidates (Study 2)." at the end of 3.3.1 | NOT edited (docx edits need the author's go-ahead) |
+| abstract, introduction, related works drafts | rewrite per §6 above | later weeks |
+
+## 10. Sign-off
+
+Author: ____________________ Date: ____________

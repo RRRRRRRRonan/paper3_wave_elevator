@@ -1,0 +1,11 @@
+--- revision_2026-09-26_ijpr/backups/FIGURE_DESIGN.md.orig_2026-09-26	2026-09-14 17:38:15.518247200 +0900
++++ revision_2026-09-02/figures/section4_2026-09-14/FIGURE_DESIGN.md	2026-09-26 11:32:22.469837700 +0900
+@@ -6,7 +6,7 @@
+ 
+ ## Shared visual style
+ 
+-The visual reference is the approved Fig. 1 in `fig1_2026-09-14/fig1_journal_palette_v1.png`. All new images use white backgrounds, dark charcoal labels, restrained slate blue, teal, muted amber, and pale neutral grey. Sans-serif labels, mathematical subscripts, thin consistent outlines, lower-case panel labels, and generous whitespace remain common across the set. Color is supplemented by labels, boundaries, and line styles.
++The visual reference is the approved Fig. 1 in `archive/revision_2026-09-02/figures/fig1_2026-09-14/fig1_journal_palette_v1.png` (folded on 2026-09-26; the current Fig. 3.1 is `revision_2026-09-24/fig1_section3_setting.png`). All new images use white backgrounds, dark charcoal labels, restrained slate blue, teal, muted amber, and pale neutral grey. Sans-serif labels, mathematical subscripts, thin consistent outlines, lower-case panel labels, and generous whitespace remain common across the set. Color is supplemented by labels, boundaries, and line styles.
+ 
+ | Role | Color |
+ | --- | --- |

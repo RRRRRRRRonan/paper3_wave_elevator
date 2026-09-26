@@ -1,0 +1,507 @@
+---
+title: "Section 3 Problem formulation｜中英对照全文"
+date: 2026-09-25
+source: "F:/Paper 3/Problem formulation.docx（2026-09-25，本日修订标记全部接受后的文本）。英文为 docx 原文逐字转录，MathType 公式以 LaTeX 书写；中文为对应译文。"
+note: "2026-09-24 初版对应 16:35 版原文；本版已按定稿文本逐段更新。section3_finalization_EJOR_edits_2026-09-24.md 中的 R-01 至 R-32 均已落实到 docx（R-22 撤回）。仍需在 Word 中手动处理的项目在正文对应位置以〔待办〕标出：表 3.3 的花体字母、式 (7) 的括号（R-34）、M_2 段末的引文（R-27）。表、图编号的全文连续化（R-33）留待组稿。中文沿用项目 SECTION_3_MODEL_FORMULATION.md 的做法，保留数学符号。"
+---
+
+# 3 Problem formulation｜3 问题建模
+
+## 3.1 Problem setting and assumptions｜3.1 问题情境与假设
+
+We consider a multi-story warehouse in which a fleet of autonomous mobile robots (AMRs) transports orders between source and destination floors. To serve an order, an AMR travels to the source floor, collects the load, and delivers it to the destination floor. A set of elevators shared by all AMRs provides the only means of changing floors, so the elevators are the vertical resource for which the AMRs compete. Orders released together form a wave, and their source floors, destination floors, and ready times determine the elevator requests generated when the wave is executed. Fig. 3.1(a) illustrates this setting.
+
+> **中文：** 本文考虑一个多层仓库，其中一支自主移动机器人（AMR）车队在订单的起始楼层与目标楼层之间运输订单。为完成一个订单，AMR 前往起始楼层取货，再将货物送至目标楼层。所有 AMR 共享一组电梯，电梯是跨楼层移动的唯一途径，因此构成 AMR 相互竞争的垂直资源。同时释放的订单构成一个波次，这些订单的起始楼层、目标楼层与就绪时间决定了波次执行过程中产生的电梯请求。图 3.1(a) 展示了这一场景。
+
+![Fig. 3.1](fig1_section3_setting.png)
+
+Fig. 3.1. Problem setting and serial reservation of one order. (a) A multi-story warehouse in which an AMR fleet shares $E$ elevators. The decision is which $n$ orders from the order pool form the wave $W$ released at $t_W$. For each order, an AMR carries a load from its source floor to its destination floor. AMRs change floors only by elevator trips, and a car carries up to $c$ AMRs traveling between the same pair of floors. All AMRs and cars start on a common floor $f^0$, drawn as floor 1. Steps 1 to 4 trace order $o_1$; order $o_3$ stays on one floor, so its load needs no elevator trip. (b) Reservation of one order under the true co-occupancy batching evaluator $M_2$ (Section 3.5.1). The upper lane follows the assigned AMR, which first rides an elevator to the pickup floor if it is elsewhere; the lower lane follows the car that serves its loaded trip. Pickup and drop-off times include movement within a floor (Assumption A4). A request with the same origin and destination floors can join the trip while capacity remains, until loading ends at $L_e$. Durations are illustrative.
+
+> **中文：** 图 3.1. 问题设定与单个订单的串行预约。(a) 多层仓库中，AMR 车队共享 $E$ 台电梯。决策是：从订单池中选出哪 $n$ 个订单，组成在 $t_W$ 释放的波次 $W$。每个订单由一台 AMR 把货物从起始楼层运到目标楼层。AMR 只能乘电梯换层，一台轿厢最多搭载 $c$ 台在同一对楼层之间运行的 AMR。所有 AMR 与轿厢都从共同楼层 $f^0$ 出发，图中画为 1 层。步骤 1 至 4 追踪订单 $o_1$；订单 $o_3$ 在同一楼层内完成，其货物无需乘梯。(b) 在真实同乘批处理评估器 $M_2$（第 3.5.1 节）下单个订单的预约。上方泳道跟踪被指派的 AMR：若它不在取货楼层，须先乘电梯前往；下方泳道跟踪承担其载货行程的轿厢。取货与卸货时长已包含楼层内的移动（假设 A4）。起点与终点楼层相同的请求可在容量未满时加入该行程，直至装载在 $L_e$ 结束。图中时长仅作示意。
+
+The warehouse management system selects, at the release epoch, a wave of fixed size $n$ from a finite pool of $K$ candidate waves. Resource quantities and operational rules are given, so the decision concerns which orders enter the wave. The fixed size keeps candidates comparable and rules out shortening the completion time by releasing fewer orders. The order data and the candidate pool are known at the release epoch, whereas the representation of the elevator subsystem is uncertain and is described by a family of evaluators. The main formulation selects a structural class, defined by the floor distribution and directional balance of its candidate waves, and implements that choice through a fixed within-class selection rule. Formulating the decision over classes ties the release choice to interpretable properties of a wave. Because the classes are defined by quantiles within the pool, the same class definitions apply to any pool in which every class is nonempty. Class-level performance is obtained by evaluating the candidates of each class, exactly or from a sample, and is compared across elevator representations. Direct candidate selection is specific to one pool and provides a finite-pool benchmark, whose exact value is obtained by evaluating all candidates under the specified evaluator. The decision problem is to choose the class whose median wave makespan is smallest under the least favorable evaluator; the benchmark selects, for a given evaluator, the candidate whose makespan is smallest (Section 3.4).
+
+> **中文：** 仓库管理系统在释放时刻，从由 $K$ 个候选波次组成的有限候选池中选择一个规模固定为 $n$ 的波次。资源数量与运行规则均已给定，因此决策只涉及哪些订单进入该波次。固定规模使各候选之间可比，也排除了通过少释放订单来缩短完工时间的做法。订单数据与候选池在释放时刻已知，而电梯子系统的表示方式不确定，由一族评估器描述。主模型选择一个结构类别，该类别由其候选波次的楼层分布与方向平衡特征定义，并通过固定的类内选择规则落实这一选择。以类别为决策层次，使释放选择对应于波次的可解释性质。由于类别由池内分位数定义，只要每个类别都非空，同一组类别定义即可用于任意候选池。类别层面的绩效通过评价各类别中的候选波次得到（可精确计算，也可抽样估计），并在不同电梯表示之间进行比较。直接选择候选波次只针对一个候选池，因而提供一个有限池基准，其精确值通过在指定评估器下评价全部候选波次得到。决策问题是选择在最不利评估器下中位波次完工时间最小的类别；基准则针对给定评估器，选择完工时间最小的候选波次（第 3.4 节）。
+
+The formulation rests on the following assumptions.
+
+> **中文：** 本模型基于以下假设。
+
+A1 (single isolated wave): Each decision instance concerns one wave released at time $t_W$. All AMRs and elevator resources are available on a common floor $f^0$ at $t_W$, with no outstanding reservations. No other wave shares these resources, and the evaluation ends when the last selected order is delivered; backlog from earlier waves and interaction with later waves are outside the model.
+
+> **中文：** A1（单一独立波次）：每个决策实例只涉及在时刻 $t_W$ 释放的一个波次。在 $t_W$ 时，所有 AMR 与电梯资源均位于共同楼层 $f^0$ 且可用，没有尚未执行的预约。没有其他波次共享这些资源，评价在最后一个所选订单交付时结束；此前波次的积压以及与后续波次的相互作用不在模型范围之内。
+
+A2 (single-load AMRs): An AMR carries one order at a time, and the AMR that collects an order also delivers it.
+
+> **中文：** A2（单载 AMR）：一台 AMR 每次只搬运一个订单，取走某订单的 AMR 也负责将其交付。
+
+A3 (order information): Every available order has a known source floor, destination floor, and ready-time offset $r_o\ge 0$; the order becomes eligible for processing at $t_W+r_o$.
+
+> **中文：** A3（订单信息）：每个可用订单的起始楼层、目标楼层与就绪时间偏移 $r_o\ge 0$ 均为已知；订单在 $t_W+r_o$ 时具备处理资格。
+
+A4 (intra-floor operations): Movement and handling within a floor are represented by fixed pickup and drop-off service durations; intra-floor routing and congestion are not modeled.
+
+> **中文：** A4（楼层内作业）：楼层内的移动与搬运以固定的取货与卸货服务时长表示；不建模楼层内的路径与拥堵。
+
+A5 (elevator trips): A trip serves one origin-destination pair and consists of an empty repositioning leg from the floor at which the car last became available to the request origin, loading, a loaded leg from origin to destination, and unloading; the travel time of each leg is proportional to the number of floors traversed. An AMR rides an elevator whenever a movement crosses floors.
+
+> **中文：** A5（电梯行程）：一趟行程服务一个起终点对，依次包括：从轿厢上次变为可用时所在楼层空驶至请求起点的调位段、装载、从起点到终点的载货段，以及卸载；各段运行时间与经过的楼层数成正比。凡跨楼层的移动，AMR 均须乘坐电梯。
+
+A6 (evaluator uncertainty): The elevator subsystem is represented by one of several evaluators (Section 3.5) that differ in their representation of capacity and trip-time variability. The applicable representation is not known at the release epoch, so decisions are evaluated under more than one representation; Section 3.4 specifies which representations enter the robust selection, and which one assesses a selected class under trip-time variability.
+
+> **中文：** A6（评估器不确定性）：电梯子系统由若干评估器之一表示（第 3.5 节），这些评估器对容量与行程时长波动的表示方式不同。在释放时刻无法得知哪一种表示适用，因此决策需在多种表示下评价；第 3.4 节说明哪些表示进入鲁棒选择，以及由哪一种表示评估所选类别在行程时长波动下的表现。
+
+## 3.2 Notation and decision variables｜3.2 符号与决策变量
+
+### 3.2.1 Basic indices and parameters｜3.2.1 基本下标与参数
+
+Tables 3.1 and 3.2 summarize the basic indices and input parameters. Candidate-wave descriptors and operational state quantities are introduced with their definitions in Sections 3.3 and 3.5.
+
+> **中文：** 表 3.1 与表 3.2 汇总了基本下标与输入参数。候选波次的描述指标与运行状态量在第 3.3 节与第 3.5 节随其定义引入。
+
+**Table 3.1. Basic indices and sets｜表 3.1 基本下标与集合**
+
+| Symbol | Definition | 中文释义 |
+|---|---|---|
+| $f\in\mathcal F=\{1,\ldots,F\}$ | warehouse-floor index | 仓库楼层下标 |
+| $o\in\mathcal O$ | order index in the available order pool | 可用订单池中的订单下标 |
+| $a\in\mathcal A=\{1,\ldots,A\}$ | AMR index | AMR 下标 |
+| $e\in\mathcal E=\{1,\ldots,E\}$ | physical-elevator index | 实体电梯下标 |
+| $k\in\mathcal K=\{1,\ldots,K\}$ | candidate-wave index | 候选波次下标 |
+| $q\in\mathcal Q$ | selectable structural-class label (Section 3.3.3); the reference class, labeled $q=0$, lies outside $\mathcal Q$ and serves only as a comparison baseline | 可选结构类别标签（第 3.3.3 节）；参照类记为 $q=0$，不属于 $\mathcal Q$，仅作为比较基线 |
+| $m\in\mathcal M=\{M_1,M_2,M_3\}$ | elevator-evaluator index | 电梯评估器下标 |
+
+**Table 3.2. Input parameters｜表 3.2 输入参数**
+
+| Symbol | Definition | 中文释义 |
+|---|---|---|
+| $F$ | number of warehouse floors | 仓库楼层数 |
+| $A$ | number of AMRs | AMR 数量 |
+| $E$ | number of physical elevator cars | 实体电梯轿厢数 |
+| $c$ | maximum number of AMRs sharing one physical elevator trip | 一趟实体电梯行程可共乘的最大 AMR 数 |
+| $n$ | fixed number of orders in a wave | 波次中固定的订单数 |
+| $K$ | number of candidate waves in the finite pool | 有限候选池中的候选波次数 |
+| $t_W$ | decision and release epoch of the wave | 波次的决策与释放时刻 |
+| $f^0\in\mathcal F$ | common initial floor of the AMRs and elevator resources | AMR 与电梯资源的共同初始楼层 |
+| $s_o,d_o\in\mathcal F$ | source and destination floors of order $o$ | 订单 $o$ 的起始楼层与目标楼层 |
+| $r_o\ge0$ | ready-time offset relative to $t_W$ | 相对于 $t_W$ 的就绪时间偏移 |
+| $\gamma>0$ | elevator travel time per traversed floor | 电梯每经过一层的运行时间 |
+| $\tau^L,\tau^U>0$ | elevator loading and unloading durations | 电梯装载与卸载时长 |
+| $\tau^P,\tau^D>0$ | AMR pickup and drop-off service durations | AMR 取货与卸货服务时长 |
+| $\alpha\in(0,0.5)$ | tail probability for structural-class construction | 构造结构类别所用的尾部概率 |
+| $\sigma>0$ | standard deviation of the logarithm of each phase multiplier under $M_3$ | $M_3$ 下各阶段乘子对数的标准差 |
+
+The resource counts, capacity, and candidate-pool size are positive integers, and $1\le n\le|\mathcal O|$. All service durations and time offsets use the same time unit. The numerical values of the parameters in Table 3.2, the generator of the order pool $\mathcal O$ and of the ready-time offsets, and the sample sizes used to estimate class statistics are specified in Section 5.
+
+> **中文：** 资源数量、容量与候选池规模均为正整数，且 $1\le n\le|\mathcal O|$。所有服务时长与时间偏移采用同一时间单位。表 3.2 中各参数的取值、订单池 $\mathcal O$ 与就绪时间偏移的生成方式，以及估计类别统计量所用的样本量，均在第 5 节给出。
+
+### 3.2.2 Decision variables｜3.2.2 决策变量
+
+The class formulation chooses a class label $q\in\mathcal Q$, and the candidate benchmark chooses a candidate index $k\in\mathcal K$; each decision selects one element of a finite set. Section 3.4 states the two decisions as optimization problems, and Section 3.5.1 writes both as one binary program in the variables of Table 3.3, with score coefficients supplied by the operational evaluation.
+
+> **中文：** 类别模型选择一个类别标签 $q\in\mathcal Q$，候选基准选择一个候选下标 $k\in\mathcal K$；两者都是从有限集合中选取一个元素。第 3.4 节把这两个决策写成优化问题，第 3.5.1 节再用表 3.3 的变量把二者写成同一个二元规划，其得分系数由运行评价给出。
+
+**Table 3.3. Variables in the class and candidate formulations｜表 3.3 类别模型与候选基准中的变量**
+
+| Variable | Domain | Definition | 中文释义 |
+|---|---|---|---|
+| $w_s$ | $\{0,1\}$ | 1 if option $s\in\mathcal S$ is selected, and 0 otherwise ($\mathcal S=\mathcal Q$ for the class formulation, $\mathcal S=\mathcal K$ for the candidate benchmark) | 若选中选项 $s\in\mathcal S$ 则取 1，否则取 0（类别模型中 $\mathcal S=\mathcal Q$，候选基准中 $\mathcal S=\mathcal K$） |
+| $\eta$ | $\mathbb R_+$ | auxiliary upper bound on the selected option's scores over the evaluator family of the program | 所选选项在该规划评估器族下各得分的辅助上界 |
+
+〔待办：Word 中 $w_s$ 这一行的三个公式对象把花体 $\mathcal S$、$\mathcal Q$、$\mathcal K$ 写成了普通斜体 $S$、$Q$、$K$，需在 MathType 中改回花体，与式 (32) 及正文一致。〕
+
+### 3.2.3 Evaluation notation｜3.2.3 评价记号
+
+Each candidate wave is evaluated by reserving resources in a prescribed processing sequence. For candidate $k$, $W^k$ is its order set and $\pi^k$ is the processing sequence recorded when its orders are drawn during candidate generation (Section 3.3.1). The pair $(W^k,\pi^k)$ is fixed before evaluation and shared by all evaluators. The index $j\in\mathcal J_n=\{1,\ldots,n\}$ denotes a position in the sequence:
+
+> **中文：** 每个候选波次按规定的处理序列预约资源来进行评价。对候选 $k$，$W^k$ 是其订单集合，$\pi^k$ 是候选生成时抽取订单所记录下的处理序列（第 3.3.1 节）。二元组 $(W^k,\pi^k)$ 在评价前即已固定，并由所有评估器共用。下标 $j\in\mathcal J_n=\{1,\ldots,n\}$ 表示序列中的位置：
+
+$$
+\pi^k=\left(o_1^k,\ldots,o_n^k\right)\tag{1}
+$$
+
+Under the generation procedure, the recorded sequence $\pi^k$ is equally likely to be any permutation of the order set $W^k$. Because each candidate keeps its recorded sequence under every evaluator, differences between evaluators on the same candidate do not arise from resequencing. Across candidates, the sequences vary and contribute to the outcome variation within a class. All class and candidate results use the recorded sequences; Section 5 reports one alternative operational dispatch rule, which reorders the sequence, as a separately labeled robustness check.
+
+> **中文：** 在候选生成过程中，记录序列 $\pi^k$ 等可能地取订单集合 $W^k$ 的任一排列。由于每个候选在所有评估器下保持同一记录序列，同一候选在不同评估器之间的差异并非来自序列的重排。不同候选的序列各不相同，这构成类内结果变异的一部分。所有类别与候选结果均采用记录序列；第 5 节另报告一种会重排序列的运行层调度规则，作为单独标注的稳健性检验。
+
+Under $M_3$, this evaluation also incorporates variation in trip-phase durations. Each newly reserved trip receives four multipliers $Z^{\mathrm{rep}},Z^{\mathrm{load}},Z^{\mathrm{trav}},Z^{\mathrm{unload}}$ for empty repositioning, loading, loaded travel, and unloading, respectively. These multipliers are independent across phases and trips, and each multiplier $Z$ satisfies
+
+> **中文：** 在 $M_3$ 下，评价还纳入行程各阶段时长的波动。每一趟新预约的行程获得四个乘子 $Z^{\mathrm{rep}},Z^{\mathrm{load}},Z^{\mathrm{trav}},Z^{\mathrm{unload}}$，分别作用于空驶调位、装载、载货运行与卸载。这些乘子在阶段之间、行程之间相互独立，每个乘子 $Z$ 满足
+
+$$
+\log Z\sim\mathcal N\!\left(-\frac{\sigma^2}{2},\,\sigma^2\right),\qquad \mathbb E[Z]=1\tag{2}
+$$
+
+The collection of phase multipliers used in a wave evaluation is denoted by $\xi\in\Xi$, where $\Xi$ is the realization space. The phase multipliers are independent of the within-class candidate draw $\kappa\sim\nu_q$ introduced in Section 3.3.3. Given a candidate $k$, an evaluator $m$, and, when $m=M_3$, a phase-time realization $\xi$, the operational rules determine all state quantities and order completion times. The dependence of operational states on these inputs is omitted from their notation.
+
+> **中文：** 一次波次评价所用的全部阶段乘子记为 $\xi\in\Xi$，其中 $\Xi$ 为实现空间。阶段乘子与第 3.3.3 节引入的类内候选抽样 $\kappa\sim\nu_q$ 相互独立。给定候选 $k$、评估器 $m$，以及当 $m=M_3$ 时的阶段时长实现 $\xi$，运行规则即可确定全部状态量与订单完成时间。运行状态对这些输入的依赖在记号中省略。
+
+## 3.3 Candidate waves and structural classes｜3.3 候选波次与结构类别
+
+### 3.3.1 Candidate waves｜3.3.1 候选波次
+
+Each candidate index $k\in\mathcal K$ identifies an order set $W^k\subseteq\mathcal O$ and its recorded processing sequence $\pi^k$. Each candidate is generated by drawing $n$ distinct orders uniformly at random from $\mathcal O$, and the $K$ candidates are generated independently before selection. Evaluators compared on the same decision, as in the robust selection of Section 3.4.2, use the same pool; Section 5 states whether the pools of each experiment are shared across evaluators. Every candidate has the fixed size
+
+> **中文：** 每个候选下标 $k\in\mathcal K$ 对应一个订单集合 $W^k\subseteq\mathcal O$ 及其记录的处理序列 $\pi^k$。每个候选由从 $\mathcal O$ 中均匀随机抽取 $n$ 个互不相同的订单生成，$K$ 个候选在选择之前相互独立地生成。在同一决策下比较的评估器（如第 3.4.2 节的鲁棒选择）使用同一候选池；第 5 节说明各项实验的候选池是否在评估器之间共享。每个候选的规模固定为
+
+$$
+|W^k|=n,\qquad k\in\mathcal K\tag{3}
+$$
+
+### 3.3.2 Wave descriptors｜3.3.2 波次描述指标
+
+The floor distribution of a wave is measured using both endpoints of every order. For a candidate wave $W$, $p_f(W)$ denotes the proportion of its $2|W|$ endpoints located on floor $f$:
+
+> **中文：** 波次的楼层分布用每个订单的两个端点来度量。对候选波次 $W$，$p_f(W)$ 表示其 $2|W|$ 个端点中位于楼层 $f$ 的比例：
+
+$$
+p_f(W)=\frac{1}{2|W|}\sum_{o\in W}\left[\mathbb I(s_o=f)+\mathbb I(d_o=f)\right],\qquad f\in\mathcal F\tag{4}
+$$
+
+where $\mathbb I(\cdot)$ is the indicator function. Endpoint dispersion is represented by the entropy
+
+> **中文：** 其中 $\mathbb I(\cdot)$ 为示性函数。端点离散度用熵表示：
+
+$$
+C(W)=-\sum_{f\in\mathcal F}p_f(W)\log p_f(W),\qquad 0\log 0=0\tag{5}
+$$
+
+Here $\log$ denotes the natural logarithm. Larger $C$ reflects greater diversity in the endpoint distribution across floor labels, arising from broader support or a more even distribution. $C$ depends only on how endpoints are distributed over the floors, not on the distances between them; travel distances enter the evaluation through the floor differences in Equations (24), (28), and (30).
+
+> **中文：** 此处 $\log$ 表示自然对数。$C$ 越大，说明端点在各楼层标签上的分布越多样，这可能源于分布范围更广或分布更均匀。$C$ 只取决于端点在各楼层上的分布，而与楼层之间的距离无关；行程距离通过式 (24)、(28) 与 (30) 中的楼层差进入评价。
+
+Directional imbalance measures the asymmetry between upward and downward order movements. The numbers of upward and downward orders are
+
+> **中文：** 方向失衡度衡量订单上行与下行移动之间的不对称程度。上行与下行订单的数量分别为
+
+$$
+N^{\uparrow}(W)=\sum_{o\in W}\mathbb I(d_o>s_o),\qquad N^{\downarrow}(W)=\sum_{o\in W}\mathbb I(d_o<s_o).\tag{6}
+$$
+
+The absolute difference is normalized by the number of cross-floor orders:
+
+> **中文：** 将两者之差的绝对值除以跨楼层订单数进行归一化：
+
+$$
+I(W)=\begin{cases}\dfrac{\left|N^{\uparrow}(W)-N^{\downarrow}(W)\right|}{N^{\uparrow}(W)+N^{\downarrow}(W)}, & N^{\uparrow}(W)+N^{\downarrow}(W)>0,\\[3mm] 0, & N^{\uparrow}(W)+N^{\downarrow}(W)=0.\end{cases}\tag{7}
+$$
+
+〔待办 R-34：Word 中此式 8 处 $N^{\uparrow}(W)$、$N^{\downarrow}(W)$ 的左括号被排进了上标，需在 MathType 中移回基线；此处为应有写法。〕
+
+Thus $I\in[0,1]$, with zero indicating balanced cross-floor counts or the absence of cross-floor orders, and one indicating movement in only one direction. Same-floor orders do not contribute to either count.
+
+> **中文：** 因此 $I\in[0,1]$：取 0 表示跨楼层订单的上下行数量平衡或不存在跨楼层订单，取 1 表示所有移动都朝同一方向。同层订单不计入任一方向。
+
+The ready-time dispersion $T$ measures how order eligibility is spread within the wave. The mean ready-time offset is $\bar r_W=|W|^{-1}\sum_{o\in W}r_o$, and $T$ is the coefficient of variation of the offsets:
+
+> **中文：** 就绪时间离散度 $T$ 衡量波次内订单可处理时刻的分散程度。平均就绪时间偏移为 $\bar r_W=|W|^{-1}\sum_{o\in W}r_o$，$T$ 为各偏移量的变异系数：
+
+$$
+T(W)=\begin{cases}\dfrac{\sqrt{|W|^{-1}\sum_{o\in W}\left(r_o-\bar r_W\right)^2}}{\bar r_W}, & \bar r_W>0,\\[3mm] 0, & \bar r_W=0.\end{cases}\tag{8}
+$$
+
+Smaller $T$ indicates more compact ready-time offsets relative to their mean. When all orders are ready at the release epoch, $T=0$. The resulting descriptor vector is
+
+> **中文：** $T$ 越小，说明就绪时间偏移相对于其均值越集中。若所有订单在释放时刻均已就绪，则 $T=0$。由此得到的描述向量为
+
+$$
+\Phi(W)=\big(C(W),\,I(W),\,T(W)\big).\tag{9}
+$$
+
+### 3.3.3 Structural classes and within-class selection｜3.3.3 结构类别与类内选择
+
+The class construction uses the lower and upper tails of $C$ and $I$; $T$ records temporal variation separately and does not enter the corner classes or the selection problems of this section. It is retained in Equation (9) as a descriptor of the released wave under staggered ready times and is used only in the sensitivity analyses of Section 5. For descriptor $X\in\{C,I\}$, $Q_u(X)$ denotes its empirical $u$-quantile over the candidate pool, computed by linear interpolation between the adjacent order statistics at position $1+(K-1)u$. A common tail probability $\alpha$ defines four candidate-index sets:
+
+> **中文：** 类别构造使用 $C$ 与 $I$ 的下尾和上尾；$T$ 单独记录时间上的变化，不进入角类，也不进入本节的选择问题。$T$ 保留在式 (9) 中，作为就绪时间错开时所释放波次的描述指标，仅用于第 5 节的敏感性分析。对描述指标 $X\in\{C,I\}$，$Q_u(X)$ 表示其在候选池上的经验 $u$ 分位数，由位置 $1+(K-1)u$ 处相邻两个次序统计量线性插值得到。一个共同的尾部概率 $\alpha$ 定义四个候选下标集合：
+
+$$
+\begin{aligned}
+\mathcal K_{\mathrm{HC}}&=\{k\in\mathcal K: C(W^k)\ge Q_{1-\alpha}(C)\}\\
+\mathcal K_{\mathrm{LC}}&=\{k\in\mathcal K: C(W^k)\le Q_{\alpha}(C)\}\\
+\mathcal K_{\mathrm{HI}}&=\{k\in\mathcal K: I(W^k)\ge Q_{1-\alpha}(I)\}\\
+\mathcal K_{\mathrm{LI}}&=\{k\in\mathcal K: I(W^k)\le Q_{\alpha}(I)\}
+\end{aligned}\tag{10}
+$$
+
+A corner class consists of candidates lying in a tail region of both descriptors. In the labels $\mathrm{HH},\mathrm{HL},\mathrm{LH},\mathrm{LL}$, the first letter records the tail of $C$ and the second the tail of $I$. Section 5 writes these labels as HC-HI, HC-LI, LC-HI, and LC-LI, respectively. The candidate-index supports are
+
+> **中文：** 角类由在两个描述指标上都位于尾部区域的候选组成。在标签 $\mathrm{HH},\mathrm{HL},\mathrm{LH},\mathrm{LL}$ 中，第一个字母表示 $C$ 所处的尾部，第二个字母表示 $I$ 所处的尾部。第 5 节将这些标签依次写作 HC-HI、HC-LI、LC-HI 和 LC-LI。各类别的候选下标支撑集为
+
+$$
+\begin{aligned}
+\mathcal K_{\mathrm{HH}}&=\mathcal K_{\mathrm{HC}}\cap\mathcal K_{\mathrm{HI}}\\
+\mathcal K_{\mathrm{HL}}&=\mathcal K_{\mathrm{HC}}\cap\mathcal K_{\mathrm{LI}}\\
+\mathcal K_{\mathrm{LH}}&=\mathcal K_{\mathrm{LC}}\cap\mathcal K_{\mathrm{HI}}\\
+\mathcal K_{\mathrm{LL}}&=\mathcal K_{\mathrm{LC}}\cap\mathcal K_{\mathrm{LI}}
+\end{aligned}\tag{11}
+$$
+
+The selectable labels form $\mathcal Q=\{\mathrm{HH},\mathrm{HL},\mathrm{LH},\mathrm{LL}\}$. A class-selection instance requires $\mathcal K_q\ne\varnothing$ for every $q\in\mathcal Q$, so that the class median in Equation (14) is defined for every selectable class. For continuous and independent descriptors, each class contains approximately a fraction $\alpha^2$ of the pool. The fraction can differ when $C$ and $I$ are dependent. It can also differ when a descriptor takes few distinct values, because the inclusive thresholds in Equation (10) assign every candidate tied at a threshold to the tail set. The classes need not cover the pool, since candidates outside the four intersections belong to no class. Conversely, when ties make the lower and upper thresholds of a descriptor coincide, a candidate can belong to more than one class. Section 5 reports the realized class sizes and overlaps.
+
+> **中文：** 可选标签集合为 $\mathcal Q=\{\mathrm{HH},\mathrm{HL},\mathrm{LH},\mathrm{LL}\}$。一个类别选择实例要求对每个 $q\in\mathcal Q$ 都有 $\mathcal K_q\ne\varnothing$，以保证式 (14) 中的类别中位数对每个可选类别都有定义。当两个描述指标连续且相互独立时，每个类别约占候选池的 $\alpha^2$。若 $C$ 与 $I$ 相关，这一比例可能偏离该值。当某一描述指标的取值很少时，比例同样可能偏离，因为式 (10) 的阈值包含等号，恰好落在阈值上的候选都被划入尾部集合。各类别不必覆盖整个候选池，落在四个交集之外的候选不属于任何类别。反之，当并列值使某一描述指标的下、上阈值重合时，一个候选可能同时属于多个类别。第 5 节报告实际的类别规模与重叠情况。
+
+Each selectable class is implemented by uniform sampling over its candidate indices, with the fixed within-class distribution
+
+> **中文：** 每个可选类别通过在其候选下标上均匀抽样来实施，固定的类内分布为
+
+$$
+\nu_q(k)=\begin{cases}\dfrac{1}{|\mathcal K_q|}, & k\in\mathcal K_q,\\[3mm] 0, & k\notin\mathcal K_q,\end{cases}\qquad q\in\mathcal Q,\ k\in\mathcal K\tag{12}
+$$
+
+Selecting class $q$ releases the wave $W^\kappa$ with $\kappa\sim\nu_q$. The class choice thus determines the distribution of the released wave, while the within-class rule is fixed. Repeated draws from $\nu_q$ are independent draws with replacement from the finite set $\mathcal K_q$, so the same candidate can be released, or evaluated, more than once; the candidate identity of every evaluated draw is recorded, so that repeated candidates in an evaluated sample can be identified. The unrestricted pool defines a reference class, labeled $q=0$, with $\nu_0(k)=1/K$ for every $k\in\mathcal K$. It is not a decision option; it is the baseline against which Section 4 measures the value of class selection.
+
+> **中文：** 选择类别 $q$ 即释放波次 $W^\kappa$，其中 $\kappa\sim\nu_q$。因此，类别选择决定所释放波次的分布，而类内规则保持固定。来自 $\nu_q$ 的多次抽样是对有限集合 $\mathcal K_q$ 的独立有放回抽样，因此同一候选可能被多次释放或评价；每次被评价的抽样都会记录其候选身份，以便识别评价样本中重复出现的候选。不加限制的整个候选池定义了一个参照类，记为 $q=0$，对每个 $k\in\mathcal K$ 有 $\nu_0(k)=1/K$。参照类不是决策选项，而是第 4 节衡量类别选择价值时所用的基线。
+
+## 3.4 Objective functions｜3.4 目标函数
+
+### 3.4.1 Wave completion measure｜3.4.1 波次完工度量
+
+With the candidate, evaluator, and phase-time realization made explicit, $t^C_{jkm}(\xi)$ denotes the completion time of the order in position $j$ of candidate $k$ (Section 3.5.1). Wave makespan measures elapsed time from release until the last selected order is delivered:
+
+> **中文：** 在显式写出候选、评估器与阶段时长实现后，$t^C_{jkm}(\xi)$ 表示候选 $k$ 中位于第 $j$ 个位置的订单的完成时间（第 3.5.1 节）。波次完工时间（makespan）度量从释放到最后一个所选订单交付所经历的时间：
+
+$$
+Y_{km}(\xi)=C_{\max}\!\left(W^k,\pi^k;m,\xi\right)=\max_{j\in\mathcal J_n}t^C_{jkm}(\xi)-t_W\tag{13}
+$$
+
+For $M_1$ and $M_2$, the outcome is deterministic and the argument $\xi$ is omitted. Under $M_3$, Equation (13) defines the makespan for one phase-time realization.
+
+> **中文：** 在 $M_1$ 与 $M_2$ 下结果是确定的，参数 $\xi$ 省略。在 $M_3$ 下，式 (13) 定义的是某一次阶段时长实现下的完工时间。
+
+### 3.4.2 Robust structural-class selection｜3.4.2 鲁棒结构类别选择
+
+The performance of a class is the median makespan induced by its fixed release distribution. We use the median because Section 4 states its class-level diagnosis for it and Section 5 reports it for each class, so the decision problem, the analysis, and the experiments share one estimand. When the median is non-unique, we use the midpoint of its median interval. For $q\in\mathcal Q\cup\{0\}$ and $m\in\mathcal M$, the class median is defined as
+
+> **中文：** 一个类别的绩效是由其固定释放分布所导出的完工时间中位数。采用中位数，是因为第 4 节的类别层面诊断以中位数表述，第 5 节也按类别报告中位数，从而使决策问题、分析与实验使用同一个估计目标。当中位数不唯一时，取其中位数区间的中点。对 $q\in\mathcal Q\cup\{0\}$ 与 $m\in\mathcal M$，类别中位数定义为
+
+$$
+\mu^{0.5}_{qm}=\operatorname{Med}_{\kappa\sim\nu_q,\,\xi}\left[Y_{\kappa m}(\xi)\right]\tag{14}
+$$
+
+For $M_1$ and $M_2$, variation in Equation (14) arises from the candidate draw. Under $M_3$, the distribution includes both candidate variation and phase-time noise, and the median is taken over this joint outcome distribution. When evaluators are compared, the same draw $\kappa\sim\nu_q$ is evaluated under every evaluator, with the phase-time realization $\xi$ drawn independently of $\kappa$. The corresponding class mean is $\bar\mu_{qm}=\mathbb E_{\kappa\sim\nu_q,\xi}\left[Y_{\kappa m}(\xi)\right]$. This mean enters the complementary distributional analysis of Section 4 and its numerical assessment in Section 5; the class-selection objective uses the median.
+
+> **中文：** 在 $M_1$ 与 $M_2$ 下，式 (14) 中的变异来自候选抽样。在 $M_3$ 下，分布同时包含候选变异与阶段时长噪声，中位数针对这一联合结果分布计算。比较评估器时，同一次抽样 $\kappa\sim\nu_q$ 在每个评估器下评价，阶段时长实现 $\xi$ 与 $\kappa$ 独立抽取。相应的类别均值为 $\bar\mu_{qm}=\mathbb E_{\kappa\sim\nu_q,\xi}\left[Y_{\kappa m}(\xi)\right]$。该均值用于第 4 节的补充分布分析及其在第 5 节的数值评估；类别选择目标使用中位数。
+
+Under a single evaluator $m$, the nominal class selection is $q_m\in\arg\min_{q\in\mathcal Q}\mu^{0.5}_{qm}$. The deterministic evaluator family is $\mathcal M_D=\{M_1,M_2\}$. Its two members represent two hypotheses on how elevator capacity acts: as parallel single-request slots under $M_1$ or as shared trips under $M_2$. The robust selection hedges against this structural uncertainty, and Section 4.3 gives sufficient conditions under which the two evaluators are ordered. $M_3$ retains the reservation rules of $M_2$ and adds mean-one phase multipliers (Equation (2)). It is therefore a perturbation of $M_2$ rather than a third capacity hypothesis, and it is used to assess a selected class under trip-time variability. The robust class decision minimizes the larger of its two median makespans:
+
+> **中文：** 在单一评估器 $m$ 下，名义类别选择为 $q_m\in\arg\min_{q\in\mathcal Q}\mu^{0.5}_{qm}$。确定性评估器族为 $\mathcal M_D=\{M_1,M_2\}$。这两个成员代表关于电梯容量如何起作用的两种假说：在 $M_1$ 下表现为并行的单请求槽位，在 $M_2$ 下表现为共享行程。鲁棒选择针对的正是这一结构性不确定性，第 4.3 节给出两个评估器有序的充分条件。$M_3$ 沿用 $M_2$ 的预约规则，并加入均值为 1 的阶段乘子（式 (2)）。因此，$M_3$ 是 $M_2$ 的扰动，而不是第三种容量假说，它用于评估所选类别在行程时长波动下的表现。鲁棒类别决策使两个中位完工时间中的较大者最小：
+
+$$
+q^\star\in\arg\min_{q\in\mathcal Q}\ \max_{m\in\mathcal M_D}\ \mu^{0.5}_{qm}\tag{15}
+$$
+
+The class medians are not observed at the release epoch; Section 4.1 obtains them by evaluating the candidates of each class, exactly or by sampling, and applies the selection rule to the resulting scores. Section 4 also diagnoses a descriptor-based class rule that selects a label $q_\Phi\in\mathcal Q$ from the signs of a relation between makespan and $(C,I)$ fitted on an evaluated training sample under a given evaluator; that rule is distinct from the within-class draw of Equation (12), and its fitting sample is specified in Section 5.
+
+> **中文：** 类别中位数在释放时刻不可观测；第 4.1 节通过评价各类别的候选波次得到这些中位数（精确计算或抽样估计），并将选择规则作用于所得分数。第 4 节还诊断一种基于描述指标的类别规则：它在给定评估器下，用评价训练样本拟合完工时间与 $(C,I)$ 之间的关系，并依据拟合关系的符号选出标签 $q_\Phi\in\mathcal Q$；该规则不同于式 (12) 的类内抽样，其拟合样本在第 5 节说明。
+
+### 3.4.3 Candidate-wave benchmarks｜3.4.3 候选波次基准
+
+Direct candidate selection uses deterministic scores
+
+> **中文：** 直接选择候选波次使用确定性得分
+
+$$
+\ell_{km}=C_{\max}\!\left(W^k,\pi^k;m\right),\qquad k\in\mathcal K,\ m\in\mathcal M_D\tag{16}
+$$
+
+For an evaluator $m\in\mathcal M_D$, the pool optimum $k_m\in\arg\min_{k\in\mathcal K}\ell_{km}$ attains the smallest score,
+
+> **中文：** 对评估器 $m\in\mathcal M_D$，池内最优候选 $k_m\in\arg\min_{k\in\mathcal K}\ell_{km}$ 取得最小得分，
+
+$$
+\ell_{k_m m}=\min_{k\in\mathcal K}\ell_{km}\tag{17}
+$$
+
+Because every selection rule of Section 3.4 releases a wave from the same pool, Equation (17) is a lower bound on the makespan attainable under evaluator $m$ by any such rule.
+
+> **中文：** 由于第 3.4 节的每一种选择规则都从同一候选池中释放波次，式 (17) 是任何此类规则在评估器 $m$ 下可达完工时间的下界。
+
+## 3.5 Constraints and their explanation｜3.5 约束及其解释
+
+### 3.5.1 Constraint formulation｜3.5.1 约束表述
+
+The three evaluators are serial reservation models, deterministic except for the phase multipliers of $M_3$. Orders are reserved one at a time along the processing sequence, so the evaluators do not simulate concurrent execution, and the request times they generate need not increase along the sequence. Fig. 3.1(b) illustrates the reservation of one order. Section 5 cross-validates the evaluators against an event-driven simulation that uses the same physical specification but executes trips concurrently.
+
+> **中文：** 三个评估器均为串行预约模型，除 $M_3$ 的阶段乘子外都是确定性的。订单沿处理序列逐一预约，因此评估器并不模拟并发执行，其生成的请求时刻也不必沿序列递增。图 3.1(b) 展示了单个订单的预约过程。第 5 节以一个事件驱动仿真对评估器进行交叉验证，该仿真采用相同的物理设定，但行程并发执行。
+
+**Processing sequence and AMR assignment.** Each order's complete route is reserved before the next order is considered. After the first $j-1$ orders have been reserved, $H_a^{j-1}$ denotes the next availability time of AMR $a$ and $G_a^{j-1}$ the floor at which it becomes available; initially, $H_a^0=t_W$ and $G_a^0=f^0$. For a finite index set $\mathcal X$ and real values $u_x$, $x\in\mathcal X$, $\mathop{\mathrm{lexargmin}}_{x\in\mathcal X}(u_x,x)$ denotes the smallest index among those attaining $\min_x u_x$. This rule makes each selection in Equations (18), (23), and (27) unique. Order $o_j^k$ is assigned to the earliest-available AMR, with ties resolved by AMR index, and begins at
+
+> **中文：** **处理序列与 AMR 指派。** 每个订单的完整路线在考虑下一个订单之前即完成预约。在前 $j-1$ 个订单完成预约后，$H_a^{j-1}$ 表示 AMR $a$ 的下一可用时刻，$G_a^{j-1}$ 表示其届时所在的楼层；初始时 $H_a^0=t_W$，$G_a^0=f^0$。对有限下标集合 $\mathcal X$ 及实数 $u_x$（$x\in\mathcal X$），$\mathop{\mathrm{lexargmin}}_{x\in\mathcal X}(u_x,x)$ 表示在取得 $\min_x u_x$ 的下标中最小的那个。这一规则保证式 (18)、(23) 与 (27) 中的每次选择都唯一。订单 $o_j^k$ 被指派给最早可用的 AMR，并列时按 AMR 编号决定，其开始时刻为
+
+$$
+a_j=\mathop{\mathrm{lexargmin}}\limits_{a\in\mathcal A}\left(H_a^{j-1},a\right),\qquad t_j^0=\max\left\{H_{a_j}^{j-1},\ t_W+r_{o_j^k}\right\}\tag{18}
+$$
+
+An elevator request specifies an origin $g$, a destination $h\ne g$, and a request time $t$. The elevator reservation state is denoted by $\mathbf S_m$. The request updates this state and returns a completion time:
+
+> **中文：** 一个电梯请求由起点 $g$、终点 $h\ne g$ 与请求时刻 $t$ 描述。电梯预约状态记为 $\mathbf S_m$。请求会更新该状态，并返回一个完成时刻：
+
+$$
+\left(\hat t,\ \mathbf S_m^{+}\right)=\mathcal R_m\!\left(\mathbf S_m,g,h,t;\xi\right)\tag{19}
+$$
+
+Within a fixed evaluation, $\mathcal R_m(g,h,t)$ denotes the returned time $\hat t$, with every call replacing $\mathbf S_m$ by $\mathbf S_m^{+}$. The assigned AMR first reaches the order's source and completes pickup:
+
+> **中文：** 在一次固定的评价中，$\mathcal R_m(g,h,t)$ 表示返回的时刻 $\hat t$，每次调用都将 $\mathbf S_m$ 替换为 $\mathbf S_m^{+}$。被指派的 AMR 首先到达订单起点并完成取货：
+
+$$
+t_j^S=\begin{cases}\mathcal R_m\!\left(G_{a_j}^{j-1},\,s_{o_j^k},\,t_j^0\right), & G_{a_j}^{j-1}\ne s_{o_j^k},\\ t_j^0, & G_{a_j}^{j-1}=s_{o_j^k},\end{cases}\qquad t_j^P=t_j^S+\tau^P\tag{20}
+$$
+
+It then reaches the destination and completes delivery:
+
+> **中文：** 随后到达终点并完成交付：
+
+$$
+t_j^D=\begin{cases}\mathcal R_m\!\left(s_{o_j^k},\,d_{o_j^k},\,t_j^P\right), & s_{o_j^k}\ne d_{o_j^k},\\ t_j^P, & s_{o_j^k}=d_{o_j^k},\end{cases}\qquad t_j^C=t_j^D+\tau^D\tag{21}
+$$
+
+After delivery, the assigned AMR becomes available at the destination:
+
+> **中文：** 交付之后，被指派的 AMR 在终点变为可用：
+
+$$
+H_{a_j}^{j}=t_j^C,\qquad G_{a_j}^{j}=d_{o_j^k}\tag{22}
+$$
+
+For every $a\ne a_j$, $H_a^j=H_a^{j-1}$ and $G_a^j=G_a^{j-1}$.
+
+> **中文：** 对所有 $a\ne a_j$，有 $H_a^j=H_a^{j-1}$ 且 $G_a^j=G_a^{j-1}$。
+
+**Throughput abstraction $M_1$.** Evaluator $M_1$ represents $E$ elevators of capacity $c$ by $Ec$ independent single-request service slots, indexed by $v\in\mathcal V_1=\{1,\ldots,Ec\}$. Each slot has a next availability time $B_v$ and a floor $G_v$ associated with that availability, initially $B_v=t_W$ and $G_v=f^0$. A request uses
+
+> **中文：** **吞吐抽象 $M_1$。** 评估器 $M_1$ 用 $Ec$ 个相互独立的单请求服务槽位表示 $E$ 台容量为 $c$ 的电梯，槽位下标为 $v\in\mathcal V_1=\{1,\ldots,Ec\}$。每个槽位有下一可用时刻 $B_v$ 及该时刻所在楼层 $G_v$，初始 $B_v=t_W$、$G_v=f^0$。请求使用槽位
+
+$$
+v^\star=\mathop{\mathrm{lexargmin}}\limits_{v\in\mathcal V_1}\left(B_v,v\right)\tag{23}
+$$
+
+Its completion time is
+
+> **中文：** 其完成时刻为
+
+$$
+\mathcal R_{M_1}(g,h,t)=\max\{t,B_{v^\star}\}+\gamma\left|G_{v^\star}-g\right|+\tau^L+\gamma|g-h|+\tau^U\tag{24}
+$$
+
+The selected slot is updated to $B_{v^\star}\leftarrow\mathcal R_{M_1}(g,h,t)$ and $G_{v^\star}\leftarrow h$; all other slots retain their states. The slots represent capacity as parallelism: $E$ cars of capacity $c$ under $M_1$ coincide with $Ec$ cars of unit capacity, and every request occupies a slot for a full trip. $M_1$ and $M_2$ use the same trip durations; they differ only in the number of servers that can run in parallel and in whether requests share a trip. Each slot carries one request per trip, the single-rider assumption that Chakravarty et al. (2025) adopt for multi-robot lift scheduling, in which each lift serves one robot at a time.
+
+> **中文：** 被选槽位更新为 $B_{v^\star}\leftarrow\mathcal R_{M_1}(g,h,t)$ 与 $G_{v^\star}\leftarrow h$；其他槽位保持原状态。这些槽位以并行方式表示容量：在 $M_1$ 下，$E$ 台容量为 $c$ 的轿厢等同于 $Ec$ 台单位容量的轿厢，每个请求在整趟行程中占用一个槽位。$M_1$ 与 $M_2$ 使用相同的行程时长，区别只在于可并行运行的服务台数量以及请求是否共享行程。每个槽位每趟行程只载一个请求，这与 Chakravarty et al. (2025) 在多机器人电梯调度中采用的单乘假设相同，即每台电梯一次只服务一台机器人。
+
+**True co-occupancy batching $M_2$.** Evaluator $M_2$ uses $E$ physical cars, each accommodating at most $c$ AMRs on a trip. For each car $e$, the evaluator stores its next availability $B_e$, associated floor $G_e$, and latest reserved trip. That trip is described by its origin-destination pair $(\bar s_e,\bar d_e)$, loading-end time $L_e$, completion time $D_e$, and reserved occupancy $P_e$. Initially, $B_e=D_e=t_W$, $G_e=f^0$, no trip pair is stored, $L_e=-\infty$, and $P_e=0$. A request can share a stored trip when its origin and destination match those of the trip, the trip has remaining capacity, and the request time is no later than the end of loading. The boardable-car set is
+
+> **中文：** **真实同乘批处理 $M_2$。** 评估器 $M_2$ 使用 $E$ 台实体轿厢，每趟行程最多容纳 $c$ 台 AMR。对每台轿厢 $e$，评估器记录其下一可用时刻 $B_e$、对应楼层 $G_e$ 及最近预约的行程。该行程由其起终点对 $(\bar s_e,\bar d_e)$、装载结束时刻 $L_e$、完成时刻 $D_e$ 与已预约占用数 $P_e$ 描述。初始时 $B_e=D_e=t_W$，$G_e=f^0$，不存储行程起终点对，$L_e=-\infty$，$P_e=0$。当请求的起点与终点和已存行程一致、该行程仍有剩余容量，且请求时刻不晚于装载结束时刻时，请求可共享该行程。可登乘轿厢集合为
+
+$$
+\mathcal B(g,h,t)=\left\{e\in\mathcal E:\ (\bar s_e,\bar d_e)=(g,h),\ P_e<c,\ t\le L_e\right\}\tag{25}
+$$
+
+If $\mathcal B(g,h,t)\ne\varnothing$, the lowest-index eligible car is selected:
+
+> **中文：** 若 $\mathcal B(g,h,t)\ne\varnothing$，选择编号最小的合格轿厢：
+
+$$
+e^\star=\min\mathcal B(g,h,t),\qquad \mathcal R_{M_2}(g,h,t)=D_{e^\star},\qquad P_{e^\star}\leftarrow P_{e^\star}+1\tag{26}
+$$
+
+The joining request shares the trip's stored completion time; apart from the occupancy update in Equation (26), the car's reservation record is unchanged. A request may also join a trip that starts after its request time, in which case it waits for that trip. When $\mathcal B(g,h,t)=\varnothing$, the request creates a new trip on the earliest-available car, with equal availability resolved by car index:
+
+> **中文：** 加入的请求共享该行程已存的完成时刻；除式 (26) 中的占用数更新外，轿厢的预约记录保持不变。请求也可以加入一个在其请求时刻之后才开始的行程，此时该请求等待这一行程。当 $\mathcal B(g,h,t)=\varnothing$ 时，请求在最早可用的轿厢上新建一趟行程，可用时刻相同时按轿厢编号决定：
+
+$$
+e^\star=\mathop{\mathrm{lexargmin}}\limits_{e\in\mathcal E}\left(B_e,e\right)\tag{27}
+$$
+
+Using the car's pre-update state, the new loading-end and completion times are
+
+> **中文：** 利用轿厢更新前的状态，新的装载结束时刻与完成时刻为
+
+$$
+\begin{aligned}
+L_{e^\star}&=\max\{t,B_{e^\star}\}+\gamma\left|G_{e^\star}-g\right|+\tau^L\\
+D_{e^\star}&=L_{e^\star}+\gamma|g-h|+\tau^U
+\end{aligned}\tag{28}
+$$
+
+The elevator returns $\mathcal R_{M_2}(g,h,t)=D_{e^\star}$ and updates the car's reservation record:
+
+> **中文：** 电梯返回 $\mathcal R_{M_2}(g,h,t)=D_{e^\star}$，并更新该轿厢的预约记录：
+
+$$
+B_{e^\star}\leftarrow D_{e^\star},\qquad G_{e^\star}\leftarrow h,\qquad \left(\bar s_{e^\star},\bar d_{e^\star}\right)\leftarrow(g,h),\qquad P_{e^\star}\leftarrow 1\tag{29}
+$$
+
+The new trip replaces that car's stored trip record, and subsequent requests test Equation (25) against the latest record of each car. A stored trip serves one origin-destination pair and makes no intermediate stops; a request with a different pair, or one arriving after loading has ended, uses a separate trip. $M_2$ shares a trip only among requests with the same origin and destination. This is a restricted form of the destination-based grouping of destination group control, in which requests from a common origin are assigned to cars by destination until the car capacity is reached (So et al., 2022).
+
+> **中文：** 新行程替换该轿厢已存的行程记录，后续请求针对每台轿厢的最新记录检验式 (25)。已存行程只服务一个起终点对，中途不停靠；起终点对不同的请求，或在装载结束后到达的请求，须使用另一趟行程。$M_2$ 只在起点和终点都相同的请求之间共享行程。这是目的地群控按目的地编组的一种受限形式；在目的地群控中，来自同一起点的请求按目的地分配到轿厢，直至达到轿厢容量（So et al., 2022）。
+
+〔待办 R-27：Word 中此处的 Mendeley 引文指向 So, Al-Sharif and Chan (2022)，"Universal elevator round trip time calculation for general traffic conditions with extension to batch arrivals"（Building Services Engineering Research and Technology 43, 539–557），讨论的是一般交通与批量到达下的往返时间计算，不是目的地群控的分配规则。R-27 核实过的出处是 So and Al-Sharif (2019)，Journal of Building Engineering 22, 549–561，DOI 10.1016/j.jobe.2019.01.013。请在 Mendeley 中导入该文并替换引文；替换后本句引文应为 (So and Al-Sharif, 2019)。〕
+
+**Stochastic batching $M_3$.** Evaluator $M_3$ retains the car-assignment, boarding, and capacity rules of $M_2$. The loading-end and completion times of a new trip become
+
+> **中文：** **随机批处理 $M_3$。** 评估器 $M_3$ 沿用 $M_2$ 的轿厢指派、登乘与容量规则。新行程的装载结束时刻与完成时刻变为
+
+$$
+\begin{aligned}
+L_{e^\star}&=\max\{t,B_{e^\star}\}+\gamma\left|G_{e^\star}-g\right|Z^{\mathrm{rep}}+\tau^LZ^{\mathrm{load}}\\
+D_{e^\star}&=L_{e^\star}+\gamma|g-h|Z^{\mathrm{trav}}+\tau^UZ^{\mathrm{unload}}
+\end{aligned}\tag{30}
+$$
+
+The reservation update follows Equation (29). Both a newly reserved request and a joining request return $\mathcal R_{M_3}(g,h,t)=D_{e^\star}$. Requests joining the same trip share this stored completion time, with no additional phase draws.
+
+> **中文：** 预约更新按式 (29) 进行。新预约的请求与加入的请求都返回 $\mathcal R_{M_3}(g,h,t)=D_{e^\star}$。加入同一行程的请求共享这一已存完成时刻，不再额外抽取阶段乘子。
+
+**Resource conditions.** The reservation rules enforce the following conditions, which are the feasibility requirements of the wave-level schedule:
+
+> **中文：** **资源条件。** 预约规则保证以下条件成立，它们是波次层面调度方案的可行性要求：
+
+$$
+\begin{aligned}
+&t_j^0\ge t_W+r_{o_j^k}, && j\in\mathcal J_n,\\
+&t_{j'}^0\ge t_j^C, && j<j',\ a_{j'}=a_j,\\
+&P_e\le c, && e\in\mathcal E\ \text{under } M_2 \text{ and } M_3
+\end{aligned}\tag{31}
+$$
+
+The first condition requires order readiness, the second requires that an AMR start its next order only after delivering the current one, and the third bounds the occupancy of a shared trip. In addition, trips reserved on the same car, or on the same slot under $M_1$, do not overlap. Each new trip begins its empty repositioning at $\max\{t,B_e\}$, where $B_e$ is the completion time of the previous trip on that car ($B_v$ for a slot under $M_1$). These conditions are implied by Equations (18) to (30); the first two hold for all three evaluators, and the third for the two evaluators under which trips are shared.
+
+> **中文：** 第一个条件要求订单已就绪，第二个条件要求 AMR 只有在交付当前订单后才开始下一个订单，第三个条件限制共享行程的占用数。此外，同一轿厢（在 $M_1$ 下为同一槽位）上预约的行程互不重叠。每趟新行程的空驶调位开始于 $\max\{t,B_e\}$，其中 $B_e$ 为该轿厢上一趟行程的完成时刻（在 $M_1$ 下为槽位的 $B_v$）。这些条件由式 (18) 至 (30) 蕴含；前两个条件对三个评估器均成立，第三个条件对允许共享行程的两个评估器成立。
+
+**Selection program.** Both decisions of Section 3.4 select one option from a finite index set $\mathcal S$ with score coefficients $c_{sm}$: the class formulation has $\mathcal S=\mathcal Q$, $c_{sm}=\mu^{0.5}_{sm}$, and evaluator family $\mathcal M'=\mathcal M_D$; the pool optimum under evaluator $m$ has $\mathcal S=\mathcal K$, $c_{sm}=\ell_{sm}$, and $\mathcal M'=\{m\}$. With the variables of Table 3.3, the common program is
+
+> **中文：** **选择规划。** 第 3.4 节的两个决策都是从有限下标集合 $\mathcal S$ 中选取一个选项，得分系数为 $c_{sm}$：类别模型中 $\mathcal S=\mathcal Q$、$c_{sm}=\mu^{0.5}_{sm}$，评估器族为 $\mathcal M'=\mathcal M_D$；评估器 $m$ 下的池内最优中 $\mathcal S=\mathcal K$、$c_{sm}=\ell_{sm}$，$\mathcal M'=\{m\}$。利用表 3.3 的变量，共同的规划为
+
+$$
+\min_{w,\eta}\ \eta\qquad\text{s.t.}\qquad\begin{cases}\sum_{s\in\mathcal S}w_s=1,\\[1mm] \eta\ge\sum_{s\in\mathcal S}c_{sm}w_s, & m\in\mathcal M',\\[1mm] w_s\in\{0,1\}, & s\in\mathcal S,\\[1mm] \eta\ge 0\end{cases}\tag{32}
+$$
+
+Equation (32) reproduces Equation (15) for $\mathcal M'=\mathcal M_D$ and Equation (17) for $\mathcal M'=\{m\}$.
+
+> **中文：** 当 $\mathcal M'=\mathcal M_D$ 时式 (32) 即式 (15)，当 $\mathcal M'=\{m\}$ 时即式 (17)。
+
+### 3.5.2 Explanation of constraints｜3.5.2 约束解释
+
+**Processing sequence and AMR assignment.** The processing sequence is the candidate-specific permutation $\pi^k$ in Equation (1) and is not reordered by readiness. An order that is not yet eligible holds its assigned AMR until $t_W+r_o$, which the maximum in Equation (18) enforces together with resource availability. Equations (20) and (21) activate an elevator request only when a movement crosses floors. A same-floor order can still require an initial elevator trip if its assigned AMR is on a different floor. Pickup and drop-off advance the AMR clock by their fixed service durations, and each order updates the state of its assigned AMR, so subsequent assignments use the resulting availability times.
+
+> **中文：** **处理序列与 AMR 指派。** 处理序列即式 (1) 中各候选特有的排列 $\pi^k$，不会按就绪时间重新排序。尚未具备处理资格的订单会占用其被指派的 AMR，直至 $t_W+r_o$，这一点由式 (18) 中的最大值运算与资源可用性共同保证。式 (20) 与 (21) 只在移动跨楼层时才触发电梯请求。若被指派的 AMR 位于其他楼层，同层订单仍可能需要一趟初始电梯行程。取货与卸货以固定服务时长推进 AMR 时钟，每个订单都会更新其被指派 AMR 的状态，因此后续指派使用更新后的可用时刻。
+
+**Throughput abstraction $M_1$.** Equation (24) charges every request its waiting time and a complete trip of repositioning, loading, loaded travel, and unloading. Capacity therefore acts only through the number of slots that can serve requests at the same time, and two requests with the same origin and destination never share a trip.
+
+> **中文：** **吞吐抽象 $M_1$。** 式 (24) 为每个请求计入其等待时间，以及由空驶调位、装载、载货运行和卸载组成的一趟完整行程。因此，容量只通过可同时服务请求的槽位数量起作用，即使两个请求的起点和终点相同，也不会共享行程。
+
+**True co-occupancy batching $M_2$.** Trips are reserved in the order of the processing sequence, so a new trip starts only after the trips already reserved on its car have been completed, even when its request time is earlier. The boarding test in Equation (25) also takes priority over new-trip assignment in Equations (27)–(29), so an eligible shared trip is selected even when a dedicated trip on another car could finish sooner.
+
+> **中文：** **真实同乘批处理 $M_2$。** 行程按处理序列的顺序预约，因此即使新行程的请求时刻更早，它也只能在其轿厢上已预约行程完成之后开始。此外，式 (25) 的登乘检验优先于式 (27)–(29) 的新行程分配，因此即使另一轿厢上的专用行程能更早完成，也会选择符合条件的共享行程。
+
+**Stochastic batching $M_3$.** Only the four elevator trip phases carry multipliers. Waiting times carry none and change only as a consequence of the perturbed durations of earlier trips, while pickup and drop-off durations remain fixed.
+
+> **中文：** **随机批处理 $M_3$。** 只有电梯行程的四个阶段带有乘子。等待时间本身不带乘子，只因此前行程时长的扰动而间接变化；取货与卸货时长保持不变。
+
+**Resource conditions.** Equation (31) collects the feasibility requirements that the reservation rules already enforce: order readiness through the maximum in Equation (18), sequential use of each AMR through the availability update in Equation (22), and trip occupancy through the boarding test in Equation (25). They are stated separately so that the wave-level schedule can be checked without re-deriving the recursions.
+
+> **中文：** **资源条件。** 式 (31) 汇总了预约规则已经保证的可行性要求：订单就绪由式 (18) 中的最大值运算保证，每台 AMR 的顺序使用由式 (22) 的可用性更新保证，行程占用数由式 (25) 的登乘检验保证。单独列出这些条件，是为了无需重新推导递推式即可检验波次层面的调度方案。
+
+**Selection program.** The first constraint of Equation (32) selects exactly one option; the score constraints bound $\eta$ below by the selected option's score under each evaluator in $\mathcal M'$, and minimization makes $\eta$ equal to the largest of those scores. A selected class is implemented through Equation (12); the pool optimum releases the selected candidate directly.
+
+> **中文：** **选择规划。** 式 (32) 的第一个约束保证恰好选中一个选项；得分约束使 $\eta$ 不小于所选选项在 $\mathcal M'$ 中每个评估器下的得分，最小化则使 $\eta$ 等于这些得分中的最大值。选中的类别通过式 (12) 实施；池内最优则直接释放所选候选。

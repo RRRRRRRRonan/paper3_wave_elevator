@@ -1,0 +1,49 @@
+{
+ "amendment": "B-5",
+ "date_executed": "2026-07-08",
+ "self_tests": "PASSED 800/800",
+ "per_config": {
+  "1": {
+   "rho_M1": 0.542849417530235,
+   "rho_M2": 0.44886811781725977,
+   "des_dominance": 0.98,
+   "cf_mean_M2": 190.94,
+   "des_mean_M2": 147.39
+  },
+  "7": {
+   "rho_M1": 0.6384797242974826,
+   "rho_M2": 0.6708864329312233,
+   "des_dominance": 0.99,
+   "cf_mean_M2": 281.8,
+   "des_mean_M2": 211.115
+  },
+  "11": {
+   "rho_M1": 0.6830381226878247,
+   "rho_M2": 0.500187011070789,
+   "des_dominance": 1.0,
+   "cf_mean_M2": 378.005,
+   "des_mean_M2": 237.01
+  }
+ },
+ "config7_des_decomposition": {
+  "des_H_up": 0.1380952380952381,
+  "des_S_or": 0.12380952380952381,
+  "des_m0": 210.0,
+  "des_corner_medians": {
+   "HC_HI": 239.0,
+   "HC_LI": 239.0,
+   "LC_HI": 184.0,
+   "LC_LI": 194.0
+  },
+  "closed_form_H_up_stored": 0.157,
+  "note": "stored H_up 0.157 is config 7 batched size 8 sub-cell; DES here is size 16 random+corner arms, sign comparison only"
+ },
+ "min_spearman_rho": 0.44886811781725977,
+ "des_pooled_dominance": 0.99,
+ "gates": {
+  "rho_ge_09_every_config": false,
+  "des_dominance_ge_090": true,
+  "faithful_ordinal_proxy": false
+ },
+ "runtime_seconds": 0.7
+}

@@ -15,10 +15,22 @@ same waves). Evaluates:
     corner-ranking Spearman rho vs M1 -> 'model-robust' or 'model-sensitive'.
 
 Output: results/v0_5_phase5_blockC.json
+
+2026-09-11 additions (verdict logic untouched):
+  * optional CLI: python -m src.analysis_phase5_blockC [csv_path] [out_json]
+    (defaults: the pre-registered Block C CSV and JSON), so the B-14
+    tie-break regeneration can be analysed side by side without overwriting
+    the stored artefacts;
+  * [RA] post-hoc sensitivity block: the Hedge corner recomputed on class
+    MEDIANS (Section 3's decision statistic) next to the pre-registered
+    mean-based D2-d. Labelled [RA] per MASTER §0.3: it is not a gate and
+    cannot alter the pre-registered verdict.
 """
 from __future__ import annotations
 
 import json
+import sys
+from datetime import date
 from pathlib import Path
 
 import numpy as np
@@ -26,15 +38,19 @@ import pandas as pd
 from scipy.stats import spearmanr, wasserstein_distance
 
 RESULTS_DIR = Path(__file__).resolve().parents[1] / "results"
-CSV = RESULTS_DIR / "raw" / "mvs_v0_5_phase5_blockC.csv"
+CSV_DEFAULT = RESULTS_DIR / "raw" / "mvs_v0_5_phase5_blockC.csv"
+OUT_DEFAULT = RESULTS_DIR / "v0_5_phase5_blockC.json"
 CORNERS = ["HC_HI", "HC_LI", "LC_HI", "LC_LI"]
 MODELS = [("makespan_M1", "M1"), ("makespan_M2", "M2"),
           ("makespan_M3_s20", "M3")]
 EPS = 0.05
 
 
-def main() -> None:
-    df = pd.read_csv(CSV)
+def main(argv=None) -> None:
+    argv = sys.argv[1:] if argv is None else argv
+    csv_path = Path(argv[0]) if len(argv) > 0 else CSV_DEFAULT
+    out_path = Path(argv[1]) if len(argv) > 1 else OUT_DEFAULT
+    df = pd.read_csv(csv_path)
 
     # ---- H-D2: per (config, corner) on matched M1/M2 -----------------------
     d2_cells = []
@@ -75,6 +91,31 @@ def main() -> None:
                          "c_star_DRO": c_dro,
                          "collapse": bool(c_hedge == c_dro)})
     n_collapse = sum(r["collapse"] for r in d2d_rows)
+
+    # ---- [RA] post-hoc sensitivity (added 2026-09-11; NOT a gate) ----------
+    # D2-d above uses class MEANS (its DRO side is mean-based). Section 3 states
+    # the class MEDIAN as the decision statistic, so the Hedge corner is also
+    # computed on medians and reported side by side. This block cannot change
+    # the pre-registered verdict (MASTER_REVISION_BY_SECTION §0.3, label [RA]).
+    ra_rows = []
+    for cid, gc in df.groupby("config_id"):
+        worst_med = {}
+        for corner in CORNERS:
+            sub = gc[gc["arm"] == corner]
+            worst_med[corner] = max(float(np.median(sub["makespan_M1"])),
+                                    float(np.median(sub["makespan_M2"])))
+        c_med = min(worst_med, key=worst_med.get)
+        ranked = sorted(worst_med.values())
+        row_mean = next(r for r in d2d_rows if r["config_id"] == int(cid))
+        ra_rows.append({
+            "config_id": int(cid), "c_star_Hedge_median": c_med,
+            "c_star_Hedge_mean": row_mean["c_star_Hedge"],
+            "c_star_DRO_mean": row_mean["c_star_DRO"],
+            "agree_with_mean_Hedge": bool(c_med == row_mean["c_star_Hedge"]),
+            "agree_with_DRO": bool(c_med == row_mean["c_star_DRO"]),
+            "median_margin_to_runner_up": float((ranked[1] - ranked[0]) / ranked[0]),
+        })
+    n_ra_agree = sum(r["agree_with_mean_Hedge"] for r in ra_rows)
 
     d2a = perwave_avg >= 0.90 and perwave_worst >= 0.80
     d2b = n_fosd >= 0.90 * n_cells
@@ -125,12 +166,22 @@ def main() -> None:
     print(f"    D2-d c*_DRO==c*_Hedge:{n_collapse}/{len(d2d_rows)}  "
           f"-> {'PASS' if d2d else 'FAIL'}")
     print(f"  H-D2 verdict: {h_d2}")
+    print(f"  [RA] median-based Hedge corner agrees with mean-based Hedge in "
+          f"{n_ra_agree}/{len(ra_rows)} configs (post-hoc sensitivity, not a gate)")
+    for r in ra_rows:
+        if not r["agree_with_mean_Hedge"]:
+            print(f"       config {r['config_id']}: median -> {r['c_star_Hedge_median']}, "
+                  f"mean -> {r['c_star_Hedge_mean']}, median margin "
+                  f"{100 * r['median_margin_to_runner_up']:.2f}%")
     print(f"\n  H-D3 (exploratory): qmax inv {n_qmax}/{n_cfg}, "
           f"qmin inv {n_qmin}/{n_cfg}, mean Spearman rho={mean_rho:+.3f}")
     print(f"  H-D3 branch: {h_d3_branch}")
 
     out = {
-        "generated": "2026-05-19", "block": "C",
+        "generated": date.today().isoformat(), "block": "C",
+        "source_csv": csv_path.name,
+        "analysis_note": ("gate logic exactly as the 2026-05-19 pre-registered "
+                          "script; [RA] median sensitivity block added 2026-09-11"),
         "H_D2": {"n_cells": n_cells, "perwave_avg": perwave_avg,
                  "perwave_worst": perwave_worst, "n_fosd": n_fosd,
                  "n_U_c_ok": n_uc, "n_collapse": n_collapse,
@@ -143,8 +194,14 @@ def main() -> None:
                              "n_identity_invariant": identity_inv,
                              "mean_spearman_rho": mean_rho,
                              "branch": h_d3_branch, "per_config": d3_rows},
+        "RA_median_hedge_sensitivity": {
+            "added": "2026-09-11",
+            "label": "[RA] post-hoc re-analysis on class medians; not a gate; "
+                     "cannot alter the pre-registered D2-d verdict",
+            "n_configs": len(ra_rows),
+            "n_agree_with_mean_Hedge": n_ra_agree,
+            "per_config": ra_rows},
     }
-    out_path = RESULTS_DIR / "v0_5_phase5_blockC.json"
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(out, f, indent=2)
     print(f"\nSaved {out_path}")

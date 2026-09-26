@@ -1,0 +1,353 @@
+---
+title: "Appendix A draft: proof of the conditional evaluator ordering (Proposition 3)"
+date: 2026-09-26
+status: "DRAFT FOR AUTHOR VERIFICATION (TH-1). Not inserted into any Word file. Proposition 3 keeps its label; it becomes Theorem 1 only after rows 4 to 12 of revision_2026-09-26_ijpr/MATH_VERIFICATION_LOG.md are signed (plan v0.2 D-3, master §00.5)."
+sources: "revision_2026-07-08/tier1_manuscript/W3_prop2_induction.md (Edits W3-E1 to W3-E3); W9_prongA_induction_verification.md (§2 code semantics, §5.2 Lemma 6 and the case-B corollary); W10_final_integration.md (§1 to §3, presentational fixes 1 to 4); the final Section 3 in Problem formulation.docx (bilingual mirror revision_2026-09-24/section3_bilingual_2026-09-24.md) §3.1, §3.2.3, §3.4.1, §3.5; revision_2026-09-02/SECTION_4_METHODOLOGY.md §4.3"
+scope: "Assembly and translation into the manuscript notation only. No new mathematical claim; every step is traceable to W3, W9, or W10 (map in the review notes at the end). Examples are hand-constructed minimal instances, neither publication scale nor prototype scale."
+---
+
+# Appendix A. Proof of the conditional evaluator ordering / 附录 A 评估器条件性排序的证明
+
+This appendix proves Proposition 3 of Section 4.3.1. Section A.1 fixes the setting and the conventions used throughout. Section A.2 states five lemmas and a corollary. Section A.3 carries out the induction over the reservation order, and Section A.4 gives the two counterexamples of Section 4.3.2 with complete timelines.
+
+> **中文：** 本附录证明第 4.3.1 节的命题 3。A.1 节给出证明所用的设定与约定；A.2 节陈述五个引理和一个推论；A.3 节沿预约顺序完成归纳；A.4 节给出第 4.3.2 节两个反例的完整时间线。
+
+## A.1 Setting and conventions / 设定与约定
+
+Fix a candidate wave \(W^k\) with its recorded sequence \(\pi^k\) (Equation (1)), and evaluate it under \(M_1\) and \(M_2\) from the common initial state of Section 3.1: every AMR, \(M_1\) slot, and \(M_2\) car is at floor \(f^0\) with availability \(t_W\), and no \(M_2\) trip is stored. Both evaluations are deterministic. We assume \(c\ge2\), so that \(Ec\ge E+1\); the case \(c=1\) is treated in Section A.3.6.
+
+> **中文：** 固定候选波次 \(W^k\) 及其预记录序列 \(\pi^k\)（式 (1)），从第 3.1 节的共同初始状态出发，分别在 \(M_1\) 与 \(M_2\) 下评价：所有 AMR、\(M_1\) 服务槽与 \(M_2\) 轿厢均位于楼层 \(f^0\)，可用时刻为 \(t_W\)，且 \(M_2\) 尚未保存任何行程。两次评价均为确定性的。下文假设 \(c\ge2\)，从而 \(Ec\ge E+1\)；\(c=1\) 的情形在 A.3.6 节单独处理。
+
+**Requests.** The reservation of order \(o_j^k\) (Equations (18) to (22)) issues at most two elevator requests. The request \(\varrho_j^S\) moves the assigned AMR to the source floor and exists when \(G_{a_j}^{j-1}\neq s_{o_j^k}\); the request \(\varrho_j^D\) delivers the order and exists when \(s_{o_j^k}\neq d_{o_j^k}\). A request is identified by its label, \((j,S)\) or \((j,D)\), and its origin and destination floors \((g_\varrho,h_\varrho)\):
+
+> **中文：** **请求。** 订单 \(o_j^k\) 的预约（式 (18) 至式 (22)）至多产生两个电梯请求：请求 \(\varrho_j^S\) 把所分配的 AMR 送至起始楼层，仅在 \(G_{a_j}^{j-1}\neq s_{o_j^k}\) 时存在；请求 \(\varrho_j^D\) 完成订单交付，仅在 \(s_{o_j^k}\neq d_{o_j^k}\) 时存在。请求由其标签 \((j,S)\) 或 \((j,D)\) 以及起讫楼层 \((g_\varrho,h_\varrho)\) 确定：
+
+\[
+\bigl(g_{\varrho_j^S},h_{\varrho_j^S}\bigr)=\bigl(G_{a_j}^{j-1},\,s_{o_j^k}\bigr),
+\qquad
+\bigl(g_{\varrho_j^D},h_{\varrho_j^D}\bigr)=\bigl(s_{o_j^k},\,d_{o_j^k}\bigr).
+\tag{A.1}
+\]
+
+The request times, \(t_j^0\) for \(\varrho_j^S\) and \(t_j^P\) for \(\varrho_j^D\), depend on the evaluator and are written \(t^{(1)}(\varrho)\) and \(t^{(2)}(\varrho)\) below. Lemma A.2(i) shows that, under conditions (a) and (b), the two evaluations issue the same labelled requests with the same floors. The reservation order \(\prec\) lists the requests of order \(o_1^k\) first, then those of \(o_2^k\), and so on, with \(\varrho_j^S\prec\varrho_j^D\). Both evaluators reserve requests in this order. As noted in Section 3.5.1, request times need not increase along \(\prec\); the induction below follows \(\prec\), exactly as the evaluators do.
+
+> **中文：** 请求时刻（\(\varrho_j^S\) 为 \(t_j^0\)，\(\varrho_j^D\) 为 \(t_j^P\)）取决于评估器，下文记为 \(t^{(1)}(\varrho)\) 与 \(t^{(2)}(\varrho)\)。引理 A.2（i）表明，在条件（a）与（b）下，两次评价产生标签与楼层均相同的请求。预约顺序 \(\prec\) 先列出订单 \(o_1^k\) 的请求，再列出 \(o_2^k\) 的请求，依此类推，并且 \(\varrho_j^S\prec\varrho_j^D\)。两个评估器都按这一顺序预约请求。如第 3.5.1 节所述，请求时刻沿 \(\prec\) 不必单调递增；下文的归纳与评估器一样沿 \(\prec\) 进行。
+
+**Evaluator-specific quantities.** As in Section 4.3.1, the evaluator is marked by the numeral 1 or 2: \(t^{(1)}(\varrho)\) and \(t^{(2)}(\varrho)\) are the request times, \(D_1(\varrho)\) and \(D_2(\varrho)\) the completion times returned by \(\mathcal R_{M_1}\) and \(\mathcal R_{M_2}\), and \(G^{(1)}_{\mathrm{sel}}(\varrho)\) and \(G^{(2)}_{\mathrm{sel}}(\varrho)\) the stored floors of the selected resources immediately before their state updates. Order completion times are \(t^C_{jkm}\) for \(m\in\{M_1,M_2\}\), as in Equation (13). The letter \(i\) is reserved for ranks.
+
+> **中文：** **与评估器相关的量。** 与第 4.3.1 节一致，用数字 1 或 2 标记评估器：\(t^{(1)}(\varrho)\) 与 \(t^{(2)}(\varrho)\) 为请求时刻，\(D_1(\varrho)\) 与 \(D_2(\varrho)\) 为 \(\mathcal R_{M_1}\) 与 \(\mathcal R_{M_2}\) 返回的完成时刻，\(G^{(1)}_{\mathrm{sel}}(\varrho)\) 与 \(G^{(2)}_{\mathrm{sel}}(\varrho)\) 为所选资源在状态更新前保存的楼层。订单完成时刻按式 (13) 记为 \(t^C_{jkm}\)，\(m\in\{M_1,M_2\}\)。字母 \(i\) 专用于表示秩次。
+
+**Resource states and ranks.** Slot \(v\in\mathcal V_1\) carries \((B_v,G_v)\), and car \(e\in\mathcal E\) carries \((B_e,G_e)\) and its latest trip record \(((\bar s_e,\bar d_e),L_e,D_e,P_e)\), all as in Section 3.5.1. At the start of each reservation step, \(x_{(1)}\le\cdots\le x_{(Ec)}\) are the sorted slot availabilities \(\{B_v\}\), and \(y_{(1)}\le\cdots\le y_{(E)}\) are the sorted car availabilities \(\{B_e\}\), with the convention \(y_{(E+1)}=+\infty\).
+
+> **中文：** **资源状态与秩次。** 服务槽 \(v\in\mathcal V_1\) 的状态为 \((B_v,G_v)\)，轿厢 \(e\in\mathcal E\) 的状态为 \((B_e,G_e)\) 及其最近行程记录 \(((\bar s_e,\bar d_e),L_e,D_e,P_e)\)，均与第 3.5.1 节相同。在每个预约步骤开始时，\(x_{(1)}\le\cdots\le x_{(Ec)}\) 为排序后的服务槽可用时刻 \(\{B_v\}\)，\(y_{(1)}\le\cdots\le y_{(E)}\) 为排序后的轿厢可用时刻 \(\{B_e\}\)，并约定 \(y_{(E+1)}=+\infty\)。
+
+**Two kinds of steps.** Under \(M_1\), every request creates a new trip on the slot selected by Equation (23). Under \(M_2\), a request joins a stored trip when \(\mathcal B(g,h,t)\neq\varnothing\) (Equations (25) and (26)) and otherwise creates a new trip (Equations (27) to (29)). A reservation step is a *new-trip step* when \(M_2\) creates a new trip and a *joining step* when the request joins a stored \(M_2\) trip; the two kinds are exhaustive. For a joining request on car \(e^\star\), the joined trip \(\tau\) is the latest trip of \(e^\star\), because Equation (25) tests the latest record, and its completion satisfies \(T_\tau=D_{e^\star}=B_{e^\star}\), because Equation (29) sets \(B_{e^\star}\leftarrow D_{e^\star}\) when the trip is created and Equation (26) leaves \(B_{e^\star}\) unchanged. Hence \(T_\tau\) is one of the entries \(y_{(1)},\ldots,y_{(E)}\).
+
+> **中文：** **两类步骤。** 在 \(M_1\) 下，每个请求都在式 (23) 选出的服务槽上新建行程。在 \(M_2\) 下，若 \(\mathcal B(g,h,t)\neq\varnothing\)，请求加入已保存的行程（式 (25) 与式 (26)），否则新建行程（式 (27) 至式 (29)）。若 \(M_2\) 新建行程，称该预约步骤为 *新建步骤*；若请求加入已保存的 \(M_2\) 行程，称为 *加入步骤*。两类步骤穷尽所有可能。对于加入轿厢 \(e^\star\) 的请求，被加入的行程 \(\tau\) 是 \(e^\star\) 的最近行程，因为式 (25) 依据最近记录判断；其完成时刻满足 \(T_\tau=D_{e^\star}=B_{e^\star}\)，因为式 (29) 在建立该行程时令 \(B_{e^\star}\leftarrow D_{e^\star}\)，而式 (26) 不改变 \(B_{e^\star}\)。因此 \(T_\tau\) 是 \(y_{(1)},\ldots,y_{(E)}\) 中的一个取值。
+
+**Ties.** Equations (18), (23), (26), and (27) resolve ties by index. The proof uses only two facts about the selections: a new trip is created on a resource of minimum availability, and a joined car's availability equals its latest trip's completion. The argument therefore holds for any tie-breaking rule; the index rules fix the realized paths on which conditions (b), (c), and (d) are checked.
+
+> **中文：** **并列处理。** 式 (18)、(23)、(26) 与 (27) 按索引处理并列。证明只用到关于选择的两个事实：新行程总是建立在可用时刻最小的资源上；被加入轿厢的可用时刻等于其最近行程的完成时刻。因此论证对任何并列处理规则都成立；索引规则确定了检查条件（b）、（c）与（d）时所用的实际路径。
+
+**Remark A.1 (server counts alone do not order completions).** At every time, at most \(Ec\) requests are in transit under \(M_2\), because each of the \(E\) cars carries at most \(c\) requests; this equals the number of \(M_1\) slots. The count does not by itself order completion times, for two reasons. First, each resource also stores a floor, and the earliest-availability rules (23) and (27) ignore it, so \(M_1\) can select a distant slot while an \(M_2\) car stands at the request's origin (Example A.2). Second, a joining request uses no additional car time, which can advance \(M_2\) relative to \(M_1\) (Example A.1). The induction below therefore tracks positions through condition (d) and joining through condition (c).
+
+> **中文：** **注 A.1（仅比较服务单元数量不足以排序完成时刻）。** 任一时刻，\(M_2\) 下在途请求至多为 \(Ec\) 个，因为 \(E\) 个轿厢各自至多搭载 \(c\) 个请求；这恰好等于 \(M_1\) 的服务槽数量。但这一计数本身并不能给出完成时刻的排序，原因有二。第一，每个资源还保存楼层，而最早可用规则 (23) 与 (27) 不考虑楼层，因此 \(M_1\) 可能选中远处的服务槽，而 \(M_2\) 的轿厢恰好停在请求起点（例 A.2）。第二，加入已有行程的请求不占用额外的轿厢时间，可能使 \(M_2\) 相对 \(M_1\) 提前（例 A.1）。因此，下文的归纳通过条件（d）处理位置，通过条件（c）处理同乘加入。
+
+## A.2 Lemmas / 引理
+
+**Lemma A.1 (per-trip parity).** A request \((g,h,t)\) that creates a new trip on a resource with availability \(B\) and stored floor \(G\) completes at
+
+> **中文：** **引理 A.1（单次行程的一致性）。** 若请求 \((g,h,t)\) 在可用时刻为 \(B\)、保存楼层为 \(G\) 的资源上新建行程，则其完成时刻为
+
+\[
+\theta(t,B,G;g,h)=\max\{t,B\}+\gamma|G-g|+\tau^L+\gamma|g-h|+\tau^U
+\tag{A.2}
+\]
+
+under both \(M_1\) and \(M_2\). The function \(\theta\) is nondecreasing in \(t\), in \(B\), and in \(|G-g|\), and \(\theta\ge B\).
+
+> **中文：** 该式在 \(M_1\) 与 \(M_2\) 下相同。函数 \(\theta\) 关于 \(t\)、\(B\) 与 \(|G-g|\) 均单调不减，且 \(\theta\ge B\)。
+
+*Proof.* Equation (24) is (A.2) for the selected slot. Equation (28) gives \(D_{e^\star}=L_{e^\star}+\gamma|g-h|+\tau^U\) with \(L_{e^\star}=\max\{t,B_{e^\star}\}+\gamma|G_{e^\star}-g|+\tau^L\), which is (A.2) for the selected car. The number of requests on a trip enters neither formula. Monotonicity and \(\theta\ge B\) are immediate. \(\square\)
+
+> **中文：** *证明。* 式 (24) 即所选服务槽情形下的 (A.2)。式 (28) 给出 \(D_{e^\star}=L_{e^\star}+\gamma|g-h|+\tau^U\)，其中 \(L_{e^\star}=\max\{t,B_{e^\star}\}+\gamma|G_{e^\star}-g|+\tau^L\)，即所选轿厢情形下的 (A.2)。行程搭载的请求数不进入任何一个公式。单调性与 \(\theta\ge B\) 可直接得到。\(\square\)
+
+**Lemma A.2 (request alignment and monotone recursions).** Suppose conditions (a) and (b) of Proposition 3 hold.
+
+> **中文：** **引理 A.2（请求对应与单调递推）。** 设命题 3 的条件（a）与（b）成立。
+
+(i) The two evaluations generate the same requests in the same reservation order: for every \(j\), the request \(\varrho_j^S\) exists in both or in neither, and likewise \(\varrho_j^D\), with identical origin and destination floors and the same issuing AMR. Only request times and completion times may differ.
+
+> **中文：** （i）两次评价按相同的预约顺序产生相同的请求：对每个 \(j\)，\(\varrho_j^S\) 要么在两次评价中都存在，要么都不存在，\(\varrho_j^D\) 亦然；其起点楼层、终点楼层与发出请求的 AMR 均相同，只有请求时刻与完成时刻可能不同。
+
+(ii) The request time of every request, and the completion time \(t^C_{jkm}\) of every order, are obtained from the completion times of requests reserved before them, and for \(t^C_{jkm}\) also from the order's own requests, by the same nondecreasing function for \(m=M_1\) and \(m=M_2\). For an order that issues no request, only earlier requests enter.
+
+> **中文：** （ii）每个请求的请求时刻，以及每个订单的完成时刻 \(t^C_{jkm}\)，都由在其之前预约的请求（对 \(t^C_{jkm}\) 还包括该订单自身的请求）的完成时刻，经同一个单调不减函数得到，\(m=M_1\) 与 \(m=M_2\) 所用函数相同。对于不产生任何请求的订单，只有更早的请求进入该函数。
+
+*Proof.* (i) Induct along \(\pi^k\). By (a) the \(j\)-th order is the same in both evaluations, and by (b) so is its AMR \(a_j\). Equation (22) sets the AMR's floor to the destination of the last order it served, or leaves it at \(f^0\), so by the induction hypothesis \(G_{a_j}^{j-1}\) is the same in both evaluations. Whether \(\varrho_j^S\) and \(\varrho_j^D\) exist, and their floors, depend only on \(G_{a_j}^{j-1}\), \(s_{o_j^k}\), and \(d_{o_j^k}\). The edge cases are covered: an order with \(s_{o_j^k}=d_{o_j^k}\) issues no delivery request, an AMR already at the source issues no request \(\varrho_j^S\), and in every case the AMR's floor after the order is \(d_{o_j^k}\). (ii) Equations (18) to (22) build \(t_j^0\), \(t_j^S\), \(t_j^P\), \(t_j^D\), \(t_j^C\), and \(H_{a_j}^j\) from \(t_W+r_{o_j^k}\), from \(H_{a_j}^{j-1}\) (which is \(t_W\) or an earlier order's completion), and from the returned completion times, using only maxima with fixed numbers and additions of \(\tau^P\) and \(\tau^D\). The AMR index is fixed by (b) and the branches of Equations (20) and (21) by part (i), so both evaluations apply the same composition of nondecreasing maps. Within an order, \(\varrho_j^S\prec\varrho_j^D\), and the time of \(\varrho_j^D\) uses the completion of \(\varrho_j^S\), which is reserved earlier. \(\square\)
+
+> **中文：** *证明。* （i）沿 \(\pi^k\) 归纳。由（a），第 \(j\) 个订单在两次评价中相同；由（b），其 AMR \(a_j\) 也相同。式 (22) 把 AMR 的楼层设为其上一个订单的目标楼层（若尚未服务订单则保持 \(f^0\)），因此由归纳假设，\(G_{a_j}^{j-1}\) 在两次评价中相同。\(\varrho_j^S\) 与 \(\varrho_j^D\) 是否存在及其楼层，只取决于 \(G_{a_j}^{j-1}\)、\(s_{o_j^k}\) 与 \(d_{o_j^k}\)。边界情形均已涵盖：\(s_{o_j^k}=d_{o_j^k}\) 的订单不产生交付请求；AMR 已在起始楼层时不产生 \(\varrho_j^S\)；在所有情形下，AMR 完成订单后都位于 \(d_{o_j^k}\)。（ii）式 (18) 至 (22) 由 \(t_W+r_{o_j^k}\)、\(H_{a_j}^{j-1}\)（等于 \(t_W\) 或某个更早订单的完成时刻）以及返回的完成时刻构造 \(t_j^0\)、\(t_j^S\)、\(t_j^P\)、\(t_j^D\)、\(t_j^C\) 与 \(H_{a_j}^j\)，所用运算只有与固定数取最大值以及加上 \(\tau^P\) 与 \(\tau^D\)。AMR 索引由（b）确定，式 (20) 与 (21) 的分支由（i）确定，因此两次评价施加的是同一组单调不减映射的复合。在同一订单内 \(\varrho_j^S\prec\varrho_j^D\)，\(\varrho_j^D\) 的请求时刻用到 \(\varrho_j^S\) 的完成时刻，而后者预约在先。\(\square\)
+
+**Lemma A.3 (min-replacement identity).** Let \(\mathcal Z\) be a finite multiset of real numbers with sorted elements \(\zeta_{(1)}\le\cdots\le\zeta_{(|\mathcal Z|)}\), set \(\zeta_{(|\mathcal Z|+1)}=+\infty\), and let \(\omega\ge\zeta_{(1)}\). If \(\mathcal Z'\) is obtained from \(\mathcal Z\) by deleting one instance of \(\zeta_{(1)}\) and inserting \(\omega\), then its sorted elements satisfy
+
+> **中文：** **引理 A.3（最小值替换恒等式）。** 设 \(\mathcal Z\) 为有限实数多重集，其排序后元素为 \(\zeta_{(1)}\le\cdots\le\zeta_{(|\mathcal Z|)}\)，约定 \(\zeta_{(|\mathcal Z|+1)}=+\infty\)，并设 \(\omega\ge\zeta_{(1)}\)。若从 \(\mathcal Z\) 中删去一个 \(\zeta_{(1)}\) 并插入 \(\omega\) 得到 \(\mathcal Z'\)，则其排序后元素满足
+
+\[
+\zeta'_{(i)}=\min\bigl\{\zeta_{(i+1)},\,\max\{\zeta_{(i)},\omega\}\bigr\},
+\qquad i=1,\ldots,|\mathcal Z|.
+\tag{A.3}
+\]
+
+*Proof.* After the deletion, the sorted elements are \(\zeta_{(2)}\le\cdots\le\zeta_{(|\mathcal Z|)}\). If \(\omega>\zeta_{(i+1)}\), the \(i\) smallest elements of \(\mathcal Z'\) are \(\zeta_{(2)},\ldots,\zeta_{(i+1)}\), so \(\zeta'_{(i)}=\zeta_{(i+1)}\), and the right side of (A.3) equals \(\zeta_{(i+1)}\) because \(\max\{\zeta_{(i)},\omega\}=\omega>\zeta_{(i+1)}\). If \(\omega\le\zeta_{(i+1)}\), the \(i\) smallest elements are \(\zeta_{(2)},\ldots,\zeta_{(i)}\) together with \(\omega\), so \(\zeta'_{(i)}=\max\{\zeta_{(i)},\omega\}\); for \(i=1\) this reads \(\zeta'_{(1)}=\omega\), which uses \(\omega\ge\zeta_{(1)}\). The right side equals the same value because \(\max\{\zeta_{(i)},\omega\}\le\zeta_{(i+1)}\). \(\square\)
+
+> **中文：** *证明。* 删除后排序元素为 \(\zeta_{(2)}\le\cdots\le\zeta_{(|\mathcal Z|)}\)。若 \(\omega>\zeta_{(i+1)}\)，则 \(\mathcal Z'\) 中最小的 \(i\) 个元素为 \(\zeta_{(2)},\ldots,\zeta_{(i+1)}\)，故 \(\zeta'_{(i)}=\zeta_{(i+1)}\)；而 \(\max\{\zeta_{(i)},\omega\}=\omega>\zeta_{(i+1)}\)，所以 (A.3) 右端也等于 \(\zeta_{(i+1)}\)。若 \(\omega\le\zeta_{(i+1)}\)，则最小的 \(i\) 个元素为 \(\zeta_{(2)},\ldots,\zeta_{(i)}\) 与 \(\omega\)，故 \(\zeta'_{(i)}=\max\{\zeta_{(i)},\omega\}\)；当 \(i=1\) 时即 \(\zeta'_{(1)}=\omega\)，这里用到 \(\omega\ge\zeta_{(1)}\)。由于 \(\max\{\zeta_{(i)},\omega\}\le\zeta_{(i+1)}\)，右端取同一值。\(\square\)
+
+**Lemma A.4 (ordering propagation).** Let \(x_{(1)}\le\cdots\le x_{(Ec)}\) and \(y_{(1)}\le\cdots\le y_{(E)}\) satisfy \(x_{(i)}\le y_{(i)}\) for \(i=1,\ldots,E\), with \(Ec\ge E+1\).
+
+> **中文：** **引理 A.4（排序的传递）。** 设 \(x_{(1)}\le\cdots\le x_{(Ec)}\) 与 \(y_{(1)}\le\cdots\le y_{(E)}\) 对 \(i=1,\ldots,E\) 满足 \(x_{(i)}\le y_{(i)}\)，且 \(Ec\ge E+1\)。
+
+(i) If one instance of \(x_{(1)}\) is replaced by \(\omega_1\ge x_{(1)}\), one instance of \(y_{(1)}\) by \(\omega_2\ge y_{(1)}\), and \(\omega_1\le\omega_2\), then the new sorted values satisfy \(x'_{(i)}\le y'_{(i)}\) for \(i=1,\ldots,E\).
+
+> **中文：** （i）若把一个 \(x_{(1)}\) 替换为 \(\omega_1\ge x_{(1)}\)，把一个 \(y_{(1)}\) 替换为 \(\omega_2\ge y_{(1)}\)，且 \(\omega_1\le\omega_2\)，则新的排序值对 \(i=1,\ldots,E\) 满足 \(x'_{(i)}\le y'_{(i)}\)。
+
+(ii) If one instance of \(x_{(1)}\) is replaced by \(\omega_1\) with \(x_{(1)}\le\omega_1\le y_{(1)}\), and the \(y\) values are unchanged, then \(x'_{(i)}\le y_{(i)}\) for \(i=1,\ldots,E\).
+
+> **中文：** （ii）若把一个 \(x_{(1)}\) 替换为满足 \(x_{(1)}\le\omega_1\le y_{(1)}\) 的 \(\omega_1\)，而 \(y\) 的取值不变，则对 \(i=1,\ldots,E\) 有 \(x'_{(i)}\le y_{(i)}\)。
+
+*Proof.* (i) By Lemma A.3, \(x'_{(i)}=\min\{x_{(i+1)},\max\{x_{(i)},\omega_1\}\}\) and \(y'_{(i)}=\min\{y_{(i+1)},\max\{y_{(i)},\omega_2\}\}\). For \(i<E\), \(x_{(i+1)}\le y_{(i+1)}\) by hypothesis; for \(i=E\), \(x_{(E+1)}\) exists because \(Ec\ge E+1\), and \(x_{(E+1)}\le+\infty=y_{(E+1)}\). Also \(\max\{x_{(i)},\omega_1\}\le\max\{y_{(i)},\omega_2\}\). A minimum of smaller terms is smaller. (ii) By Lemma A.3, \(x'_{(i)}\le\max\{x_{(i)},\omega_1\}\le\max\{y_{(i)},y_{(1)}\}=y_{(i)}\). \(\square\)
+
+> **中文：** *证明。* （i）由引理 A.3，\(x'_{(i)}=\min\{x_{(i+1)},\max\{x_{(i)},\omega_1\}\}\)，\(y'_{(i)}=\min\{y_{(i+1)},\max\{y_{(i)},\omega_2\}\}\)。当 \(i<E\) 时，由假设 \(x_{(i+1)}\le y_{(i+1)}\)；当 \(i=E\) 时，由 \(Ec\ge E+1\) 知 \(x_{(E+1)}\) 存在，且 \(x_{(E+1)}\le+\infty=y_{(E+1)}\)。又 \(\max\{x_{(i)},\omega_1\}\le\max\{y_{(i)},\omega_2\}\)。逐项较小的两个数取最小值，结果仍较小。（ii）由引理 A.3，\(x'_{(i)}\le\max\{x_{(i)},\omega_1\}\le\max\{y_{(i)},y_{(1)}\}=y_{(i)}\)。\(\square\)
+
+Part (ii) is used only in Remark A.2.
+
+> **中文：** （ii）仅在注 A.2 中使用。
+
+**Lemma A.5 (recency of late completions).** Throughout, the step is taken inside the coupled induction: conditions (a) and (b) are in force, and Lemma A.2 aligns the two evaluations' request sequences. Consider the start of the reservation step of a request \(\varrho\), and suppose \(D_1(\varrho')\le D_2(\varrho')\) for every request \(\varrho'\prec\varrho\). For each rank \(i=1,\ldots,E\), let \(\mathcal V_1^{>}(y_{(i)})=\{v\in\mathcal V_1:B_v>y_{(i)}\}\) be the slots and \(\mathcal E^{>}(y_{(i)})=\{e\in\mathcal E:B_e>y_{(i)}\}\) the cars whose availability exceeds \(y_{(i)}\). Then, for \(i=1,\ldots,E\),
+
+> **中文：** **引理 A.5（较晚完成时刻的时近性）。** 本引理中的步骤始终处于耦合归纳之内：条件（a）与（b）成立，且引理 A.2 使两次评价的请求序列一一对应。考虑请求 \(\varrho\) 的预约步骤开始时刻，并设对每个 \(\varrho'\prec\varrho\) 均有 \(D_1(\varrho')\le D_2(\varrho')\)。对每个秩次 \(i=1,\ldots,E\)，令 \(\mathcal V_1^{>}(y_{(i)})=\{v\in\mathcal V_1:B_v>y_{(i)}\}\) 为可用时刻高于 \(y_{(i)}\) 的服务槽集合，\(\mathcal E^{>}(y_{(i)})=\{e\in\mathcal E:B_e>y_{(i)}\}\) 为可用时刻高于 \(y_{(i)}\) 的轿厢集合。则对 \(i=1,\ldots,E\)，
+
+\[
+\bigl|\mathcal V_1^{>}(y_{(i)})\bigr|
+\le\sum_{e\in\mathcal E^{>}(y_{(i)})}P_e
+\le(E-i)\,c.
+\tag{A.4}
+\]
+
+*Proof.* Four observations.
+
+> **中文：** *证明。* 分四步说明。
+
+1. Each car's availability \(B_e\) is nondecreasing over the evaluation. A new trip sets \(B_e\leftarrow D_e\ge\max\{t,B_e\}+\tau^L+\tau^U>B_e\) (Equations (28) and (29)), and a joining request leaves \(B_e\) unchanged (Equation (26)). In particular \(y_{(i)}\ge t_W\).
+
+   > **中文：** 每个轿厢的可用时刻 \(B_e\) 在评价过程中单调不减：新建行程令 \(B_e\leftarrow D_e\ge\max\{t,B_e\}+\tau^L+\tau^U>B_e\)（式 (28) 与式 (29)），加入请求不改变 \(B_e\)（式 (26)）。特别地，\(y_{(i)}\ge t_W\)。
+
+2. An \(M_2\) trip that is no longer the latest trip of its car completed no later than the current \(y_{(1)}\). When the next trip of that car was created, Equation (27) selected the car, so its availability at that moment, which equals the earlier trip's completion, was at most every car's availability at that moment; by observation 1, every availability has only grown since.
+
+   > **中文：** 一个已不再是其轿厢最近行程的 \(M_2\) 行程，其完成时刻不晚于当前的 \(y_{(1)}\)。该轿厢的下一个行程建立时，式 (27) 选中了该轿厢，因此其当时的可用时刻（即较早行程的完成时刻）不大于当时每个轿厢的可用时刻；由第 1 步，此后各可用时刻只增不减。
+
+3. Hence every request \(\varrho'\prec\varrho\) with \(D_2(\varrho')>y_{(i)}\) was reserved, as a creator or a joiner, on the latest trip of a car in \(\mathcal E^{>}(y_{(i)})\), and \(D_2(\varrho')\) equals that car's current availability. The latest trip of car \(e\) carries \(P_e\le c\) requests, and \(|\mathcal E^{>}(y_{(i)})|\le E-i\) because at least \(i\) cars have availability at most \(y_{(i)}\). So at most \(\sum_{e\in\mathcal E^{>}(y_{(i)})}P_e\le(E-i)c\) earlier requests have \(D_2(\varrho')>y_{(i)}\).
+
+   > **中文：** 因此，每个满足 \(D_2(\varrho')>y_{(i)}\) 的请求 \(\varrho'\prec\varrho\)，无论是建立行程还是加入行程，都预约在 \(\mathcal E^{>}(y_{(i)})\) 中某个轿厢的最近行程上，且 \(D_2(\varrho')\) 等于该轿厢当前的可用时刻。轿厢 \(e\) 的最近行程搭载 \(P_e\le c\) 个请求；由于至少有 \(i\) 个轿厢的可用时刻不超过 \(y_{(i)}\)，\(|\mathcal E^{>}(y_{(i)})|\le E-i\)。所以满足 \(D_2(\varrho')>y_{(i)}\) 的更早请求至多有 \(\sum_{e\in\mathcal E^{>}(y_{(i)})}P_e\le(E-i)c\) 个。
+
+4. Each slot \(v\in\mathcal V_1^{>}(y_{(i)})\) has \(B_v>y_{(i)}\ge t_W\), so it has served at least one request, and \(B_v=D_1(\varrho'_v)\) for the last request \(\varrho'_v\) it served (the update after Equation (24)). Distinct slots give distinct requests. By the hypothesis, \(D_2(\varrho'_v)\ge D_1(\varrho'_v)>y_{(i)}\). Observation 3 now bounds the number of such slots, which gives (A.4). \(\square\)
+
+   > **中文：** 每个服务槽 \(v\in\mathcal V_1^{>}(y_{(i)})\) 满足 \(B_v>y_{(i)}\ge t_W\)，因此至少服务过一个请求，且 \(B_v=D_1(\varrho'_v)\)，其中 \(\varrho'_v\) 是它服务的最后一个请求（式 (24) 之后的更新规则）。不同服务槽对应不同请求。由假设，\(D_2(\varrho'_v)\ge D_1(\varrho'_v)>y_{(i)}\)。第 3 步即给出这类服务槽数量的上界，从而得到 (A.4)。\(\square\)
+
+**Corollary A.1 (a joining step preserves the ordering, any \(E\)).** Assume conditions (a) and (b), and consider a step at which request \(\varrho\) joins the stored trip \(\tau\) of car \(e^\star\) under \(M_2\). Suppose that \(D_1(\varrho')\le D_2(\varrho')\) for every \(\varrho'\prec\varrho\), that \(x_{(i)}\le y_{(i)}\) for \(i=1,\ldots,E\) at the start of the step, that \(D_1(\varrho)\ge x_{(1)}\), and that condition (c) holds for \(\tau\). Then \(D_1(\varrho)\le D_2(\varrho)\), and \(x_{(i)}\le y_{(i)}\) for \(i=1,\ldots,E\) after the step.
+
+> **中文：** **推论 A.1（加入步骤保持排序，适用于任意 \(E\)）。** 设条件（a）与（b）成立，考虑请求 \(\varrho\) 在 \(M_2\) 下加入轿厢 \(e^\star\) 已保存行程 \(\tau\) 的步骤。设对每个 \(\varrho'\prec\varrho\) 有 \(D_1(\varrho')\le D_2(\varrho')\)，在该步骤开始时对 \(i=1,\ldots,E\) 有 \(x_{(i)}\le y_{(i)}\)，\(D_1(\varrho)\ge x_{(1)}\)，且行程 \(\tau\) 满足条件（c）。则 \(D_1(\varrho)\le D_2(\varrho)\)，并且该步骤之后对 \(i=1,\ldots,E\) 仍有 \(x_{(i)}\le y_{(i)}\)。
+
+*Proof.* After joining, \(\tau\) contains at least two requests, so \(\varrho\in\mathcal G_\tau\), and Equation (44) gives \(D_1(\varrho)\le T_\tau=D_2(\varrho)\). Under \(M_2\), the availabilities are unchanged (Equation (26)), and \(T_\tau=B_{e^\star}\) (Section A.1). Joining requires \(P_{e^\star}\le c-1\) at the start of the step. Under \(M_1\), \(\varrho\) creates a new trip on a slot with availability \(x_{(1)}\), so one instance of \(x_{(1)}\) is replaced by \(\omega_1=D_1(\varrho)\), with \(x_{(1)}\le\omega_1\le T_\tau\). By Lemma A.3, \(x'_{(i)}=\min\{x_{(i+1)},\max\{x_{(i)},\omega_1\}\}\). Two kinds of rank are possible.
+
+> **中文：** *证明。* 加入后 \(\tau\) 至少包含两个请求，故 \(\varrho\in\mathcal G_\tau\)，由式 (44) 得 \(D_1(\varrho)\le T_\tau=D_2(\varrho)\)。在 \(M_2\) 下，各可用时刻不变（式 (26)），且 \(T_\tau=B_{e^\star}\)（A.1 节）。加入行程要求该步骤开始时 \(P_{e^\star}\le c-1\)。在 \(M_1\) 下，\(\varrho\) 在可用时刻为 \(x_{(1)}\) 的服务槽上新建行程，因此一个 \(x_{(1)}\) 被替换为 \(\omega_1=D_1(\varrho)\)，且 \(x_{(1)}\le\omega_1\le T_\tau\)。由引理 A.3，\(x'_{(i)}=\min\{x_{(i+1)},\max\{x_{(i)},\omega_1\}\}\)。秩次分为两类。
+
+- If \(y_{(i)}\ge T_\tau\), then \(x'_{(i)}\le\max\{x_{(i)},\omega_1\}\le\max\{y_{(i)},T_\tau\}=y_{(i)}\).
+
+  > **中文：** 若 \(y_{(i)}\ge T_\tau\)，则 \(x'_{(i)}\le\max\{x_{(i)},\omega_1\}\le\max\{y_{(i)},T_\tau\}=y_{(i)}\)。
+
+- If \(y_{(i)}<T_\tau\), then \(i\le E-1\) because \(T_\tau\le y_{(E)}\), and \(e^\star\in\mathcal E^{>}(y_{(i)})\). Lemma A.5, with \(P_{e^\star}\le c-1\), gives \(|\mathcal V_1^{>}(y_{(i)})|\le(E-i)c-1\le Ec-i-1\), where the last inequality is \(i(c-1)\ge0\). At least \(i+1\) slots therefore have availability at most \(y_{(i)}\), that is, \(x_{(i+1)}\le y_{(i)}\), and \(x'_{(i)}\le x_{(i+1)}\le y_{(i)}\).
+
+  > **中文：** 若 \(y_{(i)}<T_\tau\)，由 \(T_\tau\le y_{(E)}\) 知 \(i\le E-1\)，且 \(e^\star\in\mathcal E^{>}(y_{(i)})\)。结合 \(P_{e^\star}\le c-1\)，引理 A.5 给出 \(|\mathcal V_1^{>}(y_{(i)})|\le(E-i)c-1\le Ec-i-1\)，其中后一个不等式等价于 \(i(c-1)\ge0\)。因此至少有 \(i+1\) 个服务槽的可用时刻不超过 \(y_{(i)}\)，即 \(x_{(i+1)}\le y_{(i)}\)，从而 \(x'_{(i)}\le x_{(i+1)}\le y_{(i)}\)。
+
+Since the \(y\) values are unchanged, all \(E\) coordinates of the ordering hold after the step. \(\square\)
+
+> **中文：** 由于 \(y\) 的取值不变，该步骤之后排序的全部 \(E\) 个坐标均成立。\(\square\)
+
+The corollary uses condition (c) only for the joining request. The request that created \(\tau\) was handled when \(\tau\) was created, in a new-trip step.
+
+> **中文：** 该推论只对加入行程的请求使用条件（c）；建立行程 \(\tau\) 的请求在 \(\tau\) 建立时已作为新建步骤处理。
+
+## A.3 Proof of Proposition 3 / 命题 3 的证明
+
+### A.3.1 Invariants / 不变量
+
+The proof proceeds by induction along the reservation order \(\prec\). After the step of each request, (I1) and (I2) hold for every request \(\varrho'\) reserved so far, and (I3) holds for the current resource states.
+
+> **中文：** 证明沿预约顺序 \(\prec\) 归纳进行。每个请求的步骤完成后，（I1）与（I2）对所有已预约的请求 \(\varrho'\) 成立，（I3）对当前的资源状态成立。
+
+- (I1) Request-time ordering: \(t^{(1)}(\varrho')\le t^{(2)}(\varrho')\).
+- (I2) Completion-time ordering: \(D_1(\varrho')\le D_2(\varrho')\).
+- (I3) Availability ordering of the \(E\) earliest resources: \(x_{(i)}\le y_{(i)}\) for \(i=1,\ldots,E\).
+
+> **中文：**
+> - （I1）请求时刻排序：\(t^{(1)}(\varrho')\le t^{(2)}(\varrho')\)。
+> - （I2）完成时刻排序：\(D_1(\varrho')\le D_2(\varrho')\)。
+> - （I3）最早 \(E\) 个资源的可用时刻排序：对 \(i=1,\ldots,E\)，\(x_{(i)}\le y_{(i)}\)。
+
+(I1) follows from (I2): by Lemma A.2(ii), the request time of \(\varrho\) is the same nondecreasing function of the completions of requests \(\varrho'\prec\varrho\) in both evaluations, so (I2) for those requests gives \(t^{(1)}(\varrho)\le t^{(2)}(\varrho)\).
+
+> **中文：** （I1）由（I2）推出：由引理 A.2（ii），\(\varrho\) 的请求时刻在两次评价中是 \(\varrho'\prec\varrho\) 各请求完成时刻的同一个单调不减函数，因此这些请求满足（I2）即得 \(t^{(1)}(\varrho)\le t^{(2)}(\varrho)\)。
+
+### A.3.2 Base case / 初始情形
+
+Before the first request, every slot and every car has availability \(t_W\) and floor \(f^0\), so (I3) holds with equality, and (I1) and (I2) are vacuous. No elevator completion enters the time of the first request, so, by Lemma A.2(ii), its request time is the same in both evaluations. \(M_2\) stores no trip, so the request creates a new trip in both evaluations, on resources with availability \(t_W\) at floor \(f^0\). By Lemma A.1, its two completion times coincide. (I3) is restored by Lemma A.4(i) with \(\omega_1=\omega_2\).
+
+> **中文：** 第一个请求之前，所有服务槽与轿厢的可用时刻均为 \(t_W\)、楼层均为 \(f^0\)，故（I3）以等号成立，（I1）与（I2）为空真。第一个请求的请求时刻中不含任何电梯完成时刻，由引理 A.2（ii），其请求时刻在两次评价中相同。\(M_2\) 尚未保存行程，因此该请求在两次评价中都在可用时刻为 \(t_W\)、位于 \(f^0\) 的资源上新建行程。由引理 A.1，两个完成时刻相同。取 \(\omega_1=\omega_2\)，由引理 A.4（i）恢复（I3）。
+
+### A.3.3 Inductive step: new-trip step / 归纳步骤：新建步骤
+
+Both evaluations create a new trip. Under \(M_1\), the selected slot has availability \(x_{(1)}\) and stored floor \(G^{(1)}_{\mathrm{sel}}(\varrho)\); under \(M_2\), the selected car has availability \(y_{(1)}\) and stored floor \(G^{(2)}_{\mathrm{sel}}(\varrho)\). By (I1), \(t^{(1)}(\varrho)\le t^{(2)}(\varrho)\); by (I3) at \(i=1\), \(x_{(1)}\le y_{(1)}\); by condition (d), \(|G^{(1)}_{\mathrm{sel}}(\varrho)-g_\varrho|\le|G^{(2)}_{\mathrm{sel}}(\varrho)-g_\varrho|\). Lemma A.1 then gives
+
+> **中文：** 两次评价都新建行程。在 \(M_1\) 下，所选服务槽的可用时刻为 \(x_{(1)}\)、保存楼层为 \(G^{(1)}_{\mathrm{sel}}(\varrho)\)；在 \(M_2\) 下，所选轿厢的可用时刻为 \(y_{(1)}\)、保存楼层为 \(G^{(2)}_{\mathrm{sel}}(\varrho)\)。由（I1），\(t^{(1)}(\varrho)\le t^{(2)}(\varrho)\)；由（I3）在 \(i=1\) 处，\(x_{(1)}\le y_{(1)}\)；由条件（d），\(|G^{(1)}_{\mathrm{sel}}(\varrho)-g_\varrho|\le|G^{(2)}_{\mathrm{sel}}(\varrho)-g_\varrho|\)。于是由引理 A.1 得
+
+\[
+D_1(\varrho)
+=\theta\bigl(t^{(1)}(\varrho),x_{(1)},G^{(1)}_{\mathrm{sel}}(\varrho);g_\varrho,h_\varrho\bigr)
+\le\theta\bigl(t^{(2)}(\varrho),y_{(1)},G^{(2)}_{\mathrm{sel}}(\varrho);g_\varrho,h_\varrho\bigr)
+=D_2(\varrho),
+\tag{A.5}
+\]
+
+which extends (I2). \(M_1\) replaces one instance of \(x_{(1)}\) by \(\omega_1=D_1(\varrho)\), and \(M_2\) replaces one instance of \(y_{(1)}\) by \(\omega_2=D_2(\varrho)\). Lemma A.1 gives \(\omega_1\ge x_{(1)}\) and \(\omega_2\ge y_{(1)}\), and (A.5) gives \(\omega_1\le\omega_2\), so Lemma A.4(i) restores (I3).
+
+> **中文：** 这就把（I2）推广到 \(\varrho\)。\(M_1\) 把一个 \(x_{(1)}\) 替换为 \(\omega_1=D_1(\varrho)\)，\(M_2\) 把一个 \(y_{(1)}\) 替换为 \(\omega_2=D_2(\varrho)\)。由引理 A.1，\(\omega_1\ge x_{(1)}\)，\(\omega_2\ge y_{(1)}\)；由 (A.5)，\(\omega_1\le\omega_2\)。于是由引理 A.4（i）恢复（I3）。
+
+### A.3.4 Inductive step: joining step / 归纳步骤：加入步骤
+
+Under \(M_1\), \(\varrho\) creates a new trip on a slot with availability \(x_{(1)}\), so \(D_1(\varrho)\ge x_{(1)}\) by Lemma A.1. The induction hypothesis supplies (I2) for all \(\varrho'\prec\varrho\) and (I3) at the start of the step, and condition (c) holds for the joined trip. Corollary A.1 gives \(D_1(\varrho)\le D_2(\varrho)\), which extends (I2), and (I3) after the step.
+
+> **中文：** 在 \(M_1\) 下，\(\varrho\) 在可用时刻为 \(x_{(1)}\) 的服务槽上新建行程，由引理 A.1 得 \(D_1(\varrho)\ge x_{(1)}\)。归纳假设给出所有 \(\varrho'\prec\varrho\) 的（I2）以及步骤开始时的（I3），且被加入的行程满足条件（c）。由推论 A.1 得 \(D_1(\varrho)\le D_2(\varrho)\)，从而推广（I2），并且步骤之后（I3）成立。
+
+### A.3.5 Conclusion / 结论
+
+By induction, \(D_1(\varrho)\le D_2(\varrho)\) for every request. By Lemma A.2(ii), each order completion \(t^C_{jkm}\) is the same nondecreasing function of the completions of the order's own and earlier requests for \(m=M_1\) and \(m=M_2\); this covers orders that issue no request and only inherit earlier delays through the AMR's availability. Hence \(t^C_{jkM_1}\le t^C_{jkM_2}\) for every \(j\), and Equation (13) gives
+
+> **中文：** 由归纳，每个请求都满足 \(D_1(\varrho)\le D_2(\varrho)\)。由引理 A.2（ii），每个订单完成时刻 \(t^C_{jkm}\) 在 \(m=M_1\) 与 \(m=M_2\) 下都是该订单自身及更早请求完成时刻的同一个单调不减函数；这也涵盖不产生请求、仅通过 AMR 可用时刻继承先前延迟的订单。因此对每个 \(j\) 有 \(t^C_{jkM_1}\le t^C_{jkM_2}\)，再由式 (13) 得
+
+\[
+C_{\max}(W^k,\pi^k;M_1)
+=\max_{j\in\mathcal J_n}t^C_{jkM_1}-t_W
+\le\max_{j\in\mathcal J_n}t^C_{jkM_2}-t_W
+=C_{\max}(W^k,\pi^k;M_2),
+\]
+
+which, with the request-level ordering, is Equation (46). \(\square\)
+
+> **中文：** 连同请求层面的排序，即式 (46)。\(\square\)
+
+### A.3.6 The case \(c=1\) / \(c=1\) 的情形
+
+With \(c=1\), no request can join a trip: initially no trip is stored, and afterwards every stored trip has \(P_e=1\), so \(\mathcal B(g,h,t)=\varnothing\) in Equation (25). Every \(M_2\) request therefore creates a new trip, and \(M_2\) consists of \(E\) single-request resources, like the \(E\cdot1\) slots of \(M_1\). Both evaluators start from identical resource states, select resources by the same rule, and update them by the same formula (A.2). By induction along the reservation order, identical completions give identical AMR states and assignments (Equations (18) to (22)), hence identical requests and request times, so condition (b) holds automatically. The two evaluations therefore coincide, and Equation (46) holds with equality. Because the initial resources are identical, the equality holds for any label order used in both evaluators, not only for the index order of Section 3.5.
+
+> **中文：** 当 \(c=1\) 时，任何请求都无法加入行程：初始时没有保存的行程，此后每个保存的行程都有 \(P_e=1\)，故式 (25) 中 \(\mathcal B(g,h,t)=\varnothing\)。因此 \(M_2\) 的每个请求都新建行程，\(M_2\) 由 \(E\) 个单请求资源构成，与 \(M_1\) 的 \(E\cdot1\) 个服务槽相同。两个评估器从相同的资源状态出发，按同一规则选择资源，并按同一公式 (A.2) 更新状态。沿预约顺序归纳，相同的完成时刻给出相同的 AMR 状态与分配（式 (18) 至 (22)），从而请求与请求时刻都相同，条件（b）自动成立。因此两次评价完全相同，式 (46) 以等号成立。由于初始资源完全相同，只要两个评估器采用同一标签顺序，等式就成立，而不限于第 3.5 节的索引顺序。
+
+### A.3.7 What the proof uses / 证明所用的条件
+
+Conditions (a) and (b) enter through Lemma A.2, which aligns the requests and orders their times. Condition (d) is used only in new-trip steps, and condition (c) only in joining steps, for the joining request. Everything else is derived from the reservation rules of Section 3.5. Read in the contrapositive, the proposition classifies failures: when (a) and (b) hold, a reversal of either inequality in Equation (46) requires condition (c) or condition (d) to fail on the paired reservation paths. The converse does not hold, since a violated condition need not produce a reversal (Section 4.3.2).
+
+> **中文：** 条件（a）与（b）通过引理 A.2 起作用：它使请求一一对应并使请求时刻有序。条件（d）只在新建步骤中使用，条件（c）只在加入步骤中、且只对加入行程的请求使用。其余内容均由第 3.5 节的预约规则推出。从逆否命题看，该命题给出失效分类：当（a）与（b）成立时，式 (46) 中任一不等式发生反转，都要求条件（c）或条件（d）在对应的预约路径上失效。反之不成立：条件失效未必导致反转（第 4.3.2 节）。
+
+**Remark A.2 (a shorter route under a stronger condition; optional).** If every joining request satisfies \(D_1(\varrho)\le y_{(1)}\) at its step, the joining step follows from Lemma A.4(ii) with \(\omega_1=D_1(\varrho)\), without Lemma A.5, since then \(D_1(\varrho)\le y_{(1)}\le T_\tau=D_2(\varrho)\). At \(E=1\) this fleet-level condition coincides with the joining-request part of (c), which is all the proof uses, because \(y_{(1)}=B_{e^\star}=T_\tau\); for \(E\ge2\) it is stronger than that part. For example, take the timing constants of Section A.4 with \(E=c=2\), four AMRs, and orders \((1\to8)\), \((1\to2)\), \((1\to2)\), \((1\to8)\), all with ready-time offset 0 and recorded in the listed order. The fourth order's delivery request joins the trip of the car available at 44 with \(D_1(\varrho)=44=T_\tau\), so (c) holds, while \(y_{(1)}=14\); both makespans equal 49. Lemma A.5 is what allows the proof to rely on (c) alone. Treated as free numbers, the sorted states \(x=(0,6,9,9)\) and \(y=(5,6)\), with a request joining the trip that completes at \(T_\tau=6\) and \(D_1(\varrho)=6\), satisfy (c), yet replacing \(x_{(1)}\) by 6 would give \(x'_{(1)}=6>5=y_{(1)}\). Inside the coupled induction such a state cannot occur. At a joining step with \(E=c=2\) whose joined trip completes above \(y_{(1)}\), as here (\(T_\tau=6>5\)), Lemma A.5 with \(P_{e^\star}\le c-1\) allows at most \((E-1)c-1=1\) slot above \(y_{(1)}\), whereas the state has three.
+
+> **中文：** **注 A.2（在更强条件下的较短证明；可选）。** 若每个加入请求在其步骤中都满足 \(D_1(\varrho)\le y_{(1)}\)，则取 \(\omega_1=D_1(\varrho)\)，由引理 A.4（ii）即可完成加入步骤，无需引理 A.5，因为此时 \(D_1(\varrho)\le y_{(1)}\le T_\tau=D_2(\varrho)\)。在 \(E=1\) 时，这一车队层面的条件与（c）中针对加入请求的部分相同（证明只用到这一部分），因为此时 \(y_{(1)}=B_{e^\star}=T_\tau\)；当 \(E\ge2\) 时它比这一部分更强。例如，采用 A.4 节的时间常数，取 \(E=c=2\)、四台 AMR，订单依次为 \((1\to8)\)、\((1\to2)\)、\((1\to2)\)、\((1\to8)\)，就绪时间偏移量均为 0，记录序列按所列顺序。第四个订单的交付请求加入可用时刻为 44 的轿厢的行程，\(D_1(\varrho)=44=T_\tau\)，故（c）成立，而 \(y_{(1)}=14\)；两个完工期均为 49。正是引理 A.5 使证明只需依赖（c）。若把状态视为任意给定的数，排序状态 \(x=(0,6,9,9)\)、\(y=(5,6)\)，某请求加入完成时刻为 \(T_\tau=6\) 的行程且 \(D_1(\varrho)=6\)，此时（c）成立，但把 \(x_{(1)}\) 替换为 6 后会得到 \(x'_{(1)}=6>5=y_{(1)}\)。在耦合归纳之内这样的状态不会出现：在 \(E=c=2\)、且被加入行程的完成时刻高于 \(y_{(1)}\) 的加入步骤中（此处 \(T_\tau=6>5\)），结合 \(P_{e^\star}\le c-1\)，引理 A.5 允许至多 \((E-1)c-1=1\) 个服务槽的可用时刻高于 \(y_{(1)}\)，而该状态有三个。
+
+## A.4 Neither (c) nor (d) can be dropped: two examples / 条件（c）与（d）都不能去掉：两个实例
+
+Both examples use \(t_W=0\), \(f^0=1\), \(E=1\), \(c=2\), \(\gamma=5\), \(\tau^L=\tau^U=2\), and \(\tau^P=\tau^D=5\), with times in seconds, as in Section 4.3.2. They are hand-constructed minimal instances, not drawn from any experiment. In each, conditions (a) and (b) hold, exactly one of (c) and (d) fails, and the makespan ordering reverses, so neither condition can be dropped from Proposition 3. A violated condition alone need not produce a reversal (Section 4.3.2). Each example can be reproduced by one deterministic call of the closed-form evaluators.
+
+> **中文：** 两个实例均采用 \(t_W=0\)、\(f^0=1\)、\(E=1\)、\(c=2\)、\(\gamma=5\)、\(\tau^L=\tau^U=2\)、\(\tau^P=\tau^D=5\)，时间单位为秒，与第 4.3.2 节相同。它们是人工构造的最小实例，不来自任何实验。在每个实例中，条件（a）与（b）成立，（c）与（d）中恰有一个失效，完工期排序发生反转，因此两个条件都不能从命题 3 中去掉。单个条件失效本身未必导致反转（第 4.3.2 节）。每个实例都可以通过一次确定性的闭式评估器调用复现。
+
+### Example A.1 (shared-trip overtaking: condition (c) cannot be dropped) / 例 A.1（共享行程超越：条件（c）不能去掉）
+
+Let \(F=3\) and \(A=2\). Order \(o_1\) travels from floor 1 to floor 3 with \(r_{o_1}=0\), and order \(o_2\) from floor 1 to floor 3 with \(r_{o_2}=2\); the recorded sequence (Equation (1)) is \(\pi^k=(o_1,o_2)\). Order \(o_1\) goes to AMR 1 (both AMRs are available at 0; index rule). The AMR is at the source floor, so there is no request \(\varrho_1^S\); the delivery request \(\varrho_1^D\), with floors \((1,3)\), is issued at \(t_1^P=5\) in both evaluations. Order \(o_2\) goes to AMR 2, whose availability 0 is below AMR 1's availability 24 in both evaluations, so (b) holds; \(t_2^0=2\), and \(\varrho_2^D\), with floors \((1,3)\), is issued at \(t_2^P=7\) in both evaluations.
+
+> **中文：** 令 \(F=3\)、\(A=2\)。订单 \(o_1\) 从第 1 层运往第 3 层，\(r_{o_1}=0\)；订单 \(o_2\) 同样从第 1 层运往第 3 层，\(r_{o_2}=2\)。记录序列（式 (1)）为 \(\pi^k=(o_1,o_2)\)。订单 \(o_1\) 分配给 AMR 1（两台 AMR 在时刻 0 均可用，按索引规则）。该 AMR 已在起始楼层，因此不存在 \(\varrho_1^S\)；交付请求 \(\varrho_1^D\) 的起讫楼层为 \((1,3)\)，在两次评价中均于 \(t_1^P=5\) 发出。订单 \(o_2\) 分配给 AMR 2：在两次评价中，其可用时刻 0 都早于 AMR 1 的 24，故（b）成立；\(t_2^0=2\)，起讫楼层为 \((1,3)\) 的 \(\varrho_2^D\) 在两次评价中均于 \(t_2^P=7\) 发出。
+
+| Request | Evaluator | Resource and action | Wait until | Reposition | Load | Travel | Unload | Completion | Order finishes |
+|---|---|---|---|---|---|---|---|---|---|
+| \(\varrho_1^D\): 1 to 3, issued at 5 | \(M_1\) | slot 1 (\(B=0\), floor 1), new trip | 5 | none | 5 to 7 | 7 to 17 | 17 to 19 | 19 | 24 |
+| \(\varrho_2^D\): 1 to 3, issued at 7 | \(M_1\) | slot 2 (\(B=0\), floor 1), new trip | 7 | none | 7 to 9 | 9 to 19 | 19 to 21 | 21 | 26 |
+| \(\varrho_1^D\): 1 to 3, issued at 5 | \(M_2\) | car 1 (\(B=0\), floor 1), new trip, \(L=7\) | 5 | none | 5 to 7 | 7 to 17 | 17 to 19 | 19 | 24 |
+| \(\varrho_2^D\): 1 to 3, issued at 7 | \(M_2\) | joins car 1's trip (pair (1,3), \(P=1<2\), \(7\le L=7\)) | | | | | | 19 | 24 |
+
+> **中文：** 表中各列依次为：请求、评估器、所用资源与动作、等待至、调位、装载、运行、卸载、完成时刻、订单完成时刻。\(M_1\) 下两个请求分别在服务槽 1 与服务槽 2 上新建行程，完成时刻为 19 与 21；\(M_2\) 下第一个请求在轿厢 1 上新建行程（装载结束 \(L=7\)），第二个请求在 \(7\le L=7\) 时加入该行程，两者均在 19 完成。
+
+The makespans are \(C_{\max}(W^k,\pi^k;M_1)=26\) and \(C_{\max}(W^k,\pi^k;M_2)=24\). Condition (d) holds: the only request with a new trip in both evaluations is \(\varrho_1^D\), with \(|1-1|\le|1-1|\). Condition (c) fails: the trip of car 1 has \(\mathcal G_\tau=\{\varrho_1^D,\varrho_2^D\}\) and \(T_\tau=19\), but \(D_1(\varrho_2^D)=21>19\). The shared trip began loading at time 5, when \(\varrho_1^D\) was issued (the car had been free since time 0), and \(\varrho_2^D\) joined at its request time 7, as the loading window closed (\(7\le L=7\)). The private \(M_1\) slot cannot begin loading before the request time 7. The two-second reversal equals the ready-time stagger.
+
+> **中文：** 完工期为 \(C_{\max}(W^k,\pi^k;M_1)=26\)，\(C_{\max}(W^k,\pi^k;M_2)=24\)。条件（d）成立：两次评价中都新建行程的请求只有 \(\varrho_1^D\)，且 \(|1-1|\le|1-1|\)。条件（c）失效：轿厢 1 的行程满足 \(\mathcal G_\tau=\{\varrho_1^D,\varrho_2^D\}\)、\(T_\tau=19\)，但 \(D_1(\varrho_2^D)=21>19\)。共享行程在 \(\varrho_1^D\) 发出的时刻 5 开始装载（轿厢自时刻 0 起即已空闲），\(\varrho_2^D\) 在其请求时刻 7、即装载窗口关闭之时加入（\(7\le L=7\)）；而 \(M_1\) 的独立服务槽不能早于请求时刻 7 开始装载。两秒的反转量恰好等于就绪时间的错开量。
+
+### Example A.2 (adverse repositioning: condition (d) cannot be dropped) / 例 A.2（不利调位：条件（d）不能去掉）
+
+Let \(F=8\) and \(A=1\). Order \(o_1\) travels from floor 1 to floor 8 and order \(o_2\) from floor 8 to floor 7, both with ready-time offset 0; the recorded sequence (Equation (1)) is \(\pi^k=(o_1,o_2)\). With one AMR, (b) holds trivially. For \(o_1\), the delivery request \(\varrho_1^D\), with floors \((1,8)\), is issued at 5, and the order finishes at \(44+5=49\) in both evaluations, leaving the AMR at floor 8. For \(o_2\), the AMR is already at the source floor 8, so there is no request \(\varrho_2^S\); \(t_2^0=49\), and \(\varrho_2^D\), with floors \((8,7)\), is issued at \(t_2^P=54\) in both evaluations.
+
+> **中文：** 令 \(F=8\)、\(A=1\)。订单 \(o_1\) 从第 1 层运往第 8 层，订单 \(o_2\) 从第 8 层运往第 7 层，就绪时间偏移量均为 0；记录序列（式 (1)）为 \(\pi^k=(o_1,o_2)\)。只有一台 AMR，（b）自然成立。对 \(o_1\)，起讫楼层为 \((1,8)\) 的交付请求 \(\varrho_1^D\) 于时刻 5 发出，订单在两次评价中均于 \(44+5=49\) 完成，AMR 停在第 8 层。对 \(o_2\)，AMR 已在起始楼层 8，不存在 \(\varrho_2^S\)；\(t_2^0=49\)，起讫楼层为 \((8,7)\) 的 \(\varrho_2^D\) 在两次评价中均于 \(t_2^P=54\) 发出。
+
+| Request | Evaluator | Resource and action | Wait until | Reposition | Load | Travel | Unload | Completion | Order finishes |
+|---|---|---|---|---|---|---|---|---|---|
+| \(\varrho_1^D\): 1 to 8, issued at 5 | \(M_1\) | slot 1 (\(B=0\), floor 1), new trip | 5 | none | 5 to 7 | 7 to 42 | 42 to 44 | 44 | 49 |
+| \(\varrho_2^D\): 8 to 7, issued at 54 | \(M_1\) | slot 2 (\(B=0<44\), floor 1), new trip | 54 | 54 to 89 (floor 1 to 8) | 89 to 91 | 91 to 96 | 96 to 98 | 98 | 103 |
+| \(\varrho_1^D\): 1 to 8, issued at 5 | \(M_2\) | car 1 (\(B=0\), floor 1), new trip | 5 | none | 5 to 7 | 7 to 42 | 42 to 44 | 44 | 49 |
+| \(\varrho_2^D\): 8 to 7, issued at 54 | \(M_2\) | car 1 (\(B=44\), floor 8), new trip; no match with stored pair (1,8) | 54 | none | 54 to 56 | 56 to 61 | 61 to 63 | 63 | 68 |
+
+> **中文：** 表中各列含义同例 A.1。\(M_1\) 下，第二个请求由最早可用的服务槽 2 承担（可用时刻 0 早于 44），但该服务槽位于第 1 层，需空载上行 7 层至第 8 层，完成时刻为 98；\(M_2\) 下，轿厢已位于第 8 层，无需调位，完成时刻为 63。
+
+The makespans are \(C_{\max}(W^k,\pi^k;M_1)=103\) and \(C_{\max}(W^k,\pi^k;M_2)=68\). Condition (c) holds vacuously, since no \(M_2\) trip carries two requests. Condition (d) fails at \(\varrho_2^D\), where both evaluations create a new trip: \(|G^{(1)}_{\mathrm{sel}}(\varrho_2^D)-g_{\varrho_2^D}|=|1-8|=7>0=|G^{(2)}_{\mathrm{sel}}(\varrho_2^D)-g_{\varrho_2^D}|\). The 35-second reversal is the seven-floor repositioning leg: the earliest-availability rule (23) selects slot 2, idle since time 0 at floor 1, while slot 1 and the \(M_2\) car stand at floor 8. The example has no shared trip, so shared-trip overtaking is not the only channel of reversal.
+
+> **中文：** 完工期为 \(C_{\max}(W^k,\pi^k;M_1)=103\)，\(C_{\max}(W^k,\pi^k;M_2)=68\)。条件（c）空真成立，因为没有任何 \(M_2\) 行程搭载两个请求。条件（d）在两次评价都新建行程的 \(\varrho_2^D\) 处失效：\(|G^{(1)}_{\mathrm{sel}}(\varrho_2^D)-g_{\varrho_2^D}|=|1-8|=7>0=|G^{(2)}_{\mathrm{sel}}(\varrho_2^D)-g_{\varrho_2^D}|\)。35 秒的反转量正是七层的调位行程：最早可用规则 (23) 选中了自时刻 0 起空闲、位于第 1 层的服务槽 2，而服务槽 1 与 \(M_2\) 轿厢都停在第 8 层。此例没有共享行程，因此共享行程超越并不是排序反转的唯一渠道。
+
+---
+
+## Review notes for the author (not for the manuscript) / 作者审阅说明（不进入论文）
+
+**1. Label map and verification-log rows.** Read the appendix in this order and sign the matching rows of `MATH_VERIFICATION_LOG.md`.
+
+| Appendix A item | Source | Log row |
+|---|---|---|
+| A.1 conventions; Remark A.1 | W3-E1 (Lemma 2 and its remark), W9 §2 items 4 and 6, W9 §4 Q4, W10 fix 4 | (context for rows 4 to 9) |
+| Lemma A.1 (per-trip parity) | original appendix Lemma 1 (archive/paper_draft/manuscript/chain_dominance_proof_v1.0.md X.2), W9 §2 item 1 | 8 |
+| Lemma A.2 (alignment, monotone recursions) | W3-E2 X.4.2 (Lemma 3) and X.4.3 ((I1) from (I2)), W9 §2 item 5, W10 fix 3 | 4 |
+| Lemma A.3 (min-replacement) | W3-E2 X.4.3 (Lemma 4), W9 §4 Q1 | 5 |
+| Lemma A.4 (ordering propagation) | W3-E2 X.4.3 (Lemma 5), W9 §4 Q2 | 6 |
+| Lemma A.5 and Corollary A.1 | W9 §5.2 (Lemma 6 and the case-B corollary), W10 fixes 1 and 2 | 7 |
+| A.3.2 to A.3.5 (base, new-trip step = W3 case F, joining step = W3 case B, conclusion) | W3-E2 X.4.4 to X.4.7 with case B replaced per W9 §5.2 and §7 | 8, 9 |
+| A.3.6 (\(c=1\)) | W3-E2 X.4.1, W9 row 7, W10 fix 4 | 9 |
+| A.3.7 and Remark A.2 | W3-E2 X.4.1 ((c*) implies (c) for the joining request), X.4.8 and Remark X.3, W9 §5.2 (unreachability), W9 §5.3 (the reachable wave where (c) holds and the fleet-level condition fails), W9 §7 (optional (c*) remark) | 7, 9 |
+| Examples A.1 and A.2 | W3-E3 Examples X.1 and X.2, recomputed with Equations (18) to (29) on 2026-09-26 | 10, 11 |
+
+**2. Changes relative to the sources (presentational only).**
+- Labels: W3 Lemma 1 → Lemma A.1; Lemma 3 → A.2; Lemma 4 → A.3; Lemma 5 → A.4; W9 Lemma 6 → A.5; the case-B corollary → Corollary A.1. W3's Lemma 2 (server-count bound) is not used by the proof, so it appears as Remark A.1 with its content unchanged.
+- Notation translated to Sections 3 and 4: requests \(\varrho_j^S\), \(\varrho_j^D\) (Equation (A.1)) and reservation order \(\prec\) replace \(r_1,\ldots,r_m\) (both \(r\) and \(k\) are taken: \(r_o\) is a ready offset, \(k\) a candidate); \(t^{(i)}(\varrho)\), \(D_i(\varrho)\), \(G^{(i)}_{\mathrm{sel}}(\varrho)\), \(g_\varrho\), \(\mathcal G_\tau\), \(T_\tau\) as in Section 4.3.1; \(B_v\), \(B_e\), \(P_e\) as in Section 3.5; \(\mathcal V_1^{>}(y_{(i)})\) and \(\mathcal E^{>}(y_{(i)})\), defined only at the thresholds \(y_{(i)}\), replace \(N_1(y)\) and \(P_2(y)\) (\(N\) is taken by \(N^{\uparrow}(W)\), and a bare threshold \(y\) would blur with the ranks \(y_{(i)}\)); \(\omega_1,\omega_2\) replace \(u,v\) (\(v\) is a slot index); \(\mathcal Z,\zeta\) in Lemma A.3 (\(Z\) is a phase multiplier, \(n\) the wave size); \(\theta\) for the per-trip completion (unused elsewhere). The rank index stays \(i\), as in the Section 4.3.1 sketch; evaluator marks are always the numerals 1 and 2.
+- "Dominance" wording replaced by "ordering" (TERMINOLOGY §7). W3's cases F and B are called the new-trip step and the joining step, because \(F\) is the number of floors and \(B_v\), \(B_e\), \(\mathcal B\) are availabilities and the boardable set; the text says "joins a stored trip", as in Section 3.5.
+- W10 fixes applied: (1) Corollary A.1 states its full hypotheses; (2) Lemma A.5 opens with the coupled-induction sentence; (3) the conclusion says "own and earlier requests" and covers orders without requests; (4) the tie convention is stated once in A.1 (Section 3.5 already resolves ties by index), and A.3.6 cites the identical initial resources.
+- Lemma A.4(ii) now states the premise \(x_{(1)}\le\omega_1\) that W3 kept only in a [VERIFY] note; Lemma A.1 states the monotonicity of \(\theta\) that W3's case F used implicitly.
+- Condition (c*) no longer appears in the proof; it survives only in the optional Remark A.2 (W9 §7 "belt-and-suspenders" option). Delete Remark A.2 and Lemma A.4(ii) if you prefer the shortest appendix.
+- Dropped on purpose: W3 Corollary X.2 (waves without joins need only (a), (b), and (d)). Proposition 3 already covers such waves, because (c) then holds vacuously; nothing in Sections 3 and 4 or the IJPR folder cites the corollary.
+
+**3. Notation hazards found while assembling (not changed; your call).**
+- \(D_e\) (a car's stored trip completion, Section 3.5) and \(D_1(\varrho)\), \(D_2(\varrho)\) (request completions, Section 4.3.1) share the letter; "\(D_1\)" without its argument could be read as car 1's stored completion. The appendix always writes the argument \((\varrho)\). A rename (for example \(D^{\mathrm{req}}_i(\varrho)\), or \(\bar D_e\) for the car record) would remove the hazard in both sections.
+- \(T(W)\) is the ready-time dispersion axis (Section 3.3.2) and \(T_\tau\) a trip completion (Section 4.3.1); they are distinguishable by their subscripts. The final Section 3 uses \(w_s\), \(s\in\mathcal S\), and \(\eta\) as its decision variables (Table 3.3, Equation (32)); the appendix uses none of them.
+- The trip index \(\tau\) (in \(T_\tau\) and \(\mathcal G_\tau\), Section 4.3.1) sits next to the durations \(\tau^L\), \(\tau^U\), \(\tau^P\), \(\tau^D\) (Section 3.2), for example in Lemma A.5, observation 1, and in Corollary A.1. Superscripts keep them apart, but a different trip letter would read more easily.
+- Section 4.3.1 itself uses \(i\) both for evaluators (\(D_i\), \(G^{(i)}_{\mathrm{sel}}\), \(i\in\{1,2\}\)) and for ranks (\(x_{(i)}\), \(y_{(i)}\)) in its proof sketch. The appendix keeps \(i\) for ranks only and writes evaluator marks as numerals.
+
+**4. Suggested sentence for the statement of Proposition 3 (TH-1 requirement; not inserted).** "Equivalently, when (a) and (b) hold, a reversal of either inequality in Equation (46) requires (c) or (d) to fail." It would follow Equation (46) in Section 4.3.1. A.3.7 already contains it inside the appendix.
+
+**5. Numerical corroboration (support, not a substitute for your reading).** From W9 §5.3 and W10 §1 and §3: 110,000 verification waves at \(E\in\{1,2,3\}\) with per-step invariant checks (zero violations); 120,000 coupled walks with 201,894 joining events checking every inequality of Lemma A.5 and Corollary A.1 (zero violations; the bound is attained with equality); the B-11 census of 1,150,800 instances and its \(E=3\) slice of 200,000 (zero violations). These are verification-harness ensembles, neither publication scale nor prototype scale. Examples A.1 and A.2 were recomputed by hand on 2026-09-26 against Equations (18) to (29); they match W3 and the 2026-07-08 simulator calls (26.0 vs 24.0; 103.0 vs 68.0).
+
+**5a. Section 3 source.** The appendix cites the final Section 3 (`Problem formulation.docx`; bilingual mirror `revision_2026-09-24/section3_bilingual_2026-09-24.md`). The first version of this draft, and the independent check of note 7, used the superseded `SECTION_3_MODEL_FORMULATION.md` (now in `archive/revision_2026-09-02/`). On 2026-09-26 the two were compared equation by equation: the numbering (1) to (32) is unchanged, and Equations (18) to (29), which the proof uses, have the same content (only notation changed: the \(\mathrm{lexargmin}\) operator is now defined in words in Section 3.5.1, and Equation (19) writes the state map as \(\mathcal R_m\)). Three differences mattered and are applied: Equation (1) is now the recorded sequence of candidate generation, not a sort by ready offset and identifier, so the examples state their sequences; Equation (13) carries \(\pi^k\); and the decision variables of Table 3.3 are now \(w_s\) and \(\eta\).
+
+**6. Not in this appendix.** Theorem 2 and the candidate-level reduction (log row 12; the latter is drafted in `SECTION_4_5_GSV_draft.md`), Corollary 2 (row 13), and Theorem R (row 14) belong to other appendices or to Section 4.4.
+
+**7. Independent check of this draft (2026-09-26, before your reading).** A separate assistant instance, told to refute the draft, checked it against Sections 3 and 4, W3, W9, W10, and the simulator. Verdict: the proof chain holds (Lemmas A.1 to A.5, Corollary A.1, base, both inductive steps, conclusion, \(c=1\)), and all four W10 fixes are applied. It re-implemented Equations (18) to (29) on 40,000 random waves with \(E,c\in\{1,2,3\}\): no makespan mismatch with `simulate_wave` in 4,000 cross-checks, no ordering or (I3) violation in the 18,004 waves where (b), (c), and (d) hold, no violation in 350,744 checks of Lemma A.5 and 3,263 joining steps of Corollary A.1, and exact equality in every \(c=1\) wave (verification-harness ensembles, neither publication scale nor prototype scale). It found two false sentences outside the proof chain, both corrected:
+- Remark A.2 claimed "at most 1 slot above \(y_{(1)}\)" at every joining step with \(E=c=2\). This needs the joined trip to complete above \(y_{(1)}\) (W9 had it in a parenthetical). Counterexample with (a) to (d) holding: \(E=c=2\), four AMRs, orders \((1\to8)\), \((1\to8)\), \((1\to2)\), \((1\to2)\), offsets 0; at the fourth request the join is on the car available at \(y_{(1)}=14\), and two slots sit above 14.
+- Example A.1 said the car "became free at time 5". The car was free from 0; loading started at 5 because \(\varrho_1^D\) was issued then.
+It also found two gaps, both closed: Remark A.2 compared the fleet-level condition with all of (c) instead of its joining-request part (counterexample: \(E=1\), \(c=3\), \(A=2\), orders \((1\to8)\), \((1\to8)\), \((8\to7)\), \((8\to7)\), where every joiner satisfies the fleet-level condition but the creator of the second shared trip violates (c); makespans 103 and 68); and A.3.6 skipped the AMR layer. Nine presentation points were applied: the order-completion index, request notation without evaluator-specific times in (A.1), "immediately before its state update", "cannot be dropped" instead of "necessity", "(b), (c), and (d)" in the tie paragraph, the A.3.1 preamble, the processing sequence stated explicitly in Example A.2, \(C_{\max}(W^k,\pi^k;\cdot)\) in the examples, and the step names. The assistant recomputed both counterexamples by hand and with the simulator (49 and 49; 103 and 68) before correcting.

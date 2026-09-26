@@ -1,0 +1,180 @@
+--- revision_2026-09-26_ijpr/backups/MASTER_REVISION_BY_SECTION.md.orig_2026-09-26	2026-09-11 15:56:18.382272300 +0900
++++ revision_2026-09-02/MASTER_REVISION_BY_SECTION.md	2026-09-26 11:32:22.455945600 +0900
+@@ -1,15 +1,75 @@
+ ---
+ title: "Paper 3 master revision by section"
+ date: 2026-09-02
+-last_updated: 2026-09-11
+-status: "ACTIVE MASTER REVISION CONTROL — 单一施工入口"
++last_updated: 2026-09-26
++status: "ACTIVE MASTER REVISION CONTROL — 单一施工入口（2026-09-26 起叠加 §00 IJPR v2 覆盖层；覆盖层为草案，待作者审阅；原文件备份于 revision_2026-09-26_ijpr/backups/）"
+ scope: "折叠旧版本，统一 2026-09-02 审查、现有修改文件、理论工作包、实验结果与逐章重写顺序"
+-supersedes_for_action: "paper_draft/manuscript/00_INDEX.md；archive/revisions/revision_0719_snapshot 中各 README（原 revision_0719）的旧施工结论；W10 中被 2026-08-06/09-02 审查推翻的叙事裁定"
++supersedes_for_action: "archive/paper_draft/manuscript/00_INDEX.md；archive/revisions/revision_0719_snapshot 中各 README（原 revision_0719）的旧施工结论；W10 中被 2026-08-06/09-02 审查推翻的叙事裁定"
+ preserves_as_evidence: "冻结预注册、签署修正案、EXECUTION-LOG、原始 JSON/CSV、证明工作包与旧稿审计轨迹"
+ ---
+ 
+ # 2026-09-02 最新统一 Revision：按章节施工
+ 
++## 00. IJPR v2 覆盖层（2026-09-26，草案，待作者审阅签字）
++
++**来源：** 作者 2026-09-26 决定不投 EJOR、目标 IJPR（退路 C&IE），论文改为决策辅助型，"两个研究、三步流程"。完整计划与证据见 `revision_2026-09-24/readiness_assessment_CIE_IJPR_2026-09-26.md` 第二部分 v2；落地文件见 `revision_2026-09-26_ijpr/`。本覆盖层与该文件夹里的 `01_DECISIONS_TO_SIGN.md`、`STORY_CONTRACT.md` 一同在作者签字后生效。
++
++### 00.1 仍然有效、覆盖层不改的条款
++
++§0.2 审计事实、§0.3 证据标签、§1.4 冲突裁决、§2.4 禁用表述、§3.2 摘要禁用词、§5 相关工作的来源要求、§6 至 §9 各章对研究一内容的全部要求、§10 附录对证明与完整结果的要求、§13 交叉一致性门槛。冻结的 Phase 5 预注册与 2026-07-08 六份修正案不变。
++
++### 00.2 被取代的条款
++
++| 原条款 | 取代为 |
++|---|---|
++| §0.1 第 3 条（C3 = empirical boundary） | C3 = 生成、筛选、验证（GSV）释放流程与保真阶梯；原 C3 的边界内容并入研究一与 §5.5 |
++| §2.1 建议标题 | `STORY_CONTRACT.md` §2 的三个候选，研究二出结果后定（D-E） |
++| §2.2 三条贡献 | `STORY_CONTRACT.md` §3（C1 问题与基准；C2 电梯模型风险；C3 GSV 流程） |
++| §2.3 研究问题 | `STORY_CONTRACT.md` §4（RQ1 集合与顺序；RQ2 评估器选择与保守性；RQ3 流程价值、短名单、诊断边界） |
++| §4.2 引言骨架中的 C1 到 C3 英文 | `STORY_CONTRACT.md` §3 |
++| §8、§9 的章节顺序 | §5 = 5.1 设计与登记层级；5.2 研究一；5.3 研究二；5.4 文献校准案例；5.5 有效性边界。§6 = 逐 RQ 三段 + 释放流程操作段 + 局限 + 未来工作。§8、§9 对研究一数字与措辞的要求原样保留，放入 5.2 与 5.5 |
++| §3.3 Highlights 的候选主题 | 计划 v2 第二部分 §10 的五条亮点草案 |
++
++### 00.3 数字口径更正（不改审计事实，只补口径）
++
++- §0.2 与 §8.5 的"闭式 evaluator 约高估 makespan 25%–37%"用任一分母都不能从 `b5_des_crossvalidation.json` 复算：按闭式值为分母是 22.8% / 25.1% / 37.3%（配置 1 / 7 / 11），按 DES 值为分母是 29.5% / 33.5% / 59.5%。正文必须写明分母；建议写"DES makespans are 22.8% to 37.3% lower than the closed-form values"。
++- §8.2 第 3 条"非负 70/72，说明两个近零有限样本例外"与 §7.2 第 3 点矛盾：角类族不覆盖候选池时 H_up 在精确枚举下也可为负。按 §7.2 写，D1-b 报告为"前提被 §4 证明有误的未达门槛"。
++- 事后审计数字（聚类 bootstrap 的 D1-d 52 到 55/72、逐波次抽象偏差中位数 41%、Φ 角类在 FIFO 与聚类派发下的 7.47% / 7.12%、Hedge 选择频率 0.43 到 0.94）只用于决定登记什么，不得进入正文；进入正文的数字必须来自已签字登记后的运行。
++
++### 00.4 两个研究与登记文件
++
++| 研究 | 内容 | 登记文件 |
++|---|---|---|
++| 研究一 | Phase 5 预注册诊断（锁定判定原样报告）+ 2026-09-26 登记的重分析：S1-1 聚类 bootstrap、S1-2 全池枚举、S1-3 Block C 扩展、S1-6 Hedge 后悔与稳定性展示、S1-7 Supp-1 耦合展示、S1-8 最优波次位置、S1-9 破平修复重跑的报告规则、S1-11 互补分数（可选，D-D）、S1-12 用修正后的 DES-M2 登梯规则重跑 B-5（B-5 旧判定保留，新数并列）、TH-2 抽象偏差展示；S1-4、S1-5 按 AMEND-2026-07-08-B 原登记执行 | `revision_2026-09-26_ijpr/amendments/` |
++| 研究二 | 第六阶段方法研究：集合对序列分解、序列杠杆（P10，含只分组的 P10g 对照）、GSV 主实验（P11、筛选、DES 验证；对照含同预算局部搜索 P7-matched 与生成器消融）、筛选后悔、保真阶梯、热启动、文献校准案例、运行时间。DES-M2 采用与闭式 M2 一致的"先登梯"规则（2026-09-26 修正 B-5 的同轮登梯遗漏，见协议 §3.5）。审查后新增：G2 对照 P8-verify(20)（同 DES 预算）、所有短名单按序列签名去重、§7.3 执行稳健性（带噪声 DES 与 B-5 语义）、G5(b) 保留比例；L2 内容移到 `paper_draft/phase6_protocol_L2_addendum.md`。评估文件第二部分 §4 的协议大纲（门槛、对照、单位）与协议不一致之处，一律以协议为准 | `paper_draft/phase6_method_study_protocol.md` |
++
++### 00.5 理论编号的目标方案（TH-8，作者确认后在 §4 重写时生效）
++
++| 内容 | 当前 §4 md | IJPR 目标 | 生效条件 |
++|---|---|---|---|
++| 诊断恒等式 | Proposition 1 | Proposition 1 | 无 |
++| 类别动作 SPO 损失解释 | Proposition 2 | Remark 1 | 无 |
++| 嵌套覆盖分区细化（含原 Corollary 1） | Theorem 1、Corollary 1 | Proposition 2 | 无 |
++| 全 E 条件性样本路径排序 | Proposition 3 | Theorem 1 | 附录 A 组装完成且作者逐行通读（TH-1） |
++| 条件性 minimax 归约（类别层）与候选层筛选保证 | Theorem 2 | Corollary 1（a）类别层、（b）候选层 | 无 |
++| 超额损失与中点分位数界 | Corollary 2 | Corollary 2（主文只留一句边界） | 无 |
++| 模型校准的均值 DRO 比较 | Corollary 3 | Remark 2（一句，指向 Fu, Li and Zhang 2024） | 无 |
++| 有限评估器族扩展 | Corollary 4 | 删除 | 无 |
++
++在 TH-1 完成前，排序结果继续称 Proposition 3，正文不得称其为定理。
++
++### 00.6 IJPR 施工阶段（接在 §12 之后执行；详细清单见计划 v2 第二部分）
++
++- [ ] 第 1 周：签署 D-A 到 D-M；故事契约；本覆盖层；术语表与 CLAUDE.md；研究一登记文件；第六阶段协议（设计与门槛）；OSF 登记包。（2026-09-26 夜间已全部起草，待签字）
++- [ ] 第 2 周：研究一重分析脚本与研究二代码（P10、P11、DES 模块、热启动、GSV 驱动、案例生成器骨架）及测试。（2026-09-26 夜间起草，待审阅；全部脚本在登记签字前拒绝运行）
++- [ ] 第 2 到 3 周：签字后运行研究一重分析。
++- [ ] 第 3 到 4 周：附录 A 组装与作者通读（TH-1）；补完 Word 版 §4 并新增 4.5 GSV。
++- [ ] 第 4 周：P11 按预先写定的训练池规则调参，结果写进单独签字的 L2 附录（`paper_draft/phase6_protocol_L2_addendum.md`；协议本身签字后不改）；然后才生成测试池种子。
++- [ ] 第 5 到 7 周：运行研究二；分析；图表。
++- [ ] 第 8 到 10 周：冻结数据哈希；写 §5、§6 与附录。
++- [ ] 第 11 到 12 周：写 §2（定位表）、§1、摘要、亮点；定题。
++- [ ] 第 13 到 16 周：一致性检查、模拟审稿、组稿、投稿包与缓冲。
++
+ ## 0. 本文件如何使用
+ 
+ 本文件是本轮论文修改的唯一主动施工入口。它把散落在根目录 DOCX、`paper_draft/manuscript`、`revision_2026-07-08`、两份贡献审查、实验输出以及已归档的 `archive/revisions/revision_0719_snapshot` 中的有效修改折叠到一套逐章规则中。后续修改应先更新本文件中的裁定，再落到正文；旧文件继续保留作溯源，不删除、不回写、不再直接拼接。
+@@ -68,7 +128,7 @@
+ | 前沿定位 | `sources/frontier_novelty_audit_2026-09-02.md` | §1–§2 的 2025–2026 文献入口；提交前继续系统检索 |
+ | 当前 Abstract/§1 文本底稿 | `paper_draft/manuscript/abstract_v1.1_250w.md`；`introduction_v1.1.md` | 只作句子底稿；其中 capacity、first-ever 和“largely fixes”叙事仍须按本文件重写 |
+ | §2 底稿 | `paper_draft/manuscript/related_works_v1.1.md` | 保留已核验的分类与引用，加入 2026 前沿和 prescriptiveness/VSS/EVPI 比较 |
+-| §3 当前正文 | `revision_2026-09-02/SECTION_3_MODEL_FORMULATION.md` | 采用英文原文后逐段附中文译文；单波集合决策、规范顺序、median estimand 与稳定 tie-break 构成 Phase 1 代码修复的目标模型合同 |
++| §3 当前正文 | `F:/Paper 3/Problem formulation.docx`（2026-09-25 定稿；中英对照见 `revision_2026-09-24/section3_bilingual_2026-09-24.md`）。2026-09-26 更正：`SECTION_3_MODEL_FORMULATION.md` 已被该 docx 取代，只作历史（已折叠至 `archive/revision_2026-09-02/`） | 定稿；IJPR 版只需补计划 v2 的 W-1 两句与一句候选池扩充说明（见 STORY_CONTRACT.md §9） |
+ | §3 历史结构源 | `revision_2026-07-08/tier1_manuscript/W4_section3_formulation.md` | 仅用于追溯实现描述和候选池协议；其中旧时间、FIFO、多波与统计量表述不再取用 |
+ | §4 当前正文 | `revision_2026-09-02/SECTION_4_METHODOLOGY.md` | 2026-09-11 中英逐段重构稿；新旧理论编号见本文件 §7.5；正文完成不代表附录、代码和重算完成 |
+ | §4 理论证据 | W1、W2、W3、W8、W9、W10；尤其 W9 Lemma 6 与 W8 Theorem R | 不能机械拼接；按本文件的理论层级重新写一份自洽正文 |
+@@ -82,19 +142,21 @@
+ - 原 `revision_0719` 已于 2026-09-03 整体移至 `archive/revisions/revision_0719_snapshot`，仅作可恢复的历史章节快照；后续施工不得从该目录取稿。
+ - 重复性审计显示该快照共 67 个文件，其中 40 个是与 `paper_draft/manuscript` 或 `revision_2026-07-08` 逐字节相同的 SHA-256 副本；其余 27 个均为 README、`edits_from_global`、`original_docx_*` 或 PDF/包装溯源件，没有独有科学结果。
+ - 快照中的同名 W 文件以 `revision_2026-07-08/tier1_manuscript` 为权威副本；`archive/revisions/revision_0719_snapshot/*/edits_from_global.md` 仅保留审计轨迹，其有效修改已进入本文件，不再逐条执行，以免把旧 capacity 叙事一并带回。
+-- `paper_draft/manuscript/00_INDEX.md` 只保留为 7–9 月进度记录。它关于“§2 已全部应用”“Prop. 2 已升级”“W5 即全文”的状态已经过期。
++- `archive/paper_draft/manuscript/00_INDEX.md` 只保留为 7–9 月进度记录。它关于“§2 已全部应用”“Prop. 2 已升级”“W5 即全文”的状态已经过期。
+ - `paper_draft/TERMINOLOGY.md` 的名称规则仍可参考，但第 4、7 节将 `H_up` 定义为 capacity-side、将 C3 固定为 capacity diagnosis 的内容已被本文件覆盖。
+ - T1–T6 与 fig1–fig10 的活跃素材入口分别统一为 `revision_2026-07-08/tables` 和 `revision_2026-07-08/figures`；归档快照中的副本不再使用。标题、算法名称、统计单位和 capacity 解读必须先更新。
+ 
+ ### 1.3 完全过时，只存不取
+ 
+-- `paper_draft/manuscript/*_v1.0.md`：双语或旧稿，只保留 provenance。
+-- `paper_draft/manuscript/proposition2_chain_dominance_v1.0.md`、`chain_dominance_proof_v1.0.md`、`chain_dominance_empirical_v1.0.md`：旧三条件/单失败通道骨架，退出活跃写作链。
+-- `paper_draft/archive/`：prototype 尺度、M4/M5 旧命名或已经执行完毕的计划。
++- 2026-09-26 目录清理：本节与 §1.2 所列过时文件已全部移入根目录 `archive/`，下列路径已同步更新；新旧路径与 SHA-256 见 `archive/MANIFEST.md` 和 `archive/CLEANUP_2026-09-26_moves.json`。
++
++- `archive/paper_draft/manuscript/*_v1.0.md`：双语或旧稿，只保留 provenance。
++- `archive/paper_draft/manuscript/proposition2_chain_dominance_v1.0.md`、`chain_dominance_proof_v1.0.md`、`chain_dominance_empirical_v1.0.md`：旧三条件/单失败通道骨架，退出活跃写作链。
++- `archive/paper_draft/`（原 `paper_draft/archive/`）：prototype 尺度、M4/M5 旧命名或已经执行完毕的计划。
+ - 根目录 `archive/superseded/`：旧 Section 4、旧示意图。
+-- `gpt/Abstract_Introduction_RelatedWorks_*`：语言编辑产物，没有吸收本轮理论、测量和 C3 裁定。
+-- `research_notes/00_north_star.md`、`02_open_questions.md`、`03_decisions.md`、`novelty_analysis_and_contribution.md`、`paper_sections_documentation.md`：早期 MILP/SimPy/ALNS 或 prototype 路线，仅作研究历史。
+-- `paper_draft/storyline_motivation_to_contribution_v1.md`：以 capacity dominance 和 `U_c` 保底为主线，已被本文件取代。
++- `archive/gpt_2026-08/Abstract_Introduction_RelatedWorks_*`：语言编辑产物，没有吸收本轮理论、测量和 C3 裁定。
++- `archive/research_notes/00_north_star.md`、`02_open_questions.md`、`03_decisions.md`、`novelty_analysis_and_contribution.md`、`paper_sections_documentation.md`：早期 MILP/SimPy/ALNS 或 prototype 路线，仅作研究历史。
++- `archive/paper_draft/storyline_motivation_to_contribution_v1.md`：以 capacity dominance 和 `U_c` 保底为主线，已被本文件取代。
+ - `section4_draft_v0_1.md` 与 `section5_draft_v0_1.md` 中的旧结论段：可借结构，不可逐字取用。
+ - W5 中的 capacity-bound、buy capacity、B-2/B-3/B-5 pending/future 段落：全部作废。
+ 
+@@ -116,6 +178,8 @@
+ 
+ ### 2.1 建议标题
+ 
++> **2026-09-26：§2.1 至 §2.3 已被 §00.2 取代（IJPR v2）。以下原文保留作溯源。**
++
+ 首选标题：
+ 
+ > **Diagnosing and Hedging Wave-Composition Decisions under Elevator-Model Uncertainty in Multi-Story AMR Warehouses**
+@@ -265,11 +329,11 @@
+ 
+ ## 6. Section 3 Problem Formulation 如何进行
+ 
+-**当前正文草稿（2026-09-10 版；本条于 2026-09-11 同步目录）：** `SECTION_3_MODEL_FORMULATION.md`。当前五节为：3.1 Problem setting and assumptions；3.2 Notation and decision variables；3.3 Candidate waves and structural classes；3.4 Objective functions；3.5 Constraints and their explanation。目标函数集中在 3.4；3.5.1 集中表达约束，3.5.2 集中解释约束。采用“英文段落 + 紧随中文译文”，三张表保留双语定义，32 个编号公式各保留单份。延续用户确认的 EJOR 叙事方向、漏斗式、一段一职和避免防御性写作要求。本次仅同步主控目录记录，未改动 Section 3 正文。
++**当前正文（2026-09-26 更正）：** `Problem formulation.docx`（2026-09-25 定稿；中英对照见 `revision_2026-09-24/section3_bilingual_2026-09-24.md`）。原 2026-09-10 版正文草稿 `SECTION_3_MODEL_FORMULATION.md` 已折叠至 `archive/revision_2026-09-02/`，只作历史；下述五节结构与 32 个编号公式同样适用于定稿。当前五节为：3.1 Problem setting and assumptions；3.2 Notation and decision variables；3.3 Candidate waves and structural classes；3.4 Objective functions；3.5 Constraints and their explanation。目标函数集中在 3.4；3.5.1 集中表达约束，3.5.2 集中解释约束。采用“英文段落 + 紧随中文译文”，三张表保留双语定义，32 个编号公式各保留单份。延续用户确认的 EJOR 叙事方向、漏斗式、一段一职和避免防御性写作要求。本次仅同步主控目录记录，未改动 Section 3 正文。
+ 
+ 该稿保留以下目标语义：`W` 为固定规模订单集合，`pi(W)=sort(r_o, order_id)` 为跨模型统一的规范顺序，主 evaluator 为 serial resource-reservation map，类级主 estimand 为 median makespan。新增的文字澄清包括预约状态与实时状态的区别、角点类别族非空条件、中位数并列约定以及订单归属变量的联动性质。该稿仍是 Phase 1 代码修复和后续重算的模型合同，不表示生产源码已对齐；本次未修改 `Problem formulation.docx`、生产代码或实验结果。
+ 
+-**以下 6.1–6.6 保留为内容核查要点，不再作为正文目录。** 其中实验样本规模、具体参数取值和统计单位安排到 §5；模型实体与公式以五节正文为准。旧稿中的 `f0=1`、每层运行 5 秒、装卸各 2 秒、取货/交付各 5 秒、`sigma=0.20` 和 `alpha=0.25` 已从模型正文移出，作为 §5.1 的参数迁移记录保留，后续按配置和冻结协议核对，不能据此重新设定实验。重构前快照位于 `.codex_review/2026-09-07/SECTION_3_before_restructure.md`，仅用于恢复和审计，不是新的 revision 入口。
++**以下 6.1–6.6 保留为内容核查要点，不再作为正文目录。** 其中实验样本规模、具体参数取值和统计单位安排到 §5；模型实体与公式以五节正文为准。旧稿中的 `f0=1`、每层运行 5 秒、装卸各 2 秒、取货/交付各 5 秒、`sigma=0.20` 和 `alpha=0.25` 已从模型正文移出，作为 §5.1 的参数迁移记录保留，后续按配置和冻结协议核对，不能据此重新设定实验。重构前快照位于 `archive/codex_review/2026-09-07/SECTION_3_before_restructure.md`，仅用于恢复和审计，不是新的 revision 入口。
+ 
+ **历史起点：** W4 的物理流程和记号表 + 根 DOCX 中仍正确的参数定义。现有 W4 仍把 `H_up` 叫 capacity-side、把 P6/P7 命名过强，并且没有解决单波/多波与统计量冲突，因此不能整段复制。
+ 
+@@ -395,6 +459,8 @@
+ 
+ ### 7.5 新旧理论编号对照
+ 
++> **2026-09-26：IJPR 版的目标编号见 §00.5；在 §4 按 IJPR 重写前，下表仍是当前 §4 md 的有效编号。**
++
+ 理论编号保持首次重构时的对应关系，当前只将实施流程提前；命题与定理的相对出现顺序不变。初稿公式（56）—（58）移为当前（33）—（35），初稿（33）—（55）顺移为当前（36）—（58），公式数学内容不变。后续施工采用下表正文编号。历史工作包、日志与旧结果标签不回写；本文件其他章节引用历史 Prop. 2 / Prop. 3 / Theorem R 时，按此表解释。
+ 
+ | 理论内容 | 新 Section 4 编号 | 旧工作包编号 |
+@@ -422,6 +488,8 @@
+ 
+ ## 8. Section 5 Experiments and Results 如何进行
+ 
++> **2026-09-26：IJPR 版 §5 的结构见 §00.2（5.1 设计与登记层级；5.2 研究一；5.3 研究二；5.4 案例；5.5 边界）。本章对研究一数字、措辞与完成门槛的要求全部保留，分别落在 5.1、5.2、5.5。**
++
+ ### 8.1 5.1 Design, preregistration, and reproducibility
+ 
+ 先准确列出代码中的因子：`F={3,5,8}`、`|A|={5,15,30}`、`E={1,2}`、三类 demand、wave sizes，以及 18 个 fractional configurations。说明 `F`、`|A|` 与 demand 的构造别名关系，因此不能识别干净的主效应。
+@@ -514,6 +582,8 @@
+ 
+ ## 9. Section 6 Discussion and Conclusion 如何进行
+ 
++> **2026-09-26：IJPR 版 §6 按 STORY_CONTRACT.md 的 RQ1 至 RQ3 各写一段，另加释放流程的操作段（步骤、输入、耗时、短名单大小、何时启用 max{M1, M2} 筛选）。本章对局限、未来工作与禁用表述的要求保留。**
++
+ **起点：** W5 仅保留组织形式，不保留其 capacity-bound 结论。
+ 
+ ### 9.1 6.1 回答 RQ1
+@@ -652,6 +722,10 @@
+ - [ ] Highlights、keywords、graphical abstract、back matter。
+ - [ ] 组装并验证完整 DOCX。
+ 
++### Phase 6 — IJPR 版（2026-09-26 起）
++
++见 §00.6 的逐周清单。Phase 1 至 Phase 5 中尚未勾选的项目并入对应周次执行。
++
+ ---
+ 
+ ## 13. 全文交叉一致性门槛

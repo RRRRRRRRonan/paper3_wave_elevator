@@ -1,0 +1,109 @@
+---
+title: "Paper 3 — Canonical terminology and naming conventions"
+purpose: "Single source of truth for terminology, so wording stays consistent across the manuscript and across work sessions. When in doubt, use the LEFT-hand canonical term; never drift to a listed deprecated/avoid term."
+status: "living note; update here when a naming decision is made, then sync the one-line memory pointer"
+last_updated: 2026-06-19
+---
+
+# Paper 3 — Canonical Terminology
+
+A reference for keeping wording consistent. Each row: **canonical term** | what it means | deprecated / do-not-use.
+
+## 1. The two analytical tools (the contribution, C2)
+
+| Canonical | Meaning | Do NOT use |
+|---|---|---|
+| **Bound-and-Gap decomposition** (Tool 1) | `GAP = H_up + M_Φ`; diagnostic split of the value of wave composition | "M4", "the framework" (loosely), "Bound-and-Gap framework" loosely as if it predicts |
+| **Model-Dominance Hedge Rule** (Tool 2) | closed-form robust wave-structure selection under elevator-model uncertainty | "M5", "the hedge", "dispatch rule" if it implies operational dispatch |
+
+- Refer to them collectively as **"two analytical tools"** (the contribution), never as "two stages" (those belong to the problem; see §5).
+- Tool roles, when contrasting: Bound-and-Gap is **diagnostic** ("measures what a wave-structure choice is worth and how much is reachable"); Hedge Rule is **prescriptive** ("selects the robust one").
+
+## 2. Elevator models
+
+| Canonical | Meaning | Do NOT use |
+|---|---|---|
+| **M1 / throughput abstraction** (a.k.a. throughput aggregation) | `n_elevators × capacity` independent single-rider servers | "abstraction" alone when ambiguous |
+| **M2 / true co-occupancy batching** | `n_elevators` servers, each batches up to `capacity` matching `(src,dst)` requests | "batched" alone when ambiguous |
+| **M3 / stochastic batching** | M2 plus lognormal per-phase noise (`stochastic_sigma > 0`) | "noisy model" |
+
+- The family is written **{M1, M2, M3}**; in the Abstract unpack it in words ("a throughput abstraction, true co-occupancy batching, and a stochastic variant").
+
+## 3. The structured representation Φ
+
+| Canonical | Meaning | Do NOT use |
+|---|---|---|
+| **Φ = (C, I, T)** | three-dimensional representation of wave composition | "fingerprint" (ok informally), "surrogate" |
+| **C = vertical spread** | Shannon entropy over the floor distribution; **HIGH C = activity SPREAD across many floors** | ⚠ "vertical concentration" (REVERSED MEANING — recurring hazard, do not use) |
+| **I = directional imbalance** | up-vs-down asymmetry | |
+| **T = temporal clustering** | CV of per-order release times (0 unless waves are staggered) | |
+
+- Φ is a **conceptual / structured decomposition**, NOT a **predictive surrogate**. The "Φ predicts makespan" claim was tested and **retired**: never reintroduce predicts/estimates/forecasts language for Φ. Use **selects / recovers / captures / represents**.
+
+## 4. Decomposition components
+
+| Canonical | Meaning | Notes |
+|---|---|---|
+| **GAP** | value of wave structure = `H_up + M_Φ` (= UB − LB) | "value of wave composition/design" |
+| **H_up** = structural ceiling | partition-intrinsic upper-tail headroom; **capacity-side**, unrecoverable by any Φ-policy | ~72% of mean GAP (capacity-side dominant) |
+| **M_Φ** = policy-recoverable slack | the part a better Φ-informed policy can recover; equals the **SPO regret** of the Φ-induced partition-constant predictor (Theorem 1) | ~28% of mean GAP |
+
+- **"regret" wording rule:** in the **§4 formal statement** keep the technical term **"SPO regret"** (Theorem 1 = the literature bridge). In the **Abstract / plain prose**, prefer **"decision loss of predict-then-optimize"** / 中文 **"决策损失"**; the author finds bare "regret / 决策遗憾" too abstract.
+- Headline managerial reading: **"capacity-bound > policy-bound"** (H_up dominates), i.e. "the binding limitation on makespan is predominantly capacity-side".
+
+## 5. Stage (problem) vs tool (contribution) — keep distinct
+
+| Canonical | Belongs to | Meaning |
+|---|---|---|
+| **tactical stage** | the PROBLEM (two-stage architecture) | wave composition: which orders to release together |
+| **operational stage** | the PROBLEM | AMRs deliver the released orders through the shared elevators (held FIXED in this paper) |
+| **two analytical tools** | the CONTRIBUTION | both operate on the **tactical** stage |
+
+- Do not let "two stages" and "two tools" collide. Canonical bridge sentence pattern: *"We hold the operational stage fixed and study the tactical stage with two analytical tools."*
+- **wave composition** = the tactical decision. **corner** = a region of the 2×2 (C, I) partition. **wave-structure** = a corner / type of wave.
+- **"policy" is double-edged, always disambiguate.** It can mean the *tactical* wave-composition/release rule (the P0-P7 selection rules, the Φ-policy, the Hedge Rule's output) or the *operational* AMR dispatch rule (`fifo`/`cluster`, held FIXED). In prose call the tactical one a **wave-release policy** / 中文 **放行策略**, and the operational one the **dispatch rule** / **operational dispatch** / 中文 **操作阶段调度**. NEVER call the Hedge Rule a "dispatch policy" (it releases waves, it does not dispatch AMRs). Bare "policy" / "策略" is acceptable only when an adjacent qualifier already pins the layer ("policy on Φ", "policy component M_Φ", "seven-policy contest", "policy-recoverable", "Φ-informed policy"). Avoid "operating policy" (reads as operational).
+
+## 6. Chain dominance / Proposition 2
+
+| Canonical | Meaning |
+|---|---|
+| **chain dominance** | per wave, `C_max(W; M1) ≤ C_max(W; M2)` (throughput abstraction is the optimistic/faster model) |
+| **Proposition 2** | the conditional sufficient-condition theorem establishing chain dominance (common dispatch order + no batch-overtaking) |
+| **batch-overtaking** | the violation mechanism: a synchronized M2 batch finishes a group before M1's staggered slots; the ~0.8% violations |
+
+- In the **Abstract**, refer to it descriptively ("a conditional dominance result we establish"), **not by number** ("Proposition 2" reads abrupt in a standalone abstract). Use the number in §4 / Appendix.
+- It is **conditional**, not unconditional; state this as a strength. Grounded in: stochastic comparison/coupling, server-count monotonicity, batch-service regime-dependence (see `references_chain_dominance.bib`).
+- ⚠ The "individual-rider model is optimistic" sign is the **mirror image** of classic elevator-RTT results; always state the two setup assumptions (same-`(src,dst)` batching; `n·c` vs `n` server-count asymmetry) when claiming it.
+
+## 7. Contribution structure and verdicts (Option B / path A)
+
+- **C1** problem formulation; **C2** methodology (the two tools, three results: Prop 1, Theorem 1, Theorem 2, plus Prop 2 / Cor 1 / Cor 2); **C3** empirical insights (two managerial outcomes, framed as the **capacity-vs-policy diagnosis**, not as a baseline horse-race).
+- Verdicts (report honestly, never re-judge): **H-D1 PARTIAL** (Bound-and-Gap; signal-resolution gate 57/72 = 79.2%, one short of 58/72 = 80%); **H-D2 PASS** (Hedge Rule). Frame 79.2% as **discriminating power / power-limited specificity** (the 15 unresolved cells are the low-GAP ones; AUC 0.92), not as weakness.
+
+## 8. Scale labels (NEVER mix unlabelled)
+
+| Canonical | Meaning |
+|---|---|
+| **publication scale** | Phase 5, the 18-config grid, 106,800 sims, `v0_5_phase5_*.json`, current naming |
+| **prototype scale** | Phase 4 v2, the older 6-cell `E∈{1,2,3}×c2` grid, `v0_2_*`, old M4/M5 naming |
+
+- Never present a prototype-scale number next to a publication-scale one without labelling which is which.
+
+## 9. Writing-style rules
+
+- **No em-dashes (—) anywhere** in the manuscript. Use commas, parentheses, colons, or sentence splits. Keep hyphens in compound terms (Bound-and-Gap, five-phase, model-agnostic, AMR-elevator) and `--` page ranges in BibTeX.
+- **Chinese version of any bilingual passage:** plain words, **no math symbols** (Φ → "三维表示"; H_up → "结构性天花板"; M_Φ → "可回收余量"; GAP → "差距/价值"). Keep proper method names (Bound-and-Gap, Model-Dominance Hedge Rule, Wasserstein, Smart-Predict-then-Optimize).
+- Citation years: use the **formal journal year**, not the arXiv year (Elmachtoub & Grigas **2022**, not 2020; Vera et al. **2021**, not 2020).
+
+## 10. Quick checklist (scan before finalizing any section)
+
+- [ ] Tools called **Bound-and-Gap decomposition** / **Model-Dominance Hedge Rule** (not M4/M5).
+- [ ] **C = vertical spread** (high = spread out), never "concentration".
+- [ ] Φ described as representation/decomposition, never "predicts makespan".
+- [ ] "stage" used for the problem, "tool" for the contribution; the two not conflated.
+- [ ] Every "policy" is unambiguous: tactical = **wave-release policy / 放行策略**, operational = **dispatch rule / 操作阶段调度** (held fixed); the Hedge Rule is never a "dispatch policy".
+- [ ] "regret" only in §4 formal statement; Abstract uses "decision loss".
+- [ ] Proposition 2 referenced by number only in §4/Appendix, descriptively in the Abstract.
+- [ ] H-D1 reported as PARTIAL with the discriminating-power framing; verdicts never re-judged.
+- [ ] Every number labelled publication-scale or prototype-scale.
+- [ ] Zero em-dashes; Chinese passages symbol-free; journal (not arXiv) citation years.

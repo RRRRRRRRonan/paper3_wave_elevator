@@ -1,0 +1,251 @@
+{
+ "amendment": "C-1",
+ "date_executed": "2026-07-08",
+ "hyperparams": {
+  "k_train": 13,
+  "step": 0.05,
+  "iters": 300,
+  "k_deploy": 200,
+  "features": "standardized C,I,T"
+ },
+ "n_new_sims": 4800,
+ "per_cell": [
+  {
+   "config_id": 1,
+   "size": 8,
+   "m_fav": 91.0,
+   "m_qmin": 91.0,
+   "m0": 104.0,
+   "m_P9": 85.0,
+   "budget_abs": 0.0,
+   "M_Phi": 0.0,
+   "R": null,
+   "beta": [
+    9.08590884015307,
+    0.2464599210389874,
+    0.0
+   ],
+   "beta_zero": false,
+   "m_P5_stored": 94.0,
+   "m_P6_stored": 99.0
+  },
+  {
+   "config_id": 1,
+   "size": 30,
+   "m_fav": 316.0,
+   "m_qmin": 315.5,
+   "m0": 345.0,
+   "m_P9": 306.0,
+   "budget_abs": 0.5,
+   "M_Phi": 0.0014492753623188406,
+   "R": 20.0,
+   "beta": [
+    24.67060265597222,
+    -2.035339605787033,
+    0.0
+   ],
+   "beta_zero": false,
+   "m_P5_stored": 317.0,
+   "m_P6_stored": 328.0
+  },
+  {
+   "config_id": 3,
+   "size": 8,
+   "m_fav": 76.0,
+   "m_qmin": 76.0,
+   "m0": 100.0,
+   "m_P9": 66.0,
+   "budget_abs": 0.0,
+   "M_Phi": 0.0,
+   "R": null,
+   "beta": [
+    2.0171792063357783,
+    -14.077615801526013,
+    0.0
+   ],
+   "beta_zero": false,
+   "m_P5_stored": 76.0,
+   "m_P6_stored": 84.5
+  },
+  {
+   "config_id": 3,
+   "size": 30,
+   "m_fav": 332.5,
+   "m_qmin": 332.5,
+   "m0": 353.5,
+   "m_P9": 323.0,
+   "budget_abs": 0.0,
+   "M_Phi": 0.0,
+   "R": null,
+   "beta": [
+    7.3573651854689555,
+    -16.278387109734716,
+    0.0
+   ],
+   "beta_zero": false,
+   "m_P5_stored": 330.5,
+   "m_P6_stored": 353.5
+  },
+  {
+   "config_id": 5,
+   "size": 8,
+   "m_fav": 120.54352873922451,
+   "m_qmin": 118.63131354862632,
+   "m0": 124.00816435242888,
+   "m_P9": 120.28823908526081,
+   "budget_abs": 1.9122151905981895,
+   "M_Phi": 0.015420074965094312,
+   "R": 0.1335046678945372,
+   "beta": [
+    -7.924892775722357,
+    -7.093294011703537,
+    -0.34660524153058814
+   ],
+   "beta_zero": false,
+   "m_P5_stored": 115.22959224085575,
+   "m_P6_stored": 119.0534462195665
+  },
+  {
+   "config_id": 5,
+   "size": 30,
+   "m_fav": 362.7315756680025,
+   "m_qmin": 361.69756998126115,
+   "m0": 365.2777337384973,
+   "m_P9": 361.8190022178781,
+   "budget_abs": 1.0340056867413523,
+   "M_Phi": 0.002830738343009974,
+   "R": 0.8825613454799797,
+   "beta": [
+    2.0022339487416865,
+    -4.156190361767324,
+    1.9348791483898053
+   ],
+   "beta_zero": false,
+   "m_P5_stored": 358.8071946473806,
+   "m_P6_stored": 367.20611585609106
+  },
+  {
+   "config_id": 7,
+   "size": 8,
+   "m_fav": 119.5,
+   "m_qmin": 116.5,
+   "m0": 143.5,
+   "m_P9": 105.0,
+   "budget_abs": 3.0,
+   "M_Phi": 0.020905923344947737,
+   "R": 4.833333333333333,
+   "beta": [
+    17.799519656274942,
+    4.0988033001333095,
+    0.0
+   ],
+   "beta_zero": false,
+   "m_P5_stored": 125.0,
+   "m_P6_stored": 124.0
+  },
+  {
+   "config_id": 7,
+   "size": 30,
+   "m_fav": 473.0,
+   "m_qmin": 464.0,
+   "m0": 510.0,
+   "m_P9": 435.0,
+   "budget_abs": 9.0,
+   "M_Phi": 0.01764705882352941,
+   "R": 4.222222222222222,
+   "beta": [
+    34.01994367086316,
+    -0.7805258364698767,
+    0.0
+   ],
+   "beta_zero": false,
+   "m_P5_stored": 467.5,
+   "m_P6_stored": 482.5
+  },
+  {
+   "config_id": 9,
+   "size": 8,
+   "m_fav": 191.7487393751772,
+   "m_qmin": 191.7487393751772,
+   "m0": 213.7524325949351,
+   "m_P9": 191.1778360718355,
+   "budget_abs": 0.0,
+   "M_Phi": 0.0,
+   "R": null,
+   "beta": [
+    12.37531690995287,
+    -7.876329088630531,
+    -3.465711035279596
+   ],
+   "beta_zero": false,
+   "m_P5_stored": 191.69479934779068,
+   "m_P6_stored": 209.84799923700015
+  },
+  {
+   "config_id": 9,
+   "size": 30,
+   "m_fav": 645.5431998271473,
+   "m_qmin": 645.5431998271473,
+   "m0": 667.1340898085355,
+   "m_P9": 656.5026636625184,
+   "budget_abs": 0.0,
+   "M_Phi": 0.0,
+   "R": null,
+   "beta": [
+    10.11626298575035,
+    -13.038913886530237,
+    9.452536969816148
+   ],
+   "beta_zero": false,
+   "m_P5_stored": 657.3336202173432,
+   "m_P6_stored": 650.7491130107463
+  },
+  {
+   "config_id": 11,
+   "size": 8,
+   "m_fav": 194.0,
+   "m_qmin": 188.0,
+   "m0": 198.0,
+   "m_P9": 188.0,
+   "budget_abs": 6.0,
+   "M_Phi": 0.030303030303030304,
+   "R": 1.0,
+   "beta": [
+    3.849071887898834,
+    -1.9046168373933126,
+    0.0
+   ],
+   "beta_zero": false,
+   "m_P5_stored": 198.0,
+   "m_P6_stored": 198.0
+  },
+  {
+   "config_id": 11,
+   "size": 30,
+   "m_fav": 709.0,
+   "m_qmin": 678.0,
+   "m0": 687.5,
+   "m_P9": 714.5,
+   "budget_abs": 31.0,
+   "M_Phi": 0.04509090909090909,
+   "R": -0.1774193548387097,
+   "beta": [
+    -5.2194318499964725,
+    -1.7800158420040624,
+    0.0
+   ],
+   "beta_zero": false,
+   "m_P5_stored": 712.5,
+   "m_P6_stored": 704.0
+  }
+ ],
+ "n_gated_cells": 7,
+ "excluded_cells": 5,
+ "median_R": 1.0,
+ "n_R_positive": 6,
+ "locked_wording": "partially recoverable",
+ "runtime_seconds": 1.1,
+ "descriptive_P9_beats_P5": "9/12",
+ "descriptive_P9_beats_P6": "9/12",
+ "gate_note": "median gate passed (1.00 >= 0.5); the count clause (>=10/12 positive) was unreachable with 5 zero-budget exclusions (7 gated cells); per the locked ladder the wording ships as partially recoverable, with the exclusion artifact disclosed"
+}

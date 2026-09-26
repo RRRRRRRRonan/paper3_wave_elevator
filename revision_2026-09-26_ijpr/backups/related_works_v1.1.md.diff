@@ -1,0 +1,11 @@
+--- revision_2026-09-26_ijpr/backups/related_works_v1.1.md.orig_2026-09-26	2026-08-06 10:23:52.390442500 +0900
++++ paper_draft/manuscript/related_works_v1.1.md	2026-09-26 11:32:22.483924100 +0900
+@@ -2,7 +2,7 @@
+ title: "Section 2: Related Works, v1.1, submission version (English only)"
+ parent: "Wave Release Coordination under Vertical Resource Constraints in Multi-Story AMR Warehouses"
+ date: 2026-07-31
+-status: "supersedes the English half of related_works_v1.0.md for the manuscript; v1.0 kept as the bilingual working copy"
++status: "supersedes the English half of related_works_v1.0.md for the manuscript; v1.0 (bilingual working copy) folded into archive/paper_draft/manuscript/ on 2026-09-26"
+ changes: >
+   (1) W7 Edit 1 applied: paragraph 3 (multi-story RMFS / shuttle) softened from "typically" to
+   "most", Wang et al. (2025) inserted as the explicit exception to tier confinement, and the

@@ -1,0 +1,11 @@
+--- revision_2026-09-26_ijpr/backups/abstract_v1.1_250w.md.orig_2026-09-26	2026-09-02 14:22:44.730669600 +0900
++++ paper_draft/manuscript/abstract_v1.1_250w.md	2026-09-26 11:32:22.477837700 +0900
+@@ -2,7 +2,7 @@
+ title: "Abstract v1.1 (250-word submission version, English only)"
+ parent: "Wave Release Coordination under Vertical Resource Constraints in Multi-Story AMR Warehouses"
+ date: 2026-07-19
+-status: "supersedes abstract_v1.0.md for the submission file; v1.0 kept for provenance and for the bilingual working copy"
++status: "supersedes abstract_v1.0.md for the submission file; v1.0 (provenance and bilingual working copy) folded into archive/paper_draft/manuscript/ on 2026-09-26"
+ changes: >
+   (1) Cut from ~320 to <=250 English words; Chinese paragraphs removed (C&IE requires English-only, max 250).
+   (2) In-text citation removed (C&IE: no references in the abstract); the Qin et al. positioning moves to Section 1.

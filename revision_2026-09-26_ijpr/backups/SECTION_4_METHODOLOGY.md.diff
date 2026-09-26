@@ -1,0 +1,11 @@
+--- revision_2026-09-26_ijpr/backups/SECTION_4_METHODOLOGY.md.orig_2026-09-26	2026-09-14 17:37:27.940241800 +0900
++++ revision_2026-09-02/SECTION_4_METHODOLOGY.md	2026-09-26 11:32:22.475838100 +0900
+@@ -2,7 +2,7 @@
+ title: "Section 4. Methodology / 方法"
+ date: 2026-09-14
+ status: "method-first bilingual manuscript draft"
+-model_contract: "SECTION_3_MODEL_FORMULATION.md, version dated 2026-09-10"
++model_contract: "SECTION_3_MODEL_FORMULATION.md, version dated 2026-09-10 (superseded on 2026-09-25 by Problem formulation.docx; now archive/revision_2026-09-02/SECTION_3_MODEL_FORMULATION.md)"
+ scope: "robust single-wave class selection with class-relative diagnosis and conditional evaluator-ordering analysis"
+ equation_numbering: "continues Section 3 from Equation (33)"
+ verification_status: "definitions and theoretical statements reconciled; production-code alignment, experiment recomputation, and final appendix integration remain separate"

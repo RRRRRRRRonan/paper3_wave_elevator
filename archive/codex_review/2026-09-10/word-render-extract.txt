@@ -1,0 +1,1093 @@
+PAGE 1
+3 Problem formulation
+3.1 Problem setting and assumptions
+ We consider a multi-story warehouse in which autonomous mobile robots (AMRs) transport 
+orders between source and destination floors using shared elevators. An AMR travels to an order's 
+source, collects the load, and delivers it to the destination. The same AMR serves the order through 
+delivery and rides an elevator whenever a movement crosses floors. The orders released together form 
+a wave. Their origins, destinations, and ready times determine the vertical transport requests generated 
+during wave execution.
+ The warehouse management system selects a wave of fixed size from a finite pool of candidate 
+waves. Resource quantities and operational rules are given, so the decision concerns which orders 
+enter the wave. The main formulation selects a structural class, defined by the floor distribution and 
+directional balance of its candidate waves, and implements that choice through a fixed within-class 
+selection rule. Direct selection of a concrete candidate wave provides a finite-pool benchmark.
+ Each decision instance concerns one isolated wave released at time 
+W
+t
+. Every available order 
+has a known source floor, destination floor, ready-time offset, and immutable identifier. An order with 
+ready-time offset 
+0 o
+r 
+becomes eligible for processing at 
+Wo tr +
+. All AMRs and elevator resources 
+are initially available at a common floor 
+0
+f
+, with no outstanding reservations. The evaluation ends 
+when all selected orders have been delivered; no other wave shares its resources during this interval.
+ Intra-floor movement and handling are represented by fixed pickup and drop-off service 
+durations. Elevator travel time is proportional to the number of floors traversed, and each trip includes 
+loading and unloading. The elevator evaluators differ in their representation of capacity and trip-time 
+variability. They map each candidate wave to its completion time under the same wave-level decision 
+conditions.
+3.2 Notation
+ Tables 3.1 and 3.2 summarize the basic indices and input parameters. Candidate-wave descriptors 
+and operational state quantities are introduced with their definitions in Sections 3.3 and 3.4.
+Table 3.1. Basic indices and sets
+Symbol Definition
+fF  =   {1, , }
+warehouse-floor index
+o 
+order index in the available order pool
+aA  =   {1, , }
+AMR index
+eE  =   {1, , }
+physical-elevator index
+1
+v Ec  =   {1, , }
+virtual single-request elevator-slot index under 
+M1
+kK  =   {1, , }
+candidate-wave index, shared by all evaluators
+q 
+selectable structural-class label
+1 2 3 m M M M =  { , , }
+elevator-evaluator index
+Table 3.2. Input parameters
+Symbol Definition
+F
+number of warehouse floors
+A
+number of AMRs
+E
+number of physical elevator cars
+
+PAGE 2
+c
+maximum number of AMRs sharing one physical elevator trip
+n
+fixed number of orders in a wave
+K
+number of candidate waves in the finite pool
+W
+t
+decision and release epoch of the wave
+0
+f  
+common initial floor of the AMRs and elevator resources
+o
+
+immutable and unique identifier of order 
+o
+,
+oo
+sd  
+source and destination floors of order
+o
+0 o
+r 
+order-ready offset relative to 
+W
+t
+  0
+elevator travel time per traversed floor
+,0 LU  
+elevator loading and uploading durations
+,0 PD  
+AMR pickup and drop-off service durations
+ (0,0.5)
+tail probability for structural-class construction
+  0
+lognormal phase-time noise parameter under 
+M3
+ The resource counts, capacity, and candidate-pool size are positive integers, and 
+1 | |  n 
+. All 
+service durations and time offsets use the same time unit.
+3.3 Candidate waves and structural classes
+3.3.1 Candidate waves
+ Each candidate 
+k  is an unordered set 
+k W   containing n orders. The finite pool is 
+generated before selection and held fixed across evaluators. Its order membership is represented by 
+the incidence parameter 
+ok 
+:
+1, , | | , ,
+0, ,
+k
+k
+ok k
+oW W n o k
+oW
+
+ 
+= =   
+ 
+
+(1)
+3.3.2 Wave descriptors
+ The floor distribution of a wave is measured using both endpoints of every order. For a candidate 
+wave W, let 
+fW( )
+p
+be the proportion of its 2W endpoints located on floor f:
+ 
+1
+( ) ( ) ( ) ,
+2 | | f o o
+oW
+p W s f d f f
+W 
+= = + =    
+(2)
+where 
+()
+is the indicator function. Endpoint dispersion is represented by the entropy
+( ) ( )log ( ), 0log 0 0 ff
+f
+C W p W p W
+
+= − = 
+
+(3)
+Here 
+log denotes the natural logarithm. Larger C reflects greater diversity in the endpoint 
+distribution across floor labels, arising from broader support or a more even distribution. It describes 
+how endpoints are distributed among floors; travel distances are determined by the numerical 
+differences between the relevant floor indices. Directional imbalance measures the asymmetry 
+between upward and downward order movements. Their counts are
+( ) ( ), ( ) ( ).
+o o o o
+o W o W
+N W d s N W d s 
+
+=  =   
+(4)
+The absolute difference is normalized by the number of cross-floor orders:
+
+PAGE 3
+((
+((
+((
+((
+| ) ) | , ) ) 0,
+() ))
+0, ) ) 0.
+N W N W N W N W
+IW N W N W
+N W N W
+
+
+
+
+ −
+ +
+=  +
+
+ +=
+(5)
+Thus 
+I [0,1]
+, with zero indicating balanced cross-floor counts or the absence of cross-floor orders, 
+and one indicating movement in only one direction. Same-floor orders do not contribute to either count.
+Ready-time dispersion measures how order eligibility is spread within the wave. With 
+1
+|| Wo
+oW
+r W r −
+
+= 
+, define
+12 | | ( )
+, 0, ()
+0, 0.
+oW
+oW
+W
+W
+W
+W r r
+TW r
+r
+r
+−
+
+ −
+
+
+= 
+
+
+ =
+
+(6)
+Smaller T indicates more compact ready-time offsets relative to their mean. When all orders are ready 
+at the release epoch, 
+T = 0
+. The resulting descriptor vector is
+= ( ) ( ), ( ), ( ) . W C W I W T W ()
+(7)
+3.3.3 Structural classes and within-class selection
+ The class construction uses the lower and upper tails of C and I; T records temporal variation 
+separately. For descriptor 
+X C I { , }
+, let 
+QuX()
+denote its empirical u-quantile over the candidate 
+pool. A common tail probability 
+
+defines four candidate-index sets:
+HC 1
+LC
+HI 1
+LI
+{ : ( ) ( )}
+{ : ( ) ( )}
+{ : ( ) ( )}
+{ : ( ) ( )}
+k
+k
+k
+k
+k C W Q C
+k C W Q C
+k I W Q I
+k I W Q I
+
+
+
+
+−
+−
+=  
+=  
+=  
+=  
+
+
+
+
+(8)
+A corner class consists of candidates lying in a tail region of both descriptors. The labels 
+HH,HL,LH,LL
+record the tails of C and I, respectively, with candidate-index supports
+HH HC HI
+HL HC LI
+LH LC HI
+LL LC LI
+=
+=
+=
+=
+
+
+
+
+(9)
+The selectable labels form 
+{ {HH, HL, LH, LL}: } q
+=    q
+ . A class-selection instance requires 
+ 
+. Candidates outside all four intersections remain in the candidate pool but outside the corner 
+classes. Because the tail inequalities include their thresholds, quantile ties can produce overlapping 
+supports. Each selectable class is implemented by uniform sampling over its candidate indices. The 
+fixed within-class distribution is
+
+PAGE 4
+1
+,,
+|| ( ) ,
+0, ,
+q
+q q
+q
+k
+k q k
+k
+
+
+ 
+=   
+  
+
+ 
+
+(10)
+Selecting class q therefore leads to a draw 
+ ~
+q
+ and the release of 
+W
+
+ . The class choice 
+determines the distribution of the released wave, while its within-class sampling rule remains fixed.
+3.4 Operational evaluation
+3.4.1 Processing sequence and AMR assignment
+ The evaluator reserves resources order by order. For candidate k, let 
+{1, , } n
+jn  =  
+index 
+positions in the processing sequence
+( ) , , sort ( , ) ( 1 ) k
+k k k W o o r n o o oW
+
+
+=  =
+(11)
+Orders are sorted by increasing ready-time offset, with ties resolved by increasing immutable order 
+identifier. All evaluators use this sequence. Each order's complete route is reserved before the next 
+order is considered. Reservation order therefore follows 
+() k
+ W
+ , while the generated request 
+timestamps need not be globally increasing. Fix a candidate k, evaluator m, and, where applicable, a 
+random realization 
+
+. These indices are suppressed on operational state quantities below. Let 
+j 1 H
+a
+−
+and 
+j 1 Ga
+−
+be AMR a’s next availability time and associated floor after the first j-1 orders have been 
+reserved, initially 
+0 Ht aW
+=
+and 
+00 Gf
+a
+=
+. Order 
+k
+j
+o
+is assigned to the earliest-available AMR and 
+begins at
+1 0 1 lexargmin( , ), max{ , }k
+j
+j
+jj
+j a j a W o
+a
+a H a t H t r −−
+
+= = +
+
+(12)
+The AMR index resolves equal availability times. The maximum in Equation (12) enforces both 
+resource availability and order readiness. An elevator request specifies an origin g, a destination 
+hg 
+, and a request time t. Let 
+Sm
+contain the elevator reservation state. The request updates this 
+state and returns a completion time:
+( , ) ( , , , ; ) ˆ
+m m m
+t g h t 
++
+SS = 
+(13)
+Within a fixed evaluation, 
+( , , ) m
+ g h t
+denotes the returned time 
+t
+ˆ
+, with every call replacing 
+Sm
+by 
+m
++
+S
+. The assigned AMR first reaches the order’s source and completes pickup:
+1 0 1
+01
+( , , ), ,
+,,
+kk
+jj jj
+k
+j
+j
+jj
+m a j a oo S P S P
+j j j j
+ja o
+G s t G s
+t t t
+t G s
+
+−−
+−
+ 
+
+= = + 
+= 
+
+(14)
+It then reaches the destination and completes delivery: 
+
+PAGE 5
+( , , ), ,
+,,
+k k k k
+j j j j
+kk
+jj
+P
+mj o o o o D C D D
+j j j P
+j oo
+s d t s d
+t t t
+t s d
+
+ 
+
+= = + 
+= 
+
+(15)
+Equations (14) and (15) activate an elevator request only when a movement crosses floors. A same￾floor order can still require an initial elevator trip if its assigned AMR is on a different floor. Pickup 
+and drop-off advance the AMR clock by their fixed service durations. After delivery, the assigned 
+AMR becomes available at the destination:
+, k
+jj j
+j C j
+a j a o
+H t G d ==
+(16)
+For every 
+j
+aa  , 
+jj 1 HH
+aa
+−
+= and 
+jj 1 GG aa
+−
+=
+ . Thus, each order updates the state of its assigned 
+AMR, and subsequent assignments use the resulting availability times.
+3.4.2 Throughput abstraction 
+M1
+ Evaluator 
+M1
+represents E elevators of capacity c by Ec independent single-request service slots, 
+indexed by 
+1
+v Ec  =   {1, , }
+. Each slot has a next availability time 
+B
+v
+and a floor 
+Gv
+associated 
+with that availability, initially 
+Bt vW
+=
+and 
+0 Gf
+v
+=
+. A request uses
+1
+lexargmin( , )
+v
+v
+v B v
+
+=
+
+
+(17)
+Its completion time is
+1
+( , , ) max{ , } | | | | LU
+M vv
+ g h t t B G g g h = + − + + − +     
+(18)
+Equation (18) combines waiting for availability, empty repositioning to the request origin, loading, 
+travel to the destination, and unloading. The selected slot is updated to 
+1
+( , , ) B g h t
+v
+  M
+ and 
+v
+Gh  
+; all other slots retain their states. Capacity is represented by the number of parallel slots, and 
+each request reserves its own trip.
+3.4.3 Co-occupancy evaluator 
+M 2
+ Evaluator 
+M 2
+uses E physical cars, each accommodating at most c AMRs on a trip. For each 
+car e, the evaluator stores its next availability 
+B
+e
+, associated floor 
+Ge
+, and latest reserved trip. That 
+trip is described by its origin-destination pair 
+( , )
+ee
+sd
+, loading-end time 
+L
+e
+, completion time 
+D
+e
+, 
+and reserved occupancy 
+P
+e
+. Initially, 
+B D t e e W
+== , 
+0 Gf
+e
+=
+, no trip pair is stored, 
+L
+e
+= −
+, and 
+0 P
+e
+= . A request can share a stored trip when its origin and destination match, capacity remains, and 
+it is ready no later than loading ends. The boardable-car set is
+( , , ) { : ( , ) ( , ), , } e e e e
+g h t e s d g h P c t L =  =  
+(19)
+If 
+ ( , , ) g h t 
+, the lowest-index eligible car is selected:
+2
+min ( , , ), ( , , ) , 1 M e e e
+e g h t g h t D P P = =  + 
+
+
+(20)
+
+PAGE 6
+The joining request shares the trip’s stored completion time, and its other reservation quantities remain 
+unchanged. A request that is ready before loading begins can wait for that trip. When 
+ ( , , ) g h t = , 
+the request creates a new trip on the earliest-available car, with equal availability resolved by car index:
+lexargmin( , )
+e
+e
+e B e
+
+=
+
+
+(21)
+Using the car’s pre-update state, the new loading-end and completion times are
+max{ , } | |
+||
+L
+e e e
+U
+ee
+L t B G g
+D L g h
+
+
+= + − +
+= + − +
+
+
+(22)
+The elevator returns 
+2
+( , , ) M e
+ g h t D=
+
+and updates the car’s reservation record: 
+, , ( , ) ( , ), 1
+e e e e e e
+B D G h s d g h P     
+(23)
+Equations (21) to (23) reserve successive trips without overlapping their use of the same car. The new 
+trip replaces that car's stored trip record, and subsequent requests test Equation (19) against the latest 
+record of each car. Here 
+Ge
+is the floor reached at the next availability time, and 
+P
+e
+counts AMRs 
+reserved on the stored trip.
+3.4.4 Stochastic evaluator 
+M3
+ Evaluator 
+M3
+retains the car-assignment, boarding, and capacity rules of 
+M 2
+. Each new trip 
+receives four independent phase multipliers 
+rep load trav unload Z Z Z Z , , ,
+ , corresponding to empty 
+repositioning, loading, loaded travel, and unloading. Multipliers are independent across trips and 
+satisfy
+2
+2
+log ~ , , [ ] 1
+2
+ZZ 
+
+  −=
+
+ 
+(24)
+The loading-end and completion times of a new trip become
+rep load
+trav unload
+max{ , } | |
+||
+L
+e e e
+U
+ee
+L t B G g Z Z
+D L g h Z Z
+
+
+= + − +
+= + − +
+
+
+(25)
+The reservation update follows Equation (23). Both a newly reserved request and a joining request 
+return 
+3
+( , , ) M e
+ g h t D=
+
+. Requests joining the same trip share this stored completion time, with no 
+additional phase draws. Waiting follows from resource availability, while pickup and drop-off 
+durations remain fixed. Let 
+  represent the collection of phase multipliers used in a wave 
+evaluation, where 
+
+is the realization space. The phase-noise source is independent of the within￾class candidate draw 
+
+ . Conditional on a candidate and a realization, the reservation relations 
+determine all order completion times.
+3.4.5 Wave completion measure
+ Restoring the candidate, evaluator, and realization indices gives the order completion time 
+() C
+jkm t 
+. Wave makespan measures elapsed time from release until the last selected order is delivered:
+
+PAGE 7
+max ( ) ( ; , ) max ( )
+n
+kC Y C W m t t km j jkm W    = = −
+
+(26)
+For 
+M1
+ and 
+M 2
+ , the outcome is deterministic and the argument 
+ is omitted. Under 
+M3
+ , 
+Equation (26) defines the makespan for one phase-time realization.
+3.5 Selection formulations
+3.5.1 Selection variables
+ The class formulation chooses a structural class, while the candidate benchmark chooses a 
+particular wave. Table 3.3 lists their variables. Operational assignments and reservation times are 
+supplied by Section 3.4 and determine the performance coefficients used in these formulations.
+Table 3.3. Variables in the class and candidate formulations.
+Variable Domain Definition
+k
+z
+{0, 1} 1 if candidate wave k is selected
+o
+x
+{0, 1} linked indicator that order o belongs to the selected candidate
+q
+y
+{0, 1} 1 if structural class q is selected
+C  +
+
+auxiliary upper bound on the selected candidate's scores across 
+evaluators
+Q  +
+
+auxiliary upper bound on the selected class’s medians across evaluators
+AMR assignments, elevator assignments, boarding decisions, and trip times are generated by the fixed 
+evaluator. They are operational state quantities. The tactical optimization variables are 
+k
+z , 
+o
+x
+, and 
+q
+y .
+3.5.2 Robust structural-class selection
+ The performance of a class is the median makespan induced by its fixed release distribution. 
+When the median is non-unique, we use the midpoint of its median interval. For 
+q 
+and 
+m , 
+define
+ 
+0.5 Med ( )
+~, q
+ qm m
+=     Y
+(27)
+For 
+M1
+ and 
+M 2
+ , variation in Equation (27) arises from the candidate draw. Under 
+M3
+ , the 
+distribution includes both candidate variation and phase-time noise. The median is taken over this joint 
+outcome distribution. Let 
+12 { , }  D
+= MM be the deterministic evaluator family. The robust class 
+decision minimizes the larger of its two median makespans:
+0.5 arg min max q m qm D
+q   
+
+
+(28)
+An equivalent binary selection formulation is
+
+PAGE 8
+0.5
+,
+1,
+,
+min s.t. ,
+{0,1}
+, 
+,
+,
+0
+Q
+q
+q
+Q
+qm q
+q
+Q
+y D
+q
+Q
+y
+y
+m
+y
+q
+
+
+
+
+
+
+ =
+
+
+ 
+
+
+ 
+  
+ 
+
+ 
+
+
+
+
+
+
+(29)
+The first constraint selects exactly one nonempty class. The score constraints bound 
+Q 
+below by 
+that class’s median under each evaluator. Minimization makes 
+Q  equal to the largest of those 
+medians. The selected class is implemented using Equation (10), and 
+M3
+evaluates its stochastic 
+performance.
+3.5.3 Candidate-wave benchmarks
+ Direct candidate selection uses deterministic scores
+max ( ; ), , k
+km D =   C W m k m 
+(30)
+For a prespecified nonempty family 
+RD 
+, the finite-pool benchmark is
+min max
+R
+k m km   
+(31)
+Setting 
+{}  R
+= m gives the single-evaluator pool optimum, while 
+RD
+= gives the two￾evaluator robust benchmark. In both cases, the search domain is the given finite candidate pool. The 
+corresponding selection formulation is:
+,,
+1
+,
+min s.t.
+,
+{0,1}, , {0,1}, , 0
+C
+k
+k
+o ok k
+k
+C
+zx o
+o
+C
+km k R
+k
+C
+ko
+z
+x z o
+xn
+zm
+z k x o
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=
+=
+=
+
+     
+
+
+
+
+，
+
+
+
+
+
+
+
+(32)
+The first constraint selects one candidate. The membership equalities link 
+o
+x
+to that candidate’s order 
+set, and the cardinality equality records the fixed wave size. Because every candidate already contains 
+n orders, this cardinality equality is implied by candidate selection and membership. The score 
+constraints and objective then minimize the selected candidate’s worst score over 
+R
+ .
+3.4 Assumptions
+A1. Single-wave decision horizon. Each instance begins at 
+W
+t
+and ends when every order in the 
+selected wave is complete. All performance measures refer to this isolated wave, and no other wave 
+overlaps its evaluation interval.
+A2. Known candidate information. The source floor, destination floor, ready offset, and immutable 
+identifier of every available order are known when the candidate waves are generated.
+
+PAGE 9
+A3. Canonical processing order. All evaluators process each candidate wave according to the 
+common sequence 
+() k
+ W
+defined in Equation (1).
+A4. Cold-start resource state. At 
+W
+t
+, every AMR and elevator resource is available at floor 
+0
+f . 
+The instance begins without inherited resource reservations or unfinished orders.
+A5. AMR mobility and service. An AMR remains assigned to an order through drop-off and rides 
+the elevator during cross-floor movements. It may therefore serve orders on different floors. The 
+principal evaluator aggregates intra-floor travel and handling into the fixed pickup and drop-off 
+durations 
+P
+
+and 
+D
+
+. An elevator request is generated whenever the AMR’s current floor differs 
+from the next required floor.
+A6. Fixed AMR assignment. Orders are considered in canonical order. Each order is assigned to the 
+AMR with the smallest current availability time; an availability tie is resolved by AMR index. Order 
+processing begins at the larger of the assigned AMR's availability time and 
+Wo tr + .
+A7. Serial resource reservation. Each order is advanced through its complete route before the next 
+canonical order is considered. Elevator requests update the selected resource state in this reservation 
+order. The generated request timestamps need not be globally increasing.
+A8. Stable elevator selection. Equal elevator availability is resolved by virtual-slot index under 
+M1
+and by car index under 
+M 2
+and 
+M3
+. When several cars have an open scheduled loading window for 
+the same origin-destination request, the lowest-index boardable car is selected.
+A9. Throughput abstraction 
+M1
+. The E elevators with capacity c are represented by Ec independent 
+single-request virtual slots. Each slot has its own location and availability clock. Separate requests 
+occupy separate virtual trips.
+A10. Co-occupancy evaluator 
+M 2
+. The evaluator contains E physical cars, each with capacity c. A 
+request may join a scheduled trip when its origin and destination match, its request time is no later 
+than the trip’s loading-end time, and residual capacity is available. A request that cannot join such a 
+trip initiates a new reservation on the earliest-available car.
+A11. Stochastic evaluator 
+M3
+. Evaluator 
+M3
+retains the assignment, boarding, and capacity rules 
+of 
+M 2
+. The repositioning, loading, loaded-travel, and unloading durations of every new trip receive 
+mean-one lognormal multipliers that are independent across phases and trips. For each phase 
+multiplier Z,
+2
+2
+log ~ , , [ ] 1.
+2
+ZZ 
+
+  −=
+
+ 
+(33)
+The phase multipliers generated during one complete 
+M3
+wave evaluation form a realization 
+  , 
+where 
+
+is the corresponding realization space. Waiting time follows from the resource availability 
+clock. Pickup and drop-off times retain their fixed values in the principal specification.
+A12. Evaluator exogeneity. The resource configuration, operational rule, and evaluator parameters 
+remain fixed while the tactical wave decision changes. Wave composition determines the elevator 
+request stream received by the evaluator.
+A13. Fixed within-class implementation. Every selectable class contains at least one candidate. A 
+
+PAGE 10
+selected class is converted to a concrete release by the distribution 
+ q
+in Equation (9). The within￾class candidate draw and the 
+M3
+phase-time realization are independent.
+3.5 Objective function
+3.5.1 Wave makespan
+ Let 
+() C
+jkm t 
+denote the completion time of the order in canonical position j of candidate k under 
+evaluator m. The realized wave makespan is: 
+max ( ) ( ; , ) max ( )
+n
+kC Y C W m t t km j jkm W    = = −
+
+(34)
+The outcome is deterministic under 
+M1
+and 
+M 2
+. Under 
+M3
+, 
+indexes the phase-time realization.
+3.5.2 Candidate-Wave benchmark
+ Let 
+12 { , } D = MM
+denote the deterministic evaluator family. For 
+m D
+
+, define the 
+deterministic candidate score: 
+max ( ; ) k
+km = C W m
+(35)
+The single-evaluator finite-pool benchmark is
+mink km 
+ 
+(36)
+For a prespecified nonempty evaluator family 
+  RD 
+, the robust candidate benchmark is
+min max
+R
+k m km   
+(37)
+The term pool optimum denotes the optimum obtained over the candidate waves indexed by 
+ .
+3.5.3 Robust Class-Selection Objective
+ For class q and evaluator m, define
+ 
+0.5 Med ( )
+~, q
+ qm m
+=     Y
+(38)
+For 
+M1
+ and 
+M 2
+ , the distribution in Equation (17) is induced by the within-class candidate rule. 
+Under 
+M3
+ , it includes both candidate variation and stochastic trip durations. The superscript 0.5
+identifies the median estimand. Equation (17) is the primary policy-level estimand. The median￾minimax class problem over the deterministic evaluator family is
+0.5 arg min max q m qm D
+q   
+
+
+(39)
+After 
+q
+
+ is selected, the release rule draws 
+~
+q
+ 
+ . Evaluator 
+M3
+ supplies the stochastic 
+performance assessment of the selected class.

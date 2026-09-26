@@ -1,0 +1,11 @@
+--- revision_2026-09-26_ijpr/backups/section3_bilingual_2026-09-24.md.orig_2026-09-26	2026-09-25 16:21:41.492979900 +0900
++++ revision_2026-09-24/section3_bilingual_2026-09-24.md	2026-09-26 11:32:22.465181500 +0900
+@@ -2,7 +2,7 @@
+ title: "Section 3 Problem formulation｜中英对照全文"
+ date: 2026-09-25
+ source: "F:/Paper 3/Problem formulation.docx（2026-09-25，本日修订标记全部接受后的文本）。英文为 docx 原文逐字转录，MathType 公式以 LaTeX 书写；中文为对应译文。"
+-note: "2026-09-24 初版对应 16:35 版原文；本版已按定稿文本逐段更新。section3_finalization_EJOR_edits_2026-09-24.md 中的 R-01 至 R-32 均已落实到 docx（R-22 撤回）。仍需在 Word 中手动处理的项目在正文对应位置以〔待办〕标出：表 3.3 的花体字母、式 (7) 的括号（R-34）、M_2 段末的引文（R-27）。表、图编号的全文连续化（R-33）留待组稿。中文沿用项目 SECTION_3_MODEL_FORMULATION.md 的做法，保留数学符号。"
++note: "2026-09-24 初版对应 16:35 版原文；本版已按定稿文本逐段更新。archive/revision_2026-09-24/section3_finalization_EJOR_edits_2026-09-24.md 中的 R-01 至 R-32 均已落实到 docx（R-22 撤回）。仍需在 Word 中手动处理的项目在正文对应位置以〔待办〕标出：表 3.3 的花体字母、式 (7) 的括号（R-34）、M_2 段末的引文（R-27）。表、图编号的全文连续化（R-33）留待组稿。中文沿用项目 SECTION_3_MODEL_FORMULATION.md（已归档于 archive/revision_2026-09-02/）的做法，保留数学符号。"
+ ---
+ 
+ # 3 Problem formulation｜3 问题建模

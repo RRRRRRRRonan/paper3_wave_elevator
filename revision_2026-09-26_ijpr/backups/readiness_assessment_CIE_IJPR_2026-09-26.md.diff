@@ -1,0 +1,56 @@
+--- revision_2026-09-26_ijpr/backups/readiness_assessment_CIE_IJPR_2026-09-26.md.orig_2026-09-26	2026-09-26 01:09:32.871944100 +0900
++++ revision_2026-09-24/readiness_assessment_CIE_IJPR_2026-09-26.md	2026-09-26 12:16:27.775323100 +0900
+@@ -3,7 +3,7 @@
+ date: 2026-09-26
+ version: "v2（IJPR 版，2026-09-26 下午）；v1（两档方案，同日上午）"
+ basis: "2026-09-25 多代理评估（工作流 wf_6e7d903d-05b：4 个取证代理、4 个维度评审、1 个模拟审稿人、1 个事实核查代理；114 条引用事实中 110 条与原始文件一致、3 条已更正、1 条无法核实）。原始证据来源：prototype/results/v0_5_phase5_*.json、revision_2026-07-08/tier2_analysis/outputs/*.json、revision_2026-09-02/MASTER_REVISION_BY_SECTION.md、paper_draft/phase5_scaleup_preregistration.md、paper_draft/manuscript/*、Problem formulation.docx（2026-09-25）、Methodology.docx（2026-09-17）、papers/ 及联网检索。"
+-scope: "第一部分是 2026-09-25 的评估记录（未因 v2 改动）。第二部分是 IJPR 版修改方案 v2：论文改为决策辅助型，两个研究（预注册诊断 + 登记的方法研究）、三步释放流程（生成、筛选、验证）；按七个板块给出全部清单、第六阶段协议草案、图表与代码清单、v1 到 v2 的映射、验收清单。v1 的两档方案保存在 readiness_assessment_CIE_IJPR_2026-09-26_v1_CIE_baseline.md。"
++scope: "第一部分是 2026-09-25 的评估记录（未因 v2 改动）。第二部分是 IJPR 版修改方案 v2：论文改为决策辅助型，两个研究（预注册诊断 + 登记的方法研究）、三步释放流程（生成、筛选、验证）；按七个板块给出全部清单、第六阶段协议草案、图表与代码清单、v1 到 v2 的映射、验收清单。v1 的两档方案保存在 archive/revision_2026-09-24/readiness_assessment_CIE_IJPR_2026-09-26_v1_CIE_baseline.md。"
+ numbering: "定理编号以 revision_2026-09-02/SECTION_4_METHODOLOGY.md 为准：Proposition 3 = 条件性样本路径排序（M1 与 M2），Theorem 2 = 条件性 minimax 归约（Hedge Rule）。主控文件与旧稿仍用 Prop. 2 称呼排序结果，引用时请注意。"
+ scale: "本文件所有数字均为发表规模（Phase 5，18 配置），除非标注 [B-11 小实例] 或 [原型规模]。证据标签按主控 §0.3：[PR-C] [PR-E] [AM1] [AM2] [RA] [NS] [EXP] [QA]。"
+ ---
+@@ -230,7 +230,7 @@
+ 
+ # 第二部分 IJPR 修改方案（v2，2026-09-26）
+ 
+-**版本说明：** v1（2026-09-26 上午）给出的是"C&IE 基线包 + IJPR 增项包"两档方案。作者于同日拍板目标为 IJPR，论文形态改为"两个研究、三步流程"的决策辅助型论文。v2 据此重写第二部分；v1 的第二部分保存在 `readiness_assessment_CIE_IJPR_2026-09-26_v1_CIE_baseline.md`。第一部分（评估记录）未改动，其 C&IE / IJPR 判定针对的是改稿前的项目状态。
++**版本说明：** v1（2026-09-26 上午）给出的是"C&IE 基线包 + IJPR 增项包"两档方案。作者于同日拍板目标为 IJPR，论文形态改为"两个研究、三步流程"的决策辅助型论文。v2 据此重写第二部分；v1 的第二部分保存在 `archive/revision_2026-09-24/readiness_assessment_CIE_IJPR_2026-09-26_v1_CIE_baseline.md`。第一部分（评估记录）未改动，其 C&IE / IJPR 判定针对的是改稿前的项目状态。
+ 
+ ---
+ 
+@@ -270,7 +270,7 @@
+ 
+ ### 1.1 三条贡献（英文草稿可直接改写进 §1；中文为释义）
+ 
+-**C1. Problem and benchmark.** We formulate single-wave composition for a floor-confined AMR fleet that shares building freight elevators as a selection problem over candidate waves, where a candidate fixes both the order set and its processing sequence under a fixed dispatch rule. We release a reproducible synthetic benchmark with three elevator evaluators and a primary median makespan metric.
++**C1. Problem and benchmark.** We formulate single-wave composition for a floor-confined AMR fleet that shares building freight elevators as a selection problem over candidate waves, where a candidate fixes both the order set and its processing sequence under a fixed dispatch rule. We construct a reproducible synthetic benchmark with three elevator evaluators and a primary median makespan metric.
+ 中文：把共享货梯下的单波次组成写成候选波次上的选择问题；候选同时确定订单集合与处理顺序，派单规则固定；配套可复现的合成基准（三个电梯评估器、以中位完工时间为主指标）。
+ 
+ **C2. Elevator-model risk.** We prove a conditional sample-path ordering between the throughput abstraction and true co-occupancy batching for any number of elevators and any car capacity, identify the only two reversal mechanisms, and quantify the resulting abstraction bias. The ordering makes screening candidates under the co-occupancy evaluator a conservative, minimax choice.
+@@ -464,7 +464,7 @@
+ | P-3 | 证据标签总表（Appendix D）：每个数字的标签、来源文件、哈希 | 随 §5 |
+ | P-4 | 主控文件 v2：§0.1 贡献口径改为 §1.1；§2.2、§2.3 更新；§6 的 §3 指针改为 Problem formulation.docx；§7.5 编号表按 D-3 与 TH-3 到 TH-5 更新；§8、§9 按新 §5、§6 结构重写；§12 清单更新 | 1 天 |
+ | P-5 | TERMINOLOGY.md 与 CLAUDE.md 清理：删"capacity-bound > policy-bound"、"~72% (capacity-side dominant)"、"T = temporal clustering"；加 §1.4 的新术语 | 0.5 天 |
+-| P-6 | 代码发布包：一条命令复现研究一与研究二；含种子、candidate_id 边车、配置数组、协议副本；README 写明版本与哈希 | 投稿前 |
++| P-6 | 代码发布包：一条命令复现研究一与研究二；含种子、candidate_id 边车、配置数组、协议副本；README 写明版本与哈希。投稿时作为保密补充材料提供给编辑和审稿人，并保存该发布包及其哈希；发表后按合理请求由作者提供，不存放公开仓库（D-J 选 J4，2026-09-26 作者决定；投稿前核对 IJPR 的数据共享政策档次，若要求公开存放则改用 J3） | 投稿前 |
+ | P-7 | AI 使用披露：附录 A 的证明由 AI 起草并经 AI 对抗验证，作者逐行核验并承担责任；写作辅助的范围；按期刊政策放在声明区 | 投稿前 |
+ | P-8 | 作者数学核验记录：附录 A 每个引理的通读日期与备注，存入 revision_2026-09-26_ijpr/MATH_VERIFICATION_LOG.md | 与 TH-1 同步 |
+ | P-9 | 数据许可核对：UCI Online Retail II（CC BY 4.0）、Instacart 2017（Kaggle 条款）、JD MSOM 2020（需注册）；案例只用许可允许的集合，并在 Appendix G 注明 | S2-8 前 |
+@@ -636,7 +636,7 @@
+ | C-2 | minimax-regret 行与稳定性 | S1-6 |
+ | C-3 | Supp-1 耦合显示 | S1-7 |
+ | C-4 | 聚类 bootstrap | S1-1 |
+-| C-5 | Zenodo 发布 | P-2、P-6 |
++| C-5 | 代码与数据可得性（D-J 选 J4：投稿时保密提供，发表后按请求提供） | P-2、P-6 |
+ | C-6 | 筛选加验证 | M-1 到 M-9、S2-3 到 S2-6（合并 X-2、X-6、X-9） |
+ | C-7 | 理论加强 | TH-7（可选） |
+ | C-8 | 管理含义改写 | T-8、W-5 |
+@@ -716,7 +716,7 @@
+ ## 10. 投稿包
+ 
+ - Cover letter 要点：决策问题与决策者；两个研究的证据层级（预注册 + 登记协议）；诚实报告的部分通过与失败结果；代码与数据可得；与 IJPR 近期同类论文的关系（IJPR 63(1) 2025 等）。
+-- 声明：数据可得性（合成数据与公开数据集的出处）；代码可得性（Zenodo DOI）；AI 使用；利益冲突；资助。
++- 声明：数据可得性（合成数据与公开数据集的出处）；代码可得性（投稿时作为保密补充材料提供；发表后按合理请求由通讯作者提供，声明措辞见 D-J 的 J4）；AI 使用；利益冲突；资助。
+ - 亮点草案（研究二后定稿）：
+   1. Wave composition under shared freight elevators is formulated as candidate selection with a fixed dispatch rule.
+   2. The throughput abstraction of elevator capacity is proven optimistic relative to true co-occupancy, with two reversal mechanisms.

@@ -1,0 +1,14 @@
+{
+ "amendment": "B-11 addendum (E=3 slice)",
+ "date_executed": "2026-07-08",
+ "seed": 20260709,
+ "E": 3,
+ "n_instances": 200000,
+ "fidelity_gate": "PASSED 2000/2000",
+ "support_set_c_and_d": 34067,
+ "violations_in_support_set": 0,
+ "coverage_gap_c_holds_cstar_fails": 9308,
+ "total_violations": 83914,
+ "instances_with_boarding": 29845,
+ "runtime_seconds": 6.8
+}

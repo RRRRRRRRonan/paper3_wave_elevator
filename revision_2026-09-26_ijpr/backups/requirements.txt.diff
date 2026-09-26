@@ -1,0 +1,10 @@
+--- revision_2026-09-26_ijpr/backups/requirements.txt.orig_2026-09-26	2026-09-26 03:33:14.091959900 +0900
++++ prototype/requirements.txt	2026-09-26 03:33:21.417261600 +0900
+@@ -3,4 +3,5 @@
+ scikit-learn>=1.3
+ matplotlib>=3.7
+ seaborn>=0.12
+-jupyter>=1.0
+\ No newline at end of file
++jupyter>=1.0
++scipy>=1.14  # Study 2 Wilcoxon, Study 1 Spearman and Wasserstein; tested with 1.14.1, version recorded in every Study 2 output

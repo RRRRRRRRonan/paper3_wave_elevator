@@ -60,7 +60,8 @@ def run_supp1(configs, sizes, n_per_arm, cand_n, train_sample) -> pd.DataFrame:
                             policy=ops, rng=sim_rng)
                         rows.append({**_config_fields(config), "size": size,
                                      "arm": arm_label, "ops_policy": ops,
-                                     "wave_id": wid, "makespan": mk})
+                                     "wave_id": wid, "candidate_id": p,
+                                     "cand_seed": seed, "makespan": mk})
     return pd.DataFrame(rows)
 
 
@@ -78,7 +79,8 @@ def run_supp2(configs, capacities, size, n_per_arm, cand_n) -> pd.DataFrame:
                 pos = corner_positions(cand, arm)
                 arm_rng = random.Random(seed + 1000 * (ci + 1) + 17 * (ai + 1))
                 for wid in range(n_per_arm):
-                    wave = materialise(cand.iloc[int(arm_rng.choice(pos))], pool)
+                    p = int(arm_rng.choice(pos))
+                    wave = materialise(cand.iloc[p], pool)
                     r1 = random.Random(seed + 5000 + ci * 100 + wid)
                     r2 = random.Random(seed + 9000 + ci * 100 + wid)
                     m1 = simulate_wave(wave, n_amrs=config["n_amrs"],
@@ -89,6 +91,7 @@ def run_supp2(configs, capacities, size, n_per_arm, cand_n) -> pd.DataFrame:
                                        capacity=c, batched=True, rng=r2)
                     rows.append({**_config_fields(config), "capacity": c,
                                  "arm": arm, "wave_id": wid,
+                                 "candidate_id": p, "cand_seed": seed,
                                  "makespan_M1": m1, "makespan_M2": m2})
     return pd.DataFrame(rows)
 

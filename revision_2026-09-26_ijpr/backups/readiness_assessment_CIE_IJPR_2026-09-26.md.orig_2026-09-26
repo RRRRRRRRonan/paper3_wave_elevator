@@ -1,0 +1,738 @@
+---
+title: "达标评估与 IJPR 修改方案 v2（方案 A：不投 EJOR；目标 IJPR，退路 C&IE）"
+date: 2026-09-26
+version: "v2（IJPR 版，2026-09-26 下午）；v1（两档方案，同日上午）"
+basis: "2026-09-25 多代理评估（工作流 wf_6e7d903d-05b：4 个取证代理、4 个维度评审、1 个模拟审稿人、1 个事实核查代理；114 条引用事实中 110 条与原始文件一致、3 条已更正、1 条无法核实）。原始证据来源：prototype/results/v0_5_phase5_*.json、revision_2026-07-08/tier2_analysis/outputs/*.json、revision_2026-09-02/MASTER_REVISION_BY_SECTION.md、paper_draft/phase5_scaleup_preregistration.md、paper_draft/manuscript/*、Problem formulation.docx（2026-09-25）、Methodology.docx（2026-09-17）、papers/ 及联网检索。"
+scope: "第一部分是 2026-09-25 的评估记录（未因 v2 改动）。第二部分是 IJPR 版修改方案 v2：论文改为决策辅助型，两个研究（预注册诊断 + 登记的方法研究）、三步释放流程（生成、筛选、验证）；按七个板块给出全部清单、第六阶段协议草案、图表与代码清单、v1 到 v2 的映射、验收清单。v1 的两档方案保存在 readiness_assessment_CIE_IJPR_2026-09-26_v1_CIE_baseline.md。"
+numbering: "定理编号以 revision_2026-09-02/SECTION_4_METHODOLOGY.md 为准：Proposition 3 = 条件性样本路径排序（M1 与 M2），Theorem 2 = 条件性 minimax 归约（Hedge Rule）。主控文件与旧稿仍用 Prop. 2 称呼排序结果，引用时请注意。"
+scale: "本文件所有数字均为发表规模（Phase 5，18 配置），除非标注 [B-11 小实例] 或 [原型规模]。证据标签按主控 §0.3：[PR-C] [PR-E] [AM1] [AM2] [RA] [NS] [EXP] [QA]。"
+---
+
+# 达标评估与 IJPR 修改方案 v2（2026-09-26）
+
+**"方案 A"的定义（本文件采用作者 2026-09-25 的口径）：** 不投 EJOR，改投次一级的期刊。首选 IJPR（International Journal of Production Research），底线 C&IE（Computers & Industrial Engineering）。研究笔记 `contribution_review_continuation_2026-09-02.md` §5.3 里另有一个也叫"路线 A"的方案（保留"容量 vs 策略"结论，需新做匹配干预实验），与本文件无关，只在第一部分 §6 说明它需要什么。
+
+---
+
+# 第一部分 评估
+
+**说明：** 本部分为 2026-09-25 的评估记录，v2 未改动。其 C&IE / IJPR 判定针对的是改稿前的项目状态；改稿后的预期见第二部分 §8。
+
+## 0. 评估方法与可信度
+
+- 四个取证代理分别整理：贡献定位与故事链、实验结果、实验设计与理论、文献前沿与期刊标准。合计 175 条证据，每条带文件行号或 JSON 键路径。
+- 四个评审代理分别对一个维度给出 steelman（最强的支持理由）、attack（最强的反对理由）、C&IE 与 IJPR 两档判定、1 到 5 分评分（3 分为及格线）、以及不违反预注册的补救措施。
+- 一个"审稿人 2"代理模拟 C&IE 初审和全文评审。
+- 一个事实核查代理逐条核对评审引用的 114 条事实。结果：110 条与原始文件一致；3 条更正（见 §5）；1 条无法核实（Kim et al. 2025 全文 403）。
+- 所有代理只读，未修改任何文件。
+
+## 1. 总判定
+
+| 维度 | 对 C&IE | 对 IJPR | 评分（3 = 及格线） | 一句话 |
+|---|---|---|---|---|
+| 创新性 | 边缘 | 不足 | 2.5 | 问题交叉点没有找到重复；方法上只有 Proposition 3 有深度；三篇直接先行工作未引 |
+| 贡献度 | 边缘 | 不足 | 2.5 | 去掉已废止的容量结论后，只剩一个机制结果（仍是证明梗概）和一份诚实的边界研究；"两个可用工具"的卖点被自家预注册证据否定 |
+| 故事完整度 | **不足** | 不足 | 2 | 只有 §3 按现行口径写好；Word 版 §4 缺 Hedge Rule；§5、§6、附录 A 没有符合口径的文本；摘要和引言仍讲已废止的故事 |
+| 实验设计复杂性 | 边缘 | 不足 | 3 | 治理与验证层高于 C&IE 常态；核心设计比"106,800 次仿真"单薄：18 个混杂配置，关键块只覆盖 6 个，闭式评估器排序保真不达标，伪重复未处理 |
+
+**模拟审稿（C&IE）：** 初审退稿风险中等（若摘要、引言不改则高）；评审后最可能的结果是"拒稿后重投"。完成第二部分的 C&IE 基线包后，可进入大修。
+
+**对两档期刊的总体判断：**
+- C&IE：可以冲，但必须先完成基线包；论文形态是"界定清楚的基准问题 + 机制定理 + 诚实的有效性边界"的洞察型论文。
+- IJPR：目前四个维度都不足。IJPR 的范围明确要求"convincing scientific results with clear, real-life applications as well as fundamental techniques"（见 §2）。本文没有真实应用锚点、没有有竞争力的决策方法、理论只有一个未完成的命题。要达到 IJPR，需要第二部分的增项包，其中两项（决策方法、文献校准案例）结果未知。
+
+## 2. 两个期刊的标准与同类论文形态
+
+**C&IE 范围（Elsevier 官方文字，经检索确认）：** 发表"the development of new computerized methodologies for solving industrial engineering problems, as well as the applications of those methodologies"；应用类论文"are welcome, as long as they satisfy the criteria of originality in the choice of the problem and the tools utilized to solve it, generality of the approach for applicability to other problems, and significance of the results produced"。
+- 同类论文形态（垂直运输、多层仓库方向）：多为"MIP 模型 + 精确算法或元启发式 + 合成算例"，例如 Wang et al. 2025（C&IE 210:111559，异构升降机联合调度，MIP + 逻辑 Benders + ALNS&TS）、Ren et al. 2025（C&IE 204:111095，层间四向穿梭车与升降机集成调度）。
+- 仿真型洞察论文也有先例（Winkelhaus et al. 2022，C&IE 167:107981；2026 年一篇 DES + 深度学习的 RMFS 车队规模论文）。
+- 纯合成算例在 C&IE 是常态（项目自己的评估 `research_notes/real_data_assessment_2026-07-19.md:5,10,14`）。
+
+**IJPR 范围（Taylor & Francis 官方文字，经检索确认）：** "the journal publishes convincing scientific results with clear, real-life applications as well as fundamental techniques developed in computer, decision and mathematical sciences to solve complex decision problems that arise in design, measurement, management and control of production and logistics systems"。
+- 同类论文形态：IJPR 63(1) 2025（多层穿梭车 AMR 订单排序、料箱调度与路径：MILP + 两阶段 VNS，代码公开）；IJPR 64(6) 2026（混合多深位 RMFS 调度）；IJPR 64(5) 2026（波次拣选下的货架重定位）；IJPR 64(14) 2026（料箱配送）；以及 SBS/RS 穿梭车与升降机一脉（53(19) 2015；57(4) 2019；58(16) 2020）。全部是优化模型或解析模型论文，没有"只做仿真诊断"的先例。
+
+**由此得出的两档标准：**
+
+| 要素 | C&IE 及格 | IJPR 及格 |
+|---|---|---|
+| 问题 | 选题有原创性，界定清楚 | 同左，且能对应到明确的生产或物流决策 |
+| 方法 | 可以是诊断工具或分析框架，但要有一个非平凡的结果 | 需要一个能用的决策方法，并与合理基线比较 |
+| 理论 | 一个完整证明的非平凡结果即可 | 同左，最好能解释经验现象 |
+| 实验 | 合成算例可以；预注册是加分 | 合成算例可以，但要有参数依据或校准案例；覆盖要完整 |
+| 应用 | "welcome"，非必需 | "clear, real-life applications"是明文要求 |
+
+## 3. 逐维度评估
+
+### 3.1 创新性：边缘（C&IE）/ 不足（IJPR）
+
+**支持的证据**
+
+| 事实 | 出处 |
+|---|---|
+| 界定后的问题交叉点在 2021–2026 文献里没有找到重复：单波次组成决策 + 楼层受限的柔性 AMR 车队 + 共享楼宇货梯争用 + 电梯模型不确定 | sources/frontier_novelty_audit_2026-09-02.md:62-66 |
+| 最接近的工作都把任务集当作给定：Chakravarty 2025（SAT 电梯调度，任务外生，≤35 个体）；He et al. 2026（MAPF with Elevators，起终点预先指定）；Wang 2025、Ren 2025（C&IE，检索集给定）；Zhen 2023（AOR）。Tadumadze 2023 让各层隔离。Han 2025、Kim 2025 对配送任务分组，但电梯只算固定等待成本，无多机器人争用 | papers/reading_log_chakravarty2025.md:16-22；https://arxiv.org/html/2602.20512v2；https://pmc.ncbi.nlm.nih.gov/articles/PMC11946681；https://doi.org/10.3390/electronics14050982 |
+| 建模上把 M1、M2 当作两个竞争性假说而非同一族的参数化，并把这种模型不确定带进战术决策 | Problem formulation.docx 3.4.2（"two hypotheses on how elevator capacity acts"） |
+| Proposition 3 是非循环的实质结果：对任意 E ≥ 1、c ≥ 1，在条件 (a)–(d) 下给出 M1 ≤ M2 的逐样本路径排序；两个精确反例分离出仅有的两种反转机制（共享行程超车 26 对 24 秒；不利空驶 103 对 68 秒），并在生产模拟器上复现 | SECTION_4_METHODOLOGY.md:229-300；plan_section3_section4_v0_2.md:21 |
+| 结论方向与电梯工程"拼梯缩短往返时间"的传统直觉相反，是可迁移的建模教训 | related_works_v1.1.md:124-130；blockC.json#H_D2.perwave_avg = 0.99208 [PR-C] |
+| 在对齐指派的前提下，两种失效通道是完备的：115 万小实例普查在 (c)+(d) 下 0 次违例 [B-11 小实例，NS]；对齐指派后 20 次违例全部落入两个通道（18 超车、2 空驶）[NS] | b11_conj1_census.json；b1_matched_assignment.json#violation_channels |
+| 一个少见的方法论洞察：粗分区的价值分解依赖测量口径（72% 对 47%），重测不可靠（ICC 0.009 / −0.029） | amendF_test_retest.json [NS]；ar1_partition_sensitivity.json [RA] |
+
+**削弱的证据**
+
+| 事实 | 出处 |
+|---|---|
+| 除 Proposition 3 外，理论都是恒等式或一行推导：Prop 1（差距分解）和 Prop 2（SPO 等价）证明各一行；Theorem 2（Hedge Rule）是"a ≤ b 时 max{a, b} = b"，证明两句；Corollary 3 是"一阶随机占优下 W1 等于均值差" | SECTION_4_METHODOLOGY.md:122-170, 343-353, 461-478 |
+| Hedge Rule 在结构上就是 Fan, Hong & Zhang (2020, Management Science 66(1):190-208) "Distributionally Robust Selection of the Best" 的两模型特例；项目未引任何 ranking-and-selection 文献，而 related works 声称模型类不确定"structurally different" | 全库检索 0 命中；related_works_v1.1.md:157-162 |
+| 三篇直接先行工作未引：Gallien & Weber (2010, MSOM 12(4):642-662)"To Wave or Not to Wave?"（面对共享下游瓶颈的波次释放，用真实数据）；RAWSim-O (2017)（已指出电梯是多层 RMFS 瓶颈，需要任务分配来缓解）；Fan-Hong-Zhang 2020 | 项目自写文件 0 命中（Gallien & Weber 仅出现在 papers/50 years of warehousing research.pdf 的参考文献里） |
+| 主控要求的 9 篇前沿邻居一篇都不在 bib 里：He 2026、Xu 2026 WareRover、Kim 2025、Ren 2025、Xue & Wang 2026、Bertsimas & Kallus 2020、Jiang 2026、Kuhn 2025、Fu 2024；也没有与 coefficient of prescriptiveness、VSS、EVPI 的比较 | references_related_works.bib（52 条，无上述任何键）；MASTER:238-261 |
+| "上下层耦合"本身已不新：WareRover（Xu et al. 2026）、SOAR（Tang et al. 2026，Geekplus 实机部署） | https://arxiv.org/abs/2602.13999；https://arxiv.org/abs/2605.03842 |
+| Proposition 3 仍标"Proof sketch"，附录 A 未组装；其联合充分条件只覆盖不到 1% 的波次（条件 (d) 仅在约 0.6% 的波次成立，(b) 在自由指派下 57.8%），所以 99.2% 的排序频率不是定理解释的 | SECTION_4_METHODOLOGY.md:276；b1_matched_assignment.json#base_rate_all_waves.repos_frac = 0.9943, #hyp_b_free_frac = 0.578 [NS] |
+| 排序在很大程度上是结构性的：逐波次 (M2 − M1)/M1 的中位数为 41%，M1 表现为乐观的松弛，所以高频率在审稿人看来是意料之中 | 对 raw/mvs_v0_5_phase5_blockC_tiebreakfix.csv 的只读重算 [EXP，未登记] |
+| 决策层面的新意薄：Hedge 只在 1/6 个配置改变决策；证书 0/6 有信息量；4/6 个配置的类别差距 ≤ 1.04% | amendC4_uc_tightness.json [NS]；blockC.json#RA_median_hedge_sensitivity [RA] |
+| 策略层面没有新方法：Φ 角类规则 P5（303.6）不如只按订单数选的 P2（299.2）；被无仿真的节约法 P8 在 10/12 格击败；对局部搜索 P7 0/12 | blockB.json [PR-C]；b2_b3_benchmarks.json#B3 [NS] |
+| 现稿的优先权表述会被上述文献直接反驳："has never been treated"、"studied only in isolation"、"integrates the four-way interaction ... into a single decision problem" | abstract_v1.1_250w.md:49；introduction_v1.1.md:189；related_works_v1.1.md:164-167 |
+
+**结论：** 创新性真实但窄。C&IE 认可"选题原创性"，所以作为界定清楚的交叉点问题 + 一个机制定理，可达边缘及格；IJPR 期望方法层面的新东西，现在没有。
+
+### 3.2 贡献度：边缘（C&IE）/ 不足（IJPR）
+
+**支持的证据**
+
+| 事实 | 出处 |
+|---|---|
+| C1 至 C3 的现行口径内部自洽，且已按证据诚实定价：C1 界定清楚的基准问题；C2 条件性排序机制 + 稳健类别选择（Bound-and-Gap、SPO、细化、DRO 降为支撑性质）；C3 经验边界与测量敏感性 | MASTER:127-131 |
+| H-D2 是唯一稳固的预注册支柱：逐波次 M2 ≥ M1 平均 99.21%，最差格 96%，24/24 FOSD，24/24 U_c，6/6 collapse，判定 PASS；修复破平后 99.25%、判定不变；c = 2..5 均 ≥ 99.75%；DES 下符号保留（0.98–1.00） | blockC.json#H_D2 [PR-C]；blockC_tiebreakfix.json [QA]；supp.json#Supp2 [AM2]；b5_des_crossvalidation.json#des_pooled_dominance [NS] |
+| Hedge 在 5/6 个配置代价为 0 | amendC4_uc_tightness.json#per_config[*].price_hedge [NS] |
+| 战术杠杆存在且不被更好的调度吸收：P5 在 10/12 格胜过随机；Block A 中 Φ 类平均改善 3.7%；事后重算 Supp-1 数据，Φ 角类相对随机的优势在 FIFO 下 7.47%、在聚类调度下 7.12%（各 10/12 格为正；按总平均算为 4.86% / 4.25%） | blockB.json [PR-C]；ablation.json#A1_feature = 0.0372 [AM1]；supp.json#Supp1.per_cell 的重算 [EXP，未登记] |
+| 负结果和部分通过的结果都如实保留，没有调参 | MASTER:32-40；prereg:208-218 |
+
+**削弱的证据**
+
+| 事实 | 出处 |
+|---|---|
+| 计划 v0.2 的卖点"两个简单可用的诊断工具"被锁定证据否定：D1-d 57/72 未达 58 的门槛，预注册第 213 行规定此时必须写"Bound-and-Gap is a prototype-regime diagnostic"并弱化实用性表述 | blockA.json#gates [PR-C]；prereg:213 |
+| §4 的 markdown 和 Word 版都没有出现"Hedge"或"Bound-and-Gap"这两个词（以 robust class selection、q_H 等名称出现） | SECTION_4_METHODOLOGY.md 检索 0 命中 |
+| 唯一的实质定理未完成，且解释机制而非频率 | SECTION_4_METHODOLOGY.md:276；MASTER:34, 417 |
+| Hedge 在唯一起作用的配置 11 里，按 M1 计的代价是 2.63%，而 M1 名义最优角类只有 0.17%；证书在那里无效，且 6/6 无信息量 | amendC4_uc_tightness.json#per_config[5] [NS] |
+| 方法输出的类别选择脆弱：中位数口径下与第二名的差距 2.29% / 5.59% / 0.96% / 1.04% / 0.84% / 0.14%；中位数与均值口径在配置 5 不一致；候选聚类 bootstrap 的选择稳定性在 5/6 个配置为 0.43–0.78 | blockC.json#RA_median_hedge_sensitivity [RA]；对 tiebreakfix.csv 的重算 [EXP，未登记] |
+| 类别排序不能迁移到并发评估器：DES Spearman ρ 最低 0.449，门槛 0.9，faithful_ordinal_proxy = false | b5_des_crossvalidation.json#gates [NS] |
+| 战术杠杆小于运营杠杆：聚类调度平均改善 10.2%（12/12 格 > 1%），高于 Block A 的平均 GAP 6.0%，也高于同 12 格上 P5 的 7.2% | supp.json#Supp1 [AM2]；blockA.json#mean_GAP [PR-C] |
+| 现稿的贡献陈述仍写着已废止的结论："(C3) Empirical capacity-versus-policy diagnosis ... the capacity side dominates, with about 72%"，"when the lever is instead more capacity" | introduction_v1.1.md:221-228, 250-251 |
+
+**结论：** 剥离容量结论后，贡献 = 一个机制结果 + 一个几乎不改变决策的稳健规则 + 一份边界研究。C&IE 可作为洞察论文勉强及格，前提是不再卖"两个工具"；IJPR 需要一个能用的决策方法，现在没有。
+
+### 3.3 故事完整度：不足（两档）
+
+**设计层面是自洽的：** 主控给出一条主线（C1–C3、RQ1–RQ3、逐节完成门槛，MASTER:127-137, 425-564, 657-673）；每个环节都有来源；负结果在新的 C3（"什么时候可以信任这个诊断"）里讲得通；§5 需要的每个数字都已在 JSON 里，缺的是写作而不是新实验。
+
+**但稿件层面这条主线不存在：**
+
+| 部分 | 现状 | 出处 |
+|---|---|---|
+| 摘要 | v1.8 一段里至少 7 处已废止表述："primary bottleneck"、"largely fixes makespan"、"never been treated"、"structural ceiling ... cannot recover"、"capacity-versus-policy verdict is seed-stable"、"when capacity is the lever"；没有研究问题；缺主控要求的 DES / 测量边界句 | abstract_v1.1_250w.md:49；MASTER:170-181 |
+| §1 引言 | C3 标题为"Empirical capacity-versus-policy diagnosis"，写"the capacity side dominates, with about 72%"；"two-stage scheduler"；"studied only in isolation"；承诺"Section 4 develops the two tools"，而 §4 并没有；用旧定理编号；无 RQ | introduction_v1.1.md:120-167, 185, 189, 221-254 |
+| §2 相关工作 | 缺主控要求的全部 9 篇前沿文献；缺 prescriptiveness / VSS / EVPI 比较；保留"integrates the four-way interaction"；无定位对照表 | related_works_v1.1.md:122, 139-142, 157-167；MASTER:238-261 |
+| §3 | 接近定稿，32 个公式与代码逐项一致；但没有 RQ，且有 10 处指向尚不存在的 §5 | pf_0925_recheck_placeholders.md（"Section 5"10 次，"RQ"0 次） |
+| §4 | markdown 完整到式 (58)；Word 版停在 4.3.2，缺式 (47)、Fig. 4 和整个 4.4（Theorem 2、Corollary 2–4、Fig. 5）；Proposition 3 仍为证明梗概，附录 A 未组装 | plan_section3_section4_v0_2.md:20；SECTION_4_METHODOLOGY.md:276 |
+| §5 | 只有 2026 年 5 月的草稿，至少违反 10 条口径："event-driven simulator"、"72/72 confirming the two theorems"、"71.7% capacity-side reading"、"every violating wave is a batch-overtaking event"（已废止：18 超车 + 2 空驶）、"81% residual outside any corner rule's reach"（被 P9 反驳）、把负的 H_up 说成有限样本假象（与 §4 矛盾） | section5_draft_v0_1.md:24, 63-76, 152-158, 222-229；MASTER:369 |
+| §6 | 只有 W5：§6.1 标题"a capacity-versus-policy diagnosis"，结尾"direct the remaining effort at the capacity side"，把已执行且失败的 B-5 列为未来工作 | W5_section6_discussion.md:56, 122-126 |
+| 附录 A | 未组装 | MASTER:417, 572 |
+| 项目指引文件 | CLAUDE.md:76 与 TERMINOLOGY.md:39, 48, 52 仍写"capacity-bound > policy-bound"、"~72% (capacity-side dominant)"、"T = temporal clustering"，后续写作有被重新污染的风险 | 直接核对 |
+
+**卖点三处不一致：** 计划 v0.2 卖"两个可用工具"；主控把 Bound-and-Gap 降为支撑性质；预注册的 H-D1 结果规则要求称之为"prototype-regime diagnostic"。
+
+**即使重写后，最弱的一环仍是"证据到管理含义"：** 决策对象是闭式评估器下的类别排序，通常是接近平局（4/6 个配置差距 ≤ 1.04%），很少改变决策（1/6），排序不能迁移到 DES，而且被论文固定不动的运营层杠杆（10.2%）盖过。确认性结果的正负比例是 2 项 PASS（H-D2、Supp-2）对 7 项 PARTIAL 或 FAIL（H-D1、H-Policy、H-D3 model-sensitive、F、C-4、B-5、Supp-1）。若不给每个边界结果配一条可执行的报告规则，C3 会读成失败清单。
+
+**结论：** 目前 2 分。评审估计：仅靠写作和带标签的重新呈现（不做新的确认性实验），C&IE 可升到约 3.5 分；IJPR 仍偏弱。
+
+### 3.4 实验设计复杂性：边缘（C&IE）/ 不足（IJPR）
+
+**高于 C&IE 常态的部分**
+
+| 事实 | 出处 |
+|---|---|
+| 锁定的预注册含数值门槛（如 D1-d ≥ 58/72），不利结果照实报告：H-D1 PARTIAL、H-Policy Partial、B-5 排序门槛 FAIL、C-4 信息量 0/6 FAIL、F 信度 FAIL | prereg:150-157；blockA.json#gates；MASTER:32-40 |
+| 三块设计有配对核心：Block A 分解（18 × 2 模型 × 2 规模 × 5 臂 × 200 = 72,000）；Block B 共享 3000 候选池上的 7 策略竞赛（16,800）；Block C 同一批波次在 M1/M2/M3 下配对评价（6,000 × 3 = 18,000） | phase5_config.py:31-44；experiments_phase5.py:274-292 |
+| 验证层：事件驱动 DES 交叉验证；8 次重复的重测信度（18 配置）；样本外角类选择；115 万小实例认证普查；两个精确反例；破平修复后的 Block C 再生（判定不变） | b5、amendF、ar3、b11、b14 各 JSON |
+| 基线梯度从朴素到强：P0–P4 简单规则、P6 决策树、P7 局部搜索、P8 节约法、P9 SPO+，外加池内最优锚点 | wave_policies.py:117-265；b2_b3_benchmarks.json；amendC1_p9_spoplus.json |
+| 补充因子：容量扫描 c = 2..5（PASS）、运营调度杠杆（Supp-1） | supp.json [AM2] |
+| 统计加固：Wilson 区间、336 个 Mann-Whitney 检验的 BH 校正、格中位数 Wilcoxon | ar2_stats_hardening.json [RA] |
+
+**比"106,800 次仿真"单薄的部分**
+
+| 事实 | 出处 |
+|---|---|
+| 规模便宜且混杂：全部是闭式串行计算，预注册自估"minutes, not hours"；3000 候选 × 2 模型 0.8 秒。18 个配置是 1/3 部分因子，demand = (F + \|A\|) mod 3，F、\|A\|、需求模式互相混杂，任何主效应都不可识别 | prereg:412；plan v0.2:24；phase5_config.py:52-69 |
+| 承担贡献的块最薄：Block B、C 和两个补充实验都只用配置 {1,3,5,7,9,11}，全是 E = 2、F ∈ {3,5}，没有 F = 8，没有单电梯；Block C 只用 n = 16。H-Policy 建立在 12 格上，H-D2 与 Hedge 建立在 24 格上 | experiments_phase5.py:280-282；phase5_config.py:42 |
+| 评估器效度：主评估器是顺序时间累加器（主控禁止称 event-driven）；登记的排序保真门槛 FAIL（ρ 最低 0.449；M2 侧 0.449 / 0.671 / 0.500）；DES 只查了 3 个配置，且用的是自研 heapq 实现而非登记的 SimPy；闭式模型高估 M2 均值，按闭式值算 22.8% / 25.1% / 37.3%，主控写的"25%–37%"与 JSON 不完全一致 | simulator.py:555-674；b5_des_crossvalidation.json#per_config；AMEND-B:134；EXECUTION-LOG.md:294 |
+| 伪重复：角类臂每 200 行平均只有 134.7 个不同候选（最少 78）；bootstrap 按行重抽；聚类重分析未做。D1-d 的第 58 格 bootstrap 下界恰为 0.0，只因规则要求严格 > 0 而失败；16/72 格下界在 ±0.005 内。仅换 bootstrap 种子，行级结果在 56–58/72 之间；候选聚类 bootstrap 给出 52–55/72 | raw/*_candidate_ids.csv 计数 [QA]；analysis_phase5_blockA.py:55-63, 75；只读重算 [EXP，未登记] |
+| 每个配置只有一个订单池，所有臂、模型、规模共用；池间方差只在修正案 F 里测过，而那里显示份额极不稳定 | experiments_phase5.py:113-116；amendF [NS] |
+| 8 个确认性门槛里有 3 个是代码里的恒等式：D1-a、D1-c（与 M_Φ 同一表达式）、D2-d（FOSD 成立时 max(mean T1, mean T2) 恒等于 mean T1 + W1） | analysis_phase5_blockA.py:34, 53；analysis_phase5_blockC.py:77-78 |
+| 推荐规则没有有竞争力或精确的对照：池内最优只算了 2 格（配置 1、n = 8 的最优为 38，P7 高 47.4%，P5 高 147%） | b2_b3_benchmarks.json#B2 [NS] |
+| 已登记但未执行：B-4 稳健性电池（换向惩罚、异构容量、服务噪声）、B-6(ii) 池规模敏感性；Block A/B 修复破平后未重跑 | AMEND-B:112-158；W10:146；MASTER:39 |
+| 数据纯合成，没有参数依据段落（γ = 5 秒/层、装卸 2 秒、c = 2 固定）；C&IE 可接受，IJPR 偏弱 | phase5_config.py:23；real_data_assessment:20-28 |
+| 预注册无法对外验证：预注册文件与 Block A 结果 JSON 首次进入 git 是同一个提交（2c47cc5，2026-05-20 00:29 +0900），没有 OSF/Zenodo 时间戳 | git log |
+| 报告不一致：T1 表列 \|A\| ∈ {5,10,20}，代码是 {5,15,30} | T1_experiment_design.md:3 vs phase5_config.py:18 |
+
+**结论：** 作为洞察论文，C&IE 可以接受（前提是诚实界定）；IJPR 需要真实性依据、完整覆盖和并发评估器下的决策验证。
+
+## 4. 模拟审稿人（C&IE）的主要意见
+
+初审风险中等；若摘要和引言不改，风险高。四个推高因素：
+1. 首页自相矛盾：摘要、引言的容量结论会被 §5 自己的 ICC、72% 对 47%、P9 结果反驳。
+2. 没有算法：P5 被无仿真的 P8 在 10/12 格击败，比 40 次迭代的局部搜索高 46.4%。
+3. 漏引同刊 2025 年的邻居 Ren 2025（Wang 2025 已在 related_works_v1.1.md:92-105 讨论，但未进定位表）和三篇先行工作。
+4. Word 版 §4 不完整；主定理以"Proof sketch"交稿。
+
+评审后的 14 条主要意见浓缩为：
+
+| # | 意见 | 关键证据 |
+|---|---|---|
+| 1 | 卖点冲突：计划卖"两个工具"，主控降级 Bound-and-Gap，预注册要求"prototype-regime diagnostic"；必须选一种口径贯穿全文 | plan v0.2:13；MASTER:129；prereg:213 |
+| 2 | 理论定价高于深度；唯一非平凡结果在稿件里没有证明 | SECTION_4:122-135, 158-169, 276, 343-353 |
+| 3 | Prop 3 解释机制不解释频率，而频率本身在意料之中（中位数 41% 的结构差距） | b1 JSON；只读重算 |
+| 4 | Hedge 很少起作用、常是统计平局、两个通过的门槛弱于表面：D2-d 由 D2-b 蕴含；D2-c 的 U_c 是 M2 分布的局部离散度而非损失界 | analysis_phase5_blockC.py:69, 77-78；amendC4 |
+| 5 | 决策对象过不了评估器保真检验；至少要报告配置 1、7、11 下 Hedge 类与 M2 最优类在 DES 下是否一致 | b5 JSON |
+| 6 | 实际意义与竞争力：P5 对 P0 经 BH 校正后不显著（p = 0.033）；P2 对 P5 p = 0.79；必须把 P8、P9、P7 放进主策略表 | ar2_stats_hardening.json [RA] |
+| 7 | Bound-and-Gap 不是可靠的定量诊断："ceiling"读法已被内部 P9 反驳（7/12 格超过角类最优） | amendF、ar1、ar3、amendC1 |
+| 8 | 统计单位与 H-D1 的刀锋判定：必须先登记再做聚类重分析，并列报告 | MASTER:39-40, 633 |
+| 9 | 设计覆盖比宣传的窄：§5.1 必须说明混杂、6/18 覆盖、106,800 的定义、未执行的登记检验 | prereg:76-92, 412 |
+| 10 | 文献定位不新且漏先行工作 | 见 §3.1 |
+| 11 | 故事内部不一致（见 §3.3） | |
+| 12 | 预注册无法对外验证，事后层次大：需要一张表列出每个假设、门槛、标签、判定、日期 | git log；MASTER:42-60 |
+| 13 | 外部效度与参数依据：加公开规格依据段落；不得声称"calibrated to a facility" | real_data_assessment:20-30, 53-57 |
+
+**进入大修的最低包（MR-1 至 MR-8）和进入接收的加项（ACCEPT-1 至 3）已并入第二部分。**
+
+## 5. 事实核查中的更正与系统性偏差
+
+三条更正：
+1. "Gallien & Weber 在整个工作区 0 次提及"不准确：它出现在 papers/50 years of warehousing research.pdf 的参考文献里。准确说法是"在项目自写的稿件、bib、docx 和笔记里 0 次提及"。
+2. 聚类 bootstrap 的 D1-d 区间应为 52–55/72（3 个种子），不是 52–54；行级 bootstrap 换 10 个种子为 56–58/72。两者都未登记，不得作为结果引用。
+3. 同上，标签正确（未登记，使用前须登记），数值只近似复现。
+
+评审引用中的系统性偏差（写 §5 时要避免）：
+- 定理编号在不同文件间漂移（排序结果在 §4 md 是 Proposition 3，在主控和旧稿是 Prop. 2；SPO 等价在旧稿是 Theorem 1）。引用时须注明所依据的文件。
+- 事后 [EXP] 数字未附度量定义和种子：7.47% / 7.12% 是各格比值的平均，总平均口径为 4.86% / 4.25%。
+- b1 的 repos_frac 0.9943 是条件 (d) 被违反的基率，不是"联合充分条件的覆盖率"；dominance_enforced_frac 0.9967 是强制指派下的排序频率。
+- 子集范围未标注：Block B、C 只用 6 个配置；B-5 只用 3 个；B-11 普查是小实例（波次规模 2–4），既不属于原型网格也不属于发表网格。
+- Block A/B 的数字（D1-d 57/72、Block B 均值）在破平修复前生成，未重跑。
+- RA_median_hedge_sensitivity 是 2026-09-11 加入的，而主控 §0.3 把 [RA] 定义为 2026-07-08 的修正案 A；72% 是 [RA]（ar1），47% 与两个 ICC 是 [NS]（amendF），标签应逐数拆分。
+- 主控的 DES 高估"25%–37%"用任一分母都对不上：按闭式值 22.8–37.3%，按 DES 值 29.5–59.5%。
+
+## 6. 关于另一条"路线 A"（容量对策略）
+
+研究笔记 §5.3 的"路线 A"要保留"容量 vs 策略"结论。现有数据完全不支持：E = 1 与 E = 2 的配置用不同订单池（pool seed = SEED_BASE + config_id），Supp-2 每个 c 抽不同波次，模拟器只输出标量完工时间，没有等待、利用率、队长指标。要走这条路需要新登记一个匹配干预实验（同订单、同波次、同就绪时间、同噪声、同种子下改变 E、c 或车队），定义 Δcap 与 Δpolicy 于同一基线和统计量，报告聚类置信区间、异质性、DES 复核，并按成本归一化。算力不是障碍（0.8 秒 / 3000 候选 × 2 模型），登记与成本模型才是。本文件不推荐现在做；见第二部分 E-12（可选）。
+
+---
+
+---
+
+# 第二部分 IJPR 修改方案（v2，2026-09-26）
+
+**版本说明：** v1（2026-09-26 上午）给出的是"C&IE 基线包 + IJPR 增项包"两档方案。作者于同日拍板目标为 IJPR，论文形态改为"两个研究、三步流程"的决策辅助型论文。v2 据此重写第二部分；v1 的第二部分保存在 `readiness_assessment_CIE_IJPR_2026-09-26_v1_CIE_baseline.md`。第一部分（评估记录）未改动，其 C&IE / IJPR 判定针对的是改稿前的项目状态。
+
+---
+
+## 0. 已拍板的决定、总定位与红线
+
+### 0.1 决定
+
+| 编号 | 决定 | 结论 | 落实位置 |
+|---|---|---|---|
+| D-A | 贡献口径 | 放弃"两个简单可用的诊断工具"。采用 §1.1 的三条新贡献 | 摘要、§1、§4 标题、§6；plan v0.2 §0 L13、主控 §2.2、TERMINOLOGY.md、CLAUDE.md 同步 |
+| D-B | 决策方法 | 采用"生成、筛选、验证"（generate, screen, verify；下称 GSV）三步释放流程，作为论文的方法贡献 | §4.5 新节；研究二 |
+| D-C | 真实应用锚点 | 做文献校准案例（1 到 2 个第三尺度配置） | §5.4 新节；附录 G |
+| D-D | 全因子补跑 | 可选，有余力再做 | 可选项 O-1 |
+| D-E | 题目 | 研究二出结果后在 §1.5 的三个候选里定 | 全文 |
+| D-F | 预先接受的结果 | 主动制造同乘可能让 M1 ≤ M2 的排序在这类波次上失效。接受并写进协议：该结果作为发现报告，不作为失败 | 第六阶段协议 G4 |
+| D-G | 论文形态 | 决策辅助型；研究一（预注册诊断，原样报告）+ 研究二（登记的方法研究） | §5 结构 |
+
+### 0.2 一句话定位
+
+中文：在共享货梯的多层 AMR 仓库里，怎样组成一个波次；电梯模型选错会付出什么代价；一个"生成、筛选、验证"的释放流程能拿回多少价值。
+
+English: In multi-story AMR warehouses whose fleet shares building freight elevators, this paper studies how to compose a release wave, what a wrong elevator model costs, and how much value a generate, screen, and verify release procedure recovers.
+
+### 0.3 红线（预注册纪律，全程有效）
+
+1. 已锁定的判定不得改写：H-D1 PARTIAL 57/72、H-D2 PASS、H-Policy Partial、H-D3 model-sensitive、C-4 FAIL、B-5 FAIL、F FAIL、Supp-1 PARTIAL、Supp-2 PASS。任何新数字与原判定并列报告，不替换。
+2. 研究二的每一项先登记（第六阶段协议，日期化，门槛与措辞阶梯在运行前锁定并归档），再运行，再报告。
+3. 不向已锁定的 H-Policy 竞赛加入新基线；新方法和新对照进入研究二，有自己的门槛。
+4. 不重调 P5；不改 make_config_array() 的 18 个配置；不动 v0_5_phase5_* 结果文件。
+5. [EXP] 事后计算不得写成确认性证据；本文件第一部分的审计数字（52 到 55/72、56 到 58/72、41%、7.47% 等）不得直接进入稿件，它们只说明该登记什么。
+6. 研究二的超参数只在训练池上调，测试池在协议签署前不生成。
+7. 校准案例只能写"parameters set within publicly documented ranges"，不得写"calibrated to a facility"。
+
+---
+
+## 1. 贡献口径、研究问题与术语
+
+### 1.1 三条贡献（英文草稿可直接改写进 §1；中文为释义）
+
+**C1. Problem and benchmark.** We formulate single-wave composition for a floor-confined AMR fleet that shares building freight elevators as a selection problem over candidate waves, where a candidate fixes both the order set and its processing sequence under a fixed dispatch rule. We release a reproducible synthetic benchmark with three elevator evaluators and a primary median makespan metric.
+中文：把共享货梯下的单波次组成写成候选波次上的选择问题；候选同时确定订单集合与处理顺序，派单规则固定；配套可复现的合成基准（三个电梯评估器、以中位完工时间为主指标）。
+
+**C2. Elevator-model risk.** We prove a conditional sample-path ordering between the throughput abstraction and true co-occupancy batching for any number of elevators and any car capacity, identify the only two reversal mechanisms, and quantify the resulting abstraction bias. The ordering makes screening candidates under the co-occupancy evaluator a conservative, minimax choice.
+中文：证明并行槽位抽象与真实同乘模型之间的条件性逐样本路径排序（任意电梯数与容量），指出仅有的两种反转机制，并量化"抽象偏差"；排序使得在同乘模型下筛选候选成为保守的最坏情况最优选择。
+
+**C3. A generate, screen, and verify release procedure.** We propose a release procedure that generates candidate waves with a mechanism-aware constructor, screens them in closed form under the co-occupancy evaluator, and verifies a shortlist by event-driven simulation. A registered computational study evaluates the procedure against random, class-based, heuristic, and search policies along a fidelity ladder from closed-form evaluators to event-driven simulation, on independent order pools and on a literature-calibrated case, and reports the preregistered class diagnostics as its validity boundary.
+中文：提出三步释放流程：机制感知的生成器（制造同乘、避免不利空驶）、同乘模型下的闭式筛选、事件驱动仿真验证短名单。登记的计算研究沿"闭式评估器到事件驱动仿真"的保真阶梯，在独立订单池和文献校准案例上，与随机、类别、启发式、搜索策略比较，并把预注册的类别诊断作为有效性边界报告。
+
+### 1.2 研究问题
+
+- **RQ1.** How much does wave composition affect makespan under shared elevators, and how much of that effect comes from the order set as opposed to the processing sequence?
+  中文：波次组成对完工时间影响多大；影响来自订单集合还是处理顺序？
+- **RQ2.** Does the choice of elevator evaluator change the release decision, in which direction, and under what verifiable conditions is the co-occupancy evaluator the conservative choice?
+  中文：电梯评估器的选择会改变释放决策吗，朝哪个方向；在什么可验证的条件下同乘模型是保守选择？
+- **RQ3.** How much of the composition value does a generate, screen, and verify procedure capture, how large a shortlist does event-driven verification need, and where do the closed-form diagnostics stop being reliable?
+  中文：三步流程能拿回多少组成价值；事件驱动验证需要多大的短名单；闭式诊断在哪里不再可靠？
+
+对应关系：RQ1 由研究一（Block A/B、类别诊断）与研究二的集合对序列分解回答；RQ2 由 §4.3、§4.4、Block C、抽象偏差、保真阶梯回答；RQ3 由研究二的主实验、筛选后悔曲线、热启动、校准案例回答。
+
+### 1.3 禁用与限制表述
+
+沿用主控 §2.4 与 §3.2 的全部禁令，并为 IJPR 版新增五条：
+
+| 类别 | 禁用或限制的表述 |
+|---|---|
+| 沿用 | elevator capacity as the primary bottleneck；largely fixes makespan；never treated / only in isolation；two-stage scheduler；H_up as capacity-side；no policy can recover H_up；72% means capacity dominates；identities validated 72/72；Prop. 2（新编号 Prop. 3）explains 99.2%；DRO 6/6 validates robustness；U_c as a worst-case rule-loss bound；P6 = SPO-Tree；P7 = optimum；calling the closed-form evaluator event-driven |
+| 摘要沿用 | 72% capacity share；buy capacity；first-ever；all policies unrecoverable；unconditional guarantee；U_c downside guarantee |
+| 新增 | calibrated to a facility（只能写 within publicly documented ranges）；the procedure is optimal（只能写 recovers x% of the pool optimum under DES）；the sequence policy replaces dispatch（派单规则不变，序列属于战术决策）；the ordering always holds（必须带条件与 G4 的结果）；Study 2 confirms Study 1（两个研究的证据层级不同，不互相借势） |
+
+### 1.4 新术语（进入 TERMINOLOGY.md，与现有条目并列）
+
+| 术语 | 定义 | 记号 |
+|---|---|---|
+| generate, screen, and verify (GSV) release procedure | 三步释放流程 | GSV |
+| sequence-aware re-ordering operator | 对给定候选 (W, π) 重排 π 的算子：同起终点相邻、终点接起点 | P10 |
+| co-ride-aware constructive generator | 从订单池直接构造 (W, π) 的生成器，目标是制造同乘、避免不利空驶 | P11 |
+| fidelity ladder | 评估器的保真度阶梯：M1 → M2 → DES-M1 → DES-M2 | 无 |
+| abstraction bias | 逐波次 (Cmax(M2) − Cmax(M1)) / Cmax(M1) | B |
+| screening regret | 闭式排序前 k 名中 DES 最优者相对 DES 池内最优的相对差距 | r(k) |
+| recovery shortlist size | 使 r(k) ≤ 2% 的最小 k | k* |
+| decision loss under evaluator m | 用评估器 m 选出的池内最优在 DES-M2 下相对 DES-M2 池内最优的差距 | DL_m |
+| Study 1 / Study 2 | 预注册诊断研究 / 登记的方法研究 | 无 |
+| Phase 6 protocol | 研究二的登记文档 | P6 |
+
+证据标签沿用主控 §0.3；研究二各项标 [NS]，并在表中附协议条目号（如 [NS] P6-G2）。
+
+### 1.5 题目候选（研究二出结果后定）
+
+1. Wave composition under shared elevators in multi-story AMR warehouses: elevator-model risk and a generate, screen, and verify release procedure
+2. Composing AMR waves for shared freight elevators: abstraction bias, hedged screening, and mechanism-aware sequencing
+3. Generate, screen, verify: wave composition under elevator-model uncertainty in multi-story AMR warehouses
+
+主控 §3.1 的完成标准仍然有效：题目里的每个动作词都要能在 §3 找到决策变量、在 §4 找到方法、在 §5 找到直接证据。
+
+---
+
+## 2. IJPR 版论文结构
+
+| 章节 | 内容要点 | 现有底稿 | 状态与改动 |
+|---|---|---|---|
+| Abstract | 六句逻辑（见 W-8）；≤ 250 词；无引用；含研究一的诚实判定与研究二的关键数字 | abstract_v1.1_250w.md（只作语言底稿） | 最后写 |
+| Highlights | 5 条，每条 ≤ 85 字符 | 无 | 最后写 |
+| 1 Introduction | 场景与决策者（WMS 的波次释放，每班多次）；共享货梯争用；相邻研究与缺口（定位表的结论）；RQ1 到 RQ3；C1 到 C3；结构段 | introduction_v1.1.md（不可直接用） | 研究二之后重写 |
+| 2 Related work | 2.1 波次、订单分批与集成 RMFS 决策；2.2 多层机器人与升降机协调（Ren 2025、Wang 2025、He 2026、Kim 2025、Han 2025、Zhen 2023、Tadumadze 2023、Chakravarty 2025）；2.3 上下层耦合（WareRover、SOAR）；2.4 模型风险与稳健选择（Fan-Hong-Zhang 2020；DRO 只作一句备注）；2.5 规范价值诊断（Bertsimas & Kallus 2020、Jiang 2026、VSS、EVPI、Song & Luedtke 2015）；2.6 定位对照表 | related_works_v1.1.md | 按主控 §5.1 重组，补 13 篇文献 |
+| 3 Problem formulation | 现定稿文本；加两句（W-1）；§5 指针按新 §5 结构核对 | Problem formulation.docx（2026-09-25） | 微改 |
+| 4 Analysis and procedure | 4.1 类别诊断（Bound-and-Gap 作为 partition-relative 诊断）；4.2 细化（Theorem 1）；4.3 排序定理、两个反转通道、抽象偏差；4.4 稳健选择与筛选保证（Theorem 2 改推论；后悔界写成保守界）；4.5 GSV 流程（算法框 + 配套文字 + 复杂度）；4.6 §5 检验什么 | SECTION_4_METHODOLOGY.md（式 33 到 58）；Methodology.docx（止于 4.3.2） | 补完 Word 版；新增 4.5；DRO、U_c 各留一句 |
+| 5 Computational study | 5.1 设计、登记、可复现性、证据标签、计数定义、覆盖矩阵；5.2 研究一：预注册诊断（RQ1、RQ2 证据，判定原样）；5.3 研究二：登记的方法研究（RQ3；集合对序列、序列杠杆、GSV 主实验、后悔曲线、保真阶梯、热启动）；5.4 文献校准案例；5.5 有效性边界（ICC、分区、OOS、DES 保真、未执行检验） | section5_draft_v0_1.md（不可复用一句） | 全新写 |
+| 6 Discussion and conclusion | 6.1 回答 RQ1；6.2 回答 RQ2；6.3 回答 RQ3 与释放流程的操作步骤；6.4 局限；6.5 未来工作 | W5（只借结构） | 全新写 |
+| Appendix A | 排序定理的完整证明（Lemma 3 到 6、情形 F/B、全 E 归纳） | W3、W9 | 组装，作者通读 |
+| Appendix B | 两个反例的逐步计算；B-11 普查摘要（标小实例） | §4 md 4.3.2；b11 JSON | 整理 |
+| Appendix C | 定位对照表全表与文献要点 | 无 | 新写 |
+| Appendix D | 登记文档：冻结的预注册、修正案日志、第六阶段协议、证据标签表、偏离日志 | prereg；amendments/ | 汇编 |
+| Appendix E | DES 实现与验证（heapq 实现、800/800 自检、与 AMEND-B 登记的 SimPy 的偏离） | b5 脚本；EXECUTION-LOG | 新写 |
+| Appendix F | 已登记未执行或撤回的检验及理由 | AMEND-B | 新写 |
+| Appendix G | 校准案例参数表与出处 | real_data_assessment | 新写 |
+| Appendix H | 补充结果：聚类 bootstrap 全表、全池枚举、全因子（若做） | 新结果 | 新写 |
+
+---
+
+## 3. 板块清单
+
+### 板块 1 贡献口径与故事主线
+
+| 编号 | 动作 | 依据 | 工作量 | 状态 |
+|---|---|---|---|---|
+| T-1 | 采用 §1.1 的 C1 到 C3，写入摘要、§1、§6；C2 以定理开头，Hedge 与筛选保证作为 C2 的推论；Bound-and-Gap 在 4.1 引入时即写明预注册第 213 行的弱化表述 | 评估 §3.2；prereg:213 | 2 天 | 待做 |
+| T-2 | RQ1 到 RQ3 写入 §1 末段；§5.2、§5.3 与 §6.1 到 §6.3 按 RQ 编排 | 主控 §2.3 | 随写作 | 待做 |
+| T-3 | 摘要按 W-8 的六句逻辑写；研究二的数字用占位符预留，出结果后填 | 主控 §3.2 | 1 天 | 待做 |
+| T-4 | 全稿清扫 §1.3 的禁用表述；同时清理 CLAUDE.md:76、TERMINOLOGY.md:39, 48, 52、plan v0.2:13、storyline_v1（标注为已废止） | 评估 §3.3 | 1 天 | 待做 |
+| T-5 | 题目在 §1.5 候选中定（D-E） | 主控 §3.1 | 研究二后 | 待做 |
+| T-6 | 冻结一页"故事契约"：口径、RQ、两个研究的角色、题目候选、逐节完成门槛；存入 revision_2026-09-26_ijpr/STORY_CONTRACT.md，并传播到主控 §2.2 | 评估 §3.3 | 1 天 | 待做 |
+| T-7 | 明确研究一的角色是"粗类别方法与闭式诊断的边界"，研究二的角色是"方法与价值"；两者证据层级不同，不互相借势 | 红线 1、5 | 随写作 | 待做 |
+| T-8 | 预写 §6.3 的释放流程操作段落框架（步骤、输入、输出、耗时），数字留空 | 评估 §3.3 最弱一环 | 1 天 | 待做 |
+
+### 板块 2 理论
+
+| 编号 | 动作 | 依据 | 工作量 | 状态 |
+|---|---|---|---|---|
+| TH-1 | 组装附录 A（Lemma 3 到 6、情形 F/B、全 E 归纳，约 400 行）；作者逐行通读并签"数学核验记录"；然后按 plan v0.2 D-3 把 Proposition 3 升为定理。定理陈述明确写出"给定 (a)+(b)，任何反转必须 (c) 或 (d) 失效" | SECTION_4_METHODOLOGY.md:229-300；W3、W9 | 1 到 2 周 | 待做 |
+| TH-2 | 抽象偏差展示：逐波次 B 的分布，按 E、c、F、n 分面；数据来自 Block C（修复破平后）与 S1-3 扩展；登记为 [RA] 描述性展示。措辞："the throughput abstraction is optimistic by a median of x% in this benchmark" | 评估 §3.1；tiebreakfix.csv | 2 天 | 待登记 |
+| TH-3 | Theorem 2 改称推论，并加候选层面版本："when the per-candidate ordering holds on a candidate set, the minimax candidate under {M1, M2} is the M2-best candidate"。这是 GSV 筛选步骤的保证 | SECTION_4:343-353 | 1 天 | 待做 |
+| TH-4 | DRO（Corollary 3 及 6/6 语句）降为 4.4 末的一句备注，指向 Fu et al. 2024 | 评估 §3.1 | 0.5 天 | 待做 |
+| TH-5 | U_c 证书降为 §5.5 的一句边界陈述（"valid in 5/6, informative in 0/6"），§4 里删去 | amendC4 [NS] | 0.5 天 | 待做 |
+| TH-6 | 两通道完备性证据的定位：B-11 普查（0 / 1,150,800，小实例）与 B-1 通道拆分（18 / 2 / 0）写成"机制完备"的证据，明确"不解释 99.2% 的频率" | b11、b1 JSON [NS] | 随 §4 写作 | 待做 |
+| TH-7 | 可选：必要性侧分析（v1 的 N-5）。逐波次量化条件 (d) 违反时距反转的余量，或找覆盖大多数波次的较弱聚合充分条件 | 评估 §4 意见 3 | 2 到 4 周 | 可选 |
+| TH-8 | 定理编号统一表：§4 md、主控、旧稿、新稿四列；全文引用只用新稿编号 | 评估 §5 | 0.5 天 | 待做 |
+
+### 板块 3 方法（GSV 流程的规格）
+
+| 编号 | 规格 |
+|---|---|
+| M-1 | **GSV 流程定义。** 输入：订单池 O、波次规模 n、候选池（随机候选 K 个 + P11 生成的 K' 个）、评估器 M2（闭式）、DES-M2、短名单大小 k。步骤：(1) 生成：随机候选沿用预注册生成器；P11 另生成 K' 个；(2) 筛选：全部候选在 M2 下评价，按完工时间升序取前 k；(3) 验证：前 k 名在 DES-M2 下评价，释放 DES 最优者。输出：(W, π) 与预计完工时间。复杂度：闭式 O((K + K') · n)，DES O(k · n log n)。 |
+| M-2 | **P10 序列重排算子（确定性）。** 输入 (W, π)。(1) 按起终点对 (s, d) 分组，组内保持记录顺序；(2) 组的顺序按贪心链接：从起点等于 f^0 的组开始（无则取最大组），下一组选起点等于当前组终点的组（并列取最大组；无则取起点楼层最近的组）；(3) 同层订单（s = d）插在当前楼层等于 s 的位置。理由：相邻的同起终点请求在 FIFO 下于装载窗口内同时到达，触发同乘（对应反转通道一）；链接减少空驶（对应通道二）。 |
+| M-3 | **P11 同乘感知构造生成器。** 从 O 构造 n 单：以随机种子单开始，逐单加入使评分最大的订单：score = α · [与已含订单同起终点且该组未满 c] + β · [起点等于当前链尾终点] − γ · [新增楼层数]；序列按加入顺序，再经 P10 整理。超参数网格 α ∈ {1, 2, 4}，β ∈ {0.5, 1, 2}，γ ∈ {0, 0.5, 1}；只在训练池上按 M2 中位完工时间选一组，写入协议后锁定；每个测试池生成 K' = 200 个候选（不同种子）。 |
+| M-4 | **筛选步骤。** 主设定：M2。对照设定：M1 筛（用于保真阶梯 DL_M1）；对 P11 候选另报告在 max{M1, M2} 下筛的结果（G4 触发时启用）。k 网格：{1, 5, 10, 20, 50, 100, 全部}。 |
+| M-5 | **验证步骤。** 评估器：B-5 的 heapq DES，M2 语义（同乘、FIFO 电梯排队、并发 AMR）；模块化到 prototype/src/des_evaluator.py，保留 800/800 自检；平局按候选编号。全池 DES 枚举也运行，用于计算 r(k) 与 DL_m 的分母。 |
+| M-6 | **对照集合。** 池内（同一候选池上的选择）：P0 随机、P2 订单数、P5 Φ 角类、P8 节约法；池内加序列：P0/P5/P8 各经 P10 重排；池外（不限于候选池）：P7 局部搜索（40 次仿真）、P9 SPO+、P11 单独、GSV（各 k）；锚点：闭式 M2 池内最优、DES-M2 池内最优。 |
+| M-7 | **指标。** 主：DES-M2 完工时间（每格 200 波次的中位数与均值，绝对秒数与相对随机的百分比）；r(k)；k*；DL_m；序列方差份额 s；P11 波次上的排序率；运行时间（每步、每候选）。次：M2 闭式完工时间（与研究一可比）。 |
+| M-8 | **§4.5 算法框与配套文字。** 伪代码 ≤ 25 行；配套段落解释三步各自的依据（生成对应两个通道；筛选对应定理与推论；验证对应 B-5 的保真失败），并说明"派单规则不变，序列属于战术决策"（引 §3 式 (1)）。 |
+| M-9 | **运行时间报告。** 每个配置报告生成、筛选、验证各步的墙钟时间与每候选耗时；说明 DES 在本基准上便宜是因为波次小，实际部署中验证步骤通常是昂贵的一步，所以 k* 有实际意义。 |
+| M-10 | **与运营层的边界声明。** §4.5 末与 §6.4 各一句：本文不改变派单规则；Supp-1 的聚类派发是运营层杠杆，P10/P11 是战术层对序列的选择；两者可叠加与否由 S2-2 的结果说明。 |
+
+### 板块 4 实验
+
+**研究一：预注册诊断（原样报告 + 先登记再做的重分析）**
+
+| 编号 | 动作 | 进入方式 | 算力 | 分析 |
+|---|---|---|---|---|
+| S1-1 | candidate_id 聚类（与去重）bootstrap，覆盖 Block A/B/C 全部区间；与 57/72 并列；§5.1 分析单位改为 unique candidate waves | [RA]，先登记 | 分钟 | 3 天 |
+| S1-2 | 全池枚举（36 池，M1、M2）：精确类别中位数、精确池内最优、P5/P7/P8 在 12 格上的最优性差距（plan v0.2 §4 的修正案 3） | [NS]，先登记 | 约 30 秒 | 2 天 |
+| S1-3 | Block C 扩展到未覆盖的 12 个配置（全部 E = 1 与 F = 8）及 n ∈ {8, 30}：D2-a/b 定义、Hedge 代价、第二名差距、聚类 bootstrap 选择频率；声明不改变锁定的 H-D2 判定 | [NS]，先登记 | 分钟 | 3 天 |
+| S1-4 | B-4 稳健性电池（换向惩罚、异构容量、服务噪声），按 AMEND-2026-07-08-B 原文门槛执行 | 已登记 | 分钟 | 2 天 |
+| S1-5 | B-6(ii) 候选池与订单池规模敏感性，按原文执行 | 已登记 | 分钟 | 2 天 |
+| S1-6 | C-4 显示表加 minimax-regret 行；每个 Hedge 选择旁报告第二名差距与聚类 bootstrap 选择频率 | [RA]，先登记 | 无 | 2 天 |
+| S1-7 | Supp-1 耦合显示：Φ 角类相对随机在 FIFO 与聚类派发下的优势，两种度量口径并报，附限定 | [EXP]，先登记 | 无 | 1 天 |
+| S1-8 | 最好的波次长在哪里：每池前 1% 候选在 (C, I) 平面的位置，按配置分面（依赖 S1-2） | [NS]，先登记 | 无 | 2 天 |
+| S1-9 | Block A/B 破平修复后重跑；先写好"新旧判定并列报告"规则再运行 | [QA]，先写规则 | 分钟 | 2 天 |
+| S1-10 | 研究一总表：每个假设、门槛、标签、判定、日期、数据文件哈希 | 写作 | 无 | 1 天 |
+
+**研究二：登记的方法研究（第六阶段协议）**
+
+| 编号 | 动作 | 回答 | 算力 | 分析 |
+|---|---|---|---|---|
+| S2-1 | 集合对序列的方差分解：每个测试池抽 200 个候选，每个候选固定集合、随机重排序列 20 次，在 M2 与 DES-M2 下评价；报告序列方差份额 s | RQ1 | 分钟 | 3 天 |
+| S2-2 | 序列杠杆：P10 作用于 P0、P5、P8 选出的波次，报告 M2 与 DES-M2 下的相对改善，与 Supp-1 的 10.2% 并列 | RQ1、RQ3 | 分钟 | 3 天 |
+| S2-3 | GSV 主实验：18 个配置 × 8 个独立订单池 × n ∈ {8, 16, 30}；候选池 K = 3000 + K' = 200；全部对照（M-6）；闭式与 DES 双重评价 | RQ3 | 约 15 到 60 分钟 | 1 周 |
+| S2-4 | 筛选后悔曲线 r(k) 与 k*，按配置与规模分面 | RQ3 | 同上 | 2 天 |
+| S2-5 | P11 波次上的排序率与抽象偏差；若低于阈值则启用 max{M1, M2} 筛选并报告 | RQ2 | 同上 | 2 天 |
+| S2-6 | 保真阶梯决策损失 DL_m，m ∈ {M1, M2, DES-M1}，在 DES-M2 下算账 | RQ2 | 同上 | 2 天 |
+| S2-7 | 热启动：连跑 5 个波次（上一波结束状态为下一波起点；波次间隔为 0 与一个固定间隔两种），报告第 2 到 5 波的排序率、GSV 相对随机的增益 | RQ2、RQ3 | 分钟 | 3 天 |
+| S2-8 | 文献校准案例：config_id 100 与 101（F = 3，E ∈ {2, 3}，c = 2）；相位时间取公开货梯规格与 Peters RTT 分解的范围；需求结构与就绪时间取公开订单数据（UCI Online Retail II，CC BY 4.0；或 Instacart 2017）；楼层映射规则写明为假设；跑研究一的诊断与研究二的 GSV，含 DES | RQ3 与应用锚点 | 分钟 | 1 周 |
+| S2-9 | 运行时间与可扩展性：K ∈ {1000, 3000, 10000}，n ∈ {8, 16, 30, 60} 下各步耗时 | RQ3 | 分钟 | 1 天 |
+
+**可选项**
+
+| 编号 | 动作 | 说明 |
+|---|---|---|
+| O-1 | 补跑全因子中剩余的 36 个配置（另两个 1/3 分数），描述性扩展，使 F、AMR 数、需求模式的主效应可估计 | 分钟级算力；分析 1 周；锁定判定仍只基于原 18 个配置 |
+| O-2 | 用 SimPy 复现 heapq DES，作为 Appendix E 的交叉验证 | 若审稿人质疑自研 DES 时的备手 |
+| O-3 | TH-7 的必要性侧分析 | 理论加强，结果未知 |
+
+**不做**
+
+| 编号 | 动作 | 理由 |
+|---|---|---|
+| X-cap | 匹配容量干预实验（评估第一部分 §6） | 需要成本模型与瓶颈指标；与本文口径无关；主控 §0.1 第 4 条 |
+
+### 板块 5 写作
+
+| 编号 | 动作 | 具体内容 |
+|---|---|---|
+| W-1 | §3 补两句（可直接粘贴） | 3.1 第 2 段"so the decision concerns which orders enter the wave."之后加：*Because each candidate carries its recorded processing sequence (Section 3.2.3), the decision fixes both the order set and the order in which the fixed dispatch rule processes it.* 3.2.1 参数段末尾"are specified in Section 5."改为：*are specified in Section 5, which also reports a case whose elevator timings and order flow are set within publicly documented ranges.* |
+| W-2 | §3 的 10 处"Section 5"指针逐条对应到新 §5 的小节（参数取值与样本量 → 5.1；类别规模与重叠 → 5.2；候选池是否共享 → 5.1；派单规则稳健性检验 → 5.5 与 Supp-1；事件驱动仿真交叉验证 → 5.3 与 5.5；q_Φ 拟合样本 → 5.2） | 组稿时核对 |
+| W-3 | 补完 Word 版 §4：4.3.2 结尾、式 (47)、Fig. 4、4.4（Theorem 2 改推论、Corollary 2；Corollary 3 降备注；Corollary 4 删）；新增 4.5 GSV 与 4.6 | 与 TH-1 到 TH-5、M-8 同步 |
+| W-4 | §5 全新写：5.1 含计数定义（106,800 = 72,000 + 16,800 + 18,000）、混杂说明、覆盖矩阵、证据标签列、研究一总表；5.2 按 RQ1、RQ2 报告研究一（判定原样；D1-b 写成"前提被 §4 证明有误的未达门槛"；D2-c、D2-d 写成一致性检查；P8、P9、池内最优进主表；72% 与 47% 并列；DES 高估写明分母）；5.3 研究二；5.4 案例；5.5 边界 | 数字全部从 JSON 一键复算 |
+| W-5 | §6 全新写：6.1 到 6.3 逐 RQ；6.3 给释放流程的操作步骤（输入、每步耗时、短名单大小、何时启用 max{M1, M2}）；6.4 局限（闭式评估器、合成数据、单波次与热启动的范围、未执行检验）；6.5 未来工作（运营层为另一篇；多波次滚动；实机数据） | B-5 不再列为未来工作 |
+| W-6 | §2 按主控 §5.1 重组；加定位对照表（列：决策层；请求集内生与否；多机器人电梯争用；柔性楼层受限车队；电梯模型不确定；方法类型；验证数据。行：Gallien & Weber 2010、RAWSim-O 2017、Han 2025、Kim 2025、Chakravarty 2025、He 2026、Wang 2025、Ren 2025、Zhen 2023、Tadumadze 2023、Qin 2024、Xue & Wang 2026、Xu 2026、Tang 2026、本文）；bib 补全并统一格式 | 引文全部来自原始出版页 |
+| W-7 | §1 重写：钩子用具体事实（多层仓库与货梯的公开案例，见 real_data_assessment:26）；决策者、频率、交付物；缺口来自定位表；RQ；C1 到 C3；结构段 | 句子 ≤ 25 词 |
+| W-8 | 摘要六句逻辑：(1) 场景与决策（固定派单下的单波次组成，货梯共享）；(2) 缺口（邻居固定请求集或忽略争用；电梯抽象的影响未被检验）；(3) 贡献（基准；排序定理与抽象偏差；GSV）；(4) 研究一结果（57/72 PARTIAL；99.2% 排序；抽象偏差中位数 x%）；(5) 研究二结果（序列杠杆 x%；GSV 对 P8 x/12；k* = x）；(6) 含义（秒级可运行的释放流程；电梯模型何时重要；不给容量投资建议） | ≤ 250 词，无 em dash |
+| W-9 | 附录 A 到 H 按 §2 表编写 | |
+| W-10 | 图表规范：Times New Roman；15 cm 宽；PDF 矢量 + 600 dpi PNG；图注自足；沿用 figure_section3_schematic.py 的布局检查器 | 见 memory 中的图件偏好 |
+| W-11 | 图、表全文连续编号（Fig. 1、Table 1 起）；§3 的 Fig. 3.1 与 Table 3.1 到 3.3 改号 | 组稿时 |
+| W-12 | 全文一致性检查清单（§9） | 投稿前 |
+
+### 板块 6 纪律与流程
+
+| 编号 | 动作 | 说明 |
+|---|---|---|
+| P-1 | 写第六阶段协议 `paper_draft/phase6_method_study_protocol.md`（§4 的模板），作者签署，计算 SHA-256，冻结 | 运行前 |
+| P-2 | 归档到 OSF 或 Zenodo：冻结的 Phase 5 预注册（附提交哈希 2c47cc5 与"内部锁定"的诚实声明）、六份修正案、第六阶段协议 | 运行前；这次要有外部时间戳 |
+| P-3 | 证据标签总表（Appendix D）：每个数字的标签、来源文件、哈希 | 随 §5 |
+| P-4 | 主控文件 v2：§0.1 贡献口径改为 §1.1；§2.2、§2.3 更新；§6 的 §3 指针改为 Problem formulation.docx；§7.5 编号表按 D-3 与 TH-3 到 TH-5 更新；§8、§9 按新 §5、§6 结构重写；§12 清单更新 | 1 天 |
+| P-5 | TERMINOLOGY.md 与 CLAUDE.md 清理：删"capacity-bound > policy-bound"、"~72% (capacity-side dominant)"、"T = temporal clustering"；加 §1.4 的新术语 | 0.5 天 |
+| P-6 | 代码发布包：一条命令复现研究一与研究二；含种子、candidate_id 边车、配置数组、协议副本；README 写明版本与哈希 | 投稿前 |
+| P-7 | AI 使用披露：附录 A 的证明由 AI 起草并经 AI 对抗验证，作者逐行核验并承担责任；写作辅助的范围；按期刊政策放在声明区 | 投稿前 |
+| P-8 | 作者数学核验记录：附录 A 每个引理的通读日期与备注，存入 revision_2026-09-26_ijpr/MATH_VERIFICATION_LOG.md | 与 TH-1 同步 |
+| P-9 | 数据许可核对：UCI Online Retail II（CC BY 4.0）、Instacart 2017（Kaggle 条款）、JD MSOM 2020（需注册）；案例只用许可允许的集合，并在 Appendix G 注明 | S2-8 前 |
+| P-10 | 偏离日志：研究二运行中任何偏离协议的处理（记录、理由、影响），进入 Appendix D | 运行期间 |
+| P-11 | 版本冻结：§5 写作前冻结全部结果 JSON 的哈希；写作后不得再改数据 | 第 8 周 |
+| P-12 | 审稿回应预案：对评估第一部分 §4 的 13 条意见各写一段预备回应，指向稿件位置 | 投稿前 |
+
+### 板块 7 时间线、风险与退路
+
+**时间线（约 16 周，含缓冲）**
+
+| 周 | 工作 | 产出 |
+|---|---|---|
+| 1 | 决定 D-A 到 D-G 签字；T-6 故事契约；P-4、P-5；协议初稿；P-2 归档 | STORY_CONTRACT.md；协议草案；OSF 记录 |
+| 2 到 3 | 研究一重分析 S1-1 到 S1-9（先登记）；研究二代码：P10、P11、des_evaluator 模块化、热启动包装器、案例生成器；单元测试与向后兼容测试 | v0_5 并列结果；代码 |
+| 3 到 4 | TH-1 附录 A 与定理；W-3 补完 Word 版 §4；M-8 算法框 | Methodology.docx 完整；附录 A |
+| 4 | P11 在训练池上调参并锁定；协议签署与冻结（P-1）；测试池种子此时才生成 | 冻结的协议与哈希 |
+| 5 到 7 | 运行研究二 S2-1 到 S2-9；分析；图表 | v0_6_phase6_*.json；图 |
+| 8 到 10 | P-11 冻结数据；写 §5、§6；附录 B 到 H | §5、§6 初稿 |
+| 11 到 12 | 写 §2（含定位表与 bib）、§1、摘要、亮点；T-5 定题 | 前半稿 |
+| 13 到 14 | W-12 一致性检查；内部模拟审稿一轮；Word 组稿；编号连续化 | 全稿 |
+| 15 到 16 | 缓冲；P-6、P-7、P-12；投稿包 | 投稿 |
+
+**三种结果情形（门槛先锁定，所以每种都是干净的）**
+
+| 情形 | 判据 | 论文形态 | 目标期刊 |
+|---|---|---|---|
+| 甲 | G1 达到上档且 G2、G3 达到上档 | 按 §1.1 三条贡献投；C3 是完整的方法贡献 | IJPR |
+| 乙 | G1 中档或下档，但 G2、G3 达到中档以上 | C3 改为"保真阶梯 + 筛选验证"，生成器降为对照；序列结果作为 RQ1 的发现报告 | IJPR，方法新意减弱 |
+| 丙 | G2、G3 均在下档 | 研究二全部作为边界报告；退回洞察型框架（v1 的 C&IE 基线包） | C&IE |
+
+**风险登记**
+
+| 风险 | 影响 | 缓解 |
+|---|---|---|
+| 研究二结果不利 | 故事需改 | 三种情形预先写好；门槛锁定，失败可报告 |
+| 主动制造同乘让排序失效 | C2 的适用范围缩小 | D-F 已接受；启用 max{M1, M2} 筛选；作为发现报告 |
+| 自研 DES 被质疑 | 验证步骤的可信度 | Appendix E 的 800/800 自检；O-2 的 SimPy 复现备手 |
+| 附录 A 通读发现漏洞 | C2 降级 | 提前到第 3 到 4 周做；若不能修复，定理保留为命题并如实说明 |
+| 校准案例数据许可 | 案例不能用 | P-9 提前核对；优先 UCI（CC BY 4.0） |
+| 聚类 bootstrap 使 H-D1 更差 | 研究一更弱 | 原判定不变；并列报告；C3 不依赖 H-D1 |
+| 时间超支 | 延期 | 第 15 到 16 周为缓冲；O-1 到 O-3 可放弃 |
+| 写作重新引入禁用表述 | 初审风险 | T-4 清扫；W-12 检查；指引文件先清理 |
+| 两个研究互相借势 | 审稿人指出证据层级混淆 | T-7；证据标签表；§5.1 分层说明 |
+
+---
+
+## 4. 第六阶段协议（研究二）登记清单草案
+
+以下是协议文档的骨架与建议的门槛值。门槛值由作者确认后锁定；确认后不得改动。
+
+### 4.1 目的与范围
+研究二评价 GSV 释放流程及其两个部件（P10、P11），回答 RQ1 与 RQ3 的方法部分，并检验 RQ2 在方法情境下的适用范围。它不改变研究一的任何判定。
+
+### 4.2 设计
+- 配置：全部 18 个（configs_v0_5.json 不改）；校准案例另设 config_id 100、101。
+- 订单池：每配置 8 个独立测试池，种子 SEED_P6 + 1000 × pool_idx + config_id，SEED_P6 = 20260926（建议）；另设 2 个训练池（种子另列），只用于 P11 调参。
+- 波次规模：n ∈ {8, 16, 30}。
+- 候选池：随机候选 K = 3000（预注册生成器）；P11 生成 K' = 200。
+- 评估器：M1、M2（闭式）；DES-M1、DES-M2（heapq 实现）。
+- 每格样本：200 个释放决策（对应 200 个候选抽样种子）。
+- 破平：全部使用 2026-09-11 修复后的索引稳定破平。
+
+### 4.3 臂
+P0、P2、P5、P8（池内）；P0+P10、P5+P10、P8+P10（池内加序列）；P7、P9、P11、GSV(k)（池外）；锚点：M2 闭式池内最优、DES-M2 池内最优。
+
+### 4.4 指标
+见 §1.4 与 M-7。全部指标同时报告绝对秒数与相对百分比；区间用候选聚类 bootstrap（B = 2000）。
+
+### 4.5 门槛与措辞阶梯（建议值）
+
+| 门槛 | 指标 | 上档 | 中档 | 下档 |
+|---|---|---|---|---|
+| G1 序列杠杆 | P5+P10 相对 P5 在 M2 下 12 格平均改善，且在 DES-M2 下 ≥ 9/12 格同号 | ≥ 7.5%："re-ordering at release recovers most of the operational clustering gain" | 2.5% 到 7.5%："recovers part of the gain" | < 2.5%："the sequence lever at release is small; dispatch remains the larger lever" |
+| G2 方法竞争力 | GSV(k = 20) 对 P8 在 DES-M2 下的胜格数（12 格） | ≥ 9/12："competitive with the strongest simulator-free heuristic" | 6 到 8："comparable" | ≤ 5："not competitive; reported as a boundary" |
+| G2' 对搜索 | GSV(k = 20) 对 P7 的胜格数 | ≥ 6/12："matches search at a fraction of the evaluations" | 3 到 5："approaches search" | ≤ 2："search remains stronger" |
+| G3 筛选保真 | k*（r(k) ≤ 2% 的最小 k）在 18 个配置上的分布 | k* ≤ 20 in ≥ 15/18："a shortlist of 20 suffices" | k* ≤ 50 in ≥ 15/18："a shortlist of 50 suffices" | 否则："closed-form screening is not a reliable pre-filter" |
+| G4 排序率（D-F） | P11 波次上 M1 ≤ M2 的比例 | ≥ 95%："ordering persists under manufactured co-rides" | 80% 到 95%："ordering weakens; hedged screening under max{M1, M2} is used for these candidates" | < 80%："model choice matters once composition exploits co-occupancy" |
+| G5 热启动 | 第 2 到 5 波：排序率与 GSV 增益的符号保持 | 排序 ≥ 95% 且增益同号 ≥ 80% 配置："warm-start robust" | 其一达标："partially robust" | 均不达标："single-wave results do not transfer to consecutive waves" |
+| G6 集合对序列 | 序列方差份额 s（M2 与 DES-M2 各报） | s > 50%："sequence dominates" | 20% 到 50%："comparable" | < 20%："set dominates" |
+| G7 校准案例 | 无门槛 | 只报告同一套指标与参数出处 | | |
+| G8 保真阶梯 | DL_M1 > DL_M2 的配置数 | ≥ 15/18："planning with the throughput abstraction costs more than planning with co-occupancy" | 10 到 14："often" | ≤ 9："no systematic difference" |
+
+G4 与 G6 到 G8 没有通过或失败，只有预先约定的读法。G1 到 G3、G5 的三档都可报告，任何一档都不触发重跑或改参。
+
+### 4.6 预先承诺
+- 所有臂、所有配置、所有规模的结果全部报告，不选择性呈现。
+- P11 的超参数在测试池生成前锁定，写入协议附表。
+- 若 G4 落入中档或下档，GSV 的筛选评估器对 P11 候选改为 max{M1, M2}，并同时报告 M2 筛选的结果。
+- 任何偏离进入偏离日志（P-10）。
+
+### 4.7 输出
+- 结果文件：prototype/results/v0_6_phase6_{seqvar, seqlever, gsv, warmstart, case}.json；原始行：results/raw/mvs_v0_6_phase6_*.csv（含 candidate_id、pool_seed、arm、evaluator）。
+- 每个文件写入生成时间、代码版本哈希、协议哈希。
+
+### 4.8 签署
+作者签名、日期、协议 SHA-256、OSF/Zenodo 记录号。
+
+---
+
+## 5. 图表清单（IJPR 版）
+
+| 编号 | 内容 | 来源 | 状态 |
+|---|---|---|---|
+| Fig. 1 | 问题设定与单个订单的串行预约（v4） | fig1_section3_setting.pdf | 完成 |
+| Fig. 2 | 类别诊断与差距分解的示意（partition-relative） | §4 md 现 Fig. 2/3 | 改标注 |
+| Fig. 3 | 排序定理与两个反转通道：X1、X2 的时间线 | §4 md 4.3.2 | 改为 Times New Roman |
+| Fig. 4 | 抽象偏差分布（按 E、c、F、n 分面） | TH-2 | 新 |
+| Fig. 5 | GSV 流程图（三步、输入输出、每步依据） | M-1、M-8 | 新 |
+| Fig. 6 | 集合对序列方差分解（按配置） | S2-1 | 新 |
+| Fig. 7 | 序列杠杆：P10 的改善与 Supp-1 的 10.2% 并列 | S2-2 | 新 |
+| Fig. 8 | 筛选后悔曲线 r(k) 与 k* | S2-4 | 新 |
+| Fig. 9 | 各策略在 DES-M2 下的完工时间（相对随机；含池内最优锚点） | S2-3 | 新 |
+| Fig. 10 | 保真阶梯决策损失 DL_m | S2-6 | 新 |
+| Fig. 11 | 热启动：连续 5 波的排序率与增益 | S2-7 | 新 |
+| Fig. 12 | 校准案例结果 | S2-8 | 新 |
+| Fig. 13（附录） | 最好的波次在 (C, I) 平面的位置 | S1-8 | 新 |
+| Table 1 | 实验设计：因子、覆盖矩阵、块与配置、计数定义、证据标签 | S1-10 | 新（替换 T1） |
+| Table 2 | 假设、门槛、标签、判定、日期总表（研究一 + 研究二） | P-3 | 新 |
+| Table 3 | 研究一诊断结果（H-D1、H-D2、H-D3、Supp）与聚类 bootstrap 并列 | S1-1 | 新 |
+| Table 4 | 策略竞赛（含 P8、P9、P7、池内最优；行级与聚类区间并列） | S1-2 | 新 |
+| Table 5 | 研究二主结果（各臂、各规模、DES-M2） | S2-3 | 新 |
+| Table 6 | 校准案例参数与出处 | S2-8 | 新 |
+| Table 7 | 定位对照表（§2.6） | W-6 | 新 |
+| Table 8（附录） | 未执行或撤回的登记检验 | Appendix F | 新 |
+
+---
+
+## 6. 代码与文件清单
+
+| 文件 | 内容 | 类型 |
+|---|---|---|
+| prototype/src/wave_policies.py | 新增 `resequence_coride_chain(wave)`（P10）、`construct_coride_aware(pool, n, params, rng)`（P11）；自测 | 修改 |
+| prototype/src/simulator.py | 新增 `simulate_wave_sequence(waves, ...)` 热启动包装器；单波次结果必须与 `simulate_wave` 逐位相同（加入 `_test_backward_compat`） | 修改 |
+| prototype/src/des_evaluator.py | 把 b5_des_crossvalidation.py 的 heapq DES 模块化：`des_makespan(wave, model, ...)`、批量接口；保留 800/800 自检 | 新建 |
+| prototype/src/phase6_config.py | 种子、池数、规模、k 网格、P11 超参数网格与锁定值、门槛常量（与协议一致） | 新建 |
+| prototype/src/experiments_phase6_seqvar.py | S2-1 | 新建 |
+| prototype/src/experiments_phase6_seqlever.py | S2-2 | 新建 |
+| prototype/src/experiments_phase6_gsv.py | S2-3 到 S2-6、S2-9 | 新建 |
+| prototype/src/experiments_phase6_warmstart.py | S2-7 | 新建 |
+| prototype/src/experiments_phase6_case.py 与 demand_patterns.py 的 `calibrated` 模式 | S2-8；config_id ≥ 100；结果前缀 v0_6_case_* | 新建、修改 |
+| prototype/src/analysis_phase6_*.py | 对应各实验的判定与阶梯措辞输出 | 新建 |
+| prototype/src/experiments_v0_6_enumeration.py | S1-2 | 新建 |
+| prototype/src/analysis_cluster_bootstrap.py | S1-1 | 新建 |
+| prototype/src/experiments_phase5_blockC_ext.py | S1-3 | 新建 |
+| revision_2026-07-08 的 B-4、B-6 脚本 | S1-4、S1-5（若不存在则按 AMEND-B 规格新写） | 核对 |
+| prototype/src/figure_*.py | Fig. 4 到 13，沿用 figure_section3_schematic.py 的字体与布局检查 | 新建 |
+| paper_draft/phase6_method_study_protocol.md | 第六阶段协议（§4） | 新建 |
+| revision_2026-09-26_ijpr/ | STORY_CONTRACT.md、EXECUTION-LOG.md、MATH_VERIFICATION_LOG.md、amendments/、tables/、figures/ | 新建目录 |
+| revision_2026-09-02/MASTER_REVISION_BY_SECTION.md | v2 更新（P-4） | 修改 |
+| paper_draft/TERMINOLOGY.md、CLAUDE.md | 清理与新术语（P-5） | 修改 |
+
+结果文件前缀约定：v0_5_phase5_*（研究一，不动）；v0_5_phase5_*_ext / _cluster（研究一重分析）；v0_6_phase6_*（研究二）；v0_6_case_*（校准案例，第三尺度）。
+
+---
+
+## 7. 旧清单到新清单的映射（v1 → v2）
+
+| v1 编号 | 内容 | v2 处置 |
+|---|---|---|
+| N-1 | 重写新意表述 | T-1、T-4 |
+| N-2 | 定位对照表 | W-6 |
+| N-3 | 与 Fan-Hong-Zhang、Bertsimas-Kallus、Fu 2024 的定位 | W-6（2.4、2.5） |
+| N-4 | 附录 A 与定理 | TH-1 |
+| N-5 | 必要性侧分析 | TH-7 / O-3（可选） |
+| N-6 | 测量口径依赖作为方法论警示 | W-4 5.5、W-5 6.1 |
+| N-7 | 筛选加验证的新意 | M-1、C3 |
+| C-1 | 口径统一 | T-1、T-4 |
+| C-2 | minimax-regret 行与稳定性 | S1-6 |
+| C-3 | Supp-1 耦合显示 | S1-7 |
+| C-4 | 聚类 bootstrap | S1-1 |
+| C-5 | Zenodo 发布 | P-2、P-6 |
+| C-6 | 筛选加验证 | M-1 到 M-9、S2-3 到 S2-6（合并 X-2、X-6、X-9） |
+| C-7 | 理论加强 | TH-7（可选） |
+| C-8 | 管理含义改写 | T-8、W-5 |
+| S-1 | 故事契约 | T-6 |
+| S-2 | Word 版 §4 | W-3 |
+| S-3 | §5 | W-4 |
+| S-4 | §1、§2、摘要 | W-6 到 W-8 |
+| S-5 | §6 | W-5 |
+| S-6 | 悬空点 | TH-8、W-2、W-11 |
+| S-7 | 决策辅助主线 | §1.1、§2 |
+| S-8 | 校准案例子节 | S2-8、W-4 5.4 |
+| S-9 | 生产研究语言 | W-7、W-8 |
+| E-1 | 聚类 bootstrap | S1-1 |
+| E-2 | Block C 扩展 | S1-3 |
+| E-3 | B-4、B-6(ii) | S1-4、S1-5 |
+| E-4 | 全池枚举 | S1-2 |
+| E-5 | 设计诚实呈现 | W-4 5.1 |
+| E-6 | 参数依据 | S2-8、Appendix G |
+| E-7 | 归档 | P-2 |
+| E-8 | DES 协同评估 | S2-3、S2-6 |
+| E-9 | 校准案例 | S2-8 |
+| E-10 | 多池重复 | S2-3（8 池） |
+| E-11 | 全因子 | O-1 |
+| E-12 | 容量干预 | 不做 |
+| X-1 | 抽象偏差 | TH-2、Fig. 4 |
+| X-2 | 保真阶梯 | S2-6、Fig. 10 |
+| X-3 | 删 DRO 与证书 | TH-4、TH-5 |
+| X-4 | AI 披露 | P-7、P-8 |
+| X-5 | 集合对序列 | S2-1、Fig. 6 |
+| X-6 | 序列策略 | M-2、S2-2 |
+| X-7 | 最好的波次 | S1-8、Fig. 13 |
+| X-8 | 热启动 | S2-7、Fig. 11 |
+| X-9 | 机制感知构造 | M-3、S2-3 |
+
+---
+
+## 8. 四个维度对照与预期效果
+
+| 维度 | 主要承担项 | 现状 | v2 完成后（情形甲） | v2 完成后（情形乙） |
+|---|---|---|---|---|
+| 创新性 | TH-1、TH-2、M-1 到 M-3、W-6 | 2.5 | 3.5 到 4（问题、机制定理、抽象偏差、机制感知方法） | 3 到 3.5 |
+| 贡献度 | C1 到 C3、S2-2 到 S2-6、S2-8 | 2.5 | 4（一个可运行的流程、一个保真阶梯、一个应用案例） | 3.5 |
+| 故事完整度 | T-1 到 T-8、W-1 到 W-12 | 2 | 4（两个研究、三个 RQ、一条主线） | 3.5 到 4 |
+| 实验设计 | S1-1 到 S1-10、S2-1 到 S2-9 | 3 | 4（多池、全覆盖、DES 双评、热启动、案例） | 4 |
+| IJPR | | 不足 | 有实质机会 | 可投，方法新意偏弱 |
+| C&IE（退路） | | 拒稿后重投 | 大修到接收 | 大修到接收 |
+
+---
+
+## 9. 提交前验收清单
+
+1. 摘要、§1、§6 使用同一版三条贡献；三个 RQ 在 §1 提出、§5 检验、§6 回答。
+2. 全稿无 §1.3 的禁用表述（脚本检索）。
+3. 定理编号只用新稿编号；§4 md、主控、旧稿的编号不出现。
+4. 每个数字带证据标签，可从 JSON 一键复算；Table 2 完整。
+5. 研究一判定与预注册文本逐字一致；并列的新数字标明"并列，不替换"。
+6. 研究二的每个结果对应协议条目号；措辞与阶梯锁定文本一致。
+7. 原型规模与发表规模数字不混排；B-11 标"小实例"；案例标"第三尺度"。
+8. §3 的两句补充已加；10 处 §5 指针全部有落点。
+9. Word 版 §4 完整（到 4.6）；附录 A 完整且有作者核验记录。
+10. DRO 只剩一句备注；U_c 只剩一句边界。
+11. 定位对照表包含 15 行；bib 含全部 13 篇新增文献，格式统一，DOI 齐全（含 so2019calculation 的 10.1016/j.jobe.2019.01.013）。
+12. 图 1 到 13 全部 Times New Roman、15 cm、矢量 + 600 dpi；图注自足；编号连续。
+13. 表 1 的 AMR 数为 {5, 15, 30}；计数定义为模型评估次数。
+14. DES 高估写明分母；B-5 的 heapq 与 SimPy 偏离写入 Appendix E。
+15. Appendix F 列出 B-4、B-6 的执行或撤回状态。
+16. 校准案例只写"within publicly documented ranges"；数据许可注明。
+17. 预注册、修正案、协议的 OSF/Zenodo 记录号与哈希写入 Appendix D。
+18. 代码包一条命令可复现；README 含版本与哈希。
+19. AI 使用声明按期刊政策填写。
+20. 亮点 5 条、关键词 6 个、字数与格式符合 IJPR 作者指南。
+21. 与 §6.4 局限对照：闭式评估器、合成数据、单波次范围、未执行检验、DES 实现均已披露。
+22. 主控、TERMINOLOGY.md、CLAUDE.md 与稿件一致。
+
+---
+
+## 10. 投稿包
+
+- Cover letter 要点：决策问题与决策者；两个研究的证据层级（预注册 + 登记协议）；诚实报告的部分通过与失败结果；代码与数据可得；与 IJPR 近期同类论文的关系（IJPR 63(1) 2025 等）。
+- 声明：数据可得性（合成数据与公开数据集的出处）；代码可得性（Zenodo DOI）；AI 使用；利益冲突；资助。
+- 亮点草案（研究二后定稿）：
+  1. Wave composition under shared freight elevators is formulated as candidate selection with a fixed dispatch rule.
+  2. The throughput abstraction of elevator capacity is proven optimistic relative to true co-occupancy, with two reversal mechanisms.
+  3. A generate, screen, and verify procedure composes waves in seconds and is verified by event-driven simulation.
+  4. Re-ordering orders at release recovers x% of the gain that operational clustering delivers.
+  5. Preregistered diagnostics bound where closed-form class rules stop being reliable.
+- 关键词：wave release; multi-story warehouse; autonomous mobile robots; freight elevator; model uncertainty; preregistered simulation.
+
+---
+
+## 11. 来源
+
+- 期刊范围：[IJPR aims and scope](https://www.tandfonline.com/journals/tprs20/about-this-journal)；[C&IE journal page](https://www.sciencedirect.com/journal/computers-and-industrial-engineering)。
+- 先行工作与前沿邻居：[Gallien & Weber 2010, MSOM](https://pubsonline.informs.org/doi/abs/10.1287/msom.1100.0291)；[Fan, Hong & Zhang 2020, Management Science](https://pubsonline.informs.org/doi/10.1287/mnsc.2018.3213)；[RAWSim-O 2017](https://arxiv.org/html/1710.04726)；[Wang et al. 2025, C&IE 210:111559](https://www.sciencedirect.com/science/article/abs/pii/S0360835225007053)；[Ren et al. 2025, C&IE 204:111095](https://www.sciencedirect.com/science/article/abs/pii/S0360835225002414)；[He et al. 2026, MAPF with Elevators](https://arxiv.org/html/2602.20512v2)；[Han et al. 2025, Sensors](https://pmc.ncbi.nlm.nih.gov/articles/PMC11946681)；[Kim et al. 2025, Electronics](https://doi.org/10.3390/electronics14050982)；[Zhen et al. 2023, Annals of OR](https://dblp.org/rec/journals/anor/ZhenWLTY23.html)；[Xu et al. 2026, WareRover](https://arxiv.org/abs/2602.13999)；[Tang et al. 2026, SOAR](https://arxiv.org/abs/2605.03842)；[Tadumadze et al. 2023, FSMJ](https://link.springer.com/article/10.1007/s10696-023-09491-0)。
+- IJPR 同类论文：[IJPR 63(1) 2025](https://www.tandfonline.com/doi/abs/10.1080/00207543.2024.2361436)；[IJPR 64(6) 2026](https://www.tandfonline.com/doi/abs/10.1080/00207543.2025.2609978)；[IJPR 64(5) 2026](https://www.tandfonline.com/doi/full/10.1080/00207543.2025.2609176)；[IJPR 64(14) 2026](https://www.tandfonline.com/doi/full/10.1080/00207543.2026.2616669)。
+- C&IE 仿真型先例：[Winkelhaus et al. 2022, C&IE 167](https://www.sciencedirect.com/science/article/pii/S0360835222000511)；[2026 DES + 深度学习 RMFS 车队规模论文](https://www.sciencedirect.com/science/article/abs/pii/S0360835226001117)。
+- 预注册在仿真研究中的价值：[Pawel et al., arXiv 2203.13076](https://arxiv.org/pdf/2203.13076)；[COS simulation-studies preregistration template](https://www.cos.io/blog/introducing-the-simulation-studies-preregistration-template)。
+- 项目内部：MASTER_REVISION_BY_SECTION.md（§0.1 到 0.3、§2.2 到 2.4、§3、§5、§8、§9、§12）；phase5_scaleup_preregistration.md（§3、§4 第 213 行、§9、§10）；AMEND-2026-07-08-B_deferred_experiments.md；contribution_review_2026-08-06.md；contribution_review_continuation_2026-09-02.md；real_data_assessment_2026-07-19.md（案例参数出处清单）；CONTRIBUTION-IDEAS-2026-07-08.md；plan_section3_section4_v0_2.md；QA_2026-09-11_tiebreak_fix_candidate_id.md。
+- 本次评估的原始输出：工作流 wf_6e7d903d-05b 的 journal.jsonl（C:\Users\64432\.claude\projects\F--Paper-3\44566305-b1de-4f16-8662-87a70f46d90f\subagents\workflows\wf_6e7d903d-05b\）。

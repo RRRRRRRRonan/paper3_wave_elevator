@@ -1,0 +1,82 @@
+{
+ "amendment": "B-14",
+ "date_executed": "2026-07-08",
+ "patch": "index-stable tie-break on all three pool classes (harness-side; production untouched)",
+ "blockC_gates_fixed_simulator": {
+  "D2a": true,
+  "D2a_avg": 0.9925,
+  "D2a_worst": 0.96,
+  "D2b": true,
+  "D2c": true,
+  "D2d": true,
+  "n_collapse": 6
+ },
+ "blockC_gates_stored_artefact": {
+  "D2a": true,
+  "D2a_avg": 0.9920833333333333,
+  "D2a_worst": 0.96,
+  "D2b": true,
+  "D2c": true,
+  "D2d": true,
+  "n_collapse": 6
+ },
+ "gate_verdicts_unchanged": true,
+ "smoke_sliceA_fixed": [
+  {
+   "config_id": 0,
+   "model": "abstraction",
+   "H_up": -0.01509433962264151,
+   "M_Phi": 0.0,
+   "GAP": -0.01509433962264151,
+   "identity_exact": true
+  },
+  {
+   "config_id": 0,
+   "model": "batched",
+   "H_up": 0.19292604501607716,
+   "M_Phi": 0.00964630225080386,
+   "GAP": 0.202572347266881,
+   "identity_exact": true
+  },
+  {
+   "config_id": 2,
+   "model": "abstraction",
+   "H_up": 0.037037037037037035,
+   "M_Phi": 0.12962962962962962,
+   "GAP": 0.16666666666666666,
+   "identity_exact": true
+  },
+  {
+   "config_id": 2,
+   "model": "batched",
+   "H_up": 0.09655172413793103,
+   "M_Phi": 0.013793103448275862,
+   "GAP": 0.1103448275862069,
+   "identity_exact": true
+  },
+  {
+   "config_id": 4,
+   "model": "abstraction",
+   "H_up": 0.007455163177639404,
+   "M_Phi": 0.03465144863995681,
+   "GAP": 0.042106611817596215,
+   "identity_exact": true
+  },
+  {
+   "config_id": 4,
+   "model": "batched",
+   "H_up": 0.11101872038993243,
+   "M_Phi": 0.09739138526161678,
+   "GAP": 0.20841010565154922,
+   "identity_exact": true
+  }
+ ],
+ "tie_exposure": {
+  "requests": 401815,
+  "ties": 62736,
+  "ties_diff_floor": 20533,
+  "tie_frac": 0.156131553077909,
+  "consequential_tie_frac": 0.051100630887348654
+ },
+ "runtime_seconds": 2.7
+}

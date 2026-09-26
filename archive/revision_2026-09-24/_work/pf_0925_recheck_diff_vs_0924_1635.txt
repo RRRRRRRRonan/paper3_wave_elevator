@@ -1,0 +1,9 @@
+
+=== DELETE old[87:88] -> new[87:87] ===
+  - Each selectable class is implemented by uniform sampling over its candidate indices, with the fixed within-class distribution
+
+=== REPLACE old[137:138] -> new[136:137] ===
+  OLD: The new trip replaces that car’s stored trip record, and subsequent requests test Equation (25) against the latest record of each car. A stored trip serves one origin-destination pair and makes no intermediate stops; a request with a different pair, or one arriving after loading has ended, uses a separate trip. ⟦E212⟧ shares a trip only among requests with the same origin and destination. This is a restricted form of the destination-based grouping of destination group control, in which requests from a common origin are assigned to cars by destination until the car capacity is reached (So et al., 2022).
+  NEW: The new trip replaces that car’s stored trip record, and subsequent requests test Equation (25) against the latest record of each car. A stored trip serves one origin-destination pair and makes no intermediate stops; a request with a different pair, or one arriving after loading has ended, uses a separate trip.   shares a trip only among requests with the same origin and destination. This is a restricted form of the destination-based grouping of destination group control, in which requests from a common origin are assigned to cars by destination until the car capacity is reached (So & Al-Sharif, 2019).
+    replace: '⟦⟧' -> ' '
+    replace: 'et al., 2022).' -> '& Al-Sharif, 2019).'

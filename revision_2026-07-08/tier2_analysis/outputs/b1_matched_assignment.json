@@ -1,0 +1,227 @@
+{
+ "amendment": "B-1 (+ addenda)",
+ "date_executed": "2026-07-08",
+ "instrument": "fidelity-gated mirror, index-stable tie-break",
+ "n_waves": 6000,
+ "n_replays": 18000,
+ "hyp_b_holds_free_assignment": 3469,
+ "hyp_b_free_frac": 0.5781666666666667,
+ "dominance_enforced": 5980,
+ "dominance_enforced_frac": 0.9966666666666667,
+ "n_violations_enforced": 20,
+ "violation_channels": {
+  "batch_overtaking": 18,
+  "adverse_repositioning": 2
+ },
+ "base_rate_all_waves": {
+  "batch_overtaking_events": 760,
+  "adverse_repositioning_events": 5966,
+  "overtake_frac": 0.12666666666666668,
+  "repos_frac": 0.9943333333333333
+ },
+ "locked_rules": {
+  "all_violations_are_overtaking_sentence": "RETIRED (per addendum)",
+  "condition_d_prominent_in_section4": false
+ },
+ "per_config": {
+  "1": {
+   "n": 1000,
+   "b_free": 15,
+   "dom": 999,
+   "viol": 1
+  },
+  "3": {
+   "n": 1000,
+   "b_free": 889,
+   "dom": 987,
+   "viol": 13
+  },
+  "5": {
+   "n": 1000,
+   "b_free": 1000,
+   "dom": 994,
+   "viol": 6
+  },
+  "7": {
+   "n": 1000,
+   "b_free": 4,
+   "dom": 1000,
+   "viol": 0
+  },
+  "9": {
+   "n": 1000,
+   "b_free": 561,
+   "dom": 1000,
+   "viol": 0
+  },
+  "11": {
+   "n": 1000,
+   "b_free": 1000,
+   "dom": 1000,
+   "viol": 0
+  }
+ },
+ "violations": [
+  {
+   "config_id": 1,
+   "arm": "LC_HI",
+   "wave_id": 73,
+   "mk_M1": 139.0,
+   "mk_M2_enforced": 137.0,
+   "channel": "batch_overtaking"
+  },
+  {
+   "config_id": 3,
+   "arm": "random",
+   "wave_id": 126,
+   "mk_M1": 109.0,
+   "mk_M2_enforced": 108.0,
+   "channel": "batch_overtaking"
+  },
+  {
+   "config_id": 3,
+   "arm": "HC_HI",
+   "wave_id": 47,
+   "mk_M1": 119.0,
+   "mk_M2_enforced": 113.0,
+   "channel": "batch_overtaking"
+  },
+  {
+   "config_id": 3,
+   "arm": "HC_HI",
+   "wave_id": 55,
+   "mk_M1": 119.0,
+   "mk_M2_enforced": 113.0,
+   "channel": "batch_overtaking"
+  },
+  {
+   "config_id": 3,
+   "arm": "HC_HI",
+   "wave_id": 109,
+   "mk_M1": 143.0,
+   "mk_M2_enforced": 137.0,
+   "channel": "batch_overtaking"
+  },
+  {
+   "config_id": 3,
+   "arm": "HC_HI",
+   "wave_id": 153,
+   "mk_M1": 119.0,
+   "mk_M2_enforced": 113.0,
+   "channel": "batch_overtaking"
+  },
+  {
+   "config_id": 3,
+   "arm": "LC_HI",
+   "wave_id": 78,
+   "mk_M1": 117.0,
+   "mk_M2_enforced": 103.0,
+   "channel": "batch_overtaking"
+  },
+  {
+   "config_id": 3,
+   "arm": "LC_HI",
+   "wave_id": 187,
+   "mk_M1": 117.0,
+   "mk_M2_enforced": 103.0,
+   "channel": "batch_overtaking"
+  },
+  {
+   "config_id": 3,
+   "arm": "LC_LI",
+   "wave_id": 1,
+   "mk_M1": 147.0,
+   "mk_M2_enforced": 142.0,
+   "channel": "batch_overtaking"
+  },
+  {
+   "config_id": 3,
+   "arm": "LC_LI",
+   "wave_id": 83,
+   "mk_M1": 161.0,
+   "mk_M2_enforced": 156.0,
+   "channel": "batch_overtaking"
+  },
+  {
+   "config_id": 3,
+   "arm": "LC_LI",
+   "wave_id": 138,
+   "mk_M1": 147.0,
+   "mk_M2_enforced": 142.0,
+   "channel": "batch_overtaking"
+  },
+  {
+   "config_id": 3,
+   "arm": "LC_LI",
+   "wave_id": 142,
+   "mk_M1": 161.0,
+   "mk_M2_enforced": 156.0,
+   "channel": "batch_overtaking"
+  },
+  {
+   "config_id": 3,
+   "arm": "LC_LI",
+   "wave_id": 144,
+   "mk_M1": 147.0,
+   "mk_M2_enforced": 142.0,
+   "channel": "batch_overtaking"
+  },
+  {
+   "config_id": 3,
+   "arm": "LC_LI",
+   "wave_id": 174,
+   "mk_M1": 147.0,
+   "mk_M2_enforced": 142.0,
+   "channel": "batch_overtaking"
+  },
+  {
+   "config_id": 5,
+   "arm": "random",
+   "wave_id": 174,
+   "mk_M1": 179.67668548751774,
+   "mk_M2_enforced": 170.25016845903855,
+   "channel": "batch_overtaking"
+  },
+  {
+   "config_id": 5,
+   "arm": "HC_LI",
+   "wave_id": 85,
+   "mk_M1": 162.50111405789596,
+   "mk_M2_enforced": 161.50111405789596,
+   "channel": "adverse_repositioning"
+  },
+  {
+   "config_id": 5,
+   "arm": "HC_LI",
+   "wave_id": 170,
+   "mk_M1": 162.50111405789596,
+   "mk_M2_enforced": 161.50111405789596,
+   "channel": "adverse_repositioning"
+  },
+  {
+   "config_id": 5,
+   "arm": "LC_HI",
+   "wave_id": 177,
+   "mk_M1": 163.3548728320731,
+   "mk_M2_enforced": 159.3548728320731,
+   "channel": "batch_overtaking"
+  },
+  {
+   "config_id": 5,
+   "arm": "LC_LI",
+   "wave_id": 30,
+   "mk_M1": 179.3240919074144,
+   "mk_M2_enforced": 179.27009206612857,
+   "channel": "batch_overtaking"
+  },
+  {
+   "config_id": 5,
+   "arm": "LC_LI",
+   "wave_id": 52,
+   "mk_M1": 179.3240919074144,
+   "mk_M2_enforced": 179.27009206612857,
+   "channel": "batch_overtaking"
+  }
+ ],
+ "runtime_seconds": 1.3
+}

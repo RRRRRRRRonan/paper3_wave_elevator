@@ -1,0 +1,173 @@
+{
+ "amendment": "C-4",
+ "date_executed": "2026-07-08",
+ "n_new_sims": 18000,
+ "reconstruction_fidelity": "PASSED 12000/12000 exact",
+ "caliber_note": "3.4% = config 7 Hedge corner LC_HI U_c(0.05)/m0; 3.5% = config 7 global max corner LC_LI",
+ "per_config": [
+  {
+   "config_id": 1,
+   "m0": 190.0,
+   "hedge_corner": "LC_HI",
+   "oracle_M1_corner": "LC_HI",
+   "avg_model_corner": "LC_HI",
+   "regret_hedge_by_theta": {
+    "M1": 0.0,
+    "M2": 0.0,
+    "M3_s10": 0.0,
+    "M3_s20new": 0.0,
+    "M3_s30": 0.0
+   },
+   "price_hedge": 0.0,
+   "price_oracle_M1": 0.0,
+   "price_avg_model": 0.0,
+   "U_c": {
+    "0.02": 0.4800000000000182,
+    "0.05": 2.0,
+    "0.1": 5.0
+   },
+   "price_abs": 0.0,
+   "tau_eps005": 0.0,
+   "certificate_valid": true,
+   "informative": false
+  },
+  {
+   "config_id": 3,
+   "m0": 189.0,
+   "hedge_corner": "LC_HI",
+   "oracle_M1_corner": "LC_HI",
+   "avg_model_corner": "LC_HI",
+   "regret_hedge_by_theta": {
+    "M1": 0.0,
+    "M2": 0.0,
+    "M3_s10": 0.0,
+    "M3_s20new": 0.0,
+    "M3_s30": 0.0
+   },
+   "price_hedge": 0.0,
+   "price_oracle_M1": 0.0,
+   "price_avg_model": 0.0,
+   "U_c": {
+    "0.02": 0.0,
+    "0.05": 5.0,
+    "0.1": 9.0
+   },
+   "price_abs": 0.0,
+   "tau_eps005": 0.0,
+   "certificate_valid": true,
+   "informative": false
+  },
+  {
+   "config_id": 5,
+   "m0": 205.96136820279446,
+   "hedge_corner": "HC_HI",
+   "oracle_M1_corner": "HC_HI",
+   "avg_model_corner": "HC_HI",
+   "regret_hedge_by_theta": {
+    "M1": 0.0,
+    "M2": 0.0,
+    "M3_s10": 0.0,
+    "M3_s20new": 0.0,
+    "M3_s30": 0.0
+   },
+   "price_hedge": 0.0,
+   "price_oracle_M1": 0.0,
+   "price_avg_model": 0.0,
+   "U_c": {
+    "0.02": 1.8962266728375425,
+    "0.05": 4.615000004777642,
+    "0.1": 12.599961511938318
+   },
+   "price_abs": 0.0,
+   "tau_eps005": 0.0,
+   "certificate_valid": true,
+   "informative": false
+  },
+  {
+   "config_id": 7,
+   "m0": 283.0,
+   "hedge_corner": "LC_HI",
+   "oracle_M1_corner": "LC_HI",
+   "avg_model_corner": "LC_HI",
+   "regret_hedge_by_theta": {
+    "M1": 0.0,
+    "M2": 0.0,
+    "M3_s10": 0.0,
+    "M3_s20new": 0.0,
+    "M3_s30": 0.0
+   },
+   "price_hedge": 0.0,
+   "price_oracle_M1": 0.0,
+   "price_avg_model": 0.0,
+   "U_c": {
+    "0.02": 4.5,
+    "0.05": 9.5,
+    "0.1": 14.5
+   },
+   "price_abs": 0.0,
+   "tau_eps005": 0.0,
+   "certificate_valid": true,
+   "informative": false
+  },
+  {
+   "config_id": 9,
+   "m0": 380.61200273212,
+   "hedge_corner": "HC_HI",
+   "oracle_M1_corner": "HC_HI",
+   "avg_model_corner": "HC_HI",
+   "regret_hedge_by_theta": {
+    "M1": 0.0,
+    "M2": 0.0,
+    "M3_s10": 0.0,
+    "M3_s20new": 0.0,
+    "M3_s30": 0.0
+   },
+   "price_hedge": 0.0,
+   "price_oracle_M1": 0.0,
+   "price_avg_model": 0.0,
+   "U_c": {
+    "0.02": 0.8853074850574103,
+    "0.05": 3.2712280795179254,
+    "0.1": 10.965662223468712
+   },
+   "price_abs": 0.0,
+   "tau_eps005": 0.0,
+   "certificate_valid": true,
+   "informative": false
+  },
+  {
+   "config_id": 11,
+   "m0": 380.0,
+   "hedge_corner": "LC_LI",
+   "oracle_M1_corner": "HC_LI",
+   "avg_model_corner": "HC_LI",
+   "regret_hedge_by_theta": {
+    "M1": 0.02631578947368421,
+    "M2": 0.0,
+    "M3_s10": 0.0,
+    "M3_s20new": 0.009208609371790999,
+    "M3_s30": 0.0
+   },
+   "price_hedge": 0.02631578947368421,
+   "price_oracle_M1": 0.001730081825498599,
+   "price_avg_model": 0.001730081825498599,
+   "U_c": {
+    "0.02": 2.4399999999999977,
+    "0.05": 6.0,
+    "0.1": 11.0
+   },
+   "price_abs": 10.0,
+   "tau_eps005": 1.6666666666666667,
+   "certificate_valid": false,
+   "informative": false
+  }
+ ],
+ "n_certificate_valid": 5,
+ "n_informative": 0,
+ "gates": {
+  "validity_ge_5of6": true,
+  "informative_ge_4of6": false
+ },
+ "locked_wording": "valid but conservative certificate",
+ "runtime_seconds": 4.1
+}

@@ -1,0 +1,115 @@
+# Section 4 figure design and editable structure
+
+The figures describe the existing methodology, with notation synchronized to the candidate-specific sequence in the current Problem formulation.docx. Figure numbers 2–5 follow Fig. 1 and remain provisional until the complete manuscript is assembled. The manuscript equations and scientific claims remain authoritative.
+
+The journal figures are generated with the built-in image tool. The Mermaid structures below preserve their conceptual relationships for editing; they are not additional manuscript figures. The existing manuscript's English/Chinese paragraph convention and restrained journal style take priority over decorative documentation templates.
+
+## Shared visual style
+
+The visual reference is the approved Fig. 1 in `archive/revision_2026-09-02/figures/fig1_2026-09-14/fig1_journal_palette_v1.png` (folded on 2026-09-26; the current Fig. 3.1 is `revision_2026-09-24/fig1_section3_setting.png`). All new images use white backgrounds, dark charcoal labels, restrained slate blue, teal, muted amber, and pale neutral grey. Sans-serif labels, mathematical subscripts, thin consistent outlines, lower-case panel labels, and generous whitespace remain common across the set. Color is supplemented by labels, boundaries, and line styles.
+
+| Role | Color |
+| --- | --- |
+| Main text and arrows | #24343F |
+| Slate blue / M1 accent | #52758D |
+| Pale blue fill | #E7EEF3 |
+| Teal / M2 accent | #467F7D |
+| Pale teal fill | #E3EFEC |
+| Decision or emphasis | #AF7C42 |
+| Pale amber fill | #F5EAD8 |
+| Reference and secondary analysis | #EEF1F3 |
+
+Solid arrows indicate the main flow or a mathematical implication. Dashed connectors indicate supporting analysis or assessment, not mandatory stages of the release algorithm. The main minimax always uses M1 and M2, with M3 reserved for separate assessment. In Fig. 4, time increases from left to right. Panel (b) has a labeled time axis; panel (c) displays exact event times with explicitly schematic spacing, because the generated segment widths were not proportional to those event times.
+
+## Figure 2 — Method overview
+
+The main pipeline belongs to Section 4.1. The lower modules state the functions of Sections 4.2–4.4 without inserting them as required release steps. The displayed score uses exact class medians; the caption identifies its sampled counterpart.
+
+```mermaid
+flowchart LR
+    accTitle: Robust class selection and support
+    accDescr: Candidate data feed paired evaluation, class medians, minimax selection, and within-class release. Separate analysis modules explain performance, evaluator ordering, and stability.
+    subgraph selection [Section 4.1 selection]
+        inputs[Candidate pool and fixed sequences] --> paired[Paired M1 and M2 evaluation]
+        paired --> medians[One median per class and model]
+        medians --> minimax[Smallest worst-model class median]
+        minimax --> release[Fixed within-class draw and release]
+    end
+    subgraph support [Supporting analysis]
+        diagnosis[4.2 Class-relative performance diagnosis]
+        ordering[4.3 Conditional evaluator ordering]
+        stability[4.4 Reduction and stability]
+    end
+    medians -.-> diagnosis
+    paired -.-> ordering
+    minimax -.-> stability
+    release -.-> variability[M3 variability assessment]
+```
+
+## Figure 3 — Diagnostic comparisons
+
+The corner family Q and a covering partition P occupy distinct panels. The pool reference is not positioned as necessarily lying between the smallest and largest corner medians. All signed identities remain explicit.
+
+```mermaid
+flowchart TB
+    accTitle: Class diagnostic and partition resolution
+    accDescr: A signed diagnostic separates upper-tail headroom from class-selection miss. A separate covering-partition refinement widens the range of cell medians under a fixed base distribution.
+    subgraph corners [Corner-class diagnostic]
+        scores[Pool and class median scores] --> spread[Normalized class spread UB]
+        scores --> gain[Selected gain LB]
+        spread --> gap[GAP equals UB minus LB]
+        gain --> gap
+        gap --> identity[GAP equals headroom plus selection miss]
+    end
+    subgraph partition [Covering-partition resolution]
+        coarse[Disjoint covering partition P] --> fine[Nested finer partition P prime]
+        fine --> range[Minimum nonincreasing and maximum nondecreasing]
+    end
+```
+
+## Figure 4 — Ordering and reversal mechanisms
+
+The top panel is a one-way sufficient implication. Failure of a condition does not imply reversal. Two exact examples show specific reversals. The first has wave makespans 26 and 24 seconds; the second has 103 and 68 seconds. These are analytical examples from Section 4.3.2, not experimental estimates.
+
+```mermaid
+flowchart LR
+    accTitle: Conditional ordering and reversal examples
+    accDescr: Four joint conditions imply request and wave ordering. Separate exact examples show reversal from trip sharing and from unfavorable empty repositioning.
+    subgraph guarantee [Sufficient conditions]
+        conditions[Same sequence and assignments plus conditions c and d] --> ordered[M1 requests and wave finish no later]
+        ordered --> every[All candidates in a class]
+        every --> median[Ordered class medians]
+    end
+    subgraph examples [Exact counterexamples]
+        sharing[Joining at loading end] --> first[M1 26 s versus M2 24 s]
+        reposition[Unused slot at wrong floor] --> second[M1 103 s versus M2 68 s]
+    end
+```
+
+First example: M1 slot 1 trip 5–19 and drop-off 19–24; M1 slot 2 trip 7–21 and drop-off 21–26. M2 shared trip 5–19, both drop-offs 19–24; the second request joins exactly at loading end 7. Second example: at request time 54, the earliest-available unused M1 slot has B=0 and G=1, causing empty repositioning 54–89, trip phases 89–98, and drop-off 98–103. The M2 car has B=44 and G=8, giving trip phases 54–63 and drop-off 63–68, with no empty movement and no sharing.
+
+## Figure 5 — Robust decision properties
+
+The decision structure separates exact-score reduction from stability certification and keeps mean-based distributional analysis in an independent panel. Failure of a sufficient stability test leads to full-score comparison, not an assertion that the selected class changes.
+
+```mermaid
+flowchart TB
+    accTitle: Robust reduction and selection stability
+    accDescr: Ordered class medians reduce minimax selection to M2. Otherwise a unique M2 optimum can be certified by a ranking margin; the general comparison uses full robust scores. Mean-based analysis remains separate.
+    subgraph median [Median objective]
+        score[Robust score V equals b plus positive excess] --> ordered{All class medians ordered}
+        ordered -->|Yes| reduction[M2 minimization equals robust selection]
+        ordered -->|No| margin{Unique M2 optimum and margin exceeds excess}
+        margin -->|Yes| stable[Same unique robust class]
+        margin -->|Otherwise| full[Comparison of all robust scores]
+        quantile[Violation probability and quantile gap bound] -.-> margin
+    end
+    subgraph extension [Complementary analysis]
+        distributions[Stochastically ordered model distributions] --> wasserstein[Calibrated Wasserstein worst mean equals M2 mean]
+        family[One classwise largest-median evaluator] --> finite[Finite-family median reduction]
+    end
+```
+
+## Verification scope
+
+The final raster figures receive a manual check of all labels, equations, arrow directions, and example times. The scientific-schematics package does not expose its documented `run_quality_checks` helper in this installation; automated PASS scores are therefore not claimed. Pixel dimensions and print-size density are reported separately. No new experimental result or external evidence is introduced by these figures.
